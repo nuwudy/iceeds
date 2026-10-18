@@ -86,20 +86,11 @@
     <header class="no-print sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200/80 shadow-sm transition-all duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-950 via-slate-900 to-blue-900 p-0.5 shadow-md group-hover:shadow-blue-500/20 group-hover:scale-105 transition duration-200">
-                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center border border-white/10">
-                        <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-2xl font-black tracking-tight text-slate-900 font-heading">iCEEDS</span>
-                        <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">ISO Certified</span>
-                    </div>
-                    <p class="text-[11px] text-slate-500 tracking-tight font-medium hidden sm:block">Innovation Council for Exquisite Education & Development of Skills</p>
+            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
+                <img src="{{ asset('images/logo.png') }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
+                <div class="hidden md:block pl-3 border-l border-slate-200">
+                    <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">ISO Certified</span>
+                    <p class="text-[10px] text-slate-500 tracking-tight font-medium mt-0.5">Autonomous Body &bull; Govt. of India</p>
                 </div>
             </a>
 
@@ -226,14 +217,8 @@
                 <!-- Col 1: Identity & Summary (2 cols on large) -->
                 <div class="lg:col-span-2 space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center">
-                            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="text-xl font-extrabold text-white font-heading">iCEEDS</span>
-                            <span class="text-[10px] text-slate-400 block font-medium">Innovation Council for Exquisite Education & Development of Skills</span>
+                        <div class="bg-white/95 px-3.5 py-2 rounded-xl border border-white/10 shadow-sm inline-block">
+                            <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-8 w-auto object-contain">
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-sm">

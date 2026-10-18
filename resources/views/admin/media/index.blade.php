@@ -30,16 +30,11 @@
             <!-- Brand -->
             <div class="flex items-center gap-3">
                 <a href="{{ route('admin.media') }}" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-950 via-slate-900 to-blue-900 p-0.5 border border-white/20">
-                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                        </div>
+                    <div class="bg-white/95 px-3 py-1.5 rounded-xl border border-white/20 shadow-sm flex items-center justify-center">
+                        <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <span class="text-xl font-bold font-heading text-white">iCEEDS</span>
                             <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">Media Manager</span>
                         </div>
                     </div>

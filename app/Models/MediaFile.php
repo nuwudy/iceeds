@@ -67,6 +67,38 @@ class MediaFile extends Model
     }
 
     /**
+     * Check if the media file is an image.
+     */
+    public function isImage(): bool
+    {
+        return $this->file_type === 'image';
+    }
+
+    /**
+     * Check if the media file is an audio file.
+     */
+    public function isAudio(): bool
+    {
+        return $this->file_type === 'audio';
+    }
+
+    /**
+     * Check if the media file is a video.
+     */
+    public function isVideo(): bool
+    {
+        return $this->file_type === 'video';
+    }
+
+    /**
+     * Check if the media file is a PDF.
+     */
+    public function isPdf(): bool
+    {
+        return $this->file_type === 'pdf' || strtolower((string)$this->extension) === 'pdf';
+    }
+
+    /**
      * Scope query to filter by type.
      */
     public function scopeOfType(Builder $query, ?string $type): Builder

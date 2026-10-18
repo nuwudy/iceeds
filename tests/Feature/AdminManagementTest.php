@@ -48,12 +48,39 @@ class AdminManagementTest extends TestCase
             'is_approved' => true,
         ]);
 
+        // Seed sample records to ensure full blade loops render with real data
+        Certificate::create([
+            'student_name' => 'SAMPLE STUDENT',
+            'certificate_code' => 'TEST-001',
+            'course' => 'TEST COURSE',
+            'issue_date' => '2026-10-18',
+        ]);
+        \App\Models\MediaFile::create([
+            'title' => 'Test Image',
+            'file_name' => 'test.jpg',
+            'file_path' => 'media/test.jpg',
+            'disk' => 'public',
+            'file_type' => 'image',
+            'mime_type' => 'image/jpeg',
+            'file_size' => 1024,
+            'extension' => 'jpg',
+        ]);
+        \App\Models\ContactInquiry::create([
+            'name' => 'Jane Inquirer',
+            'email' => 'jane@example.com',
+            'subject' => 'Course Information',
+            'message' => 'Please provide syllabus details.',
+        ]);
+
         $this->actingAs($admin);
 
         $response = $this->get(route('admin.dashboard'));
         $response->assertOk();
         $response->assertSee('Admin Portal');
         $response->assertSee('Total Certificates');
+        $response->assertSee('SAMPLE STUDENT');
+        $response->assertSee('Test Image');
+        $response->assertSee('Jane Inquirer');
 
         $response = $this->get(route('admin.certificates.index'));
         $response->assertOk();

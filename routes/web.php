@@ -32,6 +32,7 @@ Route::post('/verify', [CertificateVerificationController::class, 'verify'])->na
 // Admin Authentication & Operations
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::get('/login-alias', [AdminAuthController::class, 'showLogin'])->name('admin.login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 

@@ -69,12 +69,12 @@
                         type="email" 
                         name="email" 
                         id="email" 
-                        value="{{ old('email', 'admin@iceeds.com') }}"
+                        value="{{ old('email', 'drvbmriyas@gmail.com') }}"
                         required 
                         autocomplete="email"
                         autofocus
                         class="w-full px-4 py-3 bg-slate-950 border @error('email') border-red-500 @else border-slate-700 @enderror rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        placeholder="admin@iceeds.com"
+                        placeholder="drvbmriyas@gmail.com"
                     >
                     @error('email')
                         <p class="text-xs text-red-400 mt-1 font-medium">{{ $message }}</p>

@@ -23,9 +23,9 @@ class MediaLibraryTest extends TestCase
         Storage::fake('public');
 
         $this->admin = User::create([
-            'name' => 'iCEEDS Administrator',
-            'email' => 'admin@iceeds.com',
-            'password' => Hash::make('admin123'),
+            'name' => 'Dr. V. B. M. Riyas',
+            'email' => 'drvbmriyas@gmail.com',
+            'password' => Hash::make('riyas.chairman@123'),
         ]);
     }
 
@@ -35,13 +35,14 @@ class MediaLibraryTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Media Library & Administration', false);
         $response->assertSee('Sign In to Dashboard');
+        $response->assertSee('drvbmriyas@gmail.com');
     }
 
     public function test_admin_can_authenticate_with_valid_credentials(): void
     {
         $response = $this->post('/admin/login', [
-            'email' => 'admin@iceeds.com',
-            'password' => 'admin123',
+            'email' => 'drvbmriyas@gmail.com',
+            'password' => 'riyas.chairman@123',
         ]);
 
         $response->assertRedirect(route('admin.media'));
@@ -51,7 +52,7 @@ class MediaLibraryTest extends TestCase
     public function test_admin_cannot_authenticate_with_invalid_credentials(): void
     {
         $response = $this->post('/admin/login', [
-            'email' => 'admin@iceeds.com',
+            'email' => 'drvbmriyas@gmail.com',
             'password' => 'wrongpassword',
         ]);
 

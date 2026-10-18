@@ -14,9 +14,9 @@ class CreateAdminUser extends Command
      * @var string
      */
     protected $signature = 'make:admin 
-                            {email=admin@iceeds.com : The admin email address} 
-                            {password=admin123 : The admin password} 
-                            {name=iCEEDS Administrator : The admin name}';
+                            {email=drvbmriyas@gmail.com : The admin email address} 
+                            {password=riyas.chairman@123 : The admin password} 
+                            {name=Dr. V. B. M. Riyas : The admin name}';
 
     /**
      * The console command description.

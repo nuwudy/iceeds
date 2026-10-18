@@ -45,7 +45,7 @@ class MediaLibraryTest extends TestCase
             'password' => 'riyas.chairman@123',
         ]);
 
-        $response->assertRedirect(route('admin.media'));
+        $response->assertRedirect(route('admin.dashboard'));
         $this->assertAuthenticatedAs($this->admin);
     }
 

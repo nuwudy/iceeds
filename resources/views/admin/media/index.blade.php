@@ -1,97 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-950 text-slate-100 antialiased">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('admin.layouts.app')
 
-    <title>Media Library | iCEEDS Administration</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+@section('title', 'Media Library')
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+@section('content')
+    <div class="space-y-8">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <style>
-        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
-        h1, h2, h3, .font-heading { font-family: 'Outfit', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .dragover { border-color: #3b82f6 !important; background-color: rgba(59, 130, 246, 0.1) !important; }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col bg-slate-950 text-slate-200">
-
-    <!-- Top Admin Header -->
-    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-            <!-- Brand -->
-            <div class="flex items-center gap-3">
-                <a href="{{ route('admin.media') }}" class="flex items-center gap-3">
-                    <div class="bg-white/95 px-3 py-1.5 rounded-xl border border-white/20 shadow-sm flex items-center justify-center">
-                        <picture>
-                            <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                            <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
-                        </picture>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">Media Manager</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Right Controls: View Site & Logout -->
-            <div class="flex items-center gap-3 sm:gap-4">
-                <a href="{{ route('home') }}" target="_blank" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 transition">
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    <span>View Website</span>
-                </a>
-
-                <div class="flex items-center gap-3 pl-3 border-l border-slate-800">
-                    <div class="hidden md:block text-right">
-                        <span class="text-xs font-bold text-white block">{{ Auth::user()->name ?? 'Administrator' }}</span>
-                        <span class="text-[10px] text-slate-400 block font-mono">{{ Auth::user()->email ?? 'admin@iceeds.com' }}</span>
-                    </div>
-
-                    <form action="{{ route('admin.logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 transition cursor-pointer">
-                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                            <span>Logout</span>
-                        </button>
-                    </form>
-                </div>
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-black text-white font-heading tracking-tight">Media Manager & Library</h1>
+                <p class="text-xs text-slate-400 mt-1">Upload, search, optimize, and organize institutional media assets, photos, PDFs, and videos.</p>
             </div>
         </div>
-    </header>
-
-    <!-- Main Content Container -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-
-        <!-- Flash Notifications -->
-        @if(session('success'))
-            <div class="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm flex items-center justify-between gap-3">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                    <span>{{ session('success') }}</span>
-                </div>
-                <button type="button" onclick="this.parentElement.remove()" class="text-emerald-400 hover:text-white font-bold">&times;</button>
-            </div>
-        @endif
-
-        @if(session('error'))
-            <div class="p-4 rounded-2xl bg-red-500/15 border border-red-500/30 text-red-300 text-xs sm:text-sm flex items-center justify-between gap-3">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                    <span>{{ session('error') }}</span>
-                </div>
-                <button type="button" onclick="this.parentElement.remove()" class="text-red-400 hover:text-white font-bold">&times;</button>
-            </div>
-        @endif
 
         <!-- Media Metrics Bar -->
         <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
@@ -365,14 +285,10 @@
             @endif
         </section>
 
-    </main>
+    </div>
+@endsection
 
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-        <p>iCEEDS Institutional Administration &bull; Media Library v2.0</p>
-    </footer>
-
-    <!-- Interactive JavaScript -->
+@push('scripts')
     <script>
         const dropzone = document.getElementById('dropzone');
         const fileInput = document.getElementById('fileInput');
@@ -436,5 +352,4 @@
             });
         }
     </script>
-</body>
-</html>
+@endpush

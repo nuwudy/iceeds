@@ -39,6 +39,8 @@ class CreateAdminUser extends Command
             [
                 'name' => $name,
                 'password' => Hash::make($password),
+                'role' => 'admin',
+                'is_approved' => true,
             ]
         );
 

@@ -16,7 +16,7 @@ class AdminAuthController extends Controller
     public function showLogin(): View|RedirectResponse
     {
         if (Auth::check()) {
-            return redirect()->route('admin.media');
+            return redirect()->route('admin.dashboard');
         }
 
         return view('admin.login');
@@ -35,11 +35,23 @@ class AdminAuthController extends Controller
         $remember = $request->boolean('remember');
 
         if (Auth::attempt($credentials, $remember)) {
+            $user = Auth::user();
+
+            if (!$user->isApproved()) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()->withErrors([
+                    'email' => 'Your account is pending administrator approval before you can access the portal.',
+                ])->onlyInput('email');
+            }
+
             $request->session()->regenerate();
 
-            return redirect()->intended(route('admin.media'))->with(
+            return redirect()->intended(route('admin.dashboard'))->with(
                 'success',
-                'Welcome to the iCEEDS Media Library & Admin Portal.'
+                'Welcome to the iCEEDS Administration & Certificate Management Portal.'
             );
         }
 

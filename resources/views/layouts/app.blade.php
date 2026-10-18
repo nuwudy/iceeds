@@ -104,8 +104,8 @@
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                 <picture>
-                    <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                    <img src="{{ asset('images/logo.png') }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
+                    <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
+                    <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
                 </picture>
                 <div class="hidden md:block pl-3 border-l border-slate-200">
                     <div class="flex items-center gap-1.5">
@@ -360,8 +360,8 @@
                     <div class="flex items-center gap-3">
                         <div class="bg-white/95 px-3.5 py-2 rounded-xl border border-white/10 shadow-sm inline-block">
                             <picture>
-                                <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                                <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-8 w-auto object-contain">
+                                <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
+                                <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-8 w-auto object-contain">
                             </picture>
                         </div>
                     </div>

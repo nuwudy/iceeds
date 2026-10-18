@@ -30,8 +30,8 @@
             <a href="{{ route('home') }}" class="inline-flex flex-col items-center gap-2 group">
                 <div class="bg-white/95 px-5 py-2.5 rounded-2xl border border-white/20 shadow-xl inline-flex items-center justify-center">
                     <picture>
-                        <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                        <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-10 w-auto object-contain">
+                        <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
+                        <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-10 w-auto object-contain">
                     </picture>
                 </div>
                 <div class="mt-2 text-center">

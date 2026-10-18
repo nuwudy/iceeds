@@ -31,8 +31,8 @@
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 shrink-0 group">
                     <div class="bg-white/95 px-3 py-1.5 rounded-xl border border-white/20 shadow-sm flex items-center justify-center">
                         <picture>
-                            <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                            <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
+                            <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
+                            <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
                         </picture>
                     </div>
                     <div class="hidden sm:block">

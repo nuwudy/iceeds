@@ -5,13 +5,33 @@
 
 @section('content')
 
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 border-b border-slate-200/70">
-        <!-- Ambient background glow -->
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 -right-24 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- HERO SECTION (With Subtle Loop Background Video & Enhanced Text Contrast) -->
+    <section class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 border-b border-slate-200/70 bg-slate-950 text-slate-100">
+        
+        <!-- Background Video Element -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="metadata" 
+                class="w-full h-full object-cover opacity-35 scale-105 filter blur-[1px] transform transition-all duration-700"
+            >
+                <source src="https://iceeds.com/storage/media/2026/10/video-project-26-rrxhyz.mp4" type="video/mp4">
+            </video>
+            
+            <!-- High-Contrast Multilayer Gradient Overlays for Maximum Readability -->
+            <!-- Deep gradient for crisp text legibility -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/70"></div>
+            <!-- Soft vertical tint for content balance -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-transparent to-slate-950/95"></div>
+            <!-- Subtle blue/emerald ambient vignette -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-24 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
             <!-- VERIFICATION RESULT BANNER (If searched via query param or search form) -->
             @if(isset($searched) && $searched)
@@ -115,41 +135,45 @@
                 <!-- Left: Headline & Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <!-- Institutional Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider shadow-xs flex-wrap justify-center lg:justify-start">
-                        <svg class="w-4 h-4 text-blue-700" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-blue-300 text-xs font-bold uppercase tracking-wider shadow-lg flex-wrap justify-center lg:justify-start">
+                        <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
-                        Autonomous Body Registered Under the Government of India &bull; Indian Trusts Act, 1882 &bull; NSDC Aligned
+                        <span class="text-slate-200">Autonomous Body Registered Under the Govt. of India</span>
+                        <span class="text-slate-500 hidden sm:inline">&bull;</span>
+                        <span class="text-emerald-400">Indian Trusts Act, 1882</span>
                     </div>
 
                     <!-- Main Headline -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1] font-heading">
-                        Elevate Your Skills with <span class="bg-gradient-to-r from-blue-700 via-blue-800 to-slate-900 bg-clip-text text-transparent">Accredited Certifications</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading drop-shadow-md">
+                        Elevate Your Skills with <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">Accredited Certifications</span>
                     </h1>
 
-                    <!-- Verified Subtitle -->
-                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        <strong>iCEEDS</strong> (<em>Innovation Council for Exquisite Education & Development of Skills</em>) is a self-governing educational organization established under the <strong>Indian Trusts Act, 1882</strong>. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong>Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship, Govt. of India</strong>.
-                    </p>
+                    <!-- Verified Subtitle with Glassmorphic Underlay for 100% Readability -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-800 shadow-xl max-w-2xl mx-auto lg:mx-0">
+                        <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+                            <strong class="text-white">iCEEDS</strong> (<em class="text-slate-300">Innovation Council for Exquisite Education &amp; Development of Skills</em>) is a self-governing educational organization established under the <strong class="text-emerald-300">Indian Trusts Act, 1882</strong>. As an independent skill development and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong class="text-blue-300">Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating certification support aligned with the <strong class="text-amber-300">National Skill Development Corporation (NSDC)</strong> under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                        </p>
+                    </div>
 
                     <!-- CTAs -->
                     <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-700 hover:bg-blue-800 shadow-lg shadow-blue-700/25 transition-all duration-150 cursor-pointer">
+                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-150 cursor-pointer">
                             <span>Explore Our Services</span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </a>
-                        <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm transition-all duration-150 cursor-pointer">
+                        <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-slate-900 bg-white hover:bg-slate-100 shadow-md transition-all duration-150 cursor-pointer">
                             <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>Verify Certificate</span>
                         </a>
-                        <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+                        <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-300 hover:text-white transition">
                             <span>Know More &rarr;</span>
                         </a>
                     </div>
 
                     <!-- Quick Verification Search Bar -->
                     <div class="pt-4 max-w-xl mx-auto lg:mx-0">
-                        <form action="{{ route('verify.submit') }}" method="POST" class="flex flex-col sm:flex-row gap-2 bg-white p-2 rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/50">
+                        <form action="{{ route('verify.submit') }}" method="POST" class="flex flex-col sm:flex-row gap-2 bg-slate-900/90 backdrop-blur-md p-2 rounded-2xl border border-slate-700/80 shadow-2xl">
                             @csrf
                             <div class="relative flex-1">
                                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -159,17 +183,17 @@
                                     type="text" 
                                     name="code" 
                                     placeholder="Enter Serial Code (e.g. EDP/TVM24/DCP/065)" 
-                                    class="w-full pl-10 pr-3 py-2.5 bg-transparent border-0 text-slate-900 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider placeholder-slate-400 focus:outline-none"
+                                    class="w-full pl-10 pr-3 py-2.5 bg-transparent border-0 text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider placeholder-slate-400 focus:outline-none"
                                     required
                                 >
                             </div>
-                            <button type="submit" class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wide transition cursor-pointer">
+                            <button type="submit" class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs tracking-wide transition cursor-pointer shadow-md shadow-blue-600/20">
                                 <span>Verify</span>
-                                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                <svg class="w-3.5 h-3.5 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                             </button>
                         </form>
                         <p class="text-[11px] text-slate-400 mt-2 text-center lg:text-left">
-                            Instant online verification for over <strong>{{ number_format($totalCertificates) }}+</strong> issued credentials.
+                            Instant online verification for over <strong class="text-slate-200">{{ number_format($totalCertificates) }}+</strong> issued credentials.
                         </p>
                     </div>
                 </div>
@@ -178,27 +202,27 @@
                 <div class="lg:col-span-5">
                     <div class="grid grid-cols-2 gap-4">
                         <!-- Stat Card 1 -->
-                        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/40 relative overflow-hidden group hover:border-blue-300 transition">
-                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
+                        <div class="bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden group hover:border-blue-500/50 transition">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center mb-3">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
                             </div>
-                            <span class="text-3xl font-black text-slate-900 font-heading tracking-tight">{{ number_format($totalCertificates) }}+</span>
-                            <p class="text-xs font-bold text-slate-800 mt-1">Credentials Issued</p>
-                            <p class="text-[11px] text-slate-500 mt-0.5 leading-snug">Fully validated & tamper-proof historical registry</p>
+                            <span class="text-3xl font-black text-white font-heading tracking-tight">{{ number_format($totalCertificates) }}+</span>
+                            <p class="text-xs font-bold text-slate-200 mt-1">Credentials Issued</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5 leading-snug">Fully validated & tamper-proof historical registry</p>
                         </div>
 
                         <!-- Stat Card 2 -->
-                        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/40 relative overflow-hidden group hover:border-emerald-300 transition">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-3">
+                        <div class="bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden group hover:border-emerald-500/50 transition">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-3">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                             </div>
-                            <span class="text-3xl font-black text-slate-900 font-heading tracking-tight">ISO</span>
-                            <p class="text-xs font-bold text-slate-800 mt-1">Accredited Body</p>
-                            <p class="text-[11px] text-slate-500 mt-0.5 leading-snug">Global quality standards & compliance</p>
+                            <span class="text-3xl font-black text-white font-heading tracking-tight">ISO</span>
+                            <p class="text-xs font-bold text-slate-200 mt-1">Accredited Body</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5 leading-snug">Global quality standards & compliance</p>
                         </div>
 
                         <!-- Stat Card 3 (Span 2) -->
-                        <div class="col-span-2 bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white rounded-3xl p-6 sm:p-7 shadow-xl shadow-slate-900/10 border border-slate-800">
+                        <div class="col-span-2 bg-slate-900/90 backdrop-blur-md text-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-800 relative overflow-hidden">
                             <div class="flex items-center justify-between gap-4">
                                 <div>
                                     <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-2">Indian Trusts Act, 1882 &bull; NSDC Aligned</span>

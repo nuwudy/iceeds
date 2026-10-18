@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/70 via-slate-950 to-slate-900 opacity-90 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
             <span class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full mb-3">
-                Autonomous Statutory Certification Body
+                Self-Governing Educational Organization &bull; Indian Trusts Act, 1882
             </span>
             <h1 class="text-4xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
                 About iCEEDS
@@ -26,42 +26,57 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-5">
-                    <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">Our Story & Heritage</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">Our Story & Legal Constitution</span>
                     <h2 class="text-3xl font-extrabold text-slate-950 font-heading tracking-tight">
-                        Fostering Personal and Professional Growth Nationwide
+                        Empowering Students with Industry-Relevant Skills
                     </h2>
                     <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-                        The <strong>Innovation Council for Exquisite Education and Development of Skills (iCEEDS)</strong> is an autonomous body registered under the Government of India. Situated in <strong>Aluva, Ernakulam District of Kerala</strong>, with its Central Administrative Office in <strong>Chennai (Tamil Nadu)</strong> and Regional Administrative Office in <strong>Malappuram (Kerala)</strong>, iCEEDS was established with a singular, resolute mission: to unlock individual potential and enhance employability on a national scale.
+                        <strong>iCEEDS (Innovation Council for Exquisite Education & Development of Skills)</strong> is a self-governing educational organization established under the <strong>Indian Trusts Act, 1882</strong>. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills.
                     </p>
                     <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-                        We believe that quality education and deliberate skill development are the definitive catalysts for personal and professional accomplishment. Operating with full ISO accreditation, iCEEDS designs, authorizes, and validates rigorous educational curricula across multidisciplinary domains—ranging from behavioural sciences and special education needs to executive leadership and specialized technical vocations.
+                        Guided and monitored by an expert <strong>Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation. Additionally, iCEEDS facilitates skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship, Govt. of India</strong>.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Operating with full ISO accreditation, iCEEDS maintains its Central Administrative Office in <strong>Chennai (Tamil Nadu)</strong>, Regional Administrative Office in <strong>Malappuram (Kerala)</strong>, and Operations Hub in <strong>Aluva, Ernakulam District (Kerala)</strong>, delivering transformative vocational training across South India and beyond.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-700">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                            <span>Autonomous Body Under Govt. of India</span>
+                            <span>Indian Trusts Act, 1882</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                            <span>ISO Accredited Quality Benchmarks</span>
+                            <span>Academic Board of Studies Monitored</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                            <span>NSDC & Ministry of Skill Dev. Aligned</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                            <span>ISO Accredited Certification Body</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-3xl p-8 border border-slate-800 shadow-xl space-y-6">
-                    <h3 class="text-xl font-bold font-heading text-white">Institutional Highlights</h3>
+                    <h3 class="text-xl font-bold font-heading text-white">Institutional Governance</h3>
                     <div class="space-y-4 text-xs">
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-                            <span class="text-emerald-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Administrative Center</span>
-                            <p class="text-slate-200 font-medium">Chennai Central Administrative Office (Mogappair Road)</p>
+                            <span class="text-emerald-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Legal Establishment</span>
+                            <p class="text-slate-200 font-medium">Self-Governing Trust registered under the Indian Trusts Act, 1882</p>
                         </div>
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-                            <span class="text-blue-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Regional Headquarters</span>
-                            <p class="text-slate-200 font-medium">Malappuram Regional Office (Valluvambram PO)</p>
+                            <span class="text-blue-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Academic Governance</span>
+                            <p class="text-slate-200 font-medium">Expert Academic Board of Studies for curriculum & quality evaluation</p>
                         </div>
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-                            <span class="text-amber-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Academic Presence</span>
-                            <p class="text-slate-200 font-medium">Aluva Operations Hub, Ernakulam District, Kerala</p>
+                            <span class="text-amber-400 font-bold block uppercase text-[10px] tracking-wider mb-1">National Alignment</span>
+                            <p class="text-slate-200 font-medium">NSDC & Ministry of Skill Development and Entrepreneurship, Govt. of India</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <span class="text-purple-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Administrative Presence</span>
+                            <p class="text-slate-200 font-medium">Chennai (Central Office) &bull; Malappuram (Regional Office) &bull; Aluva</p>
                         </div>
                     </div>
                 </div>

@@ -115,11 +115,11 @@
                 <!-- Left: Headline & Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <!-- Institutional Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider shadow-xs">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider shadow-xs flex-wrap justify-center lg:justify-start">
                         <svg class="w-4 h-4 text-blue-700" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
-                        Autonomous Body Registered Under the Government of India &bull; ISO Accredited
+                        Autonomous Body Registered Under the Government of India &bull; Indian Trusts Act, 1882 &bull; NSDC Aligned
                     </div>
 
                     <!-- Main Headline -->
@@ -129,7 +129,7 @@
 
                     <!-- Verified Subtitle -->
                     <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Welcome to <strong>iCEEDS</strong>, the <em>Innovation Council for Exquisite Education and Development of Skills</em>, an autonomous body registered under the Government of India. Established with a commitment to empower individuals and organizations, iCEEDS is a leading certification body dedicated to fostering personal and professional growth.
+                        <strong>iCEEDS</strong> (<em>Innovation Council for Exquisite Education & Development of Skills</em>) is a self-governing educational organization established under the <strong>Indian Trusts Act, 1882</strong>. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong>Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship, Govt. of India</strong>.
                     </p>
 
                     <!-- CTAs -->
@@ -201,10 +201,10 @@
                         <div class="col-span-2 bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white rounded-3xl p-6 sm:p-7 shadow-xl shadow-slate-900/10 border border-slate-800">
                             <div class="flex items-center justify-between gap-4">
                                 <div>
-                                    <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-2">Government Recognized</span>
-                                    <h3 class="text-lg font-bold font-heading">National Academic Reach</h3>
+                                    <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-2">Indian Trusts Act, 1882 &bull; NSDC Aligned</span>
+                                    <h3 class="text-lg font-bold font-heading">Academic Board of Studies</h3>
                                     <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                                        Operating through Central Administrative Office in Chennai, Regional Office in Malappuram, and Operations in Aluva.
+                                        Independent skill development trust delivering vocational & professional courses with national reach across Chennai, Malappuram, and Aluva.
                                     </p>
                                 </div>
                                 <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
@@ -212,7 +212,7 @@
                                 </div>
                             </div>
                             <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                                <span>10+ Core Academic Disciplines</span>
+                                <span>Vocational & Professional Qualifications</span>
                                 <a href="{{ route('about') }}" class="text-blue-300 hover:text-white font-semibold flex items-center gap-1">Read Story &rarr;</a>
                             </div>
                         </div>

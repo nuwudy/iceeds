@@ -33,7 +33,9 @@ class CertificateVerificationTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Elevate Your Skills with');
         $response->assertSee('Accredited Certifications');
-        $response->assertSee('Autonomous Body Registered Under the Government of India');
+        $response->assertSee('Indian Trusts Act, 1882');
+        $response->assertSee('Academic Board of Studies');
+        $response->assertSee('National Skill Development Corporation');
         $response->assertSee('Dr. P. Arunachalam');
         $response->assertSee('Dr. A. B. Aliyar');
     }
@@ -43,8 +45,10 @@ class CertificateVerificationTest extends TestCase
         $response = $this->get('/about');
         $response->assertStatus(200);
         $response->assertSee('About iCEEDS');
+        $response->assertSee('Indian Trusts Act, 1882');
+        $response->assertSee('Academic Board of Studies');
+        $response->assertSee('National Skill Development Corporation');
         $response->assertSee('Our Four Core Pillars');
-        $response->assertSee('Balanced Curriculum');
         $response->assertSee('Aluva');
         $response->assertSee('Chennai');
     }
@@ -54,8 +58,9 @@ class CertificateVerificationTest extends TestCase
         $response = $this->get('/services');
         $response->assertStatus(200);
         $response->assertSee('Our Services & Programs', false);
-        $response->assertSee('Skill Development Programs');
+        $response->assertSee('Vocational &amp; Professional Courses', false);
         $response->assertSee('Accredited Certifications');
+        $response->assertSee('Academic Board of Studies');
         $response->assertSee('Customized Corporate Training');
     }
 

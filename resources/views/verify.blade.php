@@ -224,8 +224,11 @@ Official Certificate Verification Portal - iCEEDS
                                     <p class="text-sm font-bold text-slate-900">
                                         iCEEDS
                                     </p>
-                                    <p class="text-xs text-slate-500">
-                                        Institute for Career Enhancement, Employability & Development Studies
+                                    <p class="text-xs text-slate-600 font-medium">
+                                        Innovation Council for Exquisite Education & Development of Skills
+                                    </p>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">
+                                        Self-Governing Trust &bull; Indian Trusts Act, 1882 &bull; Academic Board of Studies &bull; NSDC Aligned
                                     </p>
                                 </div>
 

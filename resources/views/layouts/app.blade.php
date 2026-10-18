@@ -60,13 +60,15 @@
     <!-- Top Institutional Banner (Hidden in Print) -->
     <div class="no-print bg-slate-950 text-slate-300 text-[11px] sm:text-xs py-2 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Government of India Registered
+                    Indian Trusts Act, 1882
                 </span>
                 <span class="text-slate-400 hidden md:inline">&bull;</span>
-                <span class="text-slate-300 hidden md:inline">Autonomous Certification Body &bull; ISO Accredited</span>
+                <span class="text-slate-300 hidden md:inline">NSDC Aligned (Ministry of Skill Development & Entrepreneurship, Govt. of India)</span>
+                <span class="text-slate-400 hidden lg:inline">&bull;</span>
+                <span class="text-slate-400 hidden lg:inline">ISO Accredited</span>
             </div>
             <div class="flex items-center gap-4 text-slate-400">
                 <a href="mailto:lettertoiceeds@gmail.com" class="hover:text-emerald-400 transition flex items-center gap-1.5">
@@ -89,8 +91,11 @@
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                 <img src="{{ asset('images/logo.png') }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
                 <div class="hidden md:block pl-3 border-l border-slate-200">
-                    <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">ISO Certified</span>
-                    <p class="text-[10px] text-slate-500 tracking-tight font-medium mt-0.5">Autonomous Body &bull; Govt. of India</p>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">Indian Trusts Act, 1882</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/80">ISO Certified</span>
+                    </div>
+                    <p class="text-[10px] text-slate-500 tracking-tight font-medium mt-0.5">Academic Board of Studies &bull; NSDC Aligned</p>
                 </div>
             </a>
 
@@ -222,12 +227,13 @@
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
-                        An autonomous body registered under the Government of India dedicated to empowering individuals and organizations through ISO-accredited certifications, skill enhancement, and career advancement across diverse academic and vocational disciplines.
+                        iCEEDS (Innovation Council for Exquisite Education & Development of Skills) is a self-governing educational organization established under the Indian Trusts Act, 1882. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses guided by an expert Academic Board of Studies, with certification support aligned with the NSDC under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-2 text-[11px]">
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Govt. of India Registered</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Indian Trusts Act, 1882</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Academic Board of Studies</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">NSDC Aligned</span>
                         <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">ISO Accredited</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Aluva &bull; Chennai &bull; Malappuram</span>
                     </div>
                 </div>
 

@@ -10,13 +10,13 @@
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/70 via-slate-950 to-slate-900 opacity-90 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
             <span class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full mb-3">
-                Comprehensive Educational Solutions
+                Academic Board Monitored &bull; NSDC Aligned
             </span>
             <h1 class="text-4xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
                 Our Services & Programs
             </h1>
             <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Comprehensive skill development, globally recognized certifications, and lifelong career support for individuals and organizations.
+                Vocational and professional courses designed by an expert Academic Board of Studies, empowering students with industry-relevant skills aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
             </p>
         </div>
     </section>

@@ -97,36 +97,36 @@ class PageController extends Controller
         return [
             [
                 'number' => '01',
-                'title' => 'Skill Development Programs',
-                'description' => 'Short-term courses for quick skill enhancement, mid-term programs for in-depth learning, and long-term courses for comprehensive education across diverse academic and industrial disciplines.',
-                'badge' => 'Core Academic',
+                'title' => 'Vocational & Professional Courses',
+                'description' => 'Comprehensive skill development curricula designed and monitored by the Academic Board of Studies—spanning short-term skill enhancement, mid-term diplomas, and long-term professional qualifications.',
+                'badge' => 'Academic Board Monitored',
                 'icon' => 'academic-cap',
             ],
             [
                 'number' => '02',
                 'title' => 'Accredited Certifications',
-                'description' => 'Globally recognized ISO-accredited certifications valued and respected by employers, multinational organizations, and academic institutions worldwide.',
-                'badge' => 'ISO Accredited',
+                'description' => 'ISO-accredited, tamper-proof certifications valued across government and private industry, aligned with NSDC standards under the Ministry of Skill Development and Entrepreneurship, Govt. of India.',
+                'badge' => 'ISO & NSDC Aligned',
                 'icon' => 'badge-check',
             ],
             [
                 'number' => '03',
-                'title' => 'Career Services',
-                'description' => 'Dedicated professional support including personalized resume building, interview preparation, job placement assistance, and ongoing career development resources.',
+                'title' => 'Career Services & Employability',
+                'description' => 'Dedicated professional support including personalized resume building, interview preparation, job placement assistance, and industry-oriented competency tracking.',
                 'badge' => 'Employability',
                 'icon' => 'briefcase',
             ],
             [
                 'number' => '04',
                 'title' => 'Customized Corporate Training',
-                'description' => 'Tailored B2B workforce training solutions partnering with organizations to address specific business needs, boost productivity, and elevate competitive advantage.',
+                'description' => 'Tailored enterprise workforce training solutions partnering with organizations to address specific business needs, boost productivity, and elevate competitive advantage.',
                 'badge' => 'B2B Corporate',
                 'icon' => 'office-building',
             ],
             [
                 'number' => '05',
-                'title' => 'E-Learning Platform',
-                'description' => 'State-of-the-art, flexible, accessible, and interactive online courses allowing students to learn at their own pace from anywhere across the globe.',
+                'title' => 'E-Learning & Digital Modules',
+                'description' => 'Interactive digital learning platform allowing students and working professionals to acquire industry-relevant skills and qualifications at their own pace.',
                 'badge' => 'Digital Learning',
                 'icon' => 'desktop-computer',
             ],
@@ -139,9 +139,9 @@ class PageController extends Controller
             ],
             [
                 'number' => '07',
-                'title' => 'Mentorship Programs',
-                'description' => 'Direct one-on-one connection with seasoned mentors who provide guidance, real-world experience, and strategic direction for educational and career navigation.',
-                'badge' => 'Personalized',
+                'title' => 'Academic Board Mentorship',
+                'description' => 'Direct guidance from university professors and industry authorities on our Academic Board of Studies, providing strategic direction for educational and vocational navigation.',
+                'badge' => 'Expert Mentorship',
                 'icon' => 'user-group',
             ],
             [
@@ -160,8 +160,8 @@ class PageController extends Controller
             ],
             [
                 'number' => '10',
-                'title' => 'Community Engagement',
-                'description' => 'Impactful outreach programs, volunteer initiatives, and collaborative partnerships with local organizations fostering social responsibility and ethical leadership.',
+                'title' => 'Community & Skill Outreach',
+                'description' => 'Social development initiatives, grassroots vocational training programs, and community partnerships expanding skill opportunities to underserved sectors.',
                 'badge' => 'Social Impact',
                 'icon' => 'heart',
             ],
@@ -179,7 +179,7 @@ class PageController extends Controller
                 'role' => 'Chairman, iCEEDS',
                 'credentials' => 'M.A., M.Phil., Ph.D. (Emeritus Professor)',
                 'attribution' => 'National Academic Co-ordinator, TEAM iCEEDS',
-                'message' => 'Guiding iCEEDS with visionary academic leadership and an unwavering dedication to educational excellence. His extensive research background and decades of university leadership steer our institution toward global benchmarks of quality and student achievement.',
+                'message' => 'Guiding iCEEDS with visionary academic leadership and an unwavering dedication to educational excellence. His extensive research background and decades of university leadership steer our Academic Board of Studies toward global benchmarks of quality and student achievement.',
                 'initials' => 'PA',
             ],
             [
@@ -200,33 +200,33 @@ class PageController extends Controller
     {
         return [
             [
-                'title' => 'Accredited Expertise',
-                'description' => 'Globally recognized ISO-accredited education and training programs that strictly adhere to international benchmarks and enhance employer credibility.',
+                'title' => 'Established Legal Trust',
+                'description' => 'Established under the Indian Trusts Act, 1882 as a self-governing educational organization and independent skill development entity.',
                 'icon' => 'shield-check',
             ],
             [
-                'title' => 'Comprehensive Courses',
-                'description' => 'Structured short-term, mid-term, and long-term programs harmonizing foundational theory with practical, job-ready competencies across diverse disciplines.',
-                'icon' => 'book-open',
-            ],
-            [
-                'title' => 'Skilled Instructors',
-                'description' => 'Distinguished faculty and seasoned industry practitioners offering personalized mentorship, real-world case studies, and an engaging learning environment.',
+                'title' => 'Academic Board of Studies',
+                'description' => 'Guided and monitored by an expert Academic Board of Studies, ensuring high standards in curriculum design and quality evaluation.',
                 'icon' => 'academic-cap',
             ],
             [
-                'title' => 'Career Advancement',
-                'description' => 'Dedicated career coaching, globally respected credentials, corporate networking events, and post-graduation employability support.',
-                'icon' => 'trending-up',
-            ],
-            [
-                'title' => 'Positive Impact',
-                'description' => 'Empowering graduates with leadership and problem-solving skills to drive innovation and create a lasting, positive ripple effect in their communities.',
+                'title' => 'NSDC & Ministry Aligned',
+                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.',
                 'icon' => 'sparkles',
             ],
             [
-                'title' => 'Global Exposure',
-                'description' => 'Curated access to international methodologies, cutting-edge industry trends, and collaborative interactions within an international peer cohort.',
+                'title' => 'Vocational & Professional Courses',
+                'description' => 'Designing and conducting rigorous vocational and professional courses to empower students with industry-relevant skills and practical competencies.',
+                'icon' => 'book-open',
+            ],
+            [
+                'title' => 'ISO Accredited Benchmarks',
+                'description' => 'Globally recognized ISO quality management certification ensuring compliance with international evaluation and administrative benchmarks.',
+                'icon' => 'trending-up',
+            ],
+            [
+                'title' => 'Career Advancement & Support',
+                'description' => 'Dedicated career coaching, globally respected credentials, verified digital transcripts, and active post-graduation employability support.',
                 'icon' => 'globe-alt',
             ],
         ];
@@ -240,23 +240,23 @@ class PageController extends Controller
         return [
             [
                 'number' => '01',
-                'title' => 'Balanced Curriculum',
-                'description' => 'Delivering short-term skill enhancement, mid-term specialized training, and long-term educational programs that balance theoretical foundations with practical execution.',
+                'title' => 'Academic Board of Studies Governance',
+                'description' => 'Every curriculum and evaluation framework is guided and monitored by an expert Academic Board of Studies composed of distinguished academicians and industry leaders.',
             ],
             [
                 'number' => '02',
-                'title' => 'Industry-Veteran Faculty',
-                'description' => 'Experienced instructors and subject matter authorities who bring real-world industry practices and global exposure directly into the learning experience.',
+                'title' => 'Industry-Relevant Vocational Training',
+                'description' => 'Designing and conducting vocational and professional courses that directly address real-world employer requirements and technical competencies.',
             ],
             [
                 'number' => '03',
-                'title' => 'End-to-End Career Support',
-                'description' => 'Comprehensive student guidance featuring personalized mentorship, resume building, interview coaching, placement assistance, and an active alumni network.',
+                'title' => 'NSDC & National Standards Alignment',
+                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.',
             ],
             [
                 'number' => '04',
-                'title' => 'Social Responsibility & Innovation',
-                'description' => 'Instilling ethical leadership, community responsibility, and the innovative mindset required to solve complex modern challenges.',
+                'title' => 'Legal Integrity & ISO Quality Accreditation',
+                'description' => 'Established under the Indian Trusts Act, 1882, operating with ISO accredited quality control, digital record security, and zero-compromise credential verification.',
             ],
         ];
     }

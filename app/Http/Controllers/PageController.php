@@ -181,6 +181,7 @@ class PageController extends Controller
                 'attribution' => 'National Academic Co-ordinator, TEAM iCEEDS',
                 'message' => 'Guiding iCEEDS with visionary academic leadership and an unwavering dedication to educational excellence. His extensive research background and decades of university leadership steer our Academic Board of Studies toward global benchmarks of quality and student achievement.',
                 'initials' => 'PA',
+                'image' => 'images/mentors/dr-p-arunachalam.jpeg',
             ],
             [
                 'name' => 'Dr. A. B. Aliyar',
@@ -189,6 +190,7 @@ class PageController extends Controller
                 'attribution' => 'TEAM iCEEDS',
                 'message' => 'Championing the philosophy that the pursuit of knowledge is a lifelong journey. With determination, hard work, and the right mindset, every learner can unlock their potential and achieve true greatness.',
                 'initials' => 'AA',
+                'image' => 'images/mentors/dr-a-b-aliyar.jpeg',
             ],
         ];
     }

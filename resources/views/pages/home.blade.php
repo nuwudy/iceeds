@@ -359,8 +359,14 @@
                     <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md shadow-slate-200/40 relative flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-4 mb-5">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-slate-900 to-blue-900 text-white font-heading font-black text-xl flex items-center justify-center shadow-md">
-                                    {{ $mentor['initials'] }}
+                                <div class="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-md shrink-0 bg-slate-100">
+                                    @if(!empty($mentor['image']))
+                                        <img src="{{ asset($mentor['image']) }}" alt="{{ $mentor['name'] }}" class="w-full h-full object-cover object-top">
+                                    @else
+                                        <div class="w-full h-full bg-gradient-to-tr from-slate-900 to-blue-900 text-white font-heading font-black text-xl flex items-center justify-center">
+                                            {{ $mentor['initials'] }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-extrabold text-slate-900 font-heading">{{ $mentor['name'] }}</h3>

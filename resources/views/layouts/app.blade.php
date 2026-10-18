@@ -46,7 +46,7 @@
         .animate-ticker {
             display: inline-flex;
             white-space: nowrap;
-            animation: ticker-slide 42s linear infinite;
+            animation: ticker-slide 85s linear infinite;
         }
         .animate-ticker:hover {
             animation-play-state: paused;

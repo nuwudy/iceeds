@@ -11,24 +11,23 @@
         <!-- Background Video Element -->
         <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
             <video 
+                id="heroBackgroundVideo"
                 autoplay 
                 muted 
                 loop 
                 playsinline 
-                preload="metadata" 
-                class="w-full h-full object-cover opacity-35 scale-105 filter blur-[1px] transform transition-all duration-700"
+                webkit-playsinline
+                preload="auto" 
+                class="w-full h-full object-cover opacity-85 transition-opacity duration-700"
             >
                 <source src="https://iceeds.com/storage/media/2026/10/video-project-26-rrxhyz.mp4" type="video/mp4">
             </video>
             
-            <!-- High-Contrast Multilayer Gradient Overlays for Maximum Readability -->
-            <!-- Deep gradient for crisp text legibility -->
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/70"></div>
-            <!-- Soft vertical tint for content balance -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-transparent to-slate-950/95"></div>
-            <!-- Subtle blue/emerald ambient vignette -->
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute top-1/2 -right-24 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- High-Contrast Balanced Gradient Overlay (Protects Text Readability while keeping video vibrant & visible) -->
+            <!-- Left-biased gradient gives strong contrast behind the typography while letting the video action shine -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/45 to-slate-950/25"></div>
+            <!-- Soft top/bottom edge feathering -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/70"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -244,6 +243,34 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            (function() {
+                var vid = document.getElementById('heroBackgroundVideo');
+                if (vid) {
+                    vid.muted = true;
+                    var playVid = function() {
+                        var p = vid.play();
+                        if (p !== undefined) {
+                            p.catch(function() {
+                                var unlock = function() {
+                                    vid.play();
+                                    window.removeEventListener('touchstart', unlock);
+                                    window.removeEventListener('click', unlock);
+                                };
+                                window.addEventListener('touchstart', unlock, { passive: true });
+                                window.addEventListener('click', unlock, { passive: true });
+                            });
+                        }
+                    };
+                    if (vid.readyState >= 2) {
+                        playVid();
+                    } else {
+                        vid.addEventListener('loadeddata', playVid);
+                    }
+                }
+            })();
+        </script>
     </section>
 
     <!-- VISIONARY QUOTE & VIDEO SPOTLIGHT SECTION -->

@@ -351,6 +351,222 @@
         </div>
     </section>
 
+    <!-- INSTITUTIONAL ACCREDITATIONS & QUALITY CREDENTIALS SECTION -->
+    <section class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full mb-3">
+                    Verified Regulatory Standing &amp; Global Recognition
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight">
+                    Institutional Accreditations &amp; Quality Credentials
+                </h2>
+                <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    <strong>iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills)</strong> is committed to upholding international standards in skill development, vocational training, and educational services. Our institutional operations, curriculum frameworks, and assessment systems align with globally recognized quality assurance bodies and statutory national registrations.
+                </p>
+            </div>
+
+            <!-- Two High-Impact Showcase Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Card 1: International Accreditations & Quality Frameworks -->
+                <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-12 -top-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider border border-blue-500/30 font-mono">
+                                Category 1 &bull; Global
+                            </span>
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold font-heading text-white mb-2">
+                            International Accreditations &amp; Quality Frameworks
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+                            Certified under world-class quality benchmarks and endorsed across global accreditation councils.
+                        </p>
+
+                        <div class="space-y-4">
+                            <!-- ISO Standard -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-blue-400 mt-1 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">ISO Quality Certification (9001:2015)</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            Certified under ISO Standards (9001:2015) for Quality Management Systems in Educational and Vocational Training delivery and assessment.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Global Accreditation Councils -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">Global Accreditation Support &amp; Alignment</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 mb-3 leading-relaxed">
+                                            Institutional quality frameworks aligned and recognized under international accreditation councils and academic boards:
+                                        </p>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                            <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                                                <strong class="text-emerald-400 block font-mono">EGAC</strong>
+                                                <span class="text-[11px] text-slate-300">Egyptian Accreditation Council</span>
+                                            </div>
+                                            <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                                                <strong class="text-emerald-400 block font-mono">EIAC</strong>
+                                                <span class="text-[11px] text-slate-300">Emirates International Accreditation Centre</span>
+                                            </div>
+                                            <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                                                <strong class="text-blue-400 block font-mono">QEAA</strong>
+                                                <span class="text-[11px] text-slate-300">Quality Education Assurance Accreditation</span>
+                                            </div>
+                                            <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                                                <strong class="text-blue-400 block font-mono">FICS</strong>
+                                                <span class="text-[11px] text-slate-300">Forum for Internationally Certified Scholars</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- US & UK Support -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-purple-400 mt-1 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">US &amp; UK International Accreditation Agencies</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            International Credentials Recognition providing global mobility and evaluation alignment for iCEEDS course completers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: National Registrations & Government Recognitions (India) -->
+                <div class="bg-gradient-to-br from-slate-900 via-emerald-950/80 to-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30 font-mono">
+                                Category 2 &bull; National (Govt. of India)
+                            </span>
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
+                                <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold font-heading text-white mb-2">
+                            National Registrations &amp; Government Recognitions
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+                            Established under statutory Indian Acts, verified on national government portals, and eligible across employment registries.
+                        </p>
+
+                        <div class="space-y-3.5">
+                            <!-- 1. Indian Trusts Act -->
+                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-bold text-white">Registered Educational Trust</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            Established as a self-governing educational trust under the <strong>Indian Trusts Act, 1882</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. NSDC Support -->
+                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-bold text-white">NSDC Certification Support</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. NITI Aayog -->
+                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-blue-400 mt-1.5 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-bold text-white">NITI Aayog Registered</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            Enrolled under the prestigious <strong>NGO Darpan initiative, NITI Aayog</strong>, Government of India.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. MSME -->
+                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-bold text-white">MSME Recognized</h4>
+                                        <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                                            Registered under the <strong>Ministry of Micro, Small &amp; Medium Enterprises (MSME)</strong>, Government of India.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 5. Employment Exchange & IP -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                                <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-xs">
+                                    <strong class="text-emerald-400 block font-semibold mb-0.5">Employment Exchanges</strong>
+                                    <p class="text-[11px] text-slate-300 leading-tight">Eligible to be registered as an additional skill qualification in Employment Exchanges across India.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-xs">
+                                    <strong class="text-blue-400 block font-semibold mb-0.5">Intellectual Property Protected</strong>
+                                    <p class="text-[11px] text-slate-300 leading-tight">Institutional curricula, certifications, and brand credentials protected under Copyright and Trademark regulations (Govt. of India).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quick Summary Trust Bar -->
+            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/90 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">Standardized Verification &amp; Tamper-Proof Credentials</h4>
+                        <p class="text-xs text-slate-500">Every iCEEDS certificate carries a unique identifier verified through our public registry portal.</p>
+                    </div>
+                </div>
+                <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-md transition">
+                    <span>Verify a Certificate</span>
+                    <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- LEADERSHIP & MENTORS SECTION -->
     <section class="py-16 sm:py-24 bg-portal-gradient border-b border-slate-200/70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

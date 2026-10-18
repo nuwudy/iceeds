@@ -84,6 +84,115 @@
         </div>
     </section>
 
+    <!-- INSTITUTIONAL ACCREDITATIONS & QUALITY CREDENTIALS (About Page Detail) -->
+    <section class="py-16 sm:py-24 bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full mb-3">
+                    Accreditation Portfolio
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading tracking-tight">
+                    Institutional Accreditations &amp; Quality Credentials
+                </h2>
+                <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+                    iCEEDS is committed to upholding international standards in skill development, vocational training, and educational services. Our operations, curriculum frameworks, and assessment systems align with globally recognized quality assurance bodies and national registrations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 1. International Frameworks -->
+                <div class="bg-slate-950/80 rounded-3xl p-8 border border-slate-800 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center font-bold">01</span>
+                        <div>
+                            <h3 class="text-xl font-bold font-heading text-white">International Accreditations &amp; Quality Frameworks</h3>
+                            <p class="text-xs text-slate-400">Global evaluation &amp; quality standards compliance</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-xs text-slate-300">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-1">ISO Quality Certification (9001:2015)</strong>
+                            <p class="leading-relaxed">Certified under ISO Standards (9001:2015) for Quality Management Systems in Educational and Vocational Training.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-2">Global Accreditation Support &amp; Alignment</strong>
+                            <p class="leading-relaxed mb-3">Institutional quality frameworks aligned and recognized under international accreditation councils and boards:</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-emerald-400 font-bold block">EGAC</span>
+                                    <span class="text-[11px] text-slate-400">Egyptian Accreditation Council</span>
+                                </div>
+                                <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-emerald-400 font-bold block">EIAC</span>
+                                    <span class="text-[11px] text-slate-400">Emirates International Accreditation Centre</span>
+                                </div>
+                                <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-blue-400 font-bold block">QEAA</span>
+                                    <span class="text-[11px] text-slate-400">Quality Education Assurance Accreditation</span>
+                                </div>
+                                <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-blue-400 font-bold block">FICS</span>
+                                    <span class="text-[11px] text-slate-400">Forum for Internationally Certified Scholars</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-1">US &amp; UK International Accreditation Agencies</strong>
+                            <p class="leading-relaxed">International Credentials Recognition providing global mobility and evaluation alignment for iCEEDS course completers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. National Registrations -->
+                <div class="bg-slate-950/80 rounded-3xl p-8 border border-slate-800 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">02</span>
+                        <div>
+                            <h3 class="text-xl font-bold font-heading text-white">National Registrations &amp; Government Recognitions</h3>
+                            <p class="text-xs text-slate-400">Statutory establishment under Government of India</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3.5 text-xs text-slate-300">
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-0.5">Registered Educational Trust</strong>
+                            <p class="leading-relaxed">Established as a self-governing educational trust under the <strong>Indian Trusts Act, 1882</strong>.</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-0.5">NSDC Certification Support</strong>
+                            <p class="leading-relaxed">Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India.</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-0.5">NITI Aayog Registered</strong>
+                            <p class="leading-relaxed">Enrolled under the <strong>NGO Darpan initiative, NITI Aayog</strong>, Government of India.</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                            <strong class="text-white text-sm block mb-0.5">MSME Recognized</strong>
+                            <p class="leading-relaxed">Registered under the <strong>Ministry of Micro, Small &amp; Medium Enterprises (MSME)</strong>, Government of India.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                <strong class="text-emerald-400 block mb-0.5">Employment Exchanges</strong>
+                                <p class="text-[11px] text-slate-400 leading-tight">Eligible to be registered as an additional skill qualification in Employment Exchanges across India.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                <strong class="text-blue-400 block mb-0.5">IP Protection</strong>
+                                <p class="text-[11px] text-slate-400 leading-tight">Curricula, certifications, and brand credentials protected under Copyright and Trademark regulations (Govt. of India).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOUR CORE PILLARS SECTION (2x2 Layout) -->
     <section class="py-16 sm:py-24 bg-portal-gradient border-b border-slate-200/70">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

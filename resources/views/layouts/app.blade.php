@@ -38,6 +38,20 @@
                 radial-gradient(at 50% 100%, rgba(217, 119, 6, 0.03) 0px, transparent 50%);
         }
 
+        /* Seamless ticker animation */
+        @keyframes ticker-slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker-slide 42s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
         /* Dedicated Print Stylesheet */
         @media print {
             .no-print {
@@ -168,6 +182,125 @@
             </div>
         </div>
     </header>
+
+    <!-- LIVE CREDENTIALS & ACCREDITATIONS TICKER (Above Hero / Main Content) -->
+    <div class="no-print bg-slate-900 border-b border-slate-800 text-xs py-2.5 overflow-hidden shadow-inner relative z-30 select-none">
+        <div class="flex items-center">
+            <!-- Label Badge fixed on the left -->
+            <div class="shrink-0 pl-4 pr-3 py-1 flex items-center gap-2 bg-slate-900 z-10 border-r border-slate-800/80 shadow-[6px_0_12px_-2px_rgba(15,23,42,0.8)]">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-[11px] font-black uppercase tracking-wider text-emerald-400 font-mono">Accreditations &amp; Registrations</span>
+            </div>
+
+            <!-- Continuous Marquee / Ticker -->
+            <div class="overflow-hidden whitespace-nowrap flex-1 mask-linear-fade">
+                <div class="animate-ticker inline-flex items-center gap-6 text-slate-300 text-xs">
+                    
+                    <!-- Track Block 1 -->
+                    <div class="inline-flex items-center gap-6">
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-500/20 text-blue-300 border border-blue-500/30 font-mono">ISO 9001:2015</span>
+                            <span>Certified Quality Management System for Educational &amp; Vocational Training</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">Indian Trusts Act, 1882</span>
+                            <span>Self-Governing Educational Organization</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono">NSDC Aligned</span>
+                            <span>Skill Training &amp; Certification Support (Ministry of Skill Development &amp; Entrepreneurship, Govt. of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono">Global Recognition</span>
+                            <span>EGAC (Egyptian Accreditation Council) &bull; EIAC (Emirates International Accreditation Centre)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30 font-mono">International Councils</span>
+                            <span>QEAA &bull; FICS (Forum for Internationally Certified Scholars) &bull; US &amp; UK International Accreditation Support</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30 font-mono">NITI Aayog</span>
+                            <span>Enrolled under NGO Darpan Initiative (Government of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-mono">MSME Registered</span>
+                            <span>Ministry of Micro, Small &amp; Medium Enterprises, Govt. of India</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">Employment Exchanges</span>
+                            <span>Eligible for Registration as Additional Skill Qualification Across India</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-mono">IP Protected</span>
+                            <span>Curricula, Certifications &amp; Brand Protected Under Copyright &amp; Trademark (Govt. of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                    </div>
+
+                    <!-- Track Block 2 (Duplicate for Seamless Loop) -->
+                    <div class="inline-flex items-center gap-6">
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-500/20 text-blue-300 border border-blue-500/30 font-mono">ISO 9001:2015</span>
+                            <span>Certified Quality Management System for Educational &amp; Vocational Training</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">Indian Trusts Act, 1882</span>
+                            <span>Self-Governing Educational Organization</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono">NSDC Aligned</span>
+                            <span>Skill Training &amp; Certification Support (Ministry of Skill Development &amp; Entrepreneurship, Govt. of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono">Global Recognition</span>
+                            <span>EGAC (Egyptian Accreditation Council) &bull; EIAC (Emirates International Accreditation Centre)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30 font-mono">International Councils</span>
+                            <span>QEAA &bull; FICS (Forum for Internationally Certified Scholars) &bull; US &amp; UK International Accreditation Support</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30 font-mono">NITI Aayog</span>
+                            <span>Enrolled under NGO Darpan Initiative (Government of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-mono">MSME Registered</span>
+                            <span>Ministry of Micro, Small &amp; Medium Enterprises, Govt. of India</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">Employment Exchanges</span>
+                            <span>Eligible for Registration as Additional Skill Qualification Across India</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                        <span class="inline-flex items-center gap-1.5 font-medium">
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-mono">IP Protected</span>
+                            <span>Curricula, Certifications &amp; Brand Protected Under Copyright &amp; Trademark (Govt. of India)</span>
+                        </span>
+                        <span class="text-slate-700">&bull;</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content Area -->
     <main class="flex-1">

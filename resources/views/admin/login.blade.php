@@ -29,7 +29,10 @@
         <div class="text-center mb-8">
             <a href="{{ route('home') }}" class="inline-flex flex-col items-center gap-2 group">
                 <div class="bg-white/95 px-5 py-2.5 rounded-2xl border border-white/20 shadow-xl inline-flex items-center justify-center">
-                    <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-10 w-auto object-contain">
+                    <picture>
+                        <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
+                        <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-10 w-auto object-contain">
+                    </picture>
                 </div>
                 <div class="mt-2 text-center">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono">Administrative Portal</span>

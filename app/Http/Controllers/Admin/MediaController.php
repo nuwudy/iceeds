@@ -101,10 +101,24 @@ class MediaController extends Controller
             // Generate safe, unique storage path
             $safeBaseName = Str::slug(pathinfo($originalName, PATHINFO_FILENAME));
             $randomSuffix = Str::lower(Str::random(6));
-            $storedFileName = "{$safeBaseName}-{$randomSuffix}.{$extension}";
-
             $directory = 'media/' . date('Y/m');
-            $filePath = $file->storeAs($directory, $storedFileName, 'public');
+
+            // Attempt automatic WebP optimization for JPG/PNG/BMP images if server GD/imagewebp is available
+            $converted = null;
+            if ($fileType === 'image' && in_array($extension, ['jpg', 'jpeg', 'png', 'bmp']) && function_exists('imagewebp')) {
+                $converted = $this->convertToWebp($file, $directory, $safeBaseName, $randomSuffix);
+            }
+
+            if ($converted) {
+                $storedFileName = $converted['fileName'];
+                $filePath = $converted['filePath'];
+                $extension = 'webp';
+                $mimeType = 'image/webp';
+                $fileSize = $converted['fileSize'];
+            } else {
+                $storedFileName = "{$safeBaseName}-{$randomSuffix}.{$extension}";
+                $filePath = $file->storeAs($directory, $storedFileName, 'public');
+            }
 
             $media = MediaFile::create([
                 'title' => $title,
@@ -231,5 +245,65 @@ class MediaController extends Controller
             return number_format($bytes / 1024, 1) . ' KB';
         }
         return $bytes . ' B';
+    }
+
+    /**
+     * Convert uploaded image to lightweight WebP format.
+     */
+    protected function convertToWebp($uploadedFile, string $directory, string $safeBaseName, string $randomSuffix): ?array
+    {
+        try {
+            $ext = strtolower($uploadedFile->getClientOriginalExtension());
+            $realPath = $uploadedFile->getRealPath();
+
+            if (!$realPath || !file_exists($realPath)) {
+                return null;
+            }
+
+            $image = null;
+            if (in_array($ext, ['jpg', 'jpeg']) && function_exists('imagecreatefromjpeg')) {
+                $image = @imagecreatefromjpeg($realPath);
+            } elseif ($ext === 'png' && function_exists('imagecreatefrompng')) {
+                $image = @imagecreatefrompng($realPath);
+                if ($image && function_exists('imagepalettetotruecolor')) {
+                    imagepalettetotruecolor($image);
+                    imagealphablending($image, true);
+                    imagesavealpha($image, true);
+                }
+            } elseif ($ext === 'bmp' && function_exists('imagecreatefrombmp')) {
+                $image = @imagecreatefrombmp($realPath);
+            }
+
+            if (!$image) {
+                return null;
+            }
+
+            $webpFileName = "{$safeBaseName}-{$randomSuffix}.webp";
+            $tempPath = tempnam(sys_get_temp_dir(), 'webp_');
+
+            // Encode to WebP with quality 82 for great balance of sharpness and minimal bytes
+            $success = @imagewebp($image, $tempPath, 82);
+            imagedestroy($image);
+
+            if (!$success || !file_exists($tempPath) || filesize($tempPath) === 0) {
+                if (file_exists($tempPath)) {
+                    @unlink($tempPath);
+                }
+                return null;
+            }
+
+            $targetPath = "{$directory}/{$webpFileName}";
+            Storage::disk('public')->put($targetPath, file_get_contents($tempPath));
+            $fileSize = filesize($tempPath);
+            @unlink($tempPath);
+
+            return [
+                'fileName' => $webpFileName,
+                'filePath' => $targetPath,
+                'fileSize' => $fileSize,
+            ];
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 }

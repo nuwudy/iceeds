@@ -89,7 +89,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <img src="{{ asset('images/logo.png') }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
+                <picture>
+                    <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
+                    <img src="{{ asset('images/logo.png') }}" alt="iCEEDS - Innovation Council for Exquisite Education & Development of Skills" class="h-9 sm:h-11 w-auto object-contain group-hover:opacity-95 transition">
+                </picture>
                 <div class="hidden md:block pl-3 border-l border-slate-200">
                     <div class="flex items-center gap-1.5">
                         <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">Indian Trusts Act, 1882</span>
@@ -223,7 +226,10 @@
                 <div class="lg:col-span-2 space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="bg-white/95 px-3.5 py-2 rounded-xl border border-white/10 shadow-sm inline-block">
-                            <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-8 w-auto object-contain">
+                            <picture>
+                                <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
+                                <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-8 w-auto object-contain">
+                            </picture>
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-sm">

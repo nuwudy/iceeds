@@ -31,7 +31,10 @@
             <div class="flex items-center gap-3">
                 <a href="{{ route('admin.media') }}" class="flex items-center gap-3">
                     <div class="bg-white/95 px-3 py-1.5 rounded-xl border border-white/20 shadow-sm flex items-center justify-center">
-                        <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
+                        <picture>
+                            <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
+                            <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Logo" class="h-7 w-auto object-contain">
+                        </picture>
                     </div>
                     <div>
                         <div class="flex items-center gap-2">

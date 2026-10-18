@@ -235,13 +235,21 @@
                     <blockquote class="text-xl sm:text-2xl font-semibold leading-relaxed tracking-tight font-heading text-slate-100">
                         &ldquo;Dream is not that which you see while sleeping it is something that does not let you sleep.&rdquo;
                     </blockquote>
-                    <div class="mt-6 pt-6 border-t border-slate-800 flex items-center justify-between">
-                        <div>
-                            <p class="font-bold text-white text-base font-heading">Dr. A.P.J. Abdul Kalam</p>
-                            <p class="text-xs text-blue-400 font-medium">11th President of India &bull; Visionary</p>
+                    <div class="mt-6 pt-6 border-t border-slate-800 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden border border-white/20 shadow-md shrink-0 bg-slate-800">
+                                <picture>
+                                    <source srcset="{{ asset('images/apj-abdul-kalam.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/apj-abdul-kalam.png') }}" alt="Dr. A.P.J. Abdul Kalam" class="w-full h-full object-cover object-top">
+                                </picture>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-base font-heading">Dr. A.P.J. Abdul Kalam</p>
+                                <p class="text-xs text-blue-400 font-medium">11th President of India &bull; Visionary</p>
+                            </div>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-300 font-bold text-xs">
-                            AK
+                        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/20 text-[11px] font-mono text-blue-300">
+                            <span>Visionary Insight</span>
                         </div>
                     </div>
                 </div>

@@ -273,6 +273,331 @@
         </script>
     </section>
 
+    <!-- INSTITUTIONAL GALLERY & CAMPUS HIGHLIGHTS SLIDER -->
+    <section class="py-12 sm:py-16 bg-slate-950 text-slate-100 border-b border-slate-800 relative overflow-hidden">
+        <!-- Ambient decorative blurs -->
+        <div class="absolute -top-24 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-2.5">
+                        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                        <span>Campus &amp; Training Highlights</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-heading">
+                        Excellence in Action at <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">iCEEDS</span>
+                    </h2>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        A visual journey through our state-of-the-art vocational workshops, academic sessions, and milestone events empowering students across India.
+                    </p>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex items-center gap-2.5 self-start md:self-end shrink-0">
+                    <button 
+                        type="button" 
+                        id="sliderPrevBtn" 
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-slate-900/90 border border-slate-700/80 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-800 flex items-center justify-center transition shadow-lg shadow-black/30 focus:outline-none cursor-pointer"
+                        aria-label="Previous Slide"
+                    >
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button 
+                        type="button" 
+                        id="sliderNextBtn" 
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-slate-900/90 border border-slate-700/80 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-slate-800 flex items-center justify-center transition shadow-lg shadow-black/30 focus:outline-none cursor-pointer"
+                        aria-label="Next Slide"
+                    >
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Track Container -->
+            <div class="relative group">
+                <!-- Carousel Scroll Viewport -->
+                <div 
+                    id="iceedsImageSlider" 
+                    class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                >
+                    <!-- Slide Items -->
+                    @php
+                        $sliderImages = [
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-10-pvqx8l.webp',
+                                'title' => 'Vocational Training & Practice',
+                                'tag' => 'Hands-On Labs',
+                                'desc' => 'Technical vocational mastery and practical equipment training.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-9-yxtqa0.webp',
+                                'title' => 'Academic Board of Studies',
+                                'tag' => 'Curriculum Design',
+                                'desc' => 'High standards monitored by distinguished academic experts.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-11-3c8lnq.webp',
+                                'title' => 'Skill Development Seminars',
+                                'tag' => 'Faculty Mentorship',
+                                'desc' => 'Specialized workshops aligned with modern industry competencies.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-6-6ofhuj.webp',
+                                'title' => 'Student Career Empowerment',
+                                'tag' => 'Interactive Learning',
+                                'desc' => 'Transformative educational sessions fostering professional growth.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-5-pfhkya.webp',
+                                'title' => 'Technical Workshop Facilities',
+                                'tag' => 'Infrastructure',
+                                'desc' => 'Well-equipped facilities for vocational competence and practice.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-3-iheexd.webp',
+                                'title' => 'Institutional Assessment Standards',
+                                'tag' => 'ISO 9001:2015',
+                                'desc' => 'Rigorous skill evaluation processes ensuring quality assurance.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-1-6dmgps.webp',
+                                'title' => 'Collaborative Excellence',
+                                'tag' => 'Campus Life',
+                                'desc' => 'Fostering teamwork, innovation, and leadership among candidates.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-decbwr.webp',
+                                'title' => 'National Trust Credentials',
+                                'tag' => 'Autonomous Body',
+                                'desc' => 'Empowering youth under the Indian Trusts Act, 1882.'
+                            ]
+                        ];
+                    @endphp
+
+                    @foreach($sliderImages as $index => $item)
+                        <div 
+                            class="slider-card shrink-0 w-[84vw] sm:w-[48vw] md:w-[36vw] lg:w-[29vw] snap-start relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-xl group/card transition-all duration-300 hover:border-slate-600 hover:shadow-blue-900/30"
+                            data-index="{{ $index }}"
+                        >
+                            <!-- Image Wrapper -->
+                            <div class="aspect-[16/11] w-full overflow-hidden relative cursor-pointer" onclick="openSliderModal('{{ $item['url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['desc']) }}')">
+                                <img 
+                                    src="{{ $item['url'] }}" 
+                                    alt="{{ $item['title'] }}" 
+                                    loading="lazy" 
+                                    class="w-full h-full object-cover transform group-hover/card:scale-105 transition-transform duration-700 ease-out"
+                                >
+                                <!-- Gradient Shadow Overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-85 group-hover/card:opacity-90 transition-opacity"></div>
+                                
+                                <!-- Top Tag -->
+                                <div class="absolute top-3.5 left-3.5">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/70 text-[11px] font-bold text-blue-300 tracking-wide uppercase">
+                                        {{ $item['tag'] }}
+                                    </span>
+                                </div>
+
+                                <!-- Expand button icon -->
+                                <div class="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/70 text-slate-300 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                    </svg>
+                                </div>
+
+                                <!-- Bottom Info -->
+                                <div class="absolute bottom-0 inset-x-0 p-5">
+                                    <h3 class="text-base sm:text-lg font-bold text-white font-heading tracking-tight drop-shadow-sm group-hover/card:text-blue-300 transition-colors">
+                                        {{ $item['title'] }}
+                                    </h3>
+                                    <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">
+                                        {{ $item['desc'] }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <!-- Pagination Dots / Indicators -->
+                <div class="flex items-center justify-center gap-2 mt-5" id="sliderDotsContainer">
+                    @foreach($sliderImages as $index => $item)
+                        <button 
+                            type="button" 
+                            class="slider-dot h-2 rounded-full transition-all duration-300 cursor-pointer {{ $index === 0 ? 'w-8 bg-blue-500' : 'w-2 bg-slate-700 hover:bg-slate-500' }}" 
+                            data-dot="{{ $index }}"
+                            aria-label="Go to slide {{ $index + 1 }}"
+                        ></button>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <!-- Sleek Lightbox Modal for Full-Res View -->
+        <div id="sliderLightboxModal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6" onclick="closeSliderModal(event)">
+            <div class="relative max-w-5xl w-full bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+                <!-- Close Button -->
+                <button type="button" onclick="closeSliderModalDirect()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-950/80 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 flex items-center justify-center transition cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                
+                <div class="aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-950 flex items-center justify-center overflow-hidden">
+                    <img id="lightboxImg" src="" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 id="lightboxTitle" class="text-xl font-bold text-white font-heading"></h4>
+                        <p id="lightboxDesc" class="text-xs sm:text-sm text-slate-300 mt-1"></p>
+                    </div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-semibold shrink-0">
+                        iCEEDS Institutional Archive
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+                var slider = document.getElementById('iceedsImageSlider');
+                var prevBtn = document.getElementById('sliderPrevBtn');
+                var nextBtn = document.getElementById('sliderNextBtn');
+                var dots = document.querySelectorAll('.slider-dot');
+                var autoTimer = null;
+                var isPaused = false;
+
+                if (!slider) return;
+
+                function getScrollStep() {
+                    var firstCard = slider.querySelector('.slider-card');
+                    return firstCard ? firstCard.offsetWidth + 24 : 320;
+                }
+
+                function scrollNext() {
+                    var maxScroll = slider.scrollWidth - slider.clientWidth - 15;
+                    if (slider.scrollLeft >= maxScroll) {
+                        slider.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                    }
+                }
+
+                function scrollPrev() {
+                    if (slider.scrollLeft <= 15) {
+                        slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+                    } else {
+                        slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                    }
+                }
+
+                if (nextBtn) nextBtn.addEventListener('click', function() {
+                    scrollNext();
+                    resetAutoPlay();
+                });
+
+                if (prevBtn) prevBtn.addEventListener('click', function() {
+                    scrollPrev();
+                    resetAutoPlay();
+                });
+
+                dots.forEach(function(dot) {
+                    dot.addEventListener('click', function() {
+                        var idx = parseInt(dot.getAttribute('data-dot'));
+                        var cards = slider.querySelectorAll('.slider-card');
+                        if (cards[idx]) {
+                            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                        }
+                        resetAutoPlay();
+                    });
+                });
+
+                function updateDots() {
+                    var scrollLeft = slider.scrollLeft;
+                    var step = getScrollStep();
+                    var activeIdx = Math.round(scrollLeft / step);
+                    if (activeIdx >= dots.length) activeIdx = dots.length - 1;
+                    if (activeIdx < 0) activeIdx = 0;
+
+                    dots.forEach(function(d, i) {
+                        if (i === activeIdx) {
+                            d.className = 'slider-dot h-2 rounded-full transition-all duration-300 w-8 bg-blue-500 cursor-pointer';
+                        } else {
+                            d.className = 'slider-dot h-2 rounded-full transition-all duration-300 w-2 bg-slate-700 hover:bg-slate-500 cursor-pointer';
+                        }
+                    });
+                }
+
+                var debounceTimer;
+                slider.addEventListener('scroll', function() {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(updateDots, 60);
+                }, { passive: true });
+
+                function startAutoPlay() {
+                    if (autoTimer) clearInterval(autoTimer);
+                    autoTimer = setInterval(function() {
+                        if (!isPaused) {
+                            scrollNext();
+                        }
+                    }, 4000);
+                }
+
+                function resetAutoPlay() {
+                    startAutoPlay();
+                }
+
+                slider.addEventListener('mouseenter', function() { isPaused = true; });
+                slider.addEventListener('mouseleave', function() { isPaused = false; });
+                slider.addEventListener('touchstart', function() { isPaused = true; }, { passive: true });
+                slider.addEventListener('touchend', function() {
+                    setTimeout(function() { isPaused = false; }, 2000);
+                }, { passive: true });
+
+                startAutoPlay();
+            })();
+
+            function openSliderModal(url, title, desc) {
+                var modal = document.getElementById('sliderLightboxModal');
+                var img = document.getElementById('lightboxImg');
+                var titleEl = document.getElementById('lightboxTitle');
+                var descEl = document.getElementById('lightboxDesc');
+                if (modal && img) {
+                    img.src = url;
+                    img.alt = title;
+                    if (titleEl) titleEl.textContent = title;
+                    if (descEl) descEl.textContent = desc;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeSliderModalDirect() {
+                var modal = document.getElementById('sliderLightboxModal');
+                if (modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function closeSliderModal(e) {
+                if (e.target && e.target.id === 'sliderLightboxModal') {
+                    closeSliderModalDirect();
+                }
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeSliderModalDirect();
+                }
+            });
+        </script>
+    </section>
+
     <!-- VISIONARY QUOTE & VIDEO SPOTLIGHT SECTION -->
     <section class="py-16 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

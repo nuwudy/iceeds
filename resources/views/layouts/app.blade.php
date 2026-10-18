@@ -258,6 +258,10 @@
                             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                         </a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact & Inquiries</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-white transition flex items-center gap-1.5 text-slate-400 hover:text-blue-400">
+                            <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" /></svg>
+                            <span>Admin Login</span>
+                        </a></li>
                     </ul>
                 </div>
 
@@ -307,6 +311,8 @@
                     <a href="{{ route('verify') }}" class="hover:text-slate-300 transition">Online Verification</a>
                     <span>&bull;</span>
                     <a href="{{ route('contact') }}" class="hover:text-slate-300 transition">Institutional Support</a>
+                    <span>&bull;</span>
+                    <a href="{{ route('login') }}" class="hover:text-slate-300 transition">Admin Login</a>
                     <span>&bull;</span>
                     <span class="text-slate-600">ISO 9001:2015 Accredited</span>
                 </div>

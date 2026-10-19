@@ -18,16 +18,16 @@
                 playsinline 
                 webkit-playsinline
                 preload="auto" 
-                class="w-full h-full object-cover opacity-85 transition-opacity duration-700"
+                class="w-full h-full object-cover transition-opacity duration-700"
             >
                 <source src="https://iceeds.com/storage/media/2026/10/video-project-26-rrxhyz.mp4" type="video/mp4">
             </video>
             
-            <!-- High-Contrast Balanced Gradient Overlay (Protects Text Readability while keeping video vibrant & visible) -->
-            <!-- Left-biased gradient gives strong contrast behind the typography while letting the video action shine -->
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/45 to-slate-950/25"></div>
-            <!-- Soft top/bottom edge feathering -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/70"></div>
+            <!-- Ultra-Clean Lightweight Gradient Overlay: Keeps video highly visible and luminous across the entire section -->
+            <!-- Soft left shadow provides contrast for the headline while right & center stay completely clear -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/20 to-transparent"></div>
+            <!-- Minimal edge feathering -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/35"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

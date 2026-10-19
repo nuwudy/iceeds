@@ -8,8 +8,36 @@
     <title>@yield('title', 'iCEEDS | Innovation Council for Exquisite Education & Development of Skills')</title>
     <meta name="description" content="@yield('meta_description', 'iCEEDS is an autonomous body registered under the Government of India providing ISO-accredited certifications, skill development programs, and academic credentials.')">
 
-    <!-- Favicon -->
+    <!-- Favicons & Mobile Home Screen Icons -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="iCEEDS">
+
+    <!-- Social Media Open Graph (WhatsApp, Facebook, LinkedIn, Telegram, iMessage) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="iCEEDS Central Academic Repository">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'iCEEDS | Accredited Certifications & Central Academic Repository')">
+    <meta property="og:description" content="@yield('meta_description', 'Official portal of iCEEDS (Autonomous body registered under the Govt. of India). Instant online certificate verification and ISO-accredited vocational programs.')">
+    <meta property="og:image" content="{{ asset('images/og-image.png') }}">
+    <meta property="og:image:secure_url" content="{{ asset('images/og-image.png') }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="iCEEDS Official Accreditation & Verification Portal">
+
+    <!-- Twitter / X Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="@yield('title', 'iCEEDS | Accredited Certifications & Central Academic Repository')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Official portal of iCEEDS (Autonomous body registered under the Govt. of India). Instant online certificate verification and ISO-accredited vocational programs.')">
+    <meta name="twitter:image" content="{{ asset('images/og-image.png') }}">
 
     <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

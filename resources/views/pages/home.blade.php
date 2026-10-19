@@ -18,16 +18,16 @@
                 playsinline 
                 webkit-playsinline
                 preload="auto" 
-                class="w-full h-full object-cover transition-opacity duration-700"
+                class="w-full h-full object-cover filter brightness-105 contrast-105 transition-opacity duration-700"
             >
-                <source src="https://iceeds.com/storage/media/2026/10/video-project-26-rrxhyz.mp4" type="video/mp4">
+                <source src="https://iceeds.com/storage/media/2026/10/video-project-26-1-euyqjz.mp4" type="video/mp4">
             </video>
             
-            <!-- Ultra-Clean Lightweight Gradient Overlay: Keeps video highly visible and luminous across the entire section -->
-            <!-- Soft left shadow provides contrast for the headline while right & center stay completely clear -->
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/20 to-transparent"></div>
+            <!-- Ultra-Clean Lightweight Gradient Overlay: Maximum video visibility and clarity -->
+            <!-- Very soft left shadow ensures typography readability while keeping the video action open & bright -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/10 to-transparent"></div>
             <!-- Minimal edge feathering -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/35"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-transparent to-slate-950/25"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -144,7 +144,7 @@
                     </div>
 
                     <!-- Main Headline -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading drop-shadow-md">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
                         Elevate Your Skills with <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">Accredited Certifications</span>
                     </h1>
 

@@ -183,6 +183,53 @@
         </div>
     </header>
 
+    <!-- INSTITUTIONAL ACCREDITATION & QUALITY EMBLEMS (Just Above Ticker) -->
+    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2 sm:py-2.5 relative z-30 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-2.5 md:gap-4">
+                
+                <!-- Cute Label Badge on Desktop & Mobile -->
+                <div class="shrink-0 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] font-bold text-blue-800 uppercase tracking-wider">
+                        <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Accreditation &amp; Quality Emblems</span>
+                    </span>
+                </div>
+
+                <!-- 9 Recognition Emblems: Single Row on PC, 2 Rows on Mobile -->
+                <div class="w-full md:w-auto flex flex-wrap md:flex-nowrap items-center justify-center md:justify-end gap-2 sm:gap-2.5 md:gap-3 lg:gap-3.5">
+                    @php
+                        $emblems = [
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-hqqxuz.webp', 'title' => 'Accreditation Quality Emblem 1'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp', 'title' => 'Accreditation Quality Emblem 2'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-2-wuygca.webp', 'title' => 'Accreditation Quality Emblem 3'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-3-yacox0.webp', 'title' => 'Accreditation Quality Emblem 4'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-4-qtqoqm.webp', 'title' => 'Accreditation Quality Emblem 5'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp', 'title' => 'Accreditation Quality Emblem 6'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-9-5p97l0.webp', 'title' => 'Accreditation Quality Emblem 7'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-10-fxjgr0.webp', 'title' => 'Accreditation Quality Emblem 8'],
+                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp', 'title' => 'Accreditation Quality Emblem 9'],
+                        ];
+                    @endphp
+
+                    @foreach($emblems as $emblem)
+                        <div class="h-9 sm:h-10 md:h-11 px-2 py-1 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-400/80 hover:scale-105 transition-all duration-200 flex items-center justify-center shrink-0">
+                            <img 
+                                src="{{ $emblem['url'] }}" 
+                                alt="{{ $emblem['title'] }}" 
+                                loading="lazy" 
+                                class="h-7 sm:h-8 md:h-8.5 w-auto max-w-[70px] sm:max-w-[80px] md:max-w-[85px] object-contain"
+                            >
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- LIVE CREDENTIALS & ACCREDITATIONS TICKER (Above Hero / Main Content) -->
     <div class="no-print bg-slate-900 border-b border-slate-800 text-xs py-2.5 overflow-hidden shadow-inner relative z-30 select-none">
         <div class="flex items-center">

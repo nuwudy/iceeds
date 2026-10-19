@@ -296,7 +296,11 @@
                 </div>
 
                 <!-- Navigation Controls -->
-                <div class="flex items-center gap-2.5 self-start md:self-end shrink-0">
+                <div class="flex items-center gap-3 self-start md:self-end shrink-0">
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 font-medium">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Auto-looping &bull; Hover to pause</span>
+                    </span>
                     <button 
                         type="button" 
                         id="sliderPrevBtn" 
@@ -322,14 +326,26 @@
 
             <!-- Slider Track Container -->
             <div class="relative group">
-                <!-- Carousel Scroll Viewport -->
+                <!-- Carousel Scroll Viewport (Continuous infinite loop, at least 4 visible on PCs) -->
                 <div 
                     id="iceedsImageSlider" 
-                    class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    class="flex gap-4 sm:gap-6 overflow-x-auto py-2 pb-4 select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 >
-                    <!-- Slide Items -->
+                    <!-- Slide Items (10 Images duplicated for seamless infinite loop) -->
                     @php
                         $sliderImages = [
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-13-2xiq7h.webp',
+                                'title' => 'Technical & Vocational Campuses',
+                                'tag' => 'Infrastructure',
+                                'desc' => 'Modern training facilities and vocational infrastructure across regional centers.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-12-ecleff.webp',
+                                'title' => 'Empowered Student Community',
+                                'tag' => 'Student Life',
+                                'desc' => 'Encouraging holistic growth, practical mastery, and industry readiness.'
+                            ],
                             [
                                 'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-10-pvqx8l.webp',
                                 'title' => 'Vocational Training & Practice',
@@ -379,12 +395,14 @@
                                 'desc' => 'Empowering youth under the Indian Trusts Act, 1882.'
                             ]
                         ];
+                        // Duplicate array for an infinite loop with zero visual seam
+                        $loopSliderImages = array_merge($sliderImages, $sliderImages);
                     @endphp
 
-                    @foreach($sliderImages as $index => $item)
+                    @foreach($loopSliderImages as $index => $item)
                         <div 
-                            class="slider-card shrink-0 w-[84vw] sm:w-[48vw] md:w-[36vw] lg:w-[29vw] snap-start relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-xl group/card transition-all duration-300 hover:border-slate-600 hover:shadow-blue-900/30"
-                            data-index="{{ $index }}"
+                            class="slider-card shrink-0 w-[80vw] sm:w-[46vw] md:w-[31vw] lg:w-[calc(25%-18px)] xl:w-[calc(25%-18px)] relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-xl group/card transition-all duration-300 hover:border-slate-600 hover:shadow-blue-900/30"
+                            data-index="{{ $index % count($sliderImages) }}"
                         >
                             <!-- Image Wrapper -->
                             <div class="aspect-[16/11] w-full overflow-hidden relative cursor-pointer" onclick="openSliderModal('{{ $item['url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['desc']) }}')">
@@ -425,16 +443,10 @@
                     @endforeach
                 </div>
 
-                <!-- Pagination Dots / Indicators -->
-                <div class="flex items-center justify-center gap-2 mt-5" id="sliderDotsContainer">
-                    @foreach($sliderImages as $index => $item)
-                        <button 
-                            type="button" 
-                            class="slider-dot h-2 rounded-full transition-all duration-300 cursor-pointer {{ $index === 0 ? 'w-8 bg-blue-500' : 'w-2 bg-slate-700 hover:bg-slate-500' }}" 
-                            data-dot="{{ $index }}"
-                            aria-label="Go to slide {{ $index + 1 }}"
-                        ></button>
-                    @endforeach
+                <!-- Navigation Status Hint -->
+                <div class="flex items-center justify-center gap-2 mt-4 text-[11px] text-slate-400 font-medium">
+                    <span class="inline-block w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+                    <span>10 Institutional Galleries &bull; Continuous Scroll &bull; Click any photo to view full size</span>
                 </div>
             </div>
         </div>
@@ -467,9 +479,9 @@
                 var slider = document.getElementById('iceedsImageSlider');
                 var prevBtn = document.getElementById('sliderPrevBtn');
                 var nextBtn = document.getElementById('sliderNextBtn');
-                var dots = document.querySelectorAll('.slider-dot');
-                var autoTimer = null;
                 var isPaused = false;
+                var scrollSpeed = 0.85; // smooth continuous drift in pixels per frame
+                var rafId = null;
 
                 if (!slider) return;
 
@@ -478,79 +490,40 @@
                     return firstCard ? firstCard.offsetWidth + 24 : 320;
                 }
 
-                function scrollNext() {
-                    var maxScroll = slider.scrollWidth - slider.clientWidth - 15;
-                    if (slider.scrollLeft >= maxScroll) {
-                        slider.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-                    }
-                }
-
-                function scrollPrev() {
-                    if (slider.scrollLeft <= 15) {
-                        slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
-                    } else {
-                        slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-                    }
-                }
-
-                if (nextBtn) nextBtn.addEventListener('click', function() {
-                    scrollNext();
-                    resetAutoPlay();
-                });
-
-                if (prevBtn) prevBtn.addEventListener('click', function() {
-                    scrollPrev();
-                    resetAutoPlay();
-                });
-
-                dots.forEach(function(dot) {
-                    dot.addEventListener('click', function() {
-                        var idx = parseInt(dot.getAttribute('data-dot'));
-                        var cards = slider.querySelectorAll('.slider-card');
-                        if (cards[idx]) {
-                            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                // Continuous loop via requestAnimationFrame
+                function animate() {
+                    if (!isPaused && slider) {
+                        slider.scrollLeft += scrollSpeed;
+                        var halfWidth = slider.scrollWidth / 2;
+                        if (halfWidth > 0 && slider.scrollLeft >= halfWidth) {
+                            slider.scrollLeft -= halfWidth;
                         }
-                        resetAutoPlay();
-                    });
-                });
+                    }
+                    rafId = requestAnimationFrame(animate);
+                }
+                rafId = requestAnimationFrame(animate);
 
-                function updateDots() {
-                    var scrollLeft = slider.scrollLeft;
-                    var step = getScrollStep();
-                    var activeIdx = Math.round(scrollLeft / step);
-                    if (activeIdx >= dots.length) activeIdx = dots.length - 1;
-                    if (activeIdx < 0) activeIdx = 0;
-
-                    dots.forEach(function(d, i) {
-                        if (i === activeIdx) {
-                            d.className = 'slider-dot h-2 rounded-full transition-all duration-300 w-8 bg-blue-500 cursor-pointer';
-                        } else {
-                            d.className = 'slider-dot h-2 rounded-full transition-all duration-300 w-2 bg-slate-700 hover:bg-slate-500 cursor-pointer';
-                        }
+                // Manual Next button
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        var step = getScrollStep();
+                        slider.scrollBy({ left: step, behavior: 'smooth' });
                     });
                 }
 
-                var debounceTimer;
-                slider.addEventListener('scroll', function() {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(updateDots, 60);
-                }, { passive: true });
-
-                function startAutoPlay() {
-                    if (autoTimer) clearInterval(autoTimer);
-                    autoTimer = setInterval(function() {
-                        if (!isPaused) {
-                            scrollNext();
+                // Manual Prev button
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function() {
+                        var step = getScrollStep();
+                        var halfWidth = slider.scrollWidth / 2;
+                        if (slider.scrollLeft <= 10 && halfWidth > 0) {
+                            slider.scrollLeft += halfWidth;
                         }
-                    }, 4000);
+                        slider.scrollBy({ left: -step, behavior: 'smooth' });
+                    });
                 }
 
-                function resetAutoPlay() {
-                    startAutoPlay();
-                }
-
+                // Pause on hover or touch
                 slider.addEventListener('mouseenter', function() { isPaused = true; });
                 slider.addEventListener('mouseleave', function() { isPaused = false; });
                 slider.addEventListener('touchstart', function() { isPaused = true; }, { passive: true });
@@ -558,7 +531,28 @@
                     setTimeout(function() { isPaused = false; }, 2000);
                 }, { passive: true });
 
-                startAutoPlay();
+                // Also support drag to scroll
+                var isDown = false;
+                var startX, scrollLeftVal;
+                slider.addEventListener('mousedown', function(e) {
+                    isDown = true;
+                    isPaused = true;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeftVal = slider.scrollLeft;
+                });
+                window.addEventListener('mouseup', function() {
+                    if (isDown) {
+                        isDown = false;
+                        setTimeout(function() { isPaused = false; }, 1500);
+                    }
+                });
+                slider.addEventListener('mousemove', function(e) {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    var x = e.pageX - slider.offsetLeft;
+                    var walk = (x - startX) * 1.5;
+                    slider.scrollLeft = scrollLeftVal - walk;
+                });
             })();
 
             function openSliderModal(url, title, desc) {

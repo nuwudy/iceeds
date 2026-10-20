@@ -162,6 +162,14 @@
         }
 
         /* Explainer Popover Styles for Emblems (Hover & Touch) */
+        .emblem-popover-trigger {
+            position: relative;
+        }
+        .emblem-popover-trigger:hover,
+        .emblem-popover-trigger:focus,
+        .emblem-popover-trigger.popover-active {
+            z-index: 70;
+        }
         .emblem-popover-trigger.popover-active .emblem-popover {
             opacity: 1 !important;
             visibility: visible !important;
@@ -397,7 +405,7 @@
     </header>
 
     <!-- INSTITUTIONAL ACCREDITATION & QUALITY EMBLEMS (Just Above Ticker) -->
-    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2.5 sm:py-3 relative z-30 shadow-xs">
+    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2.5 sm:py-3 relative z-40 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4">
                 
@@ -481,7 +489,7 @@
                             </div>
 
                             <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-50 top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                                 <!-- Top Pointer Arrow -->
                                 <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none"></div>
 
@@ -503,7 +511,7 @@
     </div>
 
     <!-- LIVE CREDENTIALS & ACCREDITATIONS TICKER (Above Hero / Main Content) -->
-    <div class="no-print bg-slate-900 border-b border-slate-800 text-xs py-2.5 overflow-hidden shadow-inner relative z-30 select-none">
+    <div class="no-print bg-slate-900 border-b border-slate-800 text-xs py-2.5 overflow-hidden shadow-inner relative z-20 select-none">
         <div class="flex items-center">
             <!-- Label Badge fixed on the left -->
             <div class="shrink-0 pl-4 pr-3 py-1 flex items-center gap-2 bg-slate-900 z-10 border-r border-slate-800/80 shadow-[6px_0_12px_-2px_rgba(15,23,42,0.8)]">

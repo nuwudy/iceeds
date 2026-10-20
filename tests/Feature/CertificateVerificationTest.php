@@ -35,9 +35,8 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Accredited Certifications');
         $response->assertSee('Indian Trusts Act, 1882');
         $response->assertSee('Academic Board of Studies');
-        $response->assertSee('National Skill Development Corporation');
-        $response->assertSee('Aliyar');
-        $response->assertSee('Arun Achuthan');
+        $response->assertSee('Dr. A B ALIYAR');
+        $response->assertSee('Dr. P. ARUNACHALAM');
     }
 
     public function test_can_render_about_page(): void

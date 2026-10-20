@@ -259,12 +259,24 @@
                                     <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded mb-1">
                                         {{ $mentor['designation'] ?? $mentor['role'] }}
                                     </span>
-                                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-heading truncate">{{ $mentor['name'] }}</h3>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-heading">{{ $mentor['name'] }}</h3>
+                                    <p class="text-xs font-bold font-mono text-blue-700 mt-0.5">{{ $mentor['credentials'] }}</p>
                                     <p class="text-xs font-bold text-slate-700 mt-0.5">{{ $mentor['role'] }}</p>
-                                    <p class="text-[11px] text-blue-700 font-semibold mt-0.5 truncate">{{ $mentor['affiliation'] ?? 'TEAM iCEEDS Educational Trust' }}</p>
-                                    <span class="font-mono text-[11px] text-slate-500 block mt-0.5">{{ $mentor['credentials'] }}</span>
                                 </div>
                             </div>
+
+                            @if(!empty($mentor['honors']))
+                                <div class="mb-4 p-3.5 rounded-2xl bg-white border border-slate-200">
+                                    <ul class="space-y-1.5">
+                                        @foreach($mentor['honors'] as $honor)
+                                            <li class="flex items-start gap-2 text-xs text-slate-800 leading-snug">
+                                                <span class="shrink-0 text-sm leading-none mt-0.5">🎖️</span>
+                                                <span class="font-semibold">{{ $honor }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-600 pl-4 py-1.5 bg-white rounded-r-xl">
                                 &ldquo;{{ $mentor['message'] }}&rdquo;

@@ -1145,19 +1145,30 @@
                                     <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded mb-1">
                                         {{ $mentor['designation'] ?? $mentor['role'] }}
                                     </span>
-                                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading tracking-tight truncate">
+                                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading tracking-tight">
                                         {{ $mentor['name'] }}
                                     </h3>
+                                    <p class="text-xs font-bold font-mono text-blue-700 mt-0.5">
+                                        {{ $mentor['credentials'] }}
+                                    </p>
                                     <p class="text-xs font-bold text-slate-700 mt-0.5">
                                         {{ $mentor['role'] }}
                                     </p>
-                                    <p class="text-[11px] text-blue-700 font-semibold mt-1 flex items-center gap-1">
-                                        <svg class="w-3 h-3 shrink-0 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                        <span class="truncate">{{ $mentor['affiliation'] ?? 'TEAM iCEEDS Educational Trust' }}</span>
-                                    </p>
-                                    <span class="inline-block text-[11px] font-mono text-slate-500 font-medium mt-1">{{ $mentor['credentials'] }}</span>
                                 </div>
                             </div>
+
+                            @if(!empty($mentor['honors']))
+                                <div class="mb-4 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                    <ul class="space-y-1.5">
+                                        @foreach($mentor['honors'] as $honor)
+                                            <li class="flex items-start gap-2 text-xs text-slate-800 leading-snug">
+                                                <span class="shrink-0 text-sm leading-none mt-0.5">🎖️</span>
+                                                <span class="font-semibold">{{ $honor }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-500 pl-4 py-1.5 bg-slate-50/50 rounded-r-xl">
                                 &ldquo;{{ $mentor['message'] }}&rdquo;

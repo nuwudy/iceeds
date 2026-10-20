@@ -256,38 +256,49 @@ class PageController extends Controller
 
     /**
      * Get verified Leadership & Mentors data.
-     * Updated per institutional governance requirements:
-     * Card 1: Mr. / Prof. Aliyar (Registrar)
-     * Card 2: Mr. / Prof. Arun Achuthan (Director, Board of Studies)
+     * Card 1: Dr. A B ALIYAR (Registrar, I-CEEDS)
+     * Card 2: Dr. P. ARUNACHALAM (Director, Board of Studies, I-CEEDS)
      */
     public function getMentorsData(): array
     {
         return [
             [
-                'name' => 'Mr. / Prof. Aliyar',
-                'display_name' => 'Mr. / Prof. Aliyar',
-                'title' => 'Prof. Aliyar',
-                'role' => 'Registrar',
+                'name' => 'Dr. A B ALIYAR',
+                'display_name' => 'Dr. A B ALIYAR',
+                'title' => 'Dr. A B ALIYAR',
+                'role' => 'Registrar, I-CEEDS',
                 'designation' => 'Registrar',
-                'affiliation' => 'Executive Registrar & Institutional Administration, TEAM iCEEDS',
-                'credentials' => 'Registrar & Head of Institutional Administration',
-                'attribution' => 'Registrar, TEAM iCEEDS',
+                'affiliation' => 'Registrar, I-CEEDS',
+                'credentials' => 'MA(Eco), MA(IH), MBA, PhD (CUSAT)',
+                'attribution' => 'Registrar, I-CEEDS',
+                'honors' => [
+                    'Registrar, I-CEEDS',
+                    'Member, Board of Studies, University of Calicut',
+                    'Member, Indian Economic Association',
+                    'Former Director, Kerala State Minorities Development Financial Corporation',
+                ],
                 'message' => 'Championing the philosophy that the pursuit of knowledge is a lifelong journey. With determination, hard work, and the right mindset, every learner can unlock their potential and achieve true greatness.',
-                'initials' => 'MA',
+                'initials' => 'ABA',
                 'image' => 'images/mentors/dr-a-b-aliyar.webp',
                 'department' => 'Executive Secretariat',
             ],
             [
-                'name' => 'Mr. / Prof. Arun Achuthan',
-                'display_name' => 'Mr. / Prof. Arun Achuthan',
-                'title' => 'Prof. Arun Achuthan',
-                'role' => 'Director, Board of Studies',
+                'name' => 'Dr. P. ARUNACHALAM',
+                'display_name' => 'Dr. P. ARUNACHALAM',
+                'title' => 'Dr. P. ARUNACHALAM',
+                'role' => 'Director, Board of Studies, I-CEEDS',
                 'designation' => 'Director, Board of Studies',
-                'affiliation' => 'Academic Board of Studies & Curriculum Governance, iCEEDS',
-                'credentials' => 'Director, Academic Board of Studies & Curriculum Governance',
-                'attribution' => 'Directorate of Academic Programs, TEAM iCEEDS',
+                'affiliation' => 'Director, Board of Studies, I-CEEDS',
+                'credentials' => 'MA(Eco), MPhil, PhD (CUSAT)',
+                'attribution' => 'Academic Board of Studies, I-CEEDS',
+                'honors' => [
+                    'Director, Board of Studies, I-CEEDS',
+                    'Emeritus Professor, CUSAT',
+                    'Member, Indian Economic Association',
+                    'Fellow, IIAS, Raj Bhavan, Shimla',
+                ],
                 'message' => 'Steering curriculum design, evaluation benchmarks, and industry alignment to ensure our graduates and diploma holders excel with accredited, globally relevant competencies.',
-                'initials' => 'AA',
+                'initials' => 'PA',
                 'image' => 'images/mentors/dr-p-arunachalam.webp',
                 'department' => 'Academic Board of Studies',
             ],
@@ -892,7 +903,7 @@ class PageController extends Controller
                 'direct_url' => 'https://www.facebook.com',
                 'duration' => '5:10',
                 'category' => 'Governance',
-                'description' => 'The leadership team, Prof. Aliyar (Registrar) and Prof. Arun Achuthan (Director, Board of Studies), reviewing updated curriculum benchmarks.',
+                'description' => 'The leadership team, Dr. A B Aliyar (Registrar) and Dr. P. Arunachalam (Director, Board of Studies), reviewing updated curriculum benchmarks.',
                 'tags' => ['BoardOfStudies', 'Accreditation', 'Leadership'],
                 'thumbnail' => 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
             ],

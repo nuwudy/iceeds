@@ -161,6 +161,13 @@
             animation: iceedsPulseGlow 2.5s infinite ease-in-out;
         }
 
+        /* Explainer Popover Styles for Emblems (Hover & Touch) */
+        .emblem-popover-trigger.popover-active .emblem-popover {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
         /* Dedicated Print Stylesheet */
         @media print {
             .no-print {
@@ -404,31 +411,89 @@
                     </span>
                 </div>
 
-                <!-- 10 Prominent Recognition Emblems (Enlarged) -->
+                <!-- 10 Prominent Recognition Emblems with Interactive Explainer Popovers -->
                 <div class="w-full lg:w-auto flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-2.5 md:gap-3">
                     @php
                         $emblems = [
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-hqqxuz.webp', 'title' => 'ISO 9001:2015 Accreditation Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp', 'title' => 'IAF Accreditation Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-2-wuygca.webp', 'title' => 'US Accreditation Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-3-yacox0.webp', 'title' => 'FICS Quality Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-4-qtqoqm.webp', 'title' => 'EIAC Accreditation Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp', 'title' => 'EGAC Accreditation Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-9-5p97l0.webp', 'title' => 'International Board Quality Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-10-fxjgr0.webp', 'title' => 'Academic Quality Council Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp', 'title' => 'NSDC Aligned Training Emblem'],
-                            ['url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-12-gcfvex.webp', 'title' => 'Accreditation Quality Council Emblem 10'],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-hqqxuz.webp',
+                                'title' => 'ISO 9001:2015',
+                                'desc' => 'Certifies that the organization follows the international standard for a Quality Management System (QMS), ensuring consistent delivery of quality services and customer satisfaction.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp',
+                                'title' => 'IAF (International Accreditation Forum)',
+                                'desc' => 'The global association for conformity assessment accreditation bodies. When paired with an ISO badge, it indicates that the auditing body granting the ISO certificate is recognized internationally.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-2-wuygca.webp',
+                                'title' => 'US Certification Badge',
+                                'desc' => 'A third-party compliance seal representing registration or certification under an American or international assessment board (often seen on commercial certifications for quality and business standards).'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-3-yacox0.webp',
+                                'title' => 'FICS (First International Certification System)',
+                                'desc' => 'An independent certification/auditing registrar that audits organizations and issues ISO and standard compliance certificates.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-4-qtqoqm.webp',
+                                'title' => 'EIAC (Emirates International Accreditation Centre)',
+                                'desc' => 'The national accreditation body of the United Arab Emirates (based in Dubai), granting official accreditation to certification bodies and training testing systems worldwide.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp',
+                                'title' => 'EGAC (Egyptian Accreditation Council - المجلس الوطني للاعتماد)',
+                                'desc' => 'The official national accreditation body of Egypt, recognized internationally under IAF and ILAC multi-lateral recognition agreements.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-9-5p97l0.webp',
+                                'title' => 'Heraldic Crest / UK-style Academic Coat of Arms',
+                                'desc' => 'A traditional institutional crest commonly used by UK-affiliated academic bodies, awarding organisations, or heritage collegiate bodies to indicate an educational partnership or UK curriculum alignment.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-10-fxjgr0.webp',
+                                'title' => 'Accredited Body / Quality Seal',
+                                'desc' => 'A formal guarantee/security seal symbolizing verified accreditation, authenticity, or standard verification from a certifying agency.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp',
+                                'title' => 'NSDC (National Skill Development Corporation)',
+                                'desc' => 'A public-private partnership under India’s Ministry of Skill Development & Entrepreneurship (MSDE) that facilitates and funds vocational training and skill programs in India.'
+                            ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-12-gcfvex.webp',
+                                'title' => 'Skill India (कौशल भारत - कुशल भारत)',
+                                'desc' => 'The flagship campaign launched by the Government of India to provide industry-relevant vocational training and certification to Indian youth.'
+                            ],
                         ];
                     @endphp
 
                     @foreach($emblems as $emblem)
-                        <div class="h-11 sm:h-12 md:h-13 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-400/80 hover:scale-105 transition-all duration-200 flex items-center justify-center shrink-0">
-                            <img 
-                                src="{{ $emblem['url'] }}" 
-                                alt="{{ $emblem['title'] }}" 
-                                loading="lazy" 
-                                class="h-8 sm:h-9 md:h-10 w-auto max-w-[85px] sm:max-w-[95px] md:max-w-[105px] object-contain"
-                            >
+                        <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
+                            <!-- Emblem Box -->
+                            <div class="h-11 sm:h-12 md:h-13 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400/80 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
+                                <img 
+                                    src="{{ $emblem['url'] }}" 
+                                    alt="{{ $emblem['title'] }}" 
+                                    loading="lazy" 
+                                    class="h-8 sm:h-9 md:h-10 w-auto max-w-[85px] sm:max-w-[95px] md:max-w-[105px] object-contain pointer-events-none"
+                                >
+                            </div>
+
+                            <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-50 top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                                <!-- Top Pointer Arrow -->
+                                <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none"></div>
+
+                                <div class="relative z-10 space-y-1">
+                                    <h5 class="font-extrabold text-sky-400 text-xs sm:text-[13px] font-heading leading-tight tracking-tight">
+                                        {{ $emblem['title'] }}
+                                    </h5>
+                                    <p class="text-slate-300 text-[11px] leading-relaxed">
+                                        {{ $emblem['desc'] }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -772,6 +837,58 @@
 
             // Safety timeout: always dismiss within 1500ms max so visitor is never blocked
             setTimeout(dismissPreloader, 1500);
+        })();
+    </script>
+
+    <!-- Emblems Touch / Hover Explainer Popover Handler -->
+    <script>
+        (function() {
+            const triggers = document.querySelectorAll('.emblem-popover-trigger');
+            if (!triggers.length) return;
+
+            function positionPopover(popover) {
+                if (!popover) return;
+                // Reset styles to compute natural geometry
+                popover.style.left = '50%';
+                popover.style.right = 'auto';
+                popover.style.transform = 'translateX(-50%)';
+
+                const rect = popover.getBoundingClientRect();
+                const padding = 12;
+
+                if (rect.right > window.innerWidth - padding) {
+                    popover.style.left = 'auto';
+                    popover.style.right = '0';
+                    popover.style.transform = 'none';
+                } else if (rect.left < padding) {
+                    popover.style.left = '0';
+                    popover.style.right = 'auto';
+                    popover.style.transform = 'none';
+                }
+            }
+
+            triggers.forEach(trigger => {
+                const popover = trigger.querySelector('.emblem-popover');
+                
+                trigger.addEventListener('mouseenter', () => {
+                    positionPopover(popover);
+                });
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wasActive = trigger.classList.contains('popover-active');
+                    triggers.forEach(t => t.classList.remove('popover-active'));
+                    if (!wasActive) {
+                        trigger.classList.add('popover-active');
+                        positionPopover(popover);
+                    }
+                });
+            });
+
+            // Dismiss when touching/clicking anywhere outside
+            document.addEventListener('click', () => {
+                triggers.forEach(t => t.classList.remove('popover-active'));
+            });
         })();
     </script>
 

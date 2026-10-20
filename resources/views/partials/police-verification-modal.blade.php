@@ -79,10 +79,10 @@
         <!-- ================================================================= -->
         <div id="modalScrollBody" class="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 bg-slate-100 select-text">
             
-            <!-- VIEW 1: ORIGINAL MALAYALAM SCANNED DOCUMENT -->
-            <div id="viewOriginal" class="space-y-4 max-w-3xl mx-auto">
+            <!-- VIEW 1: ORIGINAL MALAYALAM SCANNED DOCUMENT & OFFICIAL PDF -->
+            <div id="viewOriginal" class="space-y-4 max-w-4xl mx-auto">
                 <!-- Translation Quick Toggle Pill -->
-                <div class="flex items-center justify-between bg-blue-50 border border-blue-200 p-3 rounded-2xl">
+                <div class="flex flex-wrap items-center justify-between gap-2 bg-blue-50 border border-blue-200 p-3 rounded-2xl">
                     <span class="text-xs text-blue-900 font-medium">Viewing official signed police enquiry report in Malayalam.</span>
                     <button 
                         type="button" 
@@ -93,15 +93,32 @@
                     </button>
                 </div>
 
-                <!-- Document Image Preview Container (Zoomable) -->
-                <div class="flex justify-center bg-white p-2 sm:p-4 rounded-2xl shadow-md border border-slate-300">
-                    <div id="modalZoomWrapperOriginal" class="transition-transform duration-200 ease-out origin-top flex justify-center max-w-full">
-                        <img 
-                            src="{{ asset('images/verification/kerala-police-original.jpg') }}" 
-                            alt="Official Kerala Police Verification Report - Original Scanned Copy" 
-                            class="max-w-full h-auto rounded-lg shadow-sm border border-slate-200"
-                        >
+                <!-- PDF Viewer & High-Resolution Display Container -->
+                <div class="space-y-3">
+                    <div class="bg-white rounded-2xl shadow-md border border-slate-300 overflow-hidden">
+                        <iframe 
+                            id="policePdfIframe"
+                            src="{{ asset('storage/media/2026/10/police-report-i-ceeds-1-oeew2l.pdf') }}#toolbar=0&navpanes=0" 
+                            class="w-full h-[72vh] min-h-[540px] border-0 block"
+                            title="Official Kerala Police Verification Report (PDF)"
+                        ></iframe>
                     </div>
+
+                    <!-- Alternate High-Resolution Scanned Image View -->
+                    <details class="bg-white rounded-2xl border border-slate-300 p-3 text-xs text-slate-700 shadow-xs">
+                        <summary class="font-bold text-blue-700 hover:text-blue-900 cursor-pointer select-none">
+                            Click here to view high-resolution zoomable scanned copy image
+                        </summary>
+                        <div class="mt-3 pt-3 border-t border-slate-200 flex justify-center">
+                            <div id="modalZoomWrapperOriginal" class="transition-transform duration-200 ease-out origin-top flex justify-center max-w-full">
+                                <img 
+                                    src="{{ asset('images/verification/kerala-police-original.jpg') }}?v=20261021v2" 
+                                    alt="Official Kerala Police Verification Report - Original Scanned Copy" 
+                                    class="max-w-full h-auto rounded-lg shadow-sm border border-slate-200"
+                                >
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </div>
 
@@ -145,7 +162,7 @@
                     <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-xs">
                         <div>
                             <span class="font-bold text-slate-500 uppercase">To:</span>
-                            <span class="font-bold text-slate-900 ml-1">Navas K.M., 52/26, S/o Ali, Kuzhikkadavil House, Uliyannoor PO, Aluva, Ernakulam. (Ph: 8590093535)</span>
+                            <span class="font-bold text-slate-900 ml-1">Petitioner (Confidential / Redacted for Privacy in Official Release)</span>
                         </div>
                         <div>
                             <span class="font-bold text-slate-500 uppercase">Subject:</span>
@@ -239,7 +256,7 @@
                         Original Document (Scanned Copy)
                     </span>
                     <img 
-                        src="{{ asset('images/verification/kerala-police-original.jpg') }}" 
+                        src="{{ asset('images/verification/kerala-police-original.jpg') }}?v=20261021v2" 
                         alt="Original Scanned Copy" 
                         class="w-full h-auto rounded-lg"
                     >

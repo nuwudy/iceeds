@@ -48,9 +48,8 @@
 
       <line x1="0" y1="42" x2="670" y2="42" stroke="#e2e8f0" stroke-width="1"/>
 
-      <!-- Subject & Reference -->
       <text x="0" y="58" font-weight="bold" fill="#64748b">RECIPIENT:</text>
-      <text x="90" y="58" fill="#0f172a">Navas K.M., 52/26, S/o Ali, Kuzhikkadavil House, Uliyannoor PO, Aluva, Ernakulam. Ph: 8590093535</text>
+      <text x="90" y="58" fill="#0f172a">To the Petitioner (Official Release &bull; Redacted for Privacy)</text>
 
       <text x="0" y="78" font-weight="bold" fill="#64748b">SUBJECT:</text>
       <text x="90" y="78" font-weight="bold" fill="#0f172a">Regarding the petition submitted by you before the Hon'ble Chief Minister of Kerala State.</text>

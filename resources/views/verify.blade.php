@@ -6,7 +6,7 @@ Verified: {{ $certificate->student_name }} ({{ $certificate->certificate_code }}
 @elseif(isset($searched) && $searched)
 Credential Verification Not Found - iCEEDS
 @else
-Official Certificate Verification Portal - iCEEDS
+Certificate Verification - iCEEDS Central Academic Repository
 @endif
 @endsection
 
@@ -45,7 +45,7 @@ Official Certificate Verification Portal - iCEEDS
 @endpush
 
 @section('content')
-    <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
         <!-- Hero & Search Input Section (Hidden in print) -->
         <section class="no-print mb-10">
@@ -57,7 +57,7 @@ Official Certificate Verification Portal - iCEEDS
                     Authentic Academic Records
                 </div>
                 <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight font-heading">
-                    Verify Student Credentials
+                    Certificate Verification
                 </h1>
                 <p class="mt-3 text-base text-slate-600 leading-relaxed">
                     Verify diplomas, certificates, and accredited training credentials issued by <strong class="font-semibold text-slate-800">iCEEDS</strong> in real time.
@@ -380,6 +380,9 @@ Official Certificate Verification Portal - iCEEDS
                 </div>
             </div>
         @endif
+
+        <!-- Dedicated Police Verification Report Showcase Sub-Section -->
+        @include('partials.police-verification')
 
     </div>
 @endsection

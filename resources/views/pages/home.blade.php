@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'iCEEDS | Official Portal - Accredited Certifications & Skill Development')
-@section('meta_description', 'Welcome to iCEEDS, an autonomous body registered under the Government of India providing ISO-accredited skill development programs and certificate verification.')
+@section('meta_description', 'Welcome to iCEEDS, a self-governing educational trust registered under the Indian Trusts Act, 1882, providing ISO-accredited skill development programs and certificate verification.')
 
 @section('content')
 
@@ -119,7 +119,7 @@
                                         Please double-check the serial number formatting (e.g. <code class="font-mono font-bold text-slate-800">EDP/TVM24/DCP/065</code>) or visit our dedicated verification page.
                                     </p>
                                     <div class="mt-4 flex gap-3">
-                                        <a href="{{ route('verify') }}" class="text-xs font-semibold text-blue-700 hover:underline">Go to Verification Portal &rarr;</a>
+                                        <a href="{{ route('verify') }}" class="text-xs font-semibold text-blue-700 hover:underline">Go to Certificate Verification &rarr;</a>
                                         <a href="{{ route('home') }}" class="text-xs font-medium text-slate-500 hover:underline">Clear Search</a>
                                     </div>
                                 </div>
@@ -133,14 +133,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 <!-- Left: Headline & Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <!-- Institutional Badge -->
+                    <!-- Institutional Trust Legal Badge -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-blue-300 text-xs font-bold uppercase tracking-wider shadow-lg flex-wrap justify-center lg:justify-start">
                         <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
-                        <span class="text-slate-200">Autonomous Body Registered Under the Govt. of India</span>
+                        <span class="text-white font-semibold">A Self-Governing Educational Trust</span>
                         <span class="text-slate-500 hidden sm:inline">&bull;</span>
-                        <span class="text-emerald-400">Indian Trusts Act, 1882</span>
+                        <span class="text-emerald-400">Registered under the Indian Trusts Act, 1882</span>
                     </div>
 
                     <!-- Main Headline -->
@@ -151,19 +151,19 @@
                     <!-- Verified Subtitle with Glassmorphic Underlay for 100% Readability -->
                     <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-800 shadow-xl max-w-2xl mx-auto lg:mx-0">
                         <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
-                            <strong class="text-white">iCEEDS</strong> (<em class="text-slate-300">Innovation Council for Exquisite Education &amp; Development of Skills</em>) is a self-governing educational organization established under the <strong class="text-emerald-300">Indian Trusts Act, 1882</strong>. As an independent skill development and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong class="text-blue-300">Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating certification support aligned with the <strong class="text-amber-300">National Skill Development Corporation (NSDC)</strong> under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                            <strong class="text-white">iCEEDS</strong> (<em class="text-slate-300">Innovation Council for Exquisite Education &amp; Development of Skills</em>) is <strong class="text-white">A Self-Governing Educational Trust</strong> registered under the <strong class="text-emerald-300">Indian Trusts Act, 1882</strong>. As an independent skill development and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong class="text-blue-300">Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating certification support aligned with the <strong class="text-amber-300">National Skill Development Corporation (NSDC)</strong> under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
                         </p>
                     </div>
 
                     <!-- CTAs -->
                     <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
-                        <a href="{{ route('services') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-150 cursor-pointer">
-                            <span>Explore Our Services</span>
+                        <a href="{{ route('courses') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-150 cursor-pointer">
+                            <span>Browse Courses &amp; Syllabi</span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </a>
                         <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-slate-900 bg-white hover:bg-slate-100 shadow-md transition-all duration-150 cursor-pointer">
                             <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            <span>Verify Certificate</span>
+                            <span>Certificate Verification</span>
                         </a>
                         <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-300 hover:text-white transition">
                             <span>Know More &rarr;</span>
@@ -391,7 +391,7 @@
                             [
                                 'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-decbwr.webp',
                                 'title' => 'National Trust Credentials',
-                                'tag' => 'Autonomous Body',
+                                'tag' => 'Self-Governing Trust',
                                 'desc' => 'Empowering youth under the Indian Trusts Act, 1882.'
                             ]
                         ];
@@ -937,44 +937,77 @@
         </div>
     </section>
 
-    <!-- LEADERSHIP & MENTORS SECTION -->
+    <!-- POLICE VERIFICATION REPORT & CLEARANCE SHOWCASE -->
+    <div class="py-12 bg-white border-b border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            @include('partials.police-verification')
+        </div>
+    </div>
+
+    <!-- LEADERSHIP & ADMINISTRATION TEAM SECTION -->
     <section class="py-16 sm:py-24 bg-portal-gradient border-b border-slate-200/70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">Academic Directorate</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">Leadership & Mentors</h2>
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">Executive Governance</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">Leadership &amp; Administration Team</h2>
                 <p class="mt-3 text-sm text-slate-600">
-                    Guided by distinguished academic luminaries dedicated to global benchmarks of excellence.
+                    Distinguished academic authorities and executive leaders guiding the institutional standards, curricula, and credential governance of iCEEDS.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 @foreach($mentors as $mentor)
-                    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md shadow-slate-200/40 relative flex flex-col justify-between">
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-lg shadow-slate-200/40 relative flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all duration-300">
                         <div>
-                            <div class="flex items-center gap-4 mb-5">
-                                <div class="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-md shrink-0 bg-slate-100">
-                                    @if(!empty($mentor['image']))
-                                        <img src="{{ asset($mentor['image']) }}" alt="{{ $mentor['name'] }}" class="w-full h-full object-cover object-top">
-                                    @else
-                                        <div class="w-full h-full bg-gradient-to-tr from-slate-900 to-blue-900 text-white font-heading font-black text-xl flex items-center justify-center">
-                                            {{ $mentor['initials'] }}
+                            <div class="flex items-start gap-5 mb-5">
+                                <!-- Designated Profile Photo Frame with Luxury Double Ring & Status Badge -->
+                                <div class="relative shrink-0">
+                                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 bg-gradient-to-tr from-blue-600 via-sky-400 to-emerald-400 shadow-md">
+                                        <div class="w-full h-full rounded-[14px] overflow-hidden bg-slate-100 border border-white">
+                                            @if(!empty($mentor['image']))
+                                                <img src="{{ asset($mentor['image']) }}" alt="{{ $mentor['name'] }}" class="w-full h-full object-cover object-top">
+                                            @else
+                                                <div class="w-full h-full bg-gradient-to-tr from-slate-900 to-blue-900 text-white font-heading font-black text-2xl flex items-center justify-center">
+                                                    {{ $mentor['initials'] }}
+                                                </div>
+                                            @endif
                                         </div>
-                                    @endif
+                                    </div>
+                                    <!-- Verified Badge on Frame -->
+                                    <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white text-white flex items-center justify-center shadow-xs" title="Official Executive">
+                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="text-xl font-extrabold text-slate-900 font-heading">{{ $mentor['name'] }}</h3>
-                                    <p class="text-xs font-bold text-blue-700">{{ $mentor['role'] }}</p>
-                                    <span class="inline-block text-[11px] font-mono text-slate-500 font-medium mt-0.5">{{ $mentor['credentials'] }}</span>
+
+                                <!-- Title, Designation & Affiliation -->
+                                <div class="flex-1 min-w-0">
+                                    <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded mb-1">
+                                        {{ $mentor['designation'] ?? $mentor['role'] }}
+                                    </span>
+                                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading tracking-tight truncate">
+                                        {{ $mentor['name'] }}
+                                    </h3>
+                                    <p class="text-xs font-bold text-slate-700 mt-0.5">
+                                        {{ $mentor['role'] }}
+                                    </p>
+                                    <p class="text-[11px] text-blue-700 font-semibold mt-1 flex items-center gap-1">
+                                        <svg class="w-3 h-3 shrink-0 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                        <span class="truncate">{{ $mentor['affiliation'] ?? 'TEAM iCEEDS Educational Trust' }}</span>
+                                    </p>
+                                    <span class="inline-block text-[11px] font-mono text-slate-500 font-medium mt-1">{{ $mentor['credentials'] }}</span>
                                 </div>
                             </div>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-500 pl-4 py-1">
+
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-500 pl-4 py-1.5 bg-slate-50/50 rounded-r-xl">
                                 &ldquo;{{ $mentor['message'] }}&rdquo;
                             </p>
                         </div>
+
                         <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-                            <span class="font-medium">Attributed to: <strong class="text-slate-700">{{ $mentor['attribution'] }}</strong></span>
-                            <span class="font-mono text-[11px]">iCEEDS Directorate</span>
+                            <span class="font-medium">Designation: <strong class="text-slate-800">{{ $mentor['designation'] ?? $mentor['role'] }}</strong></span>
+                            <span class="font-mono text-[11px] text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded">iCEEDS Directorate</span>
                         </div>
                     </div>
                 @endforeach

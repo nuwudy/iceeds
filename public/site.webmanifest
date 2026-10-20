@@ -1,7 +1,7 @@
 {
   "name": "iCEEDS - Accredited Certifications & Central Academic Repository",
   "short_name": "iCEEDS",
-  "description": "Autonomous educational body registered under the Government of India providing ISO-accredited skill development programs and certificate verification.",
+  "description": "A Self-Governing Educational Trust registered under the Indian Trusts Act, 1882, providing ISO-accredited skill development programs and certificate verification.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",

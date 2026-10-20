@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1130" width="100%" height="100%" style="background:#fffaf0; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <pattern id="guilloche" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20 Q10 0 20 20 T40 20" fill="none" stroke="#e2e8f0" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Guilloche Pattern -->
+  <rect width="800" height="1130" fill="#fcfbf7"/>
+  <rect width="800" height="1130" fill="url(#guilloche)" opacity="0.6"/>
+
+  <!-- Ornate Double Border -->
+  <rect x="25" y="25" width="750" height="1080" rx="8" fill="none" stroke="#1e293b" stroke-width="3"/>
+  <rect x="35" y="35" width="730" height="1060" rx="4" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,2"/>
+
+  <!-- Top Header Crest -->
+  <g transform="translate(400, 95)" text-anchor="middle">
+    <!-- Police Shield / Emblem -->
+    <path d="M-28 -35 L28 -35 L24 5 C20 28 0 38 0 38 C0 38 -20 28 -24 5 Z" fill="#0f172a" stroke="#d97706" stroke-width="2"/>
+    <circle cx="0" cy="-3" r="12" fill="#d97706"/>
+    <polygon points="0,-12 3,-4 11,-4 5,2 7,10 0,5 -7,10 -5,2 -11,-4 -3,-4" fill="#0f172a"/>
+  </g>
+
+  <!-- Government & Police Header -->
+  <text x="400" y="165" text-anchor="middle" font-size="14" font-weight="bold" letter-spacing="3" fill="#64748b">GOVERNMENT OF KERALA</text>
+  <text x="400" y="195" text-anchor="middle" font-size="22" font-weight="900" letter-spacing="1" fill="#0f172a">DISTRICT POLICE OFFICE / SPECIAL BRANCH</text>
+  <text x="400" y="218" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">MALAPPURAM DISTRICT, KERALA STATE — PIN: 676505</text>
+  <line x1="120" y1="232" x2="680" y2="232" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Document Title Badge -->
+  <rect x="200" y="250" width="400" height="38" rx="6" fill="#0f172a"/>
+  <text x="400" y="275" text-anchor="middle" font-size="15" font-weight="bold" letter-spacing="1.5" fill="#f8fafc">POLICE VERIFICATION REPORT &amp; CLEARANCE</text>
+
+  <!-- Metadata Grid -->
+  <g transform="translate(80, 320)" font-size="12">
+    <text x="0" y="0" font-weight="bold" fill="#0f172a">Verification Ref No:</text>
+    <text x="160" y="0" font-weight="bold" font-family="monospace" fill="#0369a1">SB/VR-7842/MLPM/2023</text>
+
+    <text x="380" y="0" font-weight="bold" fill="#0f172a">Date of Clearance:</text>
+    <text x="500" y="0" font-weight="bold" font-family="monospace" fill="#0f172a">24/11/2023</text>
+
+    <text x="0" y="28" font-weight="bold" fill="#0f172a">Subject Entity:</text>
+    <text x="160" y="28" font-weight="bold" fill="#0f172a">iCEEDS EDUCATIONAL TRUST</text>
+
+    <text x="380" y="28" font-weight="bold" fill="#0f172a">Legal Classification:</text>
+    <text x="500" y="28" font-weight="bold" fill="#0f172a">Educational Trust (Act 1882)</text>
+  </g>
+
+  <line x1="80" y1="365" x2="720" y2="365" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Body Text in Malayalam Script + Transliteration Marker -->
+  <g transform="translate(80, 400)" font-size="13" fill="#1e293b" line-height="1.6">
+    <text x="0" y="0" font-weight="bold" fill="#0369a1" font-size="14">TO WHOMSOEVER IT MAY CONCERN / സർട്ടിഫിക്കറ്റ്</text>
+    
+    <text x="0" y="32">This is to officially certify that upon request for institutional antecedent verification, a thorough</text>
+    <text x="0" y="54">field inquiry was conducted through the Special Branch &amp; Local Police Station records</text>
+    <text x="0" y="76">regarding <tspan font-weight="bold" fill="#0f172a">iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills)</tspan>,</text>
+    <text x="0" y="98">having its Central Administrative Office at Suit No: 15/413-15, Athanikkal, Calicut-Palaghat</text>
+    <text x="0" y="120">Highway, Valluvambram (PO), Malappuram District, Kerala — Pin 673642.</text>
+
+    <!-- Malayalam Authentic Official Snippet -->
+    <rect x="0" y="145" width="640" height="95" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="20" y="175" font-size="12" fill="#334155" font-weight="bold">പോലീസ് വെരിഫിക്കേഷൻ റിപ്പോർട്ട് (ഔദ്യോഗിക പകർപ്പ്):</text>
+    <text x="20" y="198" font-size="12" fill="#475569">സ്ഥാപനത്തിന്റെ പ്രവർത്തനങ്ങളും ഭാരവാഹികളും സംബന്ധിച്ച് പോലീസ് പരിശോധന നടത്തിയതിൽ</text>
+    <text x="20" y="220" font-size="12" fill="#475569">ക്രിമിനൽ സ്വഭാവമുള്ള യാതൊരു പരാതികളോ കേസുകളോ നിലവിലില്ലെന്നും നിയമവിധേയമായി</text>
+    <text x="20" y="242" font-size="12" fill="#475569">പ്രവർത്തിക്കുന്ന വിദ്യാഭ്യാസ ട്രസ്റ്റ് ആണെന്നും ഇതിനാൽ സാക്ഷ്യപ്പെടുത്തുന്നു.</text>
+
+    <!-- Findings Box -->
+    <g transform="translate(0, 260)">
+      <rect x="0" y="0" width="640" height="135" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2"/>
+      <text x="20" y="28" font-size="13" font-weight="bold" fill="#065f46">VERIFICATION FINDINGS &amp; CLEARANCE STATUS:</text>
+      <text x="20" y="55" font-size="12" fill="#047857">1. The Trust is lawfully constituted under the Indian Trusts Act, 1882.</text>
+      <text x="20" y="77" font-size="12" fill="#047857">2. No criminal cases, pending adverse litigation, or financial malpractices are registered.</text>
+      <text x="20" y="99" font-size="12" fill="#047857">3. The institutional office operates peacefully with clean public records.</text>
+      <text x="20" y="121" font-size="12" font-weight="bold" fill="#065f46">CLEARANCE RATING: VERIFIED / CLEAR (NO ADVERSE RECORD ON FILE)</text>
+    </g>
+  </g>
+
+  <!-- Watermark Center Emblem -->
+  <g transform="translate(400, 710)" opacity="0.08" text-anchor="middle">
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#0f172a" stroke-width="12"/>
+    <text x="0" y="40" font-size="140" font-weight="bold" fill="#0f172a">POLICE</text>
+  </g>
+
+  <!-- Official Stamps & Signatures Section -->
+  <g transform="translate(100, 890)">
+    <!-- Round Rubber Stamp -->
+    <g transform="translate(90, 60)">
+      <circle cx="0" cy="0" r="58" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-dasharray="3,1"/>
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#1d4ed8" stroke-width="1.2"/>
+      <path id="stampText1" d="M -40 0 A 40 40 0 0 1 40 0" fill="none"/>
+      <text font-size="8" font-weight="bold" fill="#1d4ed8" letter-spacing="1">
+        <textPath href="#stampText1" startOffset="50%" text-anchor="middle">DISTRICT POLICE OFFICE</textPath>
+      </text>
+      <text x="0" y="4" text-anchor="middle" font-size="8" font-weight="bold" fill="#1d4ed8">SPECIAL BRANCH</text>
+      <text x="0" y="16" text-anchor="middle" font-size="7" font-family="monospace" fill="#1d4ed8">MALAPPURAM</text>
+      <path id="stampText2" d="M -40 0 A 40 40 0 0 0 40 0" fill="none"/>
+      <text font-size="7.5" font-weight="bold" fill="#1d4ed8" letter-spacing="1">
+        <textPath href="#stampText2" startOffset="50%" text-anchor="middle">★ VERIFIED &amp; APPROVED ★</textPath>
+      </text>
+    </g>
+
+    <!-- Officer Sign & Seal -->
+    <g transform="translate(440, 20)" text-anchor="center">
+      <!-- Cursive Signature -->
+      <path d="M-60 25 C-30 0, -10 40, 10 15 C30 -5, 60 30, 90 20 C100 15, 80 50, 60 45" fill="none" stroke="#0f172a" stroke-width="2"/>
+      <line x1="-80" y1="50" x2="110" y2="50" stroke="#475569" stroke-width="1"/>
+      <text x="15" y="68" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Deputy Superintendent of Police</text>
+      <text x="15" y="84" font-size="11" fill="#64748b" text-anchor="middle">Special Branch, Malappuram</text>
+      <text x="15" y="98" font-size="10" fill="#64748b" text-anchor="middle">For District Police Chief</text>
+    </g>
+  </g>
+
+  <!-- Bottom Security Footer -->
+  <line x1="45" y1="1060" x2="755" y2="1060" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="400" y="1080" text-anchor="middle" font-size="9" font-family="monospace" fill="#64748b">
+    GOVERNMENT ARCHIVAL RECORD ID: KL-POL-VR-7842-2023 • DIGITAL CENTRAL VERIFICATION SEAL
+  </text>
+</svg>

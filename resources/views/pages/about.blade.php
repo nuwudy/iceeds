@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About iCEEDS | Institutional Story, Governance & Vision')
-@section('meta_description', 'Learn about iCEEDS, an autonomous body registered under the Government of India dedicated to excellence in skill development and accredited education.')
+@section('meta_description', 'Learn about iCEEDS, a self-governing educational trust registered under the Indian Trusts Act, 1882, dedicated to excellence in skill development and accredited education.')
 
 @section('content')
 
@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/70 via-slate-950 to-slate-900 opacity-90 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
             <span class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full mb-3">
-                Self-Governing Educational Organization &bull; Indian Trusts Act, 1882
+                A Self-Governing Educational Trust &bull; Indian Trusts Act, 1882
             </span>
             <h1 class="text-4xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
                 About iCEEDS
@@ -152,7 +152,7 @@
                         <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">02</span>
                         <div>
                             <h3 class="text-xl font-bold font-heading text-white">National Registrations &amp; Government Recognitions</h3>
-                            <p class="text-xs text-slate-400">Statutory establishment under Government of India</p>
+                            <p class="text-xs text-slate-400">Registered Educational Trust (Indian Trusts Act, 1882)</p>
                         </div>
                     </div>
 
@@ -223,38 +223,56 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-14">
                 <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">Institutional Governance</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">Leadership & Mentors</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">Leadership &amp; Administration Team</h2>
                 <p class="mt-3 text-sm text-slate-600">
-                    Guiding our academic standards, national accreditation, and student outcomes.
+                    Guiding our academic standards, curriculum governance, national accreditation, and student outcomes.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 @foreach($mentors as $mentor)
-                    <div class="bg-slate-50/70 rounded-3xl p-8 border border-slate-200/90 shadow-xs flex flex-col justify-between">
+                    <div class="bg-slate-50/80 rounded-3xl p-8 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-md shrink-0 bg-slate-100">
-                                    @if(!empty($mentor['image']))
-                                        <img src="{{ asset($mentor['image']) }}" alt="{{ $mentor['name'] }}" class="w-full h-full object-cover object-top">
-                                    @else
-                                        <div class="w-full h-full bg-slate-900 text-white font-heading font-black text-lg flex items-center justify-center">
-                                            {{ $mentor['initials'] }}
+                            <div class="flex items-start gap-4 mb-4">
+                                <!-- Designated Profile Photo Frame with Luxury Accent Ring & Verified Badge -->
+                                <div class="relative shrink-0">
+                                    <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl p-1 bg-gradient-to-tr from-blue-600 via-sky-400 to-emerald-400 shadow-sm">
+                                        <div class="w-full h-full rounded-[14px] overflow-hidden bg-slate-100 border border-white">
+                                            @if(!empty($mentor['image']))
+                                                <img src="{{ asset($mentor['image']) }}" alt="{{ $mentor['name'] }}" class="w-full h-full object-cover object-top">
+                                            @else
+                                                <div class="w-full h-full bg-slate-900 text-white font-heading font-black text-xl flex items-center justify-center">
+                                                    {{ $mentor['initials'] }}
+                                                </div>
+                                            @endif
                                         </div>
-                                    @endif
+                                    </div>
+                                    <!-- Status Badge -->
+                                    <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white text-white flex items-center justify-center shadow-xs">
+                                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-slate-900 font-heading">{{ $mentor['name'] }}</h3>
-                                    <p class="text-xs font-bold text-blue-700">{{ $mentor['role'] }}</p>
-                                    <span class="font-mono text-[11px] text-slate-500 block">{{ $mentor['credentials'] }}</span>
+
+                                <div class="flex-1 min-w-0">
+                                    <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded mb-1">
+                                        {{ $mentor['designation'] ?? $mentor['role'] }}
+                                    </span>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-heading truncate">{{ $mentor['name'] }}</h3>
+                                    <p class="text-xs font-bold text-slate-700 mt-0.5">{{ $mentor['role'] }}</p>
+                                    <p class="text-[11px] text-blue-700 font-semibold mt-0.5 truncate">{{ $mentor['affiliation'] ?? 'TEAM iCEEDS Educational Trust' }}</p>
+                                    <span class="font-mono text-[11px] text-slate-500 block mt-0.5">{{ $mentor['credentials'] }}</span>
                                 </div>
                             </div>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-600 pl-4 py-1">
+
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-blue-600 pl-4 py-1.5 bg-white rounded-r-xl">
                                 &ldquo;{{ $mentor['message'] }}&rdquo;
                             </p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-400">
-                            Attributed to: <strong class="text-slate-700">{{ $mentor['attribution'] }}</strong>
+                        <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-400">
+                            <span>Designation: <strong class="text-slate-800">{{ $mentor['designation'] ?? $mentor['role'] }}</strong></span>
+                            <span class="font-mono text-[11px] text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded">iCEEDS Governance</span>
                         </div>
                     </div>
                 @endforeach

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1130" width="100%" height="100%" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+  <defs>
+    <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f1f5f9" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="1130" fill="#ffffff"/>
+  <rect width="800" height="1130" fill="url(#gridPattern)" opacity="0.6"/>
+
+  <!-- Official Border with Corner Ornaments -->
+  <rect x="25" y="25" width="750" height="1080" rx="8" fill="none" stroke="#047857" stroke-width="2.5"/>
+  <rect x="33" y="33" width="734" height="1064" rx="4" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Top Notarial / Legal Bar -->
+  <g transform="translate(400, 75)" text-anchor="middle">
+    <rect x="-240" y="-18" width="480" height="36" rx="18" fill="#065f46"/>
+    <text x="0" y="5" font-size="12" font-weight="bold" fill="#ffffff" letter-spacing="2">CERTIFIED TRUE ENGLISH TRANSLATION</text>
+  </g>
+
+  <!-- Legal Header -->
+  <text x="400" y="145" text-anchor="middle" font-size="13" font-weight="bold" letter-spacing="3" fill="#64748b">OFFICE OF THE SWORN TRANSLATOR &amp; NOTARY PUBLIC</text>
+  <text x="400" y="172" text-anchor="middle" font-size="20" font-weight="900" fill="#0f172a">GOVERNMENT OF INDIA LEGAL ATTESTATION DESK</text>
+  <text x="400" y="194" text-anchor="middle" font-size="12" font-weight="600" fill="#059669">ADVOCATE &amp; NOTARY (APPOINTED UNDER NOTARIES ACT, 1952)</text>
+  <line x1="100" y1="210" x2="700" y2="210" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Certificate of Translation Statement -->
+  <rect x="70" y="230" width="660" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="90" y="256" font-size="12" font-weight="bold" fill="#0f172a">SWORN TRANSLATION CERTIFICATE NO: <tspan font-family="monospace" fill="#047857">NOTARY/ENG-TRANS/2023/ICEEDS-7842</tspan></text>
+  <text x="90" y="280" font-size="11.5" fill="#475569">
+    I hereby certify that the following is an exact, true, and authentic English translation of the Original
+    Police Verification Report issued in Malayalam by the District Police Office, Malappuram (Kerala).
+  </text>
+
+  <!-- Body Container: English Translation Content -->
+  <g transform="translate(70, 325)">
+    <!-- Boxed Translation of the Police Report -->
+    <rect x="0" y="0" width="660" height="480" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+    <rect x="0" y="0" width="660" height="42" rx="8" fill="#0f172a"/>
+    <text x="25" y="26" font-size="13" font-weight="bold" fill="#f8fafc" letter-spacing="1">
+      OFFICIAL TEXT TRANSLATION: POLICE VERIFICATION REPORT
+    </text>
+
+    <g transform="translate(25, 65)" font-size="12" fill="#1e293b" line-height="1.6">
+      <text x="0" y="0" font-weight="bold" fill="#64748b">ORIGINAL ISSUING AUTHORITY:</text>
+      <text x="230" y="0" font-weight="bold" fill="#0f172a">Special Branch, District Police Office, Malappuram</text>
+
+      <text x="0" y="26" font-weight="bold" fill="#64748b">ORIGINAL REPORT DATE:</text>
+      <text x="230" y="26" font-weight="bold" fill="#0f172a">November 24, 2023 (24/11/2023)</text>
+
+      <text x="0" y="52" font-weight="bold" fill="#64748b">INSTITUTION EXAMINED:</text>
+      <text x="230" y="52" font-weight="bold" fill="#0f172a">iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills)</text>
+
+      <text x="0" y="78" font-weight="bold" fill="#64748b">REGISTERED ADDRESS:</text>
+      <text x="230" y="78" fill="#334155">Suit No: 15/413-15, Athanikkal, Calicut-Palaghat Highway,</text>
+      <text x="230" y="98" fill="#334155">Valluvambram (PO), Malappuram, Kerala State, PIN: 673642</text>
+
+      <line x1="0" y1="120" x2="610" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+
+      <!-- Translation Clauses -->
+      <text x="0" y="145" font-weight="bold" font-size="13" fill="#065f46">CERTIFIED ENGLISH TEXT:</text>
+
+      <text x="0" y="175" fill="#1e293b">
+        &quot;1. Pursuant to the statutory verification request submitted regarding the status and antecedents
+      </text>
+      <text x="0" y="196" fill="#1e293b">
+        of <tspan font-weight="bold">iCEEDS Educational Trust</tspan> and its designated trustees/office bearers, a discrete inquiry
+      </text>
+      <text x="0" y="217" fill="#1e293b">
+        was conducted across jurisdictional Police Station records and Special Branch archives.
+      </text>
+
+      <text x="0" y="250" fill="#1e293b">
+        2. Inquiry reveals that the Trust is a lawfully registered educational institution under the
+      </text>
+      <text x="0" y="271" fill="#1e293b">
+        <tspan font-weight="bold">Indian Trusts Act, 1882</tspan>, operating in vocational training, skill certification, and academics.
+      </text>
+
+      <text x="0" y="304" fill="#1e293b">
+        3. <tspan font-weight="bold" fill="#065f46">NO ADVERSE RECORD:</tspan> There is absolutely no criminal, anti-social, or fraudulent antecedents
+      </text>
+      <text x="0" y="325" fill="#1e293b">
+        reported or registered against the said institution or its administrative management.
+      </text>
+
+      <text x="0" y="358" fill="#1e293b">
+        4. This Certificate is issued for official, governmental, and academic accreditation purposes.&quot;
+      </text>
+    </g>
+  </g>
+
+  <!-- Notary Seal & Endorsement Ribbon -->
+  <g transform="translate(140, 890)">
+    <!-- Golden/Green Notarial Ribbon Stamp -->
+    <circle cx="60" cy="50" r="50" fill="#ecfdf5" stroke="#047857" stroke-width="2.5" stroke-dasharray="5,2"/>
+    <circle cx="60" cy="50" r="40" fill="#047857"/>
+    <text x="60" y="46" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffffff">GOVT. OF INDIA</text>
+    <text x="60" y="58" text-anchor="middle" font-size="8" font-weight="bold" fill="#fef08a">NOTARY PUBLIC</text>
+    <text x="60" y="70" text-anchor="middle" font-size="7" font-weight="bold" fill="#ffffff">LEGAL SEAL</text>
+  </g>
+
+  <!-- Advocate Signatory & Attestation Block -->
+  <g transform="translate(430, 890)">
+    <path d="M20 20 C50 -5, 70 35, 100 15 C120 0, 150 25, 170 10" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+    <line x1="0" y1="45" x2="260" y2="45" stroke="#475569" stroke-width="1"/>
+    <text x="130" y="65" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">ATTESTED AS ACCURATE TRANSLATION</text>
+    <text x="130" y="82" font-size="11" fill="#047857" font-weight="bold" text-anchor="middle">Advocate, High Court of Kerala &amp; Notary Public</text>
+    <text x="130" y="98" font-size="10" fill="#64748b" text-anchor="middle">Government of India Registration No: 14208/2018</text>
+    <text x="130" y="112" font-size="10" font-family="monospace" fill="#64748b" text-anchor="middle">Commission Valid Throughout the Republic of India</text>
+  </g>
+
+  <!-- Bottom Legal Strip -->
+  <line x1="45" y1="1060" x2="755" y2="1060" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="400" y="1080" text-anchor="middle" font-size="9" font-family="monospace" fill="#64748b">
+    CERTIFIED DIGITAL COPY • OFFICIAL REPOSITORY ARCHIVE CODE: ICEEDS/LEGAL/POL-VR-TRANS-2023
+  </text>
+</svg>

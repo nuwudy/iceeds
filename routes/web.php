@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
+Route::get('/courses', [PageController::class, 'courses'])->name('courses');
+Route::get('/courses/download-catalog-pdf', [PageController::class, 'downloadCourseListPdf'])->name('courses.download-pdf');
+Route::get('/courses/{slug}/download-syllabus', [PageController::class, 'downloadSyllabusPdf'])->name('courses.download-syllabus');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+
 
 // Contact Form & Inquiries
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

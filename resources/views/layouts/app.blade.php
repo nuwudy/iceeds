@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'iCEEDS | Innovation Council for Exquisite Education & Development of Skills')</title>
-    <meta name="description" content="@yield('meta_description', 'iCEEDS is an autonomous body registered under the Government of India providing ISO-accredited certifications, skill development programs, and academic credentials.')">
+    <meta name="description" content="@yield('meta_description', 'iCEEDS is a self-governing educational trust registered under the Indian Trusts Act, 1882, providing ISO-accredited certifications, vocational training, and verified academic credentials.')">
 
     <!-- Favicons & Mobile Home Screen Icons -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="iCEEDS Central Academic Repository">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('title', 'iCEEDS | Accredited Certifications & Central Academic Repository')">
-    <meta property="og:description" content="@yield('meta_description', 'Official portal of iCEEDS (Autonomous body registered under the Govt. of India). Instant online certificate verification and ISO-accredited vocational programs.')">
+    <meta property="og:description" content="@yield('meta_description', 'Official portal of iCEEDS: A Self-Governing Educational Trust (Registered under the Indian Trusts Act, 1882). Instant online certificate verification and ISO-accredited vocational programs.')">
     <meta property="og:image" content="{{ asset('images/og-image.png') }}">
     <meta property="og:image:secure_url" content="{{ asset('images/og-image.png') }}">
     <meta property="og:image:type" content="image/png">
@@ -36,7 +36,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="@yield('title', 'iCEEDS | Accredited Certifications & Central Academic Repository')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Official portal of iCEEDS (Autonomous body registered under the Govt. of India). Instant online certificate verification and ISO-accredited vocational programs.')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Official portal of iCEEDS: A Self-Governing Educational Trust (Registered under the Indian Trusts Act, 1882). Instant online certificate verification and ISO-accredited vocational programs.')">
     <meta name="twitter:image" content="{{ asset('images/og-image.png') }}">
 
     <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
@@ -105,12 +105,18 @@
             <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Indian Trusts Act, 1882
+                    Registered under the Indian Trusts Act, 1882
+                </span>
+                <span class="text-slate-400 hidden sm:inline">&bull;</span>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold border border-blue-500/30">
+                    NITI Aayog Registered (Darpan ID / Government of India)
                 </span>
                 <span class="text-slate-400 hidden md:inline">&bull;</span>
-                <span class="text-slate-300 hidden md:inline">NSDC Aligned (Ministry of Skill Development & Entrepreneurship, Govt. of India)</span>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30">
+                    ISO Accredited / Certified
+                </span>
                 <span class="text-slate-400 hidden lg:inline">&bull;</span>
-                <span class="text-slate-400 hidden lg:inline">ISO Accredited</span>
+                <span class="text-slate-400 hidden xl:inline">NSDC Aligned</span>
             </div>
             <div class="flex items-center gap-4 text-slate-400">
                 <a href="mailto:lettertoiceeds@gmail.com" class="hover:text-emerald-400 transition flex items-center gap-1.5">
@@ -129,7 +135,7 @@
     <!-- Sticky Glassmorphic Header (Hidden in Print) -->
     <header class="no-print sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200/80 shadow-sm transition-all duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
+            <!-- Brand Logo & Trust Legal Subtitle -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                 <picture>
                     <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
@@ -137,36 +143,45 @@
                 </picture>
                 <div class="hidden md:block pl-3 border-l border-slate-200">
                     <div class="flex items-center gap-1.5">
-                        <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">Indian Trusts Act, 1882</span>
-                        <span class="text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/80">ISO Certified</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200/80">Trusts Act, 1882</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">NITI Aayog</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200/80">ISO Certified</span>
                     </div>
-                    <p class="text-[10px] text-slate-500 tracking-tight font-medium mt-0.5">Academic Board of Studies &bull; NSDC Aligned</p>
+                    <p class="text-[10px] text-slate-600 tracking-tight font-semibold mt-0.5">
+                        A Self-Governing Educational Trust <span class="text-slate-400 font-normal">(Reg. under Indian Trusts Act, 1882)</span>
+                    </p>
                 </div>
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-                <a href="{{ route('home') }}" class="px-3.5 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('home') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5">
+                <a href="{{ route('home') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('home') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
                     Home
                 </a>
-                <a href="{{ route('about') }}" class="px-3.5 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('about') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+                <a href="{{ route('about') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('about') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
                     About Us
                 </a>
-                <a href="{{ route('services') }}" class="px-3.5 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('services') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+                <a href="{{ route('courses') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('courses*') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+                    Courses
+                </a>
+                <a href="{{ route('services') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('services') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
                     Services & Programs
                 </a>
-                <a href="{{ route('contact') }}" class="px-3.5 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('contact') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+                <a href="{{ route('gallery') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('gallery*') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
+                    Gallery
+                </a>
+                <a href="{{ route('contact') }}" class="px-3 py-2 text-sm font-semibold rounded-lg transition {{ request()->routeIs('contact') ? 'text-blue-700 bg-blue-50/80 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100' }}">
                     Contact
                 </a>
             </nav>
 
-            <!-- Action Buttons: Verify Certificate & Mobile Menu Trigger -->
+            <!-- Action Buttons: Certificate Verification & Mobile Menu Trigger -->
             <div class="flex items-center gap-3">
                 <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-blue-700 active:bg-blue-800 shadow-md shadow-slate-900/10 hover:shadow-blue-700/20 transition-all duration-150 cursor-pointer">
                     <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>Verify Certificate</span>
+                    <span>Certificate Verification</span>
                 </a>
 
                 <!-- Mobile Hamburger Button -->
@@ -184,16 +199,22 @@
         <!-- Mobile Navigation Drawer -->
         <div id="mobileMenu" class="lg:hidden hidden border-t border-slate-200 bg-white/98 px-4 pt-3 pb-6 shadow-xl transition-all duration-200">
             <div class="flex flex-col gap-1.5">
-                <a href="{{ route('home') }}" class="px-4 py-3 text-sm font-semibold rounded-xl {{ request()->routeIs('home') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                <a href="{{ route('home') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('home') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Home
                 </a>
-                <a href="{{ route('about') }}" class="px-4 py-3 text-sm font-semibold rounded-xl {{ request()->routeIs('about') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                <a href="{{ route('about') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('about') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     About Us
                 </a>
-                <a href="{{ route('services') }}" class="px-4 py-3 text-sm font-semibold rounded-xl {{ request()->routeIs('services') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                <a href="{{ route('courses') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('courses*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                    Courses
+                </a>
+                <a href="{{ route('services') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('services') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Services & Programs
                 </a>
-                <a href="{{ route('contact') }}" class="px-4 py-3 text-sm font-semibold rounded-xl {{ request()->routeIs('contact') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                <a href="{{ route('gallery') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('gallery*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                    Media Gallery
+                </a>
+                <a href="{{ route('contact') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('contact') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Contact
                 </a>
                 <div class="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
@@ -201,7 +222,7 @@
                         <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>Certificate Verification Portal</span>
+                        <span>Certificate Verification</span>
                     </a>
                     <a href="https://wa.me/917510200095" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition">
                         <span>Chat via WhatsApp (+91 75102 00095)</span>
@@ -389,38 +410,38 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
                     <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                            <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold text-sm font-heading">Autonomous Statutory Body</h4>
-                            <p class="text-xs text-slate-400">Registered Under the Government of India</p>
+                            <h4 class="text-white font-bold text-sm font-heading">A Self-Governing Educational Trust</h4>
+                            <p class="text-xs text-slate-400">Registered under the Indian Trusts Act, 1882</p>
                         </div>
                     </div>
 
                     <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm font-heading">NITI Aayog Registered</h4>
+                            <p class="text-xs text-slate-400">Darpan ID / Government of India</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold text-sm font-heading">ISO Accredited Quality</h4>
-                            <p class="text-xs text-slate-400">Strict Compliance with International Standards</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
-                            <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold text-sm font-heading">Tamper-Proof Verification</h4>
-                            <p class="text-xs text-slate-400">Instant Real-Time Credential Validation</p>
+                            <h4 class="text-white font-bold text-sm font-heading">ISO Accredited / Certified</h4>
+                            <p class="text-xs text-slate-400">ISO 9001:2015 International Benchmarks</p>
                         </div>
                     </div>
                 </div>
@@ -441,13 +462,13 @@
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
-                        iCEEDS (Innovation Council for Exquisite Education & Development of Skills) is a self-governing educational organization established under the Indian Trusts Act, 1882. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses guided by an expert Academic Board of Studies, with certification support aligned with the NSDC under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                        iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills) is a self-governing educational organization established under the Indian Trusts Act, 1882. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses guided by an expert Academic Board of Studies, with certification support aligned with the NSDC under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-2 text-[11px]">
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Indian Trusts Act, 1882</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Academic Board of Studies</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">NSDC Aligned</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">ISO Accredited</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400 font-medium">Registered under Indian Trusts Act, 1882</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-blue-300 font-medium">NITI Aayog Registered (Darpan ID)</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-purple-300 font-medium">ISO Accredited / Certified</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">NSDC Aligned &amp; MSME Registered</span>
                     </div>
                 </div>
 
@@ -457,12 +478,17 @@
                     <ul class="space-y-2.5 text-xs">
                         <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-white transition">About iCEEDS</a></li>
-                        <li><a href="{{ route('services') }}" class="hover:text-white transition">Services & Programs</a></li>
+                        <li><a href="{{ route('courses') }}" class="hover:text-white transition text-blue-300 font-semibold flex items-center gap-1.5">
+                            <span>Courses Catalog</span>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">New</span>
+                        </a></li>
+                        <li><a href="{{ route('services') }}" class="hover:text-white transition">Services &amp; Programs</a></li>
+                        <li><a href="{{ route('gallery') }}" class="hover:text-white transition">Media Gallery</a></li>
                         <li><a href="{{ route('verify') }}" class="hover:text-white transition flex items-center gap-1.5 text-emerald-400 font-semibold">
-                            <span>Verify Certificate</span>
+                            <span>Certificate Verification</span>
                             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                         </a></li>
-                        <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact & Inquiries</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact &amp; Inquiries</a></li>
                         <li><a href="{{ route('login') }}" class="hover:text-white transition flex items-center gap-1.5 text-slate-400 hover:text-blue-400">
                             <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" /></svg>
                             <span>Admin Login</span>
@@ -514,7 +540,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <p>Copyright &copy; {{ date('Y') }} - iCEEDS. All rights reserved.</p>
                 <div class="flex items-center gap-4">
-                    <a href="{{ route('verify') }}" class="hover:text-slate-300 transition">Online Verification</a>
+                    <a href="{{ route('verify') }}" class="hover:text-slate-300 transition">Certificate Verification</a>
                     <span>&bull;</span>
                     <a href="{{ route('contact') }}" class="hover:text-slate-300 transition">Institutional Support</a>
                     <span>&bull;</span>

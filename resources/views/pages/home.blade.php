@@ -203,8 +203,63 @@
                     </div>
                 </div>
 
-                <!-- Right: Visual Bento Showcase Card -->
-                <div class="lg:col-span-5">
+                <!-- Right: Visual Bento Showcase with Kerala Police Report & Digital Counters -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Kerala Police Verification Report Card (Prominently Placed Above Counters) -->
+                    <div class="bg-slate-950/45 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-emerald-500/35 shadow-2xl relative overflow-hidden group hover:border-emerald-400/60 hover:bg-slate-950/55 transition-all duration-300">
+                        <div class="absolute -top-10 -right-10 w-36 h-36 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div class="flex items-center gap-3.5 sm:gap-4 relative z-10">
+                            <!-- Official Kerala Police Logo Crest -->
+                            <div class="shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-2xl p-1 shadow-md border border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                                <img 
+                                    src="{{ asset('images/verification/kerala-police-logo.png') }}" 
+                                    alt="Kerala Police Official Crest" 
+                                    class="w-full h-full object-contain"
+                                >
+                            </div>
+
+                            <!-- Police Verification Details -->
+                            <div class="min-w-0 flex-1">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-300 mb-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span>DySP Malappuram &bull; Govt. Clearance</span>
+                                </div>
+                                <h3 class="text-sm sm:text-base font-extrabold font-heading text-white tracking-tight hero-heading-outlined">
+                                    Official Kerala Police Verification Report
+                                </h3>
+                                <p class="text-[11px] text-slate-300 leading-snug font-mono mt-0.5 hero-text-outlined">
+                                    No. 43/CMO/SDOM/2026 &bull; <span class="text-emerald-400 font-bold">Verified &amp; Lawful</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card Action Buttons -->
+                        <div class="mt-4 pt-3.5 border-t border-white/15 flex flex-wrap items-center justify-between gap-2 relative z-10">
+                            <button 
+                                type="button" 
+                                onclick="openPoliceDocModal('original')" 
+                                class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-950/40 transition cursor-pointer"
+                            >
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <span>View Police Report (Popup)</span>
+                            </button>
+                            <button 
+                                type="button" 
+                                onclick="openPoliceDocModal('translation')" 
+                                class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/10 hover:bg-white/20 border border-white/15 transition cursor-pointer"
+                            >
+                                <span>English Translation</span>
+                                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Digital Counters (Credentials & 4,000+ Courses) -->
                     <div class="grid grid-cols-2 gap-4">
                         
                         <!-- Dynamic Digital Counter Card 1: Verified Credentials -->
@@ -259,31 +314,6 @@
                             <p class="text-[11px] text-slate-300 mt-0.5 leading-snug hero-text-outlined">NSDC &amp; UGC aligned curricula</p>
                         </div>
 
-                        <!-- Card 3 (Span 2): Translucent Glass for Institutional Governance -->
-                        <div class="col-span-2 bg-slate-950/35 backdrop-blur-md text-white rounded-3xl p-5 sm:p-6 shadow-2xl border border-white/15 relative overflow-hidden group hover:border-white/30 hover:bg-slate-950/45 transition-all duration-300">
-                            <div class="flex items-center justify-between gap-4">
-                                <div>
-                                    <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-2">
-                                        Indian Trusts Act, 1882 &bull; NSDC Aligned &bull; ISO Certified
-                                    </span>
-                                    <h3 class="text-base sm:text-lg font-bold font-heading text-white hero-heading-outlined">
-                                        Academic Board of Studies
-                                    </h3>
-                                    <p class="text-xs text-slate-200 mt-1 leading-relaxed hero-text-outlined">
-                                        Independent skill development trust delivering 4,000+ vocational &amp; professional courses with nationwide credential validity.
-                                    </p>
-                                </div>
-                                <div class="w-13 h-13 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
-                                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                                </div>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-xs text-slate-300">
-                                <span class="hero-text-outlined">Vocational &amp; Professional Qualifications</span>
-                                <a href="{{ route('courses') }}" class="text-sky-300 hover:text-white font-semibold flex items-center gap-1 transition hero-text-outlined">
-                                    Explore 4,000+ Courses &rarr;
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

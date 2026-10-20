@@ -1096,12 +1096,6 @@
         </div>
     </section>
 
-    <!-- POLICE VERIFICATION REPORT & CLEARANCE SHOWCASE -->
-    <div class="py-12 bg-white border-b border-slate-200/70">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            @include('partials.police-verification')
-        </div>
-    </div>
 
     <!-- LEADERSHIP & ADMINISTRATION TEAM SECTION -->
     <section class="py-16 sm:py-24 bg-portal-gradient border-b border-slate-200/70">

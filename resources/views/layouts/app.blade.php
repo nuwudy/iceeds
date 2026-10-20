@@ -103,6 +103,11 @@
     <div class="no-print bg-slate-950 text-slate-300 text-[11px] sm:text-xs py-2 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
             <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+                <button type="button" onclick="openPoliceDocModal('original')" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-xs cursor-pointer">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    <span>Police Verification Report</span>
+                </button>
+                <span class="text-slate-400 hidden sm:inline">&bull;</span>
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     Registered under the Indian Trusts Act, 1882
@@ -175,8 +180,15 @@
                 </a>
             </nav>
 
-            <!-- Action Buttons: Certificate Verification & Mobile Menu Trigger -->
-            <div class="flex items-center gap-3">
+            <!-- Action Buttons: Certificate Verification, Police Report & Mobile Menu Trigger -->
+            <div class="flex items-center gap-2.5">
+                <button type="button" onclick="openPoliceDocModal('original')" class="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer">
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span>Police Report</span>
+                </button>
+
                 <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-blue-700 active:bg-blue-800 shadow-md shadow-slate-900/10 hover:shadow-blue-700/20 transition-all duration-150 cursor-pointer">
                     <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -218,6 +230,12 @@
                     Contact
                 </a>
                 <div class="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
+                    <button type="button" onclick="openPoliceDocModal('original')" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <span>View Police Verification Report</span>
+                    </button>
                     <a href="{{ route('verify') }}" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-sm text-white bg-slate-900 hover:bg-blue-700 transition">
                         <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -588,6 +606,10 @@
             });
         }
     </script>
+
+    <!-- Police Verification Report Interactive Scrollable Modal Partial -->
+    @include('partials.police-verification-modal')
+
     @stack('scripts')
 </body>
 </html>

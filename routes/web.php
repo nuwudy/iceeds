@@ -25,6 +25,23 @@ Route::get('/courses/download-catalog-pdf', [PageController::class, 'downloadCou
 Route::get('/courses/{slug}/download-syllabus', [PageController::class, 'downloadSyllabusPdf'])->name('courses.download-syllabus');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 
+// Public Media & Documents Route Fallback (Ensures clean serving even without symlinks)
+Route::get('/storage/media/{year}/{month}/{file}', function ($year, $month, $file) {
+    $filePath = public_path("storage/media/{$year}/{$month}/{$file}");
+    if (file_exists($filePath)) {
+        return response()->file($filePath);
+    }
+    $storagePath = storage_path("app/public/media/{$year}/{$month}/{$file}");
+    if (file_exists($storagePath)) {
+        return response()->file($storagePath);
+    }
+    $docPath = public_path("documents/{$file}");
+    if (file_exists($docPath)) {
+        return response()->file($docPath);
+    }
+    abort(404);
+})->where('file', '.*')->name('media.serve');
+
 
 // Contact Form & Inquiries
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

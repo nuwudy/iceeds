@@ -165,6 +165,12 @@
                             <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>Certificate Verification</span>
                         </a>
+                        <button type="button" onclick="openPoliceDocModal('original')" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-emerald-300 bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/40 shadow-md transition-all duration-150 cursor-pointer">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>Police Report</span>
+                        </button>
                         <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-300 hover:text-white transition">
                             <span>Know More &rarr;</span>
                         </a>

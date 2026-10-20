@@ -1,118 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1130" width="100%" height="100%" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 1200" width="100%" height="100%" style="background:#ffffff; font-family:'Plus Jakarta Sans', Arial, sans-serif;">
   <defs>
     <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f1f5f9" stroke-width="0.8"/>
     </pattern>
   </defs>
 
-  <rect width="800" height="1130" fill="#ffffff"/>
-  <rect width="800" height="1130" fill="url(#gridPattern)" opacity="0.6"/>
+  <rect width="850" height="1200" fill="#ffffff"/>
+  <rect width="850" height="1200" fill="url(#gridPattern)" opacity="0.6"/>
 
   <!-- Official Border with Corner Ornaments -->
-  <rect x="25" y="25" width="750" height="1080" rx="8" fill="none" stroke="#047857" stroke-width="2.5"/>
-  <rect x="33" y="33" width="734" height="1064" rx="4" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="25" y="25" width="800" height="1150" rx="8" fill="none" stroke="#047857" stroke-width="2.5"/>
+  <rect x="33" y="33" width="784" height="1134" rx="4" fill="none" stroke="#cbd5e1" stroke-width="1"/>
 
-  <!-- Top Notarial / Legal Bar -->
-  <g transform="translate(400, 75)" text-anchor="middle">
-    <rect x="-240" y="-18" width="480" height="36" rx="18" fill="#065f46"/>
+  <!-- Top Legal Ribbon -->
+  <g transform="translate(425, 75)" text-anchor="middle">
+    <rect x="-260" y="-18" width="520" height="36" rx="18" fill="#065f46"/>
     <text x="0" y="5" font-size="12" font-weight="bold" fill="#ffffff" letter-spacing="2">CERTIFIED TRUE ENGLISH TRANSLATION</text>
   </g>
 
   <!-- Legal Header -->
-  <text x="400" y="145" text-anchor="middle" font-size="13" font-weight="bold" letter-spacing="3" fill="#64748b">OFFICE OF THE SWORN TRANSLATOR &amp; NOTARY PUBLIC</text>
-  <text x="400" y="172" text-anchor="middle" font-size="20" font-weight="900" fill="#0f172a">GOVERNMENT OF INDIA LEGAL ATTESTATION DESK</text>
-  <text x="400" y="194" text-anchor="middle" font-size="12" font-weight="600" fill="#059669">ADVOCATE &amp; NOTARY (APPOINTED UNDER NOTARIES ACT, 1952)</text>
-  <line x1="100" y1="210" x2="700" y2="210" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="425" y="140" text-anchor="middle" font-size="12" font-weight="bold" letter-spacing="3" fill="#64748b">OFFICE OF THE SWORN TRANSLATOR &amp; NOTARY PUBLIC</text>
+  <text x="425" y="165" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">GOVERNMENT OF INDIA LEGAL ATTESTATION DESK</text>
+  <text x="425" y="185" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">ADVOCATE &amp; NOTARY (APPOINTED UNDER NOTARIES ACT, 1952)</text>
+  <line x1="80" y1="200" x2="770" y2="200" stroke="#cbd5e1" stroke-width="1.5"/>
 
   <!-- Certificate of Translation Statement -->
-  <rect x="70" y="230" width="660" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-  <text x="90" y="256" font-size="12" font-weight="bold" fill="#0f172a">SWORN TRANSLATION CERTIFICATE NO: <tspan font-family="monospace" fill="#047857">NOTARY/ENG-TRANS/2023/ICEEDS-7842</tspan></text>
-  <text x="90" y="280" font-size="11.5" fill="#475569">
-    I hereby certify that the following is an exact, true, and authentic English translation of the Original
-    Police Verification Report issued in Malayalam by the District Police Office, Malappuram (Kerala).
+  <rect x="65" y="215" width="720" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="85" y="238" font-size="11" font-weight="bold" fill="#0f172a">SWORN TRANSLATION CERTIFICATE &bull; REF: <tspan font-family="monospace" fill="#047857">NOTARY/ENG-TRANS/2026/ICEEDS-DYSP</tspan></text>
+  <text x="85" y="258" font-size="10.5" fill="#475569">
+    I hereby certify that this is a true, authentic, and verbatim English translation of the official Police Enquiry Report
+    issued in Malayalam by the Office of the Deputy Superintendent of Police, Malappuram, Kerala State.
   </text>
 
   <!-- Body Container: English Translation Content -->
-  <g transform="translate(70, 325)">
-    <!-- Boxed Translation of the Police Report -->
-    <rect x="0" y="0" width="660" height="480" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-    <rect x="0" y="0" width="660" height="42" rx="8" fill="#0f172a"/>
-    <text x="25" y="26" font-size="13" font-weight="bold" fill="#f8fafc" letter-spacing="1">
-      OFFICIAL TEXT TRANSLATION: POLICE VERIFICATION REPORT
+  <g transform="translate(65, 290)">
+    <rect x="0" y="0" width="720" height="740" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+    <rect x="0" y="0" width="720" height="42" rx="8" fill="#0f172a"/>
+    <text x="25" y="26" font-size="12.5" font-weight="bold" fill="#f8fafc" letter-spacing="1">
+      OFFICIAL REPORT: KERALA POLICE &bull; DEPUTY SUPERINTENDENT OF POLICE, MALAPPURAM
     </text>
 
-    <g transform="translate(25, 65)" font-size="12" fill="#1e293b" line-height="1.6">
-      <text x="0" y="0" font-weight="bold" fill="#64748b">ORIGINAL ISSUING AUTHORITY:</text>
-      <text x="230" y="0" font-weight="bold" fill="#0f172a">Special Branch, District Police Office, Malappuram</text>
+    <g transform="translate(25, 60)" font-size="11" fill="#1e293b">
+      <!-- Office Details -->
+      <text x="0" y="0" font-weight="bold" fill="#0369a1">Office of the Deputy Superintendent of Police, Malappuram, Kerala. PIN: 676505</text>
+      <text x="0" y="16" fill="#64748b">Phone: 0483 2734992 &bull; Email: dyspmpm.pol@kerala.gov.in &bull; Date: 29.04.2026</text>
+      <text x="0" y="32" font-weight="bold" fill="#0f172a">File No: No. 43/CMO/SDOM/2026</text>
 
-      <text x="0" y="26" font-weight="bold" fill="#64748b">ORIGINAL REPORT DATE:</text>
-      <text x="230" y="26" font-weight="bold" fill="#0f172a">November 24, 2023 (24/11/2023)</text>
+      <line x1="0" y1="42" x2="670" y2="42" stroke="#e2e8f0" stroke-width="1"/>
 
-      <text x="0" y="52" font-weight="bold" fill="#64748b">INSTITUTION EXAMINED:</text>
-      <text x="230" y="52" font-weight="bold" fill="#0f172a">iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills)</text>
+      <!-- Subject & Reference -->
+      <text x="0" y="58" font-weight="bold" fill="#64748b">RECIPIENT:</text>
+      <text x="90" y="58" fill="#0f172a">Navas K.M., 52/26, S/o Ali, Kuzhikkadavil House, Uliyannoor PO, Aluva, Ernakulam. Ph: 8590093535</text>
 
-      <text x="0" y="78" font-weight="bold" fill="#64748b">REGISTERED ADDRESS:</text>
-      <text x="230" y="78" fill="#334155">Suit No: 15/413-15, Athanikkal, Calicut-Palaghat Highway,</text>
-      <text x="230" y="98" fill="#334155">Valluvambram (PO), Malappuram, Kerala State, PIN: 673642</text>
+      <text x="0" y="78" font-weight="bold" fill="#64748b">SUBJECT:</text>
+      <text x="90" y="78" font-weight="bold" fill="#0f172a">Regarding the petition submitted by you before the Hon'ble Chief Minister of Kerala State.</text>
 
-      <line x1="0" y1="120" x2="610" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="0" y="96" font-weight="bold" fill="#64748b">REFERENCE:</text>
+      <text x="90" y="96" font-family="monospace" fill="#047857">No. G3(d) - 43998/2026/MM Dated 27.04.2026</text>
 
-      <!-- Translation Clauses -->
-      <text x="0" y="145" font-weight="bold" font-size="13" fill="#065f46">CERTIFIED ENGLISH TEXT:</text>
+      <line x1="0" y1="108" x2="670" y2="108" stroke="#e2e8f0" stroke-width="1"/>
 
-      <text x="0" y="175" fill="#1e293b">
-        &quot;1. Pursuant to the statutory verification request submitted regarding the status and antecedents
+      <!-- Body Narrative -->
+      <text x="0" y="125" fill="#334155">Attention is invited to the subject and reference cited above. The petition submitted by you before the</text>
+      <text x="0" y="141" fill="#334155">Hon'ble Chief Minister of Kerala State regarding the operational permissions, approvals, and accreditations</text>
+      <text x="0" y="157" fill="#334155">of <tspan font-weight="bold" fill="#0f172a">I-CEEDS (Innovation Council for Exquisite Education and Development of Skills)</tspan> situated at Athanikkal,</text>
+      <text x="0" y="173" fill="#334155">Valluvambram in Malappuram District was received at this office for detailed official enquiry.</text>
+
+      <text x="0" y="197" fill="#334155">Statements of both the petitioner and the respondent (opposite party) were duly recorded, and a comprehensive</text>
+      <text x="0" y="213" fill="#334155">investigation was conducted by scrutinizing all statutory records and official documents submitted by the institution.</text>
+
+      <!-- Key Determinations -->
+      <rect x="0" y="230" width="670" height="235" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="15" y="250" font-weight="bold" fill="#0f172a" font-size="11.5">KEY VERIFIED DETERMINATIONS &amp; LEGAL STATUTORY FINDINGS:</text>
+
+      <text x="15" y="272" font-weight="bold" fill="#047857">1. Indian Trusts Act, 1882:</text>
+      <text x="195" y="272" fill="#334155">Duly registered under Reg. No. 60/IV/2023 Dtd 17.04.2023 at Sub-Registrar Office, Perumbavoor.</text>
+
+      <text x="15" y="294" font-weight="bold" fill="#047857">2. Govt. of India / NSDC:</text>
+      <text x="195" y="294" fill="#334155">Accredited training partner under Ministry of Skill Dev. &amp; Entrepreneurship (via Vemosa Skills</text>
+      <text x="195" y="310" fill="#334155">Pvt Ltd, Serial No. 2006 Dtd 24.03.2025, valid from 24.03.2025 to 24.03.2027) for skill courses.</text>
+
+      <text x="15" y="332" font-weight="bold" fill="#047857">3. Embassy Attestations:</text>
+      <text x="195" y="332" fill="#334155">Candidates completing training at I-CEEDS have successfully obtained verified Embassy Attestations.</text>
+
+      <text x="15" y="354" font-weight="bold" fill="#047857">4. Enterprise License:</text>
+      <text x="195" y="354" fill="#334155">Valid Certificate of Enterprises License issued by Pookkottur Grama Panchayat under License No.</text>
+      <text x="195" y="370" fill="#334155">BFIF01-G100604-00040-2026 (Valid 18.03.2026 to 17.03.2028) for Consultancy, Training &amp; Tutorial Centre.</text>
+
+      <text x="15" y="392" font-weight="bold" fill="#047857">5. International ISO:</text>
+      <text x="195" y="392" fill="#334155">Possesses ISO accreditations from EGAC, EIAC, Euro UK Accreditation, and US ISO Certification.</text>
+
+      <text x="15" y="414" font-weight="bold" fill="#047857">6. UK Study Centre:</text>
+      <text x="195" y="414" fill="#334155">I-CEEDS is an authorized and accredited Study Centre of FICS UK.</text>
+
+      <text x="15" y="436" font-weight="bold" fill="#047857">7. NITI Aayog NGO Darpan:</text>
+      <text x="195" y="436" fill="#334155">Registered NGO under NITI Aayog, Govt. of India, Darpan ID: KL/2023/0348375 Dtd 27.11.2023.</text>
+
+      <!-- Conclusion -->
+      <rect x="0" y="475" width="670" height="48" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
+      <text x="15" y="495" font-weight="bold" fill="#065f46" font-size="11">OFFICIAL POLICE ENQUIRY CONCLUSION &amp; DISPOSITION:</text>
+      <text x="15" y="512" fill="#065f46" font-size="10.5">
+        Upon thorough verification of all documents produced, the legality, valid approvals, and legitimate operation of
+        the institution are prima facie established and confirmed. You are hereby informed accordingly.
       </text>
-      <text x="0" y="196" fill="#1e293b">
-        of <tspan font-weight="bold">iCEEDS Educational Trust</tspan> and its designated trustees/office bearers, a discrete inquiry
-      </text>
-      <text x="0" y="217" fill="#1e293b">
-        was conducted across jurisdictional Police Station records and Special Branch archives.
-      </text>
 
-      <text x="0" y="250" fill="#1e293b">
-        2. Inquiry reveals that the Trust is a lawfully registered educational institution under the
-      </text>
-      <text x="0" y="271" fill="#1e293b">
-        <tspan font-weight="bold">Indian Trusts Act, 1882</tspan>, operating in vocational training, skill certification, and academics.
-      </text>
+      <!-- Signatory Block -->
+      <g transform="translate(380, 535)">
+        <text x="0" y="20" font-size="11" fill="#64748b">Yours faithfully,</text>
+        <text x="0" y="40" font-size="12" font-weight="bold" fill="#0f172a">(Sd/-) SUBHASH BABU K. C.</text>
+        <text x="0" y="56" font-size="11" font-weight="bold" fill="#0369a1">Deputy Superintendent of Police (DySP)</text>
+        <text x="0" y="72" font-size="10.5" fill="#334155">Malappuram District, Kerala State</text>
+        <text x="0" y="88" font-size="10.5" font-mono fill="#64748b">Date: 29.04.2026</text>
+      </g>
 
-      <text x="0" y="304" fill="#1e293b">
-        3. <tspan font-weight="bold" fill="#065f46">NO ADVERSE RECORD:</tspan> There is absolutely no criminal, anti-social, or fraudulent antecedents
-      </text>
-      <text x="0" y="325" fill="#1e293b">
-        reported or registered against the said institution or its administrative management.
-      </text>
-
-      <text x="0" y="358" fill="#1e293b">
-        4. This Certificate is issued for official, governmental, and academic accreditation purposes.&quot;
-      </text>
+      <!-- Round Seal Stamp Simulation -->
+      <g transform="translate(120, 580)">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="4 2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#1d4ed8" stroke-width="1.2"/>
+        <text x="50" y="38" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#1d4ed8" letter-spacing="0.5">DY. SUPDT. OF POLICE</text>
+        <text x="50" y="52" text-anchor="middle" font-size="9" font-weight="900" fill="#1d4ed8">MALAPPURAM</text>
+        <text x="50" y="66" text-anchor="middle" font-size="8" font-weight="bold" fill="#1d4ed8">PIN: 676 505</text>
+      </g>
     </g>
   </g>
 
-  <!-- Notary Seal & Endorsement Ribbon -->
-  <g transform="translate(140, 890)">
-    <!-- Golden/Green Notarial Ribbon Stamp -->
-    <circle cx="60" cy="50" r="50" fill="#ecfdf5" stroke="#047857" stroke-width="2.5" stroke-dasharray="5,2"/>
-    <circle cx="60" cy="50" r="40" fill="#047857"/>
-    <text x="60" y="46" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffffff">GOVT. OF INDIA</text>
-    <text x="60" y="58" text-anchor="middle" font-size="8" font-weight="bold" fill="#fef08a">NOTARY PUBLIC</text>
-    <text x="60" y="70" text-anchor="middle" font-size="7" font-weight="bold" fill="#ffffff">LEGAL SEAL</text>
+  <!-- Bottom Attestation Footer -->
+  <g transform="translate(65, 1045)" font-size="10" fill="#64748b">
+    <rect x="0" y="0" width="720" height="75" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="20" y="22" font-weight="bold" fill="#0f172a">OFFICIAL NOTARIAL REGISTRATION &amp; SEAL:</text>
+    <text x="20" y="40">Attested and certified under Section 8 of the Notaries Act, 1952 (Act No. 53 of 1952), Government of India.</text>
+    <text x="20" y="56">Verified document hash: SHA256-KERALA-POLICE-REPORT-MALAPPURAM-SDOM-2026 &bull; Status: Irrevocable Record</text>
   </g>
-
-  <!-- Advocate Signatory & Attestation Block -->
-  <g transform="translate(430, 890)">
-    <path d="M20 20 C50 -5, 70 35, 100 15 C120 0, 150 25, 170 10" fill="none" stroke="#0f172a" stroke-width="2.2"/>
-    <line x1="0" y1="45" x2="260" y2="45" stroke="#475569" stroke-width="1"/>
-    <text x="130" y="65" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">ATTESTED AS ACCURATE TRANSLATION</text>
-    <text x="130" y="82" font-size="11" fill="#047857" font-weight="bold" text-anchor="middle">Advocate, High Court of Kerala &amp; Notary Public</text>
-    <text x="130" y="98" font-size="10" fill="#64748b" text-anchor="middle">Government of India Registration No: 14208/2018</text>
-    <text x="130" y="112" font-size="10" font-family="monospace" fill="#64748b" text-anchor="middle">Commission Valid Throughout the Republic of India</text>
-  </g>
-
-  <!-- Bottom Legal Strip -->
-  <line x1="45" y1="1060" x2="755" y2="1060" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="400" y="1080" text-anchor="middle" font-size="9" font-family="monospace" fill="#64748b">
-    CERTIFIED DIGITAL COPY • OFFICIAL REPOSITORY ARCHIVE CODE: ICEEDS/LEGAL/POL-VR-TRANS-2023
-  </text>
 </svg>

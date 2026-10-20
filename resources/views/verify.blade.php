@@ -381,8 +381,6 @@ Certificate Verification - iCEEDS Central Academic Repository
             </div>
         @endif
 
-        <!-- Dedicated Police Verification Report Showcase Sub-Section -->
-        @include('partials.police-verification')
 
     </div>
 @endsection

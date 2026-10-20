@@ -141,66 +141,77 @@
     <header class="no-print sticky top-0 z-50 backdrop-blur-md bg-white/98 border-b border-slate-200/80 shadow-sm transition-all duration-200">
         <!-- TOP TIER: Prominent Logo, Full Form Institutional Name & Direct Actions -->
         <div class="border-b border-slate-100 py-2 sm:py-2.5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
-                <!-- Brand Logo & Aesthetic Full Form Title -->
-                <a href="{{ route('home') }}" class="flex items-center gap-3 sm:gap-4.5 group min-w-0" title="iCEEDS - Innovation Council for Exquisite Education & Development of Skills">
-                    <picture class="shrink-0">
-                        <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
-                        <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-11 sm:h-13 md:h-15 w-auto object-contain group-hover:scale-[1.02] transition-transform duration-200">
-                    </picture>
-                    <div class="flex flex-col justify-center min-w-0">
-                        <!-- Full Form Expansion Displayed Aesthetically -->
-                        <span class="text-xs sm:text-sm md:text-base lg:text-[15px] font-black tracking-tight text-slate-900 font-heading leading-tight group-hover:text-blue-700 transition">
-                            Innovation Council for Exquisite Education &amp; Development of Skills
-                        </span>
-                        <div class="flex items-center gap-2 mt-0.5 flex-wrap">
-                            <span class="text-[10px] sm:text-xs font-bold text-slate-700">A Self-Governing Educational Trust</span>
-                            <span class="text-slate-300 hidden sm:inline">&bull;</span>
-                            <span class="text-[10px] sm:text-[11px] font-semibold text-emerald-700 hidden sm:inline">Reg. under the Indian Trusts Act, 1882</span>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-3 sm:gap-6">
+                    <!-- Brand Logo & Full Form (Desktop side-by-side, Mobile logo only in row) -->
+                    <a href="{{ route('home') }}" class="flex items-center gap-3 sm:gap-4.5 group min-w-0" title="iCEEDS - Innovation Council for Exquisite Education & Development of Skills">
+                        <picture class="shrink-0">
+                            <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
+                            <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-9 sm:h-13 md:h-15 w-auto object-contain group-hover:scale-[1.02] transition-transform duration-200">
+                        </picture>
+                        <!-- Desktop / Tablet Only: Full Form Expansion Displayed Alongside Logo -->
+                        <div class="hidden sm:flex flex-col justify-center min-w-0">
+                            <span class="text-xs sm:text-sm md:text-base lg:text-[15px] font-black tracking-tight text-slate-900 font-heading leading-tight group-hover:text-blue-700 transition">
+                                Innovation Council for Exquisite Education &amp; Development of Skills
+                            </span>
+                            <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+                                <span class="text-[10px] sm:text-xs font-bold text-slate-700">A Self-Governing Educational Trust</span>
+                                <span class="text-slate-300 hidden sm:inline">&bull;</span>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-emerald-700 hidden sm:inline">Reg. under the Indian Trusts Act, 1882</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-
-                <!-- Top Tier Action Buttons & Mobile Trigger -->
-                <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-                    <!-- Police Report Trigger Button with Kerala Police Logo -->
-                    <button 
-                        type="button" 
-                        onclick="openPoliceDocModal('original')" 
-                        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 transition cursor-pointer shadow-2xs"
-                        title="View Official Kerala Police Verification Report"
-                    >
-                        <img src="{{ asset('images/verification/kerala-police-logo.png') }}" alt="Kerala Police Logo" class="w-4 h-4 object-contain">
-                        <span>Police Report</span>
-                    </button>
-
-                    <!-- Certificate Verification Primary CTA -->
-                    <a 
-                        href="{{ route('verify') }}" 
-                        class="inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-950 hover:bg-blue-700 active:bg-blue-800 shadow-md shadow-slate-950/15 hover:shadow-blue-700/25 transition-all duration-150 cursor-pointer"
-                    >
-                        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="hidden sm:inline">Certificate Verification</span>
-                        <span class="sm:hidden">Verify</span>
                     </a>
 
-                    <!-- Mobile Hamburger Button -->
-                    <button 
-                        type="button" 
-                        id="mobileMenuBtn" 
-                        aria-label="Toggle navigation menu" 
-                        class="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition cursor-pointer"
-                    >
-                        <svg id="hamburgerIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                    <!-- Top Tier Action Buttons & Mobile Trigger -->
+                    <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+                        <!-- Police Report Trigger Button with Kerala Police Logo -->
+                        <button 
+                            type="button" 
+                            onclick="openPoliceDocModal('original')" 
+                            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 transition cursor-pointer shadow-2xs"
+                            title="View Official Kerala Police Verification Report"
+                        >
+                            <img src="{{ asset('images/verification/kerala-police-logo.png') }}" alt="Kerala Police Logo" class="w-4 h-4 object-contain">
+                            <span>Police Report</span>
+                        </button>
+
+                        <!-- Certificate Verification Primary CTA -->
+                        <a 
+                            href="{{ route('verify') }}" 
+                            class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4.5 py-1.5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-950 hover:bg-blue-700 active:bg-blue-800 shadow-md shadow-slate-950/15 hover:shadow-blue-700/25 transition-all duration-150 cursor-pointer"
+                        >
+                            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="hidden sm:inline">Certificate Verification</span>
+                            <span class="sm:hidden">Verify</span>
+                        </a>
+
+                        <!-- Mobile Hamburger Button -->
+                        <button 
+                            type="button" 
+                            id="mobileMenuBtn" 
+                            aria-label="Toggle navigation menu" 
+                            class="lg:hidden p-1.5 sm:p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition cursor-pointer"
+                        >
+                            <svg id="hamburgerIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Mobile Only: Clean Single Line Full Form Under the Logo Header Row -->
+                <a 
+                    href="{{ route('home') }}" 
+                    class="sm:hidden block mt-1.5 pt-1 border-t border-slate-100 text-[9.5px] xs:text-[10.5px] font-extrabold text-slate-800 tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis hover:text-blue-700 transition" 
+                    title="Innovation Council for Exquisite Education & Development of Skills"
+                >
+                    Innovation Council for Exquisite Education &amp; Development of Skills
+                </a>
             </div>
         </div>
 

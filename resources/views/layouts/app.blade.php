@@ -210,11 +210,6 @@
     <div class="no-print bg-slate-950 text-slate-300 text-[11px] sm:text-xs py-2 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
             <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
-                <button type="button" onclick="openPoliceDocModal('original')" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-xs cursor-pointer">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                    <span>Police Verification Report</span>
-                </button>
-                <span class="text-slate-400 hidden sm:inline">&bull;</span>
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     Registered under the Indian Trusts Act, 1882
@@ -271,17 +266,6 @@
 
                     <!-- Top Tier Action Buttons & Mobile Trigger -->
                     <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-                        <!-- Police Report Trigger Button with Kerala Police Logo -->
-                        <button 
-                            type="button" 
-                            onclick="openPoliceDocModal('original')" 
-                            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 transition cursor-pointer shadow-2xs"
-                            title="View Official Kerala Police Verification Report"
-                        >
-                            <img src="{{ asset('images/verification/kerala-police-logo.png') }}" alt="Kerala Police Logo" class="w-4 h-4 object-contain">
-                            <span>Police Report</span>
-                        </button>
-
                         <!-- Certificate Verification Primary CTA -->
                         <a 
                             href="{{ route('verify') }}" 

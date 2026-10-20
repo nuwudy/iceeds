@@ -479,7 +479,7 @@
                     @foreach($emblems as $emblem)
                         <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                             <!-- Emblem Box -->
-                            <div class="h-11 sm:h-12 md:h-13 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400/80 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
+                            <div class="h-11 sm:h-12 md:h-13 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400 group-hover:ring-2 group-hover:ring-blue-400/30 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
                                 <img 
                                     src="{{ $emblem['url'] }}" 
                                     alt="{{ $emblem['title'] }}" 
@@ -490,8 +490,8 @@
 
                             <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
                             <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-                                <!-- Top Pointer Arrow -->
-                                <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none"></div>
+                                <!-- Top Pointer Arrow (Dynamically aligned with active emblem center) -->
+                                <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 
                                 <div class="relative z-10 space-y-1">
                                     <h5 class="font-extrabold text-sky-400 text-xs sm:text-[13px] font-heading leading-tight tracking-tight">
@@ -854,32 +854,50 @@
             const triggers = document.querySelectorAll('.emblem-popover-trigger');
             if (!triggers.length) return;
 
-            function positionPopover(popover) {
+            function positionPopover(trigger) {
+                const popover = trigger.querySelector('.emblem-popover');
                 if (!popover) return;
-                // Reset styles to compute natural geometry
+                const arrow = popover.querySelector('.popover-arrow');
+
+                // 1. Reset popover to default centered position relative to this emblem
                 popover.style.left = '50%';
                 popover.style.right = 'auto';
                 popover.style.transform = 'translateX(-50%)';
 
-                const rect = popover.getBoundingClientRect();
-                const padding = 12;
+                // 2. Measure screen geometry
+                const triggerRect = trigger.getBoundingClientRect();
+                const popoverRect = popover.getBoundingClientRect();
+                const padding = 16;
+                let shiftX = 0;
 
-                if (rect.right > window.innerWidth - padding) {
-                    popover.style.left = 'auto';
-                    popover.style.right = '0';
-                    popover.style.transform = 'none';
-                } else if (rect.left < padding) {
-                    popover.style.left = '0';
-                    popover.style.right = 'auto';
-                    popover.style.transform = 'none';
+                // Detect if popover bleeds off right or left edge of screen
+                if (popoverRect.right > window.innerWidth - padding) {
+                    shiftX = popoverRect.right - (window.innerWidth - padding);
+                } else if (popoverRect.left < padding) {
+                    shiftX = popoverRect.left - padding;
+                }
+
+                // Apply horizontal shift to keep card on-screen
+                if (shiftX !== 0) {
+                    popover.style.transform = `translateX(calc(-50% - ${shiftX}px))`;
+                }
+
+                // 3. Dynamically lock the pointer arrow directly onto the active emblem's center!
+                if (arrow) {
+                    const updatedPopoverRect = popover.getBoundingClientRect();
+                    const badgeCenter = triggerRect.left + (triggerRect.width / 2);
+                    const arrowPos = badgeCenter - updatedPopoverRect.left;
+                    // Clamp within rounded card corners
+                    const clampedArrow = Math.max(16, Math.min(updatedPopoverRect.width - 16, arrowPos));
+
+                    arrow.style.left = clampedArrow + 'px';
+                    arrow.style.transform = 'translateX(-50%) rotate(45deg)';
                 }
             }
 
             triggers.forEach(trigger => {
-                const popover = trigger.querySelector('.emblem-popover');
-                
                 trigger.addEventListener('mouseenter', () => {
-                    positionPopover(popover);
+                    positionPopover(trigger);
                 });
 
                 trigger.addEventListener('click', (e) => {
@@ -888,7 +906,7 @@
                     triggers.forEach(t => t.classList.remove('popover-active'));
                     if (!wasActive) {
                         trigger.classList.add('popover-active');
-                        positionPopover(popover);
+                        positionPopover(trigger);
                     }
                 });
             });

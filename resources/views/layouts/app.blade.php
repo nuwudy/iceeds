@@ -186,20 +186,12 @@
             <!-- Ambient Brand Glow in official #0197b2 cyan-teal -->
             <div class="absolute -inset-10 bg-gradient-to-tr from-[#0197b2]/20 via-sky-300/20 to-[#0197b2]/15 rounded-full blur-2xl pointer-events-none iceeds-aura"></div>
             
-            <!-- Authentic iCEEDS Logo Emblem / Mark -->
-            <div class="relative mb-3.5">
-                <picture>
-                    <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
-                    <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Emblem" class="h-14 sm:h-16 w-auto object-contain drop-shadow-sm">
-                </picture>
-            </div>
-
-            <!-- Stylized Brand Typography in exact color code #0197b2 -->
+            <!-- Single Stylized Brand Typography in exact color code #0197b2 with loading shimmer animation -->
             <div class="relative text-center">
-                <span class="iceeds-brand-title iceeds-shimmer-text text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none block">
+                <span class="iceeds-brand-title iceeds-shimmer-text text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none block">
                     iCEEDS
                 </span>
-                <span class="text-[11px] sm:text-xs font-bold text-slate-700 tracking-tight mt-2 block font-heading">
+                <span class="text-[11px] sm:text-xs font-bold text-slate-700 tracking-tight mt-2.5 block font-heading">
                     Innovation Council for Exquisite Education &amp; Development of Skills
                 </span>
                 <span class="text-[9.5px] sm:text-[10.5px] font-semibold text-emerald-700 tracking-normal mt-0.5 block">
@@ -207,8 +199,8 @@
                 </span>
             </div>
 
-            <!-- Sleek Loading Progress Indicator in #0197b2 -->
-            <div class="iceeds-preloader-line mt-4">
+            <!-- Sleek Loading Progress Animation in #0197b2 -->
+            <div class="iceeds-preloader-line mt-5">
                 <div class="iceeds-preloader-bar"></div>
             </div>
         </div>

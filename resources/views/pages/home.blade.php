@@ -145,7 +145,7 @@
 
                     <!-- Main Headline (Crisply Outlined against background video) -->
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading hero-heading-outlined">
-                        Elevate Your Skills with <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">Accredited Certifications</span>
+                        Elevate Your Skills with <span class="text-emerald-400">Accredited Certifications</span>
                     </h1>
 
                     <!-- Transparent Subtitle (No thick black box: crystal clear video visibility with outlined typography) -->

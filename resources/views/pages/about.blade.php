@@ -37,7 +37,7 @@
                         Guided and monitored by an expert <strong>Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation. Additionally, iCEEDS facilitates skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship, Govt. of India</strong>.
                     </p>
                     <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-                        Operating with full ISO accreditation, iCEEDS maintains its Central Administrative Office in <strong>Chennai (Tamil Nadu)</strong>, Regional Administrative Office in <strong>Malappuram (Kerala)</strong>, and Operations Hub in <strong>Aluva, Ernakulam District (Kerala)</strong>, delivering transformative vocational training across South India and beyond.
+                        Operating with full ISO accreditation, iCEEDS maintains its Corporate Office in <strong>Greater Chennai (Tamil Nadu)</strong> and Central Administrative Office in <strong>Malappuram (Kerala)</strong>, delivering transformative vocational training across South India and beyond.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-700">
                         <div class="flex items-center gap-2">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10">
                             <span class="text-purple-400 font-bold block uppercase text-[10px] tracking-wider mb-1">Administrative Presence</span>
-                            <p class="text-slate-200 font-medium">Chennai (Central Office) &bull; Malappuram (Regional Office) &bull; Aluva</p>
+                            <p class="text-slate-200 font-medium">Greater Chennai (Corporate Office) &bull; Malappuram (Central Administrative Office)</p>
                         </div>
                     </div>
                 </div>
@@ -267,24 +267,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-2">Central Office</span>
-                    <h4 class="font-bold text-white text-base font-heading">Chennai, Tamil Nadu</h4>
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-2">Corporate Office</span>
+                    <h4 class="font-bold text-white text-base font-heading">Greater Chennai, Tamil Nadu</h4>
                     <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                        132/76 Mogappair Road, Thiruvalluvar, Chennai, Tamil Nadu — Pin: 600050
+                        iCEEDS, Plot No:90, 3rd Cross Street, Phase-2/Thirumalai Nagar Annexe, Perungudi, Greater Chennai, Tamil Nadu State — Pin: 600096
                     </p>
                 </div>
                 <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block mb-2">Regional Office</span>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block mb-2">Central Administrative Office</span>
                     <h4 class="font-bold text-white text-base font-heading">Malappuram, Kerala</h4>
                     <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                        AQAAB Arcade, Athanikkal, Valluvambram PO, Malappuram District, Kerala — Pin: 676517
+                        Suit No: 15/413-15, Athanikkal, Calicut-Palaghat Highway, Valluvambram (PO), Malappuram, Kerala State — Pin: 673642
                     </p>
                 </div>
                 <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-2">Contact & Inquiries</span>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-2">Official Helplines</span>
                     <h4 class="font-bold text-white text-base font-heading">Direct Channels</h4>
-                    <p class="text-xs text-slate-300 mt-1">Email: <a href="mailto:lettertoiceeds@gmail.com" class="text-blue-300 hover:underline">lettertoiceeds@gmail.com</a></p>
-                    <p class="text-xs text-slate-300">Phones: <a href="tel:+918943997003" class="text-blue-300 hover:underline">+91 89439 97003</a> / <a href="tel:+919061202443" class="text-blue-300 hover:underline">+91 90612 02443</a></p>
+                    <p class="text-xs text-slate-300 mt-1">Admin / WhatsApp: <a href="https://wa.me/917510200095" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">+91 7510200095</a></p>
+                    <p class="text-xs text-slate-300">Technical Support: <a href="tel:+917510200090" class="text-blue-300 hover:underline">+91 7510200090</a></p>
+                    <p class="text-xs text-slate-300">Grievance Redressal: <a href="tel:+919061202443" class="text-amber-300 hover:underline">+91 9061202443</a></p>
+                    <p class="text-xs text-slate-300 mt-1">Email: <a href="mailto:lettertoiceeds@gmail.com" class="text-slate-200 hover:underline">lettertoiceeds@gmail.com</a></p>
                 </div>
             </div>
         </div>

@@ -56,7 +56,7 @@
 
                     <!-- Location Cards -->
                     <div class="space-y-4">
-                        <!-- Central Office -->
+                        <!-- Corporate Office -->
                         <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition">
                             <div class="flex items-start gap-4">
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
@@ -65,16 +65,16 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 font-mono">Central Administrative Office</span>
-                                    <h3 class="text-base font-bold text-slate-900 font-heading">Chennai, Tamil Nadu</h3>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 font-mono">Corporate Office</span>
+                                    <h3 class="text-base font-bold text-slate-900 font-heading">Greater Chennai, Tamil Nadu</h3>
                                     <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                                        132/76 Mogappair Road, Thiruvalluvar, Chennai, Tamil Nadu — Pin: <strong>600050</strong>
+                                        iCEEDS, Plot No:90, 3rd Cross Street, Phase-2/Thirumalai Nagar Annexe, Perungudi, Greater Chennai, Tamil Nadu State — Pin: <strong>600096</strong>
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Regional Office -->
+                        <!-- Central Administrative Office -->
                         <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition">
                             <div class="flex items-start gap-4">
                                 <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
@@ -84,29 +84,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-mono">Regional Administrative Office</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-mono">Central Administrative Office</span>
                                     <h3 class="text-base font-bold text-slate-900 font-heading">Malappuram, Kerala</h3>
                                     <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                                        AQAAB Arcade, Athanikkal, Valluvambram PO, Malappuram District, Kerala State — Pin: <strong>676517</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Academic Operations -->
-                        <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 font-mono">Academic Operations Hub</span>
-                                    <h3 class="text-base font-bold text-slate-900 font-heading">Aluva, Kerala</h3>
-                                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                                        Aluva, Ernakulam District, Kerala State
+                                        Suit No: 15/413-15, Athanikkal, Calicut-Palaghat Highway, Valluvambram (PO), Malappuram, Kerala State — Pin: <strong>673642</strong>
                                     </p>
                                 </div>
                             </div>
@@ -121,19 +102,32 @@
                                 <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                                 <span class="font-mono text-slate-200">lettertoiceeds@gmail.com</span>
                             </a>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                <a href="tel:+918943997003" class="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
-                                    <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                    <span class="font-mono text-[11px] text-slate-200">+91 89439 97003</span>
+                            <div class="space-y-2">
+                                <a href="tel:+917510200095" class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                        <span class="font-mono text-[11px] text-slate-200">+91 7510200095</span>
+                                    </div>
+                                    <span class="text-[10px] text-blue-300 font-semibold">Admin / WhatsApp</span>
                                 </a>
-                                <a href="tel:+919061202443" class="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
-                                    <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                    <span class="font-mono text-[11px] text-slate-200">+91 90612 02443</span>
+                                <a href="tel:+917510200090" class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                        <span class="font-mono text-[11px] text-slate-200">+91 7510200090</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 font-medium">Technical Support</span>
+                                </a>
+                                <a href="tel:+919061202443" class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                        <span class="font-mono text-[11px] text-slate-200">+91 9061202443</span>
+                                    </div>
+                                    <span class="text-[10px] text-amber-300 font-medium">Grievance Redressal</span>
                                 </a>
                             </div>
                         </div>
 
-                        <a href="https://wa.me/918943997003" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-xs tracking-wide transition text-white">
+                        <a href="https://wa.me/917510200095" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-xs tracking-wide transition text-white">
                             <span>Open WhatsApp Conversation &rarr;</span>
                         </a>
                     </div>

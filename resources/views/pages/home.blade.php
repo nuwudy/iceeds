@@ -227,7 +227,7 @@
                                     <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-2">Indian Trusts Act, 1882 &bull; NSDC Aligned</span>
                                     <h3 class="text-lg font-bold font-heading">Academic Board of Studies</h3>
                                     <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                                        Independent skill development trust delivering vocational & professional courses with national reach across Chennai, Malappuram, and Aluva.
+                                        Independent skill development trust delivering vocational & professional courses with national reach across Greater Chennai and Malappuram.
                                     </p>
                                 </div>
                                 <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/15">

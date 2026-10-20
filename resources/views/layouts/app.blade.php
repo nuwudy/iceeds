@@ -118,9 +118,9 @@
                     <span>lettertoiceeds@gmail.com</span>
                 </a>
                 <span class="text-slate-700 hidden sm:inline">|</span>
-                <a href="tel:+918943997003" class="hover:text-emerald-400 transition hidden sm:flex items-center gap-1.5">
+                <a href="tel:+917510200095" class="hover:text-emerald-400 transition hidden sm:flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                    <span>+91 89439 97003</span>
+                    <span>+91 75102 00095</span>
                 </a>
             </div>
         </div>
@@ -203,8 +203,8 @@
                         </svg>
                         <span>Certificate Verification Portal</span>
                     </a>
-                    <a href="https://wa.me/918943997003" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition">
-                        <span>Chat via WhatsApp (+91 89439 97003)</span>
+                    <a href="https://wa.me/917510200095" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition">
+                        <span>Chat via WhatsApp (+91 75102 00095)</span>
                     </a>
                 </div>
             </div>
@@ -483,25 +483,26 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Administrative Offices -->
+                <!-- Col 4: Administrative Offices & Contacts -->
                 <div class="space-y-3">
-                    <h3 class="text-sm font-bold text-white font-heading uppercase tracking-wider mb-4">Administrative Offices</h3>
+                    <h3 class="text-sm font-bold text-white font-heading uppercase tracking-wider mb-4">Official Offices</h3>
                     <div class="text-xs space-y-3">
                         <div>
-                            <span class="text-white font-semibold block text-[11px] uppercase tracking-wider text-slate-300">Central Administrative Office</span>
+                            <span class="text-white font-semibold block text-[11px] uppercase tracking-wider text-blue-300">Corporate Office</span>
                             <p class="text-slate-400 mt-0.5 leading-relaxed">
-                                132/76 Mogappair Road, Thiruvalluvar, Chennai, Tamil Nadu — Pin: 600050
+                                iCEEDS, Plot No:90, 3rd Cross Street, Phase-2/Thirumalai Nagar Annexe, Perungudi, Greater Chennai, Pin: 600096, Tamilnadu State
                             </p>
                         </div>
                         <div>
-                            <span class="text-white font-semibold block text-[11px] uppercase tracking-wider text-slate-300">Regional Administrative Office</span>
+                            <span class="text-white font-semibold block text-[11px] uppercase tracking-wider text-emerald-300">Central Administrative Office</span>
                             <p class="text-slate-400 mt-0.5 leading-relaxed">
-                                AQAAB Arcade, Athanikkal, Valluvambram PO, Malappuram District, Kerala — Pin: 676517
+                                Suit No: 15/413-15, Athanikkal, Calicut-Palaghat Highway, Valluvambram (PO), Malappuram, Kerala State, Pin: 673642
                             </p>
                         </div>
-                        <div>
-                            <span class="text-white font-semibold block text-[11px] uppercase tracking-wider text-slate-300">Operations Hub</span>
-                            <p class="text-slate-400 mt-0.5">Aluva, Ernakulam District, Kerala</p>
+                        <div class="pt-2 border-t border-slate-900 space-y-1 text-[11px] text-slate-400">
+                            <p><strong class="text-slate-300">Admin Support:</strong> <a href="tel:+917510200095" class="hover:text-emerald-400 font-mono">+91 75102 00095</a> <span class="text-emerald-400 font-semibold">(WhatsApp)</span></p>
+                            <p><strong class="text-slate-300">Tech Assistance:</strong> <a href="tel:+917510200090" class="hover:text-blue-400 font-mono">+91 75102 00090</a></p>
+                            <p><strong class="text-slate-300">Grievance Officer:</strong> <a href="tel:+919061202443" class="hover:text-amber-400 font-mono">+91 90612 02443</a></p>
                         </div>
                     </div>
                 </div>
@@ -527,7 +528,7 @@
 
     <!-- Floating WhatsApp Quick-Chat Button (Hidden in Print) -->
     <a 
-        href="https://wa.me/918943997003" 
+        href="https://wa.me/917510200095" 
         target="_blank" 
         rel="noopener noreferrer" 
         aria-label="Chat with iCEEDS on WhatsApp" 

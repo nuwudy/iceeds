@@ -48,8 +48,7 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Indian Trusts Act, 1882');
         $response->assertSee('Academic Board of Studies');
         $response->assertSee('National Skill Development Corporation');
-        $response->assertSee('Our Four Core Pillars');
-        $response->assertSee('Aluva');
+        $response->assertSee('Malappuram');
         $response->assertSee('Chennai');
     }
 
@@ -69,8 +68,9 @@ class CertificateVerificationTest extends TestCase
         $response = $this->get('/contact');
         $response->assertStatus(200);
         $response->assertSee('Get in Touch with iCEEDS');
+        $response->assertSee('Corporate Office');
         $response->assertSee('Central Administrative Office');
-        $response->assertSee('132/76 Mogappair Road');
+        $response->assertSee('Plot No:90, 3rd Cross Street');
         $response->assertSee('Malappuram');
         $response->assertSee('lettertoiceeds@gmail.com');
     }

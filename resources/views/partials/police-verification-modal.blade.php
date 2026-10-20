@@ -451,6 +451,14 @@
         }
     }
 
+    // Bind globally to window
+    window.openPoliceDocModal = openPoliceDocModal;
+    window.closePoliceDocModal = closePoliceDocModal;
+    window.switchPoliceModalTab = switchPoliceModalTab;
+    window.handlePoliceModalBackdrop = handlePoliceModalBackdrop;
+    window.adjustPoliceModalZoom = adjustPoliceModalZoom;
+    window.resetPoliceModalZoom = resetPoliceModalZoom;
+
     // Keyboard support: Close on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {

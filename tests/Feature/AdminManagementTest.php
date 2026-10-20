@@ -187,4 +187,43 @@ class AdminManagementTest extends TestCase
         $toggleResponse2->assertRedirect();
         $this->assertTrue((bool)$newUser->fresh()->is_approved);
     }
+
+    public function test_admin_can_view_and_manage_contact_inquiries()
+    {
+        $admin = User::factory()->create([
+            'role' => 'admin',
+            'is_approved' => true,
+        ]);
+
+        $inquiry = \App\Models\ContactInquiry::create([
+            'name' => 'Dr. Robert Specialist',
+            'email' => 'robert@specialist.org',
+            'phone' => '+91 99999 88888',
+            'subject' => 'Certification Inquiries',
+            'message' => 'We would like to verify qualifications for our clinical team.',
+        ]);
+
+        $this->actingAs($admin);
+
+        // 1. Can view inquiries index
+        $response = $this->get(route('admin.inquiries.index'));
+        $response->assertOk();
+        $response->assertSee('Public Inquiries & Messages', false);
+        $response->assertSee('Dr. Robert Specialist');
+        $response->assertSee('Certification Inquiries');
+
+        // 2. Can view single inquiry details
+        $response = $this->get(route('admin.inquiries.show', $inquiry));
+        $response->assertOk();
+        $response->assertSee('Dr. Robert Specialist');
+        $response->assertSee('We would like to verify qualifications for our clinical team.');
+        $response->assertSee('Reply by Email');
+
+        // 3. Can delete an inquiry
+        $deleteResponse = $this->delete(route('admin.inquiries.destroy', $inquiry));
+        $deleteResponse->assertRedirect(route('admin.inquiries.index'));
+        $this->assertDatabaseMissing('contact_inquiries', [
+            'id' => $inquiry->id,
+        ]);
+    }
 }

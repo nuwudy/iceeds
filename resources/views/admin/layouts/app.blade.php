@@ -56,6 +56,9 @@
                     <a href="{{ route('admin.media') }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
                         Media Library
                     </a>
+                    <a href="{{ route('admin.inquiries.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.inquiries.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
+                        <span>Inquiries</span>
+                    </a>
                     @if(Auth::user()->isAdmin())
                         <a href="{{ route('admin.users.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.users.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
                             <span>Users & Staff</span>
@@ -111,6 +114,9 @@
             </a>
             <a href="{{ route('admin.media') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 Media
+            </a>
+            <a href="{{ route('admin.inquiries.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.inquiries.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+                Inquiries
             </a>
             @if(Auth::user()->isAdmin())
                 <a href="{{ route('admin.users.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.users.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">

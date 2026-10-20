@@ -111,10 +111,10 @@
         </a>
 
         <!-- Card 4: Contact Inquiries -->
-        <div class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 shadow-lg">
+        <a href="{{ route('admin.inquiries.index') }}" class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-500/50 shadow-lg transition-all duration-200 group block">
             <div class="flex items-center justify-between mb-4">
                 <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Public Inquiries</span>
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center group-hover:scale-110 transition">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -123,10 +123,11 @@
             <div class="text-3xl font-black text-white font-heading tracking-tight">
                 {{ number_format($stats['inquiries_count']) }}
             </div>
-            <p class="text-[11px] text-slate-400 mt-1 font-medium">
-                Received via Official Contact Form
+            <p class="text-[11px] text-slate-400 mt-1 font-medium flex items-center justify-between">
+                <span>Received via Contact Form</span>
+                <span class="text-amber-400 font-bold group-hover:translate-x-1 transition">&rarr;</span>
             </p>
-        </div>
+        </a>
     </div>
 
     <!-- Two Column Grid: Recent Certificates & Recent Media -->
@@ -222,17 +223,25 @@
 
             <!-- Recent Inquiries -->
             <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-xl space-y-4">
-                <h3 class="text-base font-bold text-white font-heading">Recent Contact Inquiries</h3>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-white font-heading">Recent Contact Inquiries</h3>
+                        <p class="text-xs text-slate-400">Messages submitted via website form</p>
+                    </div>
+                    <a href="{{ route('admin.inquiries.index') }}" class="text-xs font-bold text-amber-400 hover:text-amber-300 transition">
+                        View All &rarr;
+                    </a>
+                </div>
                 <div class="space-y-3">
                     @forelse($recentInquiries as $inquiry)
-                        <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs space-y-1">
+                        <a href="{{ route('admin.inquiries.show', $inquiry) }}" class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 text-xs space-y-1 block transition group">
                             <div class="flex items-center justify-between text-slate-400 text-[11px]">
-                                <span class="font-bold text-white">{{ $inquiry->name }}</span>
+                                <span class="font-bold text-white group-hover:text-blue-400 transition">{{ $inquiry->name }}</span>
                                 <span>{{ $inquiry->created_at->diffForHumans() }}</span>
                             </div>
                             <p class="text-blue-300 font-medium">{{ $inquiry->subject }}</p>
                             <p class="text-slate-400 text-[11px] truncate">{{ $inquiry->message }}</p>
-                        </div>
+                        </a>
                     @empty
                         <p class="text-xs text-slate-500 text-center py-4">No contact messages received yet.</p>
                     @endforelse

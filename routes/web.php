@@ -59,5 +59,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/media/upload', [MediaController::class, 'upload'])->name('admin.media.upload');
         Route::put('/media/{media}', [MediaController::class, 'update'])->name('admin.media.update');
         Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('admin.media.destroy');
+
+        // Contact Inquiries Desk
+        Route::get('/inquiries', [\App\Http\Controllers\Admin\InquiryController::class, 'index'])->name('admin.inquiries.index');
+        Route::get('/inquiries/{inquiry}', [\App\Http\Controllers\Admin\InquiryController::class, 'show'])->name('admin.inquiries.show');
+        Route::delete('/inquiries/{inquiry}', [\App\Http\Controllers\Admin\InquiryController::class, 'destroy'])->name('admin.inquiries.destroy');
     });
 });

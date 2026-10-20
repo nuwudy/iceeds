@@ -80,6 +80,87 @@
             animation-play-state: paused;
         }
 
+        /* iCEEDS Brand Preloader Styles */
+        #site-preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+
+        #site-preloader.preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .iceeds-brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: #0197b2;
+            letter-spacing: -0.025em;
+            text-shadow: 0 4px 20px rgba(1, 151, 178, 0.2);
+        }
+
+        /* Continuous Luminous Shimmer Effect across iCEEDS text */
+        .iceeds-shimmer-text {
+            background: linear-gradient(
+                90deg, 
+                #0197b2 0%, 
+                #0197b2 35%, 
+                #38bdf8 50%, 
+                #0197b2 65%, 
+                #0197b2 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: iceedsShine 2.2s infinite ease-in-out;
+        }
+
+        @keyframes iceedsShine {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .iceeds-preloader-line {
+            width: 140px;
+            height: 3px;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .iceeds-preloader-bar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #0197b2, #38bdf8, #0197b2);
+            background-size: 200% 100%;
+            animation: iceedsProgress 1.4s infinite cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        @keyframes iceedsProgress {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes iceedsPulseGlow {
+            0%, 100% { transform: scale(0.96); opacity: 0.3; }
+            50% { transform: scale(1.06); opacity: 0.65; }
+        }
+
+        .iceeds-aura {
+            animation: iceedsPulseGlow 2.5s infinite ease-in-out;
+        }
+
         /* Dedicated Print Stylesheet */
         @media print {
             .no-print {
@@ -98,6 +179,40 @@
     @stack('styles')
 </head>
 <body class="min-h-screen flex flex-col bg-portal-gradient text-slate-800">
+
+    <!-- iCEEDS Brand Preloader (Hidden in Print) -->
+    <div id="site-preloader" class="no-print" aria-hidden="true">
+        <div class="relative flex flex-col items-center px-4 select-none">
+            <!-- Ambient Brand Glow in official #0197b2 cyan-teal -->
+            <div class="absolute -inset-10 bg-gradient-to-tr from-[#0197b2]/20 via-sky-300/20 to-[#0197b2]/15 rounded-full blur-2xl pointer-events-none iceeds-aura"></div>
+            
+            <!-- Authentic iCEEDS Logo Emblem / Mark -->
+            <div class="relative mb-3.5">
+                <picture>
+                    <source srcset="{{ asset('images/logo.webp') }}" type="image/webp">
+                    <img src="{{ asset('images/logo.png') }}" alt="iCEEDS Emblem" class="h-14 sm:h-16 w-auto object-contain drop-shadow-sm">
+                </picture>
+            </div>
+
+            <!-- Stylized Brand Typography in exact color code #0197b2 -->
+            <div class="relative text-center">
+                <span class="iceeds-brand-title iceeds-shimmer-text text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none block">
+                    iCEEDS
+                </span>
+                <span class="text-[11px] sm:text-xs font-bold text-slate-700 tracking-tight mt-2 block font-heading">
+                    Innovation Council for Exquisite Education &amp; Development of Skills
+                </span>
+                <span class="text-[9.5px] sm:text-[10.5px] font-semibold text-emerald-700 tracking-normal mt-0.5 block">
+                    A Self-Governing Educational Trust &bull; Reg. under Indian Trusts Act, 1882
+                </span>
+            </div>
+
+            <!-- Sleek Loading Progress Indicator in #0197b2 -->
+            <div class="iceeds-preloader-line mt-4">
+                <div class="iceeds-preloader-bar"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Top Institutional Banner (Hidden in Print) -->
     <div class="no-print bg-slate-950 text-slate-300 text-[11px] sm:text-xs py-2 border-b border-slate-800/80">
@@ -653,6 +768,34 @@
                 }
             });
         }
+    </script>
+
+    <!-- iCEEDS Preloader Auto-Dismissal Script -->
+    <script>
+        (function() {
+            const preloader = document.getElementById('site-preloader');
+            if (!preloader) return;
+
+            function dismissPreloader() {
+                if (!preloader.classList.contains('preloader-hidden')) {
+                    preloader.classList.add('preloader-hidden');
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 450);
+                }
+            }
+
+            if (document.readyState === 'complete') {
+                setTimeout(dismissPreloader, 350);
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(dismissPreloader, 350);
+                });
+            }
+
+            // Safety timeout: always dismiss within 1500ms max so visitor is never blocked
+            setTimeout(dismissPreloader, 1500);
+        })();
     </script>
 
     <!-- Police Verification Report Interactive Scrollable Modal Partial -->

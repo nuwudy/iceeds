@@ -58,18 +58,8 @@
                 </button>
             </div>
 
-            <!-- Action Controls (Download PDF & Close) -->
+            <!-- Action Controls (Close Modal) -->
             <div class="flex items-center gap-2">
-                <a 
-                    href="{{ asset('storage/media/2026/10/kerala-police-document-yhgf2l.pdf') }}" 
-                    target="_blank" 
-                    download="kerala-police-document-yhgf2l.pdf" 
-                    class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-xs"
-                    title="Download Official PDF"
-                >
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                    <span>Download PDF</span>
-                </a>
 
                 <button 
                     type="button" 
@@ -317,17 +307,6 @@
 
             <!-- Direct Actions -->
             <div class="flex items-center gap-2">
-                <a 
-                    href="{{ asset('storage/media/2026/10/kerala-police-document-yhgf2l.pdf') }}" 
-                    target="_blank" 
-                    download="kerala-police-document-yhgf2l.pdf" 
-                    class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-blue-700 transition shadow-xs cursor-pointer"
-                >
-                    <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Download Official PDF (212 KB)</span>
-                </a>
 
                 <button 
                     type="button" 

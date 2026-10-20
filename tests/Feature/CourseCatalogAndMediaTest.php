@@ -80,15 +80,17 @@ class CourseCatalogAndMediaTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
         $response->assertSee('policeDocModal');
-        $response->assertSee('kerala-police-document-yhgf2l.pdf');
+        $response->assertDontSee('Download PDF');
+        $response->assertDontSee('Download Official PDF');
         $response->assertSee('openPoliceDocModal');
         $response->assertSee('Certified English Translation');
         $response->assertSee('Subhash Babu K.C.');
 
+        $this->assertFileExists(public_path('storage/media/2026/10/police-report-i-ceeds-1-oeew2l.pdf'));
         $this->assertFileExists(public_path('storage/media/2026/10/kerala-police-document-yhgf2l.pdf'));
         $this->assertFileExists(public_path('images/verification/kerala-police-original.jpg'));
 
-        $pdfResponse = $this->get('/storage/media/2026/10/kerala-police-document-yhgf2l.pdf');
+        $pdfResponse = $this->get('/storage/media/2026/10/police-report-i-ceeds-1-oeew2l.pdf');
         $pdfResponse->assertStatus(200);
     }
 }

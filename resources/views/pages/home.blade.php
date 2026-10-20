@@ -133,52 +133,52 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 <!-- Left: Headline & Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <!-- Institutional Trust Legal Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-blue-300 text-xs font-bold uppercase tracking-wider shadow-lg flex-wrap justify-center lg:justify-start">
-                        <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                    <!-- Institutional Trust Legal Badge (Glassy) -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-blue-300 text-xs font-bold uppercase tracking-wider shadow-lg flex-wrap justify-center lg:justify-start">
+                        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         <span class="text-white font-semibold">A Self-Governing Educational Trust</span>
-                        <span class="text-slate-500 hidden sm:inline">&bull;</span>
+                        <span class="text-slate-400 hidden sm:inline">&bull;</span>
                         <span class="text-emerald-400">Registered under the Indian Trusts Act, 1882</span>
                     </div>
 
-                    <!-- Main Headline -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                    <!-- Main Headline (Crisply Outlined against background video) -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-heading hero-heading-outlined">
                         Elevate Your Skills with <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">Accredited Certifications</span>
                     </h1>
 
-                    <!-- Verified Subtitle with Glassmorphic Underlay for 100% Readability -->
-                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-slate-800 shadow-xl max-w-2xl mx-auto lg:mx-0">
-                        <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
-                            <strong class="text-white">iCEEDS</strong> (<em class="text-slate-300">Innovation Council for Exquisite Education &amp; Development of Skills</em>) is <strong class="text-white">A Self-Governing Educational Trust</strong> registered under the <strong class="text-emerald-300">Indian Trusts Act, 1882</strong>. As an independent skill development and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong class="text-blue-300">Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating certification support aligned with the <strong class="text-amber-300">National Skill Development Corporation (NSDC)</strong> under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                    <!-- Transparent Subtitle (No thick black box: crystal clear video visibility with outlined typography) -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-black/20 backdrop-blur-[2px] border border-white/15 max-w-2xl mx-auto lg:mx-0 shadow-xl">
+                        <p class="text-sm sm:text-base text-white/95 font-medium leading-relaxed hero-text-outlined">
+                            <strong class="text-white font-extrabold">iCEEDS</strong> (<em class="text-slate-200">Innovation Council for Exquisite Education &amp; Development of Skills</em>) is <strong class="text-white font-bold">A Self-Governing Educational Trust</strong> registered under the <strong class="text-emerald-300 font-bold">Indian Trusts Act, 1882</strong>. As an independent skill development and certification entity, the Trust designs and conducts vocational and professional courses to empower students with industry-relevant skills. Guided and monitored by an expert <strong class="text-blue-200 font-bold">Academic Board of Studies</strong>, iCEEDS ensures high standards in curriculum design and quality evaluation, while facilitating certification support aligned with the <strong class="text-amber-300 font-bold">National Skill Development Corporation (NSDC)</strong> under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
                         </p>
                     </div>
 
                     <!-- CTAs -->
                     <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
                         <a href="{{ route('courses') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-150 cursor-pointer">
-                            <span>Browse Courses &amp; Syllabi</span>
+                            <span>Browse 4,000+ Courses &amp; Syllabi</span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </a>
                         <a href="{{ route('verify') }}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-slate-900 bg-white hover:bg-slate-100 shadow-md transition-all duration-150 cursor-pointer">
                             <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>Certificate Verification</span>
                         </a>
-                        <button type="button" onclick="openPoliceDocModal('original')" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-emerald-300 bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/40 shadow-md transition-all duration-150 cursor-pointer">
+                        <button type="button" onclick="openPoliceDocModal('original')" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-emerald-300 bg-black/40 hover:bg-black/60 border border-emerald-500/40 shadow-md transition-all duration-150 cursor-pointer">
                             <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                             <span>Police Report</span>
                         </button>
-                        <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-300 hover:text-white transition">
+                        <a href="{{ route('about') }}" class="inline-flex items-center gap-1.5 px-4 py-3.5 text-sm font-semibold text-slate-200 hover:text-white transition hero-text-outlined">
                             <span>Know More &rarr;</span>
                         </a>
                     </div>
 
                     <!-- Quick Verification Search Bar -->
                     <div class="pt-4 max-w-xl mx-auto lg:mx-0">
-                        <form action="{{ route('verify.submit') }}" method="POST" class="flex flex-col sm:flex-row gap-2 bg-slate-900/90 backdrop-blur-md p-2 rounded-2xl border border-slate-700/80 shadow-2xl">
+                        <form action="{{ route('verify.submit') }}" method="POST" class="flex flex-col sm:flex-row gap-2 bg-black/40 backdrop-blur-md p-2 rounded-2xl border border-white/20 shadow-2xl">
                             @csrf
                             <div class="relative flex-1">
                                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -197,8 +197,8 @@
                                 <svg class="w-3.5 h-3.5 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                             </button>
                         </form>
-                        <p class="text-[11px] text-slate-400 mt-2 text-center lg:text-left">
-                            Instant online verification for over <strong class="text-slate-200">{{ number_format($totalCertificates) }}+</strong> issued credentials.
+                        <p class="text-[11px] text-slate-300 mt-2 text-center lg:text-left hero-text-outlined">
+                            Instant online verification for over <strong class="text-white">{{ number_format($totalCertificates) }}+</strong> issued credentials across <strong class="text-white">4,000+</strong> course syllabi.
                         </p>
                     </div>
                 </div>
@@ -206,43 +206,82 @@
                 <!-- Right: Visual Bento Showcase Card -->
                 <div class="lg:col-span-5">
                     <div class="grid grid-cols-2 gap-4">
-                        <!-- Stat Card 1 -->
-                        <div class="bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden group hover:border-blue-500/50 transition">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center mb-3">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                        
+                        <!-- Dynamic Digital Counter Card 1: Verified Credentials -->
+                        <div class="bg-slate-950/35 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-white/15 shadow-2xl relative overflow-hidden group hover:border-emerald-400/50 hover:bg-slate-950/45 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-300">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span>Live Registry</span>
+                                </div>
+                                <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                                </div>
                             </div>
-                            <span class="text-3xl font-black text-white font-heading tracking-tight">{{ number_format($totalCertificates) }}+</span>
-                            <p class="text-xs font-bold text-slate-200 mt-1">Credentials Issued</p>
-                            <p class="text-[11px] text-slate-400 mt-0.5 leading-snug">Fully validated & tamper-proof historical registry</p>
+                            
+                            <!-- Digital Counter Readout -->
+                            <div class="flex items-baseline gap-1 my-1">
+                                <span 
+                                    class="digital-counter font-mono font-black text-3xl sm:text-4xl text-emerald-400 digital-glow-emerald tracking-tight"
+                                    data-target="{{ $totalCertificates }}"
+                                >
+                                    0
+                                </span>
+                                <span class="text-2xl sm:text-3xl font-black text-emerald-400 digital-glow-emerald">+</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-extrabold text-white mt-1 hero-text-outlined">Credentials Issued</p>
+                            <p class="text-[11px] text-slate-300 mt-0.5 leading-snug hero-text-outlined">Tamper-proof verifiable repository</p>
                         </div>
 
-                        <!-- Stat Card 2 -->
-                        <div class="bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden group hover:border-emerald-500/50 transition">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-3">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        <!-- Dynamic Digital Counter Card 2: 4,000+ Courses & Programs -->
+                        <div class="bg-slate-950/35 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-white/15 shadow-2xl relative overflow-hidden group hover:border-sky-400/50 hover:bg-slate-950/45 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-500/20 border border-sky-400/30 text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                                    <span>Accredited</span>
+                                </div>
+                                <div class="w-9 h-9 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 flex items-center justify-center">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                </div>
                             </div>
-                            <span class="text-3xl font-black text-white font-heading tracking-tight">ISO</span>
-                            <p class="text-xs font-bold text-slate-200 mt-1">Accredited Body</p>
-                            <p class="text-[11px] text-slate-400 mt-0.5 leading-snug">Global quality standards & compliance</p>
+
+                            <!-- Digital Counter Readout -->
+                            <div class="flex items-baseline gap-1 my-1">
+                                <span 
+                                    class="digital-counter font-mono font-black text-3xl sm:text-4xl text-sky-400 digital-glow-sky tracking-tight"
+                                    data-target="4000"
+                                >
+                                    0
+                                </span>
+                                <span class="text-2xl sm:text-3xl font-black text-sky-400 digital-glow-sky">+</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-extrabold text-white mt-1 hero-text-outlined">Skill Courses</p>
+                            <p class="text-[11px] text-slate-300 mt-0.5 leading-snug hero-text-outlined">NSDC &amp; UGC aligned curricula</p>
                         </div>
 
-                        <!-- Stat Card 3 (Span 2) -->
-                        <div class="col-span-2 bg-slate-900/90 backdrop-blur-md text-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-800 relative overflow-hidden">
+                        <!-- Card 3 (Span 2): Translucent Glass for Institutional Governance -->
+                        <div class="col-span-2 bg-slate-950/35 backdrop-blur-md text-white rounded-3xl p-5 sm:p-6 shadow-2xl border border-white/15 relative overflow-hidden group hover:border-white/30 hover:bg-slate-950/45 transition-all duration-300">
                             <div class="flex items-center justify-between gap-4">
                                 <div>
-                                    <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-2">Indian Trusts Act, 1882 &bull; NSDC Aligned</span>
-                                    <h3 class="text-lg font-bold font-heading">Academic Board of Studies</h3>
-                                    <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                                        Independent skill development trust delivering vocational & professional courses with national reach across Greater Chennai and Malappuram.
+                                    <span class="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-2">
+                                        Indian Trusts Act, 1882 &bull; NSDC Aligned &bull; ISO Certified
+                                    </span>
+                                    <h3 class="text-base sm:text-lg font-bold font-heading text-white hero-heading-outlined">
+                                        Academic Board of Studies
+                                    </h3>
+                                    <p class="text-xs text-slate-200 mt-1 leading-relaxed hero-text-outlined">
+                                        Independent skill development trust delivering 4,000+ vocational &amp; professional courses with nationwide credential validity.
                                     </p>
                                 </div>
-                                <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
-                                    <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                                <div class="w-13 h-13 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                                 </div>
                             </div>
-                            <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                                <span>Vocational & Professional Qualifications</span>
-                                <a href="{{ route('about') }}" class="text-blue-300 hover:text-white font-semibold flex items-center gap-1">Read Story &rarr;</a>
+                            <div class="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-xs text-slate-300">
+                                <span class="hero-text-outlined">Vocational &amp; Professional Qualifications</span>
+                                <a href="{{ route('courses') }}" class="text-sky-300 hover:text-white font-semibold flex items-center gap-1 transition hero-text-outlined">
+                                    Explore 4,000+ Courses &rarr;
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -274,6 +313,46 @@
                     } else {
                         vid.addEventListener('loadeddata', playVid);
                     }
+                }
+            })();
+
+            // Dynamic Digital Counter Engine for Hero Section
+            (function() {
+                function animateDigitalCounters() {
+                    var counters = document.querySelectorAll('.digital-counter');
+                    if (!counters.length) return;
+                    
+                    counters.forEach(function(counter) {
+                        var target = parseInt(counter.getAttribute('data-target'), 10) || 0;
+                        var duration = 1800; // 1.8s smooth count-up
+                        var startTime = null;
+
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var elapsed = timestamp - startTime;
+                            var progress = Math.min(elapsed / duration, 1);
+                            
+                            // Ease-out cubic curve: fast start, sleek digital deceleration
+                            var easeOut = 1 - Math.pow(1 - progress, 3);
+                            var currentVal = Math.floor(easeOut * target);
+                            
+                            counter.textContent = currentVal.toLocaleString();
+                            
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                counter.textContent = target.toLocaleString();
+                            }
+                        }
+
+                        window.requestAnimationFrame(step);
+                    });
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', animateDigitalCounters);
+                } else {
+                    animateDigitalCounters();
                 }
             })();
         </script>

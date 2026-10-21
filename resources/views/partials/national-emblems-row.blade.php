@@ -7,7 +7,7 @@
             'badge_classes' => 'bg-amber-400/25 text-amber-200 border border-amber-400/40 shadow-xs',
             'pill_classes' => 'bg-amber-500/20 text-amber-300 border border-amber-400/30',
             'category' => 'Govt. of India PPP',
-            'url' => asset('storage/media/2026/10/nsdc-logo-ht0zxd.webp'),
+            'url' => asset('images/emblems/nsdc-logo.webp') . '?v=2',
             'fallback' => 'https://iceeds.com/storage/media/2026/10/nsdc-logo-ht0zxd.webp',
             'alt' => 'NSDC - National Skill Development Corporation',
             'title' => 'National Skill Development Corporation (NSDC)',
@@ -22,7 +22,7 @@
             'badge_classes' => 'bg-orange-400/25 text-orange-200 border border-orange-400/40 shadow-xs',
             'pill_classes' => 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
             'category' => 'National Skilling Mission',
-            'url' => asset('storage/media/2026/10/skill-india-gy62mi.webp'),
+            'url' => asset('images/emblems/skill-india.webp') . '?v=2',
             'fallback' => 'https://iceeds.com/storage/media/2026/10/skill-india-gy62mi.webp',
             'alt' => 'Skill India - Kaushal Bharat Kushal Bharat',
             'title' => 'Skill India (Kaushal Bharat &bull; Kushal Bharat)',
@@ -37,7 +37,7 @@
             'badge_classes' => 'bg-sky-400/25 text-sky-200 border border-sky-400/40 shadow-xs',
             'pill_classes' => 'bg-blue-500/20 text-blue-300 border border-blue-400/30',
             'category' => 'MeitY &bull; Digital India',
-            'url' => asset('storage/media/2026/10/digilocker-9gyq7g.webp'),
+            'url' => asset('images/emblems/digilocker.webp') . '?v=2',
             'fallback' => 'https://iceeds.com/storage/media/2026/10/digilocker-9gyq7g.webp',
             'alt' => 'DigiLocker - National Academic Depository Ecosystem',
             'title' => 'DigiLocker & Digital Academic Records',
@@ -64,28 +64,30 @@
     </div>
 
     <!-- 3 Refined Frosted Glass Cards in a Single Row -->
-    <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+    <div class="grid grid-cols-3 gap-2 sm:gap-3">
         @foreach($nationalEmblems as $emblem)
             <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                 <!-- Glassmorphic Card Container -->
-                <div class="relative rounded-2xl p-2 sm:p-2.5 shadow-lg shadow-black/25 group-hover:shadow-2xl group-hover:scale-[1.04] group-hover:-translate-y-1 active:scale-95 group-hover:border-cyan-300 group-hover:ring-2 group-hover:ring-cyan-400/30 transition-all duration-200 flex flex-col items-center justify-between text-center cursor-pointer min-h-[104px] sm:min-h-[116px]"
+                <div class="relative rounded-2xl p-2 sm:p-2.5 shadow-lg shadow-black/25 group-hover:shadow-2xl group-hover:scale-[1.03] group-hover:-translate-y-1 active:scale-95 group-hover:border-cyan-300 group-hover:ring-2 group-hover:ring-cyan-400/30 transition-all duration-200 flex flex-col items-center justify-between text-center cursor-pointer min-h-[144px] sm:min-h-[160px]"
                      style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.25);">
                     
                     <!-- Luminous Jewel Info Indicator Badge -->
-                    <span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-white/20 group-hover:bg-cyan-400 text-white group-hover:text-slate-950 text-[9px] font-bold border border-white/30 flex items-center justify-center transition-colors shadow-xs" title="Click or hover to view relevance with iCEEDS">
+                    <span class="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 w-4 h-4 rounded-full bg-white/20 group-hover:bg-cyan-400 text-white group-hover:text-slate-950 text-[9px] font-bold border border-white/30 flex items-center justify-center transition-colors shadow-xs" title="Click or hover to view relevance with iCEEDS">
                         i
                     </span>
 
-                    <!-- Emblem Graphic (Enlarged by ~30% for Maximum Crispness & Visibility) -->
-                    <div class="w-full h-12 sm:h-14 flex items-center justify-center pt-1 px-1">
-                        <img 
-                            src="{{ $emblem['url'] }}" 
-                            alt="{{ $emblem['alt'] }}"
-                            loading="lazy"
-                            onerror="this.onerror=null; this.src='{{ $emblem['fallback'] }}';"
-                            class="max-h-10 sm:max-h-12 w-auto max-w-[92%] object-contain pointer-events-none group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
-                            style="image-rendering: -webkit-optimize-contrast;"
-                        >
+                    <!-- Emblem Graphic Badge (Enlarged for Maximum Clarity & Recognition) -->
+                    <div class="w-full flex items-center justify-center pt-1">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2 shadow-md shadow-black/20 border border-white/60 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg transition-transform duration-200">
+                            <img 
+                                src="{{ $emblem['url'] }}" 
+                                alt="{{ $emblem['alt'] }}"
+                                loading="lazy"
+                                onerror="this.onerror=null; this.src='{{ $emblem['fallback'] }}';"
+                                class="w-full h-full object-contain pointer-events-none"
+                                style="image-rendering: -webkit-optimize-contrast;"
+                            >
+                        </div>
                     </div>
 
                     <!-- Title & High-Contrast Luminous Badge -->

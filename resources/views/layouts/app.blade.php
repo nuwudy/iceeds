@@ -494,6 +494,11 @@
                                 'title' => 'Skill India (कौशल भारत - कुशल भारत)',
                                 'desc' => 'The flagship campaign launched by the Government of India to provide industry-relevant vocational training and certification to Indian youth.'
                             ],
+                            [
+                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-14-5td9zf.webp',
+                                'title' => 'Exclusive and Authorised Channel Partner - ARISE',
+                                'desc' => 'ARISE is the exclusive and authorised channel partner for the marketing and promotional activities of TSSR Council all over India for all the Skill/Certificate/Diploma courses in Paramedical/Allied Health Science/Alternative Medical Courses and for courses or assessments in different theology and philosophy chambers.'
+                            ],
                         ];
                     @endphp
 

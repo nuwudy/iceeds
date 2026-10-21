@@ -165,10 +165,18 @@
                             Organized into dedicated academic research chambers to study sacred scriptures, jurisprudence, hermeneutics, spiritual philosophy, and interfaith ethics with scholarly rigor.
                         </p>
 
-                        <!-- Three Chambers -->
+                        <!-- Three Chambers (Sequence: Hindutva, Islamic, Christian) -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-100/80">
+                                <span class="text-[10px] font-black uppercase tracking-wider text-amber-800 block">Chamber 01</span>
+                                <h4 class="font-extrabold text-slate-900 text-xs font-heading mt-1">Hindutva Studies</h4>
+                                <p class="text-[11px] text-slate-600 mt-1 leading-snug">
+                                    Shad-Darshanas, Upanishadic philosophy, and Indic civilization studies.
+                                </p>
+                            </div>
+
                             <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100/80">
-                                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-800 block">Chamber 01</span>
+                                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-800 block">Chamber 02</span>
                                 <h4 class="font-extrabold text-slate-900 text-xs font-heading mt-1">Islamic Studies</h4>
                                 <p class="text-[11px] text-slate-600 mt-1 leading-snug">
                                     Fiqh, Kalam, Quranic hermeneutics, and classical Islamic philosophy.
@@ -176,18 +184,10 @@
                             </div>
 
                             <div class="p-3.5 rounded-2xl bg-rose-50/70 border border-rose-100/80">
-                                <span class="text-[10px] font-black uppercase tracking-wider text-rose-800 block">Chamber 02</span>
+                                <span class="text-[10px] font-black uppercase tracking-wider text-rose-800 block">Chamber 03</span>
                                 <h4 class="font-extrabold text-slate-900 text-xs font-heading mt-1">Christian Studies</h4>
                                 <p class="text-[11px] text-slate-600 mt-1 leading-snug">
                                     Biblical exegesis, Patristic theology, and Christian pastoral ethics.
-                                </p>
-                            </div>
-
-                            <div class="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-100/80">
-                                <span class="text-[10px] font-black uppercase tracking-wider text-amber-800 block">Chamber 03</span>
-                                <h4 class="font-extrabold text-slate-900 text-xs font-heading mt-1">Hindutva Studies</h4>
-                                <p class="text-[11px] text-slate-600 mt-1 leading-snug">
-                                    Shad-Darshanas, Upanishadic philosophy, and Indic civilization studies.
                                 </p>
                             </div>
                         </div>

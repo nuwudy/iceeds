@@ -439,6 +439,11 @@
                                     </a>
                                     <ul class="space-y-1 pl-3 border-l-2 border-amber-200 text-[11px] text-slate-600">
                                         <li>
+                                            <a href="{{ route('departments.theology.hindutva') }}" class="hover:text-amber-700 hover:font-bold block py-0.5">
+                                                Chamber of Hindutva Studies
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{{ route('departments.theology.islamic') }}" class="hover:text-emerald-700 hover:font-bold block py-0.5">
                                                 Chamber of Islamic Studies
                                             </a>
@@ -446,11 +451,6 @@
                                         <li>
                                             <a href="{{ route('departments.theology.christian') }}" class="hover:text-rose-700 hover:font-bold block py-0.5">
                                                 Chamber of Christian Studies
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('departments.theology.hindutva') }}" class="hover:text-amber-700 hover:font-bold block py-0.5">
-                                                Chamber of Hindutva Studies
                                             </a>
                                         </li>
                                     </ul>
@@ -540,9 +540,9 @@
                                 Department of Theology
                             </a>
                             <div class="pl-3 space-y-1 text-slate-600">
+                                <a href="{{ route('departments.theology.hindutva') }}" class="block hover:text-amber-700">&bull; Chamber of Hindutva Studies</a>
                                 <a href="{{ route('departments.theology.islamic') }}" class="block hover:text-emerald-700">&bull; Chamber of Islamic Studies</a>
                                 <a href="{{ route('departments.theology.christian') }}" class="block hover:text-rose-700">&bull; Chamber of Christian Studies</a>
-                                <a href="{{ route('departments.theology.hindutva') }}" class="block hover:text-amber-700">&bull; Chamber of Hindutva Studies</a>
                             </div>
                         </div>
                     </div>

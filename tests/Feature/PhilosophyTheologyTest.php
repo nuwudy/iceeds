@@ -49,6 +49,15 @@ class PhilosophyTheologyTest extends TestCase
         $response->assertSee('Usul al-Fiqh');
         $response->assertSee('Biblical Hermeneutics');
         $response->assertSee('Six Classical Darshanas');
+        $response->assertSee('All Chambers Directory');
+        $response->assertSee('Board of Studies &bull; Chamber of Hindutva Studies', false);
+        $response->assertSee('Board of Studies &bull; Chamber of Islamic Studies', false);
+        $response->assertSee('Board of Studies &bull; Chamber of Christian Studies', false);
+        $response->assertSee('Dr. Raghavan Namboodiri');
+        $response->assertSee('Prof. (Dr.) Aslam Farooqi');
+        $response->assertSee('Rev. Dr. Samuel K. Thomas');
+        $response->assertSee('Chairperson, Board of Studies');
+        $response->assertSee('Member, Board of Studies');
     }
 
     public function test_aliases_load_appropriately(): void

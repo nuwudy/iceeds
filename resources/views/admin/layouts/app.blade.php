@@ -56,6 +56,17 @@
                     <a href="{{ route('admin.media') }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
                         Media Library
                     </a>
+                    <a href="{{ route('admin.atc.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.atc.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
+                        <span>ATC Centres</span>
+                        @php
+                            $pendingAtcCount = \App\Models\AtcRegistration::where('status', 'pending')->count();
+                        @endphp
+                        @if($pendingAtcCount > 0)
+                            <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/30 text-amber-300 border border-amber-500/40 font-mono">
+                                {{ $pendingAtcCount }}
+                            </span>
+                        @endif
+                    </a>
                     <a href="{{ route('admin.inquiries.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.inquiries.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
                         <span>Inquiries</span>
                     </a>
@@ -111,6 +122,9 @@
             </a>
             <a href="{{ route('admin.certificates.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.certificates.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 Certificates
+            </a>
+            <a href="{{ route('admin.atc.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.atc.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+                ATC
             </a>
             <a href="{{ route('admin.media') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 Media

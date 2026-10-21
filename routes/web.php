@@ -51,6 +51,14 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::get('/verify', [CertificateVerificationController::class, 'index'])->name('verify');
 Route::post('/verify', [CertificateVerificationController::class, 'verify'])->name('verify.submit');
 
+// iCEEDS ATC (Authorized Training Centre) Registration Portal
+Route::get('/atc-registration', [\App\Http\Controllers\AtcRegistrationController::class, 'create'])->name('atc.create');
+Route::post('/atc-registration', [\App\Http\Controllers\AtcRegistrationController::class, 'store'])->name('atc.store');
+Route::get('/atc-form', function () {
+    return redirect()->route('atc.create');
+});
+Route::get('/atc/files/{registration}', [\App\Http\Controllers\AtcRegistrationController::class, 'serveFile'])->name('atc.file');
+
 // Admin Authentication & Operations
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
@@ -68,6 +76,13 @@ Route::prefix('admin')->group(function () {
         Route::post('/certificates', [CertificateController::class, 'store'])->name('admin.certificates.store');
         Route::put('/certificates/{certificate}', [CertificateController::class, 'update'])->name('admin.certificates.update');
         Route::delete('/certificates/{certificate}', [CertificateController::class, 'destroy'])->name('admin.certificates.destroy');
+
+        // ATC (Authorized Training Centre) Applications
+        Route::get('/atc-applications', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'index'])->name('admin.atc.index');
+        Route::get('/atc-applications/export', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'exportCsv'])->name('admin.atc.export');
+        Route::get('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'show'])->name('admin.atc.show');
+        Route::put('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'update'])->name('admin.atc.update');
+        Route::delete('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'destroy'])->name('admin.atc.destroy');
 
         // User & Staff Management (Admins & Approved Users)
         Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
@@ -88,3 +103,4 @@ Route::prefix('admin')->group(function () {
         Route::delete('/inquiries/{inquiry}', [\App\Http\Controllers\Admin\InquiryController::class, 'destroy'])->name('admin.inquiries.destroy');
     });
 });
+

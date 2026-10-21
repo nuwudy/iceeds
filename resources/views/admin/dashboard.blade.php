@@ -46,20 +46,20 @@
         </div>
     </div>
 
-    <!-- 4 Key Metrics Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+    <!-- 5 Key Metrics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
         
         <!-- Card 1: Certificates -->
-        <a href="{{ route('admin.certificates.index') }}" class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-blue-500/50 shadow-lg transition-all duration-200 group block">
-            <div class="flex items-center justify-between mb-4">
+        <a href="{{ route('admin.certificates.index') }}" class="bg-slate-900/90 rounded-3xl p-5 sm:p-6 border border-slate-800 hover:border-blue-500/50 shadow-lg transition-all duration-200 group block">
+            <div class="flex items-center justify-between mb-3">
                 <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Total Certificates</span>
-                <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                 </div>
             </div>
-            <div class="text-3xl font-black text-white font-heading tracking-tight">
+            <div class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
                 {{ number_format($stats['certificates_count']) }}
             </div>
             <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 font-medium">
@@ -68,41 +68,64 @@
             </p>
         </a>
 
-        <!-- Card 2: Media Files -->
-        <a href="{{ route('admin.media') }}" class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-emerald-500/50 shadow-lg transition-all duration-200 group block">
-            <div class="flex items-center justify-between mb-4">
+        <!-- Card 2: ATC Registrations -->
+        <a href="{{ route('admin.atc.index') }}" class="bg-slate-900/90 rounded-3xl p-5 sm:p-6 border border-slate-800 hover:border-sky-500/50 shadow-lg transition-all duration-200 group block">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-xs uppercase font-bold tracking-wider text-sky-400">ATC Applications</span>
+                <div class="w-9 h-9 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center group-hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
+                {{ number_format($stats['atc_count']) }}
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 font-medium">
+                @if($stats['atc_pending_count'] > 0)
+                    <span class="text-amber-400 font-bold">{{ $stats['atc_pending_count'] }} Pending Review</span>
+                @else
+                    <span>All Processed</span>
+                @endif
+                <span class="text-sky-400 font-bold group-hover:translate-x-1 transition">&rarr;</span>
+            </p>
+        </a>
+
+        <!-- Card 3: Media Files -->
+        <a href="{{ route('admin.media') }}" class="bg-slate-900/90 rounded-3xl p-5 sm:p-6 border border-slate-800 hover:border-emerald-500/50 shadow-lg transition-all duration-200 group block">
+            <div class="flex items-center justify-between mb-3">
                 <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Media Library</span>
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                 </div>
             </div>
-            <div class="text-3xl font-black text-white font-heading tracking-tight">
+            <div class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
                 {{ number_format($stats['media_count']) }}
             </div>
             <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 font-medium">
-                <span>Images, PDFs, Audios & Videos</span>
+                <span>Media Assets</span>
                 <span class="text-emerald-400 font-bold group-hover:translate-x-1 transition">&rarr;</span>
             </p>
         </a>
 
-        <!-- Card 3: Users & Staff -->
-        <a href="{{ route('admin.users.index') }}" class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-purple-500/50 shadow-lg transition-all duration-200 group block">
-            <div class="flex items-center justify-between mb-4">
+        <!-- Card 4: Users & Staff -->
+        <a href="{{ route('admin.users.index') }}" class="bg-slate-900/90 rounded-3xl p-5 sm:p-6 border border-slate-800 hover:border-purple-500/50 shadow-lg transition-all duration-200 group block">
+            <div class="flex items-center justify-between mb-3">
                 <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Users & Staff</span>
-                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 transition">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                 </div>
             </div>
-            <div class="text-3xl font-black text-white font-heading tracking-tight">
+            <div class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
                 {{ number_format($stats['users_count']) }}
             </div>
             <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 font-medium">
                 @if($stats['pending_users_count'] > 0)
-                    <span class="text-amber-400 font-bold">{{ $stats['pending_users_count'] }} Pending Approval</span>
+                    <span class="text-amber-400 font-bold">{{ $stats['pending_users_count'] }} Pending</span>
                 @else
                     <span>All Accounts Approved</span>
                 @endif
@@ -110,21 +133,21 @@
             </p>
         </a>
 
-        <!-- Card 4: Contact Inquiries -->
-        <a href="{{ route('admin.inquiries.index') }}" class="bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-500/50 shadow-lg transition-all duration-200 group block">
-            <div class="flex items-center justify-between mb-4">
-                <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Public Inquiries</span>
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center group-hover:scale-110 transition">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <!-- Card 5: Contact Inquiries -->
+        <a href="{{ route('admin.inquiries.index') }}" class="bg-slate-900/90 rounded-3xl p-5 sm:p-6 border border-slate-800 hover:border-amber-500/50 shadow-lg transition-all duration-200 group block">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Inquiries</span>
+                <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center group-hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </div>
             </div>
-            <div class="text-3xl font-black text-white font-heading tracking-tight">
+            <div class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight">
                 {{ number_format($stats['inquiries_count']) }}
             </div>
             <p class="text-[11px] text-slate-400 mt-1 font-medium flex items-center justify-between">
-                <span>Received via Contact Form</span>
+                <span>Contact Messages</span>
                 <span class="text-amber-400 font-bold group-hover:translate-x-1 transition">&rarr;</span>
             </p>
         </a>
@@ -244,6 +267,44 @@
                         </a>
                     @empty
                         <p class="text-xs text-slate-500 text-center py-4">No contact messages received yet.</p>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Recent ATC Registrations -->
+            <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-xl space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-white font-heading">Recent ATC Applications</h3>
+                        <p class="text-xs text-slate-400">Authorized Training Centre registration requests</p>
+                    </div>
+                    <a href="{{ route('admin.atc.index') }}" class="text-xs font-bold text-sky-400 hover:text-sky-300 transition">
+                        View All &rarr;
+                    </a>
+                </div>
+                <div class="space-y-3">
+                    @forelse($recentAtc as $atc)
+                        <a href="{{ route('admin.atc.show', $atc) }}" class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 text-xs space-y-1.5 block transition group">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-[11px] font-bold text-sky-400">{{ $atc->reference_no }}</span>
+                                <span class="text-[10px] text-slate-400">{{ $atc->created_at->diffForHumans() }}</span>
+                            </div>
+                            <p class="text-white font-bold group-hover:text-sky-300 transition uppercase tracking-tight">{{ $atc->centre_name }}</p>
+                            <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                <span>{{ $atc->director_name }}</span>
+                                @if($atc->status === 'approved')
+                                    <span class="text-emerald-400 font-semibold">Approved</span>
+                                @elseif($atc->status === 'rejected')
+                                    <span class="text-red-400 font-semibold">Rejected</span>
+                                @elseif($atc->status === 'under_review')
+                                    <span class="text-sky-400 font-semibold">Under Review</span>
+                                @else
+                                    <span class="text-amber-400 font-semibold">Pending</span>
+                                @endif
+                            </div>
+                        </a>
+                    @empty
+                        <p class="text-xs text-slate-500 text-center py-4">No ATC applications submitted yet.</p>
                     @endforelse
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AtcRegistration;
 use App\Models\Certificate;
 use App\Models\ContactInquiry;
 use App\Models\MediaFile;
@@ -22,17 +23,21 @@ class DashboardController extends Controller
             'inquiries_count' => ContactInquiry::count(),
             'users_count' => User::count(),
             'pending_users_count' => User::where('is_approved', false)->count(),
+            'atc_count' => AtcRegistration::count(),
+            'atc_pending_count' => AtcRegistration::where('status', 'pending')->count(),
         ];
 
         $recentCertificates = Certificate::latest('id')->take(6)->get();
         $recentMedia = MediaFile::latest('id')->take(6)->get();
         $recentInquiries = ContactInquiry::latest('id')->take(5)->get();
+        $recentAtc = AtcRegistration::latest('id')->take(5)->get();
 
         return view('admin.dashboard', [
             'stats' => $stats,
             'recentCertificates' => $recentCertificates,
             'recentMedia' => $recentMedia,
             'recentInquiries' => $recentInquiries,
+            'recentAtc' => $recentAtc,
         ]);
     }
 }

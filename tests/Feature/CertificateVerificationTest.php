@@ -136,7 +136,7 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('NGO DARPAN UNIQUE ID NO: KL/2023/0348375');
         $response->assertSee('www.iceeds.com');
         $response->assertSee('Notice on Certification Authority');
-        $response->assertSee('standalone credentials and are not equivalent to statutory degrees');
+        $response->assertSee('distinct from statutory degrees/diplomas conferred under UGC or AICTE');
     }
 
     public function test_shows_not_found_for_invalid_certificate_code(): void

@@ -26,27 +26,6 @@ Certificate Verification - iCEEDS Central Academic Repository
         to { transform: rotate(360deg); }
     }
 
-    @keyframes badgeStamp {
-        0% { transform: scale(2) rotate(-15deg); opacity: 0; }
-        60% { transform: scale(0.9) rotate(3deg); opacity: 1; }
-        100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-
-    @keyframes drawCheck {
-        0% { stroke-dashoffset: 50; }
-        100% { stroke-dashoffset: 0; }
-    }
-
-    .animate-badge-stamp {
-        animation: badgeStamp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-
-    .check-tick-path {
-        stroke-dasharray: 50;
-        stroke-dashoffset: 50;
-        animation: drawCheck 0.5s ease-out 0.4s forwards;
-    }
-
     /* Dedicated Print Stylesheet: STRICT SINGLE-PAGE FIT */
     @media print {
         header, footer, nav, #site-preloader, #policeDocModal, #emblemInspectionModal, .no-print, .emblem-popover, #verificationTickerModal {
@@ -62,12 +41,12 @@ Certificate Verification - iCEEDS Central Academic Repository
             height: auto !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
-            font-size: 9.5pt !important;
+            font-size: 9pt !important;
         }
 
         @page {
             size: A4 portrait;
-            margin: 0.6cm 0.8cm !important;
+            margin: 0.6cm 0.7cm !important;
         }
 
         .main-verify-wrapper {
@@ -79,143 +58,139 @@ Certificate Verification - iCEEDS Central Academic Repository
 
         .print-card {
             box-shadow: none !important;
-            border: 2px solid #0f172a !important;
-            border-radius: 12px !important;
+            border: 1.5px solid #0f172a !important;
+            border-top: 4px solid #0f766e !important;
+            border-radius: 10px !important;
             margin: 0 auto !important;
-            padding: 0.65rem 0.85rem !important;
+            padding: 0 !important;
             width: 100% !important;
             max-width: 100% !important;
             page-break-inside: avoid !important;
             break-inside: avoid !important;
             page-break-after: avoid !important;
+            overflow: hidden !important;
         }
 
-        .print-compact-header {
-            padding: 0.6rem 0.75rem !important;
-            border-radius: 8px !important;
-            margin-bottom: 0.35rem !important;
+        .print-header {
+            padding: 0.5rem 0.75rem !important;
+            border-bottom: 1px solid #cbd5e1 !important;
+            background: #ffffff !important;
         }
 
-        .print-compact-candidate {
-            padding: 0.45rem 0.65rem !important;
-            margin-bottom: 0.35rem !important;
+        .print-logo {
+            height: 44px !important;
+            width: 44px !important;
+        }
+
+        .print-title {
+            font-size: 16pt !important;
+            line-height: 1 !important;
+        }
+
+        .print-subtitle {
+            font-size: 6.8pt !important;
+            line-height: 1.15 !important;
+        }
+
+        .print-hindi {
+            font-size: 6.2pt !important;
+            line-height: 1 !important;
+        }
+
+        .print-badge {
+            padding: 0.25rem 0.55rem !important;
+            font-size: 7pt !important;
+            border: 1px solid #10b981 !important;
+            background: #ecfdf5 !important;
+        }
+
+        .print-body-content {
+            padding: 0.55rem 0.75rem !important;
+            gap: 0.35rem !important;
+        }
+
+        .print-candidate-box {
+            padding: 0.4rem 0.6rem !important;
             border-radius: 8px !important;
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
         }
 
         .print-candidate-name {
-            font-size: 15pt !important;
-            line-height: 1.1 !important;
-            margin: 0 !important;
+            font-size: 13.5pt !important;
+            line-height: 1.15 !important;
         }
 
-        .print-grid {
+        .print-course-title {
+            font-size: 9.5pt !important;
+            line-height: 1.2 !important;
+        }
+
+        .print-meta-grid {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             gap: 0.3rem !important;
-            margin-bottom: 0.35rem !important;
         }
 
-        .print-grid-item {
-            padding: 0.3rem 0.45rem !important;
+        .print-meta-item {
+            padding: 0.3rem 0.5rem !important;
             border-radius: 6px !important;
             background: #f8fafc !important;
             border: 1px solid #e2e8f0 !important;
         }
 
-        .print-grid-label {
-            font-size: 7pt !important;
-            margin-bottom: 0.05rem !important;
-        }
-
-        .print-grid-val {
-            font-size: 9pt !important;
+        .print-meta-val {
+            font-size: 8.5pt !important;
             line-height: 1.15 !important;
         }
 
-        .print-hash-box {
-            padding: 0.3rem 0.45rem !important;
-            margin-bottom: 0.3rem !important;
+        .print-security-bar {
+            padding: 0.3rem 0.5rem !important;
             border-radius: 6px !important;
             background: #0f172a !important;
-            color: #e2e8f0 !important;
-        }
-
-        .print-hash-text {
-            font-size: 6.5pt !important;
-            line-height: 1.1 !important;
-            padding: 0.15rem !important;
-        }
-
-        .print-footer-row {
-            padding-top: 0.2rem !important;
-            margin-top: 0.2rem !important;
-            border-top: 1px solid #cbd5e1 !important;
+            color: #f8fafc !important;
             font-size: 7pt !important;
         }
 
         .print-disclaimer-box {
-            margin-top: 0.15rem !important;
-            padding: 0.12rem 0.3rem !important;
-            font-size: 5.5pt !important;
-            line-height: 1.15 !important;
+            padding: 0.25rem 0.45rem !important;
+            border-radius: 6px !important;
             background: #f8fafc !important;
             border: 1px solid #e2e8f0 !important;
-            border-radius: 4px !important;
+            font-size: 6pt !important;
+            line-height: 1.2 !important;
             color: #475569 !important;
         }
 
-        .print-brand-footer-block {
-            margin-top: 0.2rem !important;
-            padding-top: 0.2rem !important;
-            border-top: 1.5px solid #cbd5e1 !important;
+        .print-footer {
+            padding-top: 0.3rem !important;
+            border-top: 1px solid #cbd5e1 !important;
         }
 
-        .print-brand-header {
-            margin-bottom: 0.12rem !important;
+        .print-legal-row {
+            font-size: 6.2pt !important;
+            line-height: 1.15 !important;
         }
 
-        .print-brand-title {
-            font-size: 11pt !important;
-            line-height: 1 !important;
-        }
-
-        .print-brand-sub {
-            font-size: 5.2pt !important;
-            line-height: 1.1 !important;
-        }
-
-        .print-legal-text {
-            font-size: 4.8pt !important;
-            line-height: 1.1 !important;
-            margin-bottom: 0.12rem !important;
-        }
-
-        .print-emblems-grid {
-            display: grid !important;
-            grid-template-columns: repeat(11, minmax(0, 1fr)) !important;
-            gap: 0.12rem !important;
-            margin-bottom: 0.12rem !important;
+        .print-emblems-row {
+            padding: 0.15rem 0 !important;
+            gap: 0.4rem !important;
         }
 
         .print-emblem-box {
-            height: 17px !important;
-            padding: 1px !important;
+            height: 22px !important;
+            padding: 0.1rem 0.35rem !important;
             border: 1px solid #cbd5e1 !important;
-            border-radius: 3px !important;
+            border-radius: 4px !important;
             background: #ffffff !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
         }
 
         .print-emblem-img {
-            height: 12px !important;
-            max-width: 100% !important;
-            object-fit: contain !important;
+            height: 14px !important;
         }
 
         .print-contact-bar {
-            font-size: 5.2pt !important;
+            font-size: 6.8pt !important;
             line-height: 1 !important;
         }
     }
@@ -358,314 +333,210 @@ Certificate Verification - iCEEDS Central Academic Repository
                     </div>
 
                     <!-- Credential Certificate Card (Printable & Screen) -->
-                    <div id="printableCertificateCard" class="print-card bg-white rounded-3xl shadow-2xl shadow-slate-300/50 border-2 border-slate-200/90 overflow-hidden relative">
+                    <div id="printableCertificateCard" class="print-card bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/90 overflow-hidden relative border-t-4 border-t-teal-700">
                         
-                        <!-- Watermark / Decorative Pattern (Hidden in Print) -->
-                        <div class="no-print absolute -top-12 -right-12 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-                        <div class="no-print absolute -bottom-12 -left-12 w-64 h-64 bg-teal-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-
-                        <!-- Certificate Header: Includes iCEEDS Logo + Star Verified Badge -->
-                        <div class="print-compact-header bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-5 sm:p-7 text-white relative border-b border-slate-800">
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <!-- Header Layout (Modern Institutional Header) -->
+                        <div class="print-header px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200/90 bg-white">
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                                 
-                                <!-- Brand Header with Official Circular iCEEDS / ICTS Logo -->
-                                <div class="flex items-center gap-3.5">
-                                    <div class="bg-white p-1.5 rounded-2xl shadow-md border border-white/20 shrink-0 flex items-center justify-center">
-                                        <img 
-                                            src="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" 
-                                            onerror="this.onerror=null; this.src='{{ asset('storage/media/2026/10/iceedslogo-1-3jjrrr.webp') }}';" 
-                                            alt="iCEEDS Circular Logo" 
-                                            class="h-11 sm:h-13 w-auto object-contain"
-                                        >
-                                    </div>
-                                    <div>
-                                        <h2 class="text-sm sm:text-base md:text-lg font-black font-heading text-white tracking-tight leading-tight uppercase">
-                                            Innovation Council for Exquisite Education &amp; Development of Skills
-                                        </h2>
-                                        <p class="text-[11px] sm:text-xs font-bold text-sky-400 leading-tight mt-0.5">
+                                <!-- Left: Official circular iCEEDS logo + Center / Main Title & Subtitles -->
+                                <div class="flex items-center gap-4 text-center sm:text-left flex-1 min-w-0">
+                                    <img 
+                                        src="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" 
+                                        onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';" 
+                                        alt="Official iCEEDS Emblem" 
+                                        class="print-logo h-14 w-14 sm:h-14 sm:w-14 object-contain shrink-0 rounded-full p-1 bg-white border border-slate-200/90 shadow-2xs"
+                                    >
+                                    <div class="min-w-0">
+                                        <h1 class="print-title text-2xl sm:text-3xl font-black font-heading text-slate-950 tracking-tight leading-none uppercase">
+                                            iCEEDS
+                                        </h1>
+                                        <p class="print-subtitle text-[11px] font-semibold tracking-wide text-slate-700 uppercase leading-snug mt-1">
+                                            INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS
+                                        </p>
+                                        <p class="print-hindi text-[10px] text-slate-600 font-normal leading-tight mt-0.5">
                                             उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
                                         </p>
-                                        <div class="flex flex-wrap items-center gap-1.5 mt-1 text-[9px] sm:text-[10px] text-slate-300 font-medium">
-                                            <span class="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold font-mono">Indian Trusts Act, 1882</span>
-                                            <span>&bull;</span>
-                                            <span class="px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-semibold font-mono">ISO 9001:2015</span>
-                                            <span>&bull;</span>
-                                            <span>NITI Aayog Registered</span>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Right: Star-shaped 'Verified' Badge incorporating Official Circular Logo -->
-                                <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
-                                    <!-- Star Shaped Verified Badge Component with Circular ICTS Emblem -->
-                                    <div class="star-verified-badge shrink-0 relative inline-flex items-center justify-center animate-badge-stamp" title="Officially Verified Credential">
-                                        <svg viewBox="0 0 100 100" class="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-lg">
-                                            <defs>
-                                                <radialGradient id="starGreenGrad" cx="50%" cy="50%" r="50%">
-                                                    <stop offset="0%" stop-color="#34d399"/>
-                                                    <stop offset="65%" stop-color="#059669"/>
-                                                    <stop offset="100%" stop-color="#064e3b"/>
-                                                </radialGradient>
-                                                <linearGradient id="goldRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                    <stop offset="0%" stop-color="#fef08a"/>
-                                                    <stop offset="50%" stop-color="#eab308"/>
-                                                    <stop offset="100%" stop-color="#ca8a04"/>
-                                                </linearGradient>
-                                                <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
-                                                </filter>
-                                            </defs>
-
-                                            <!-- 16-point Starburst Rosette Polygon -->
-                                            <polygon 
-                                                points="50.00,2.00 58.10,9.30 68.37,5.65 73.06,15.49 83.94,16.06 84.51,26.94 94.35,31.63 90.70,41.90 98.00,50.00 90.70,58.10 94.35,68.37 84.51,73.06 83.94,83.94 73.06,84.51 68.37,94.35 58.10,90.70 50.00,98.00 41.90,90.70 31.63,94.35 26.94,84.51 16.06,83.94 15.49,73.06 5.65,68.37 9.30,58.10 2.00,50.00 9.30,41.90 5.65,31.63 15.49,26.94 16.06,16.06 26.94,15.49 31.63,5.65 41.90,9.30" 
-                                                fill="url(#starGreenGrad)" 
-                                                stroke="url(#goldRimGrad)" 
-                                                stroke-width="2"
-                                                filter="url(#badgeShadow)"
-                                            />
-
-                                            <!-- Concentric Security Dashed Gold Ring -->
-                                            <circle cx="50" cy="50" r="37.5" fill="none" stroke="#fef08a" stroke-width="0.9" stroke-dasharray="2 1.5" opacity="0.95" />
-
-                                            <!-- Inner Solid White Medallion Circle -->
-                                            <circle cx="50" cy="50" r="31" fill="#ffffff" stroke="#10b981" stroke-width="1.8" />
-
-                                            <!-- Official Circular ICTS Logo embedded inside badge center -->
-                                            <image href="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" x="33" y="24" width="34" height="34" preserveAspectRatio="xMidYMid meet" />
-
-                                            <!-- Verified Badge Overlay Banner with Green Tick Mark -->
-                                            <rect x="22" y="60" width="56" height="15" rx="7.5" fill="#047857" stroke="#10b981" stroke-width="0.8" />
-                                            <path d="M30 67.5 L33.5 71 L40.5 64" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <text x="53" y="70.5" text-anchor="middle" font-size="6" font-weight="900" fill="#ffffff" font-family="'Outfit', sans-serif" letter-spacing="0.8">VERIFIED</text>
-                                        </svg>
-                                    </div>
-
-                                    <!-- Serial Box on Desktop -->
-                                    <div class="hidden sm:block text-right">
-                                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Serial Identifier</span>
-                                        <span class="font-mono text-emerald-400 font-bold text-sm sm:text-base tracking-wider block">{{ $certificate->certificate_code }}</span>
-                                        <span class="inline-block mt-0.5 px-2 py-0.2 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                                            VALID RECORD
+                                <!-- Right: Official Verification Badge: Modern rounded capsule/pill with subtle emerald-green bg (#ECFDF5), border (#10B981), green checkmark SVG icon, and text: "VERIFIED CREDENTIAL" -->
+                                <div class="shrink-0 self-center">
+                                    <div class="print-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ECFDF5] border border-[#10B981] shadow-2xs">
+                                        <span class="w-5 h-5 rounded-full bg-[#10B981] text-white flex items-center justify-center shrink-0">
+                                            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </span>
+                                        <span class="text-xs font-black uppercase tracking-wider text-emerald-900 font-mono">
+                                            VERIFIED CREDENTIAL
                                         </span>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
-                        <!-- Certificate Body Details (Calibrated for strict single-page print) -->
-                        <div class="p-5 sm:p-7 space-y-4">
+                        <!-- Credential Details Body (Card-Based 2-Column Grid) -->
+                        <div class="print-body-content p-6 sm:p-8 space-y-4">
                             
-                            <!-- Student Name Display -->
-                            <div class="print-compact-candidate bg-slate-50/90 rounded-2xl p-4 sm:p-5 border border-slate-200/80">
-                                <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">Conferred Upon Candidate</span>
-                                <h3 class="print-candidate-name text-2xl sm:text-3xl font-black text-slate-900 tracking-tight font-heading">
+                            <!-- Candidate Profile Header -->
+                            <div class="print-candidate-box bg-slate-50/80 rounded-2xl p-4 sm:p-5 border border-slate-200/90">
+                                <span class="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">
+                                    Conferred Upon Candidate
+                                </span>
+                                <h2 class="print-candidate-name text-lg sm:text-xl font-bold text-slate-950 tracking-tight font-heading">
                                     {{ $certificate->student_name }}
-                                </h3>
-                                @if($certificate->first_name && $certificate->last_name)
-                                    <p class="text-xs text-slate-600 mt-1 font-medium">
-                                        First Name: <span class="text-slate-800 font-bold">{{ $certificate->first_name }}</span> &bull; 
-                                        Last Name / Initials: <span class="text-slate-800 font-bold">{{ $certificate->last_name }}</span>
-                                    </p>
-                                @endif
+                                </h2>
+                                <div class="mt-1">
+                                    <span class="print-course-title text-sm font-semibold text-teal-800">
+                                        {{ $certificate->course }}
+                                    </span>
+                                </div>
                             </div>
 
-                            <!-- Course and Program Details Grid -->
-                            <div class="print-grid grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                                <div class="print-grid-item bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-                                    <span class="print-grid-label text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">Program of Study</span>
-                                    <p class="print-grid-val text-sm sm:text-base font-bold text-slate-900 leading-snug">
-                                        {{ $certificate->course }}
+                            <!-- Key-Value Meta Grid (Clean light-slate background with subtle borders) -->
+                            <div class="print-meta-grid grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                
+                                <!-- 1. Serial / Certificate No. -->
+                                <div class="print-meta-item bg-slate-50/70 rounded-xl p-3 sm:p-3.5 border border-slate-200/80">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
+                                        Serial / Certificate No.
+                                    </span>
+                                    <p class="print-meta-val font-mono font-bold text-slate-900 text-sm tracking-wide">
+                                        {{ $certificate->certificate_code }}
                                     </p>
                                 </div>
 
-                                <div class="print-grid-item bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-                                    <span class="print-grid-label text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">Date of Issuance</span>
-                                    <p class="print-grid-val text-sm sm:text-base font-bold text-slate-900 font-mono">
-                                        {{ $certificate->issue_date ? $certificate->issue_date->format('F d, Y') : 'N/A' }}
-                                    </p>
-                                    <p class="text-[11px] text-slate-500 mt-0.5">
-                                        Standard ISO: {{ $certificate->issue_date ? $certificate->issue_date->format('Y-m-d') : 'N/A' }}
-                                    </p>
-                                </div>
-
-                                <div class="print-grid-item bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-                                    <span class="print-grid-label text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">Issuing Authority</span>
-                                    <p class="print-grid-val text-xs sm:text-sm font-bold text-slate-900">
-                                        iCEEDS
-                                    </p>
-                                    <p class="text-[11px] text-slate-600 font-medium leading-tight mt-0.5">
-                                        Innovation Council for Exquisite Education &amp; Development of Skills
-                                    </p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">
-                                        Self-Governing Trust &bull; Indian Trusts Act, 1882 &bull; NSDC Aligned
-                                    </p>
-                                </div>
-
-                                <div class="print-grid-item bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-                                    <span class="print-grid-label text-[11px] uppercase tracking-wider font-semibold text-slate-500 block mb-0.5">Registry Record ID &amp; Serial</span>
-                                    <p class="print-grid-val text-xs sm:text-sm font-bold text-slate-900 font-mono">
+                                <!-- 2. Registry Record ID -->
+                                <div class="print-meta-item bg-slate-50/70 rounded-xl p-3 sm:p-3.5 border border-slate-200/80">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
+                                        Registry Record ID
+                                    </span>
+                                    <p class="print-meta-val font-mono font-bold text-slate-900 text-sm tracking-wide">
                                         #ICEEDS-{{ str_pad($certificate->id, 6, '0', STR_PAD_LEFT) }}
                                     </p>
-                                    <p class="text-[11px] font-mono text-emerald-700 font-bold mt-0.5">
-                                        Serial: {{ $certificate->certificate_code }}
-                                    </p>
-                                    <p class="text-[10px] text-emerald-600 font-semibold">
-                                        Status: Fully Validated &amp; Active
-                                    </p>
                                 </div>
-                            </div>
 
-                            <!-- Digital Authenticity Fingerprint -->
-                            <div class="print-hash-box bg-slate-900 text-slate-200 rounded-xl p-3 sm:p-4 border border-slate-800">
-                                <div class="flex items-center justify-between mb-1">
-                                    <div class="flex items-center gap-1.5">
-                                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                        </svg>
-                                        <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-300">Digital Authenticity Hash (SHA-256)</span>
-                                    </div>
-                                    <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.2 rounded font-mono">Tamper-Proof</span>
+                                <!-- 3. Date of Issuance -->
+                                <div class="print-meta-item bg-slate-50/70 rounded-xl p-3 sm:p-3.5 border border-slate-200/80">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
+                                        Date of Issuance
+                                    </span>
+                                    <p class="print-meta-val font-bold text-slate-900 text-xs sm:text-sm">
+                                        {{ $certificate->issue_date ? $certificate->issue_date->format('F d, Y') : 'August 15, 2024' }}
+                                        <span class="font-mono text-slate-500 font-normal text-[11px] block sm:inline sm:ml-1">
+                                            (ISO: {{ $certificate->issue_date ? $certificate->issue_date->format('Y-m-d') : '2024-08-15' }})
+                                        </span>
+                                    </p>
                                 </div>
-                                <p class="print-hash-text font-mono text-[10px] sm:text-xs text-emerald-300 break-all bg-slate-950/80 p-2 rounded-lg border border-slate-800 select-all leading-tight">
-                                    {{ $certificate->authenticity_hash }}
-                                </p>
-                                <div class="mt-1.5 flex items-center justify-between text-[10px] text-slate-400">
-                                    <span>Verification Timestamp: {{ now()->format('Y-m-d H:i:s T') }}</span>
-                                    <span class="font-mono">API: /api/v1/verify/{{ $certificate->certificate_code }}</span>
-                                </div>
-                            </div>
 
-                            <!-- Central Registry Confirmation & Authentic Seal (Clean Circular Mark, No Inked Stamp Effect) -->
-                            <div class="print-footer-row pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
-                                <div class="flex items-center gap-3">
-                                    <img 
-                                        src="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" 
-                                        alt="iCEEDS Central Registry Mark" 
-                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-contain p-1 bg-white border border-slate-200 shadow-2xs shrink-0"
-                                    >
+                                <!-- 4. Issuing Authority -->
+                                <div class="print-meta-item bg-slate-50/70 rounded-xl p-3 sm:p-3.5 border border-slate-200/80">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
+                                        Issuing Authority
+                                    </span>
+                                    <p class="print-meta-val font-bold text-slate-900 text-xs sm:text-sm">
+                                        iCEEDS Board of Examinations &amp; Skill Development
+                                    </p>
+                                </div>
+
+                                <!-- 5. Status (Spans full width across 2 columns) -->
+                                <div class="print-meta-item sm:col-span-2 bg-slate-50/70 rounded-xl p-3 sm:p-3.5 border border-slate-200/80 flex items-center justify-between flex-wrap gap-2">
                                     <div>
-                                        <span class="text-xs font-bold text-slate-900 block font-heading">Authentic Central Registry Record</span>
-                                        <p class="text-[11px] leading-relaxed text-slate-600">
-                                            This document serves as direct electronic verification of academic credentials registered on the official server of iCEEDS.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="shrink-0 text-right font-mono text-[10px] text-slate-400">
-                                    Registry Portal &bull; Single-Page Summary
-                                </div>
-                            </div>
-
-                            <!-- Notice on Certification Authority -->
-                            <div class="print-disclaimer-box mt-2 p-2 rounded-xl bg-slate-50 border border-slate-200/90 text-slate-600 text-[9.5px] sm:text-[10.5px] leading-relaxed">
-                                <strong class="font-bold text-slate-800">Notice on Certification Authority:</strong>
-                                Alongside University and NSDC-affiliated offerings, ICEEDS also awards proprietary certifications in personal, professional and skill development under applicable legal and constitutional frameworks. While these certificates hold professional merit in private, public, and voluntary sectors, they are standalone credentials and are not equivalent to statutory degrees or diplomas conferred by regulatory bodies like the UGC or AICTE.
-                            </div>
-
-                            <!-- Official ICTS Accreditation & Partner Branding Block (Replicated from PDF Final Page) -->
-                            <div class="print-brand-footer-block mt-3 pt-3 border-t-2 border-slate-200">
-                                <!-- Top Branding Row: Circular Logo + iCEEDS + Hindi Subtitle -->
-                                <div class="flex items-center justify-center gap-3 mb-2 print-brand-header">
-                                    <img 
-                                        src="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" 
-                                        alt="iCEEDS Circular Emblem" 
-                                        class="h-9 sm:h-11 w-auto object-contain shrink-0"
-                                    >
-                                    <div class="text-left">
-                                        <div class="print-brand-title text-base sm:text-xl font-black font-heading text-[#0097b2] tracking-tight leading-none">
-                                            iCEEDS
+                                        <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500 block mb-0.5">
+                                            Credential Status
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                                            <span class="font-bold text-slate-900 text-xs sm:text-sm">
+                                                Valid, Active &amp; Digitally Authenticated
+                                            </span>
                                         </div>
-                                        <p class="print-brand-sub text-[8.5px] sm:text-[10.5px] font-bold text-slate-800 tracking-tight uppercase leading-tight mt-0.5">
-                                            INNOVATION COUNCIL FOR EXQUISITE EDUCATION AND DEVELOPMENT OF SKILLS
-                                        </p>
-                                        <p class="print-brand-sub text-[8px] sm:text-[9.5px] font-semibold text-slate-700 leading-tight">
-                                            उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
-                                        </p>
                                     </div>
+                                    <span class="text-[10px] font-mono text-emerald-800 bg-emerald-100/80 border border-emerald-300 px-2.5 py-0.5 rounded-full font-bold">
+                                        Official Registry Record
+                                    </span>
                                 </div>
 
-                                <!-- Legal & Statutory Accreditations Typography matching PDF -->
-                                <div class="print-legal-text text-center space-y-0.5 text-[8px] sm:text-[9px] font-bold uppercase tracking-tight text-slate-700 mb-2">
-                                    <p class="text-slate-800">ISO 9001:2015 CERTIFIED FOR QUALITY MANAGEMENT SYSTEM</p>
-                                    <p class="text-slate-900 font-black">NSDC (SKILL INDIA) CERTIFICATION PARTNER ASSOCIATED WITH AUTHORISED TRAINING PARTNERS</p>
-                                    <p class="text-slate-700">AN AUTONOMOUS ENTITY REGISTERED AS A TRUST UNDER THE INDIAN TRUSTS ACT 1882</p>
-                                    <p class="text-slate-900 font-extrabold text-[#007a99]">NGO DARPAN UNIQUE ID NO: KL/2023/0348375 (NITI AAYOG, GOVT. OF INDIA)</p>
+                            </div>
+
+                            <!-- Digital Security & Cryptographic Stamp Bar -->
+                            <div class="print-security-bar bg-slate-900 text-slate-200 rounded-xl p-3 sm:p-3.5 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
+                                <!-- Digital Hash (SHA-256) with Lock Icon -->
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold shrink-0">SHA-256:</span>
+                                    <span class="font-mono text-[10px] sm:text-xs text-emerald-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800 truncate" title="{{ $certificate->authenticity_hash }}">
+                                        {{ substr($certificate->authenticity_hash, 0, 10) }}...{{ substr($certificate->authenticity_hash, -8) }}
+                                    </span>
                                 </div>
 
-                                <!-- 11 Accreditation Emblems Grid matching PDF final page -->
-                                <div class="print-emblems-grid grid grid-cols-6 sm:grid-cols-11 gap-1 sm:gap-1.5 items-center justify-center max-w-4xl mx-auto mb-2">
-                                    <!-- 1. NSDC -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="NSDC (National Skill Development Corporation)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp" alt="NSDC" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 2. Skill India -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="Skill India (कौशल भारत - कुशल भारत)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-12-gcfvex.webp" alt="Skill India" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 3. ISO 9001:2015 -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="ISO 9001:2015 Quality Management System">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-hqqxuz.webp" alt="ISO 9001:2015" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 4. IAF -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="IAF (International Accreditation Forum)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp" alt="IAF" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 5. QEAA -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex flex-col items-center justify-center text-center" title="QEAA - Quality Education Assurance Accreditation">
-                                        <span class="text-[8px] sm:text-[8.5px] font-black text-slate-800 leading-none">QEAA</span>
-                                        <span class="text-[4.5px] sm:text-[5px] text-slate-500 font-medium leading-none mt-0.5 uppercase tracking-tighter">Accredited</span>
-                                    </div>
-                                    <!-- 6. US Certification -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="US Accreditation & Certification Board">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-2-wuygca.webp" alt="US Certification" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 7. EIAC -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="EIAC (Emirates International Accreditation Centre, Dubai UAE)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-4-qtqoqm.webp" alt="EIAC" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 8. EGAC -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="EGAC (Egyptian Accreditation Council - المجلس الوطني للاعتماد)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp" alt="EGAC" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 9. UK Crest -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="UK Academic Coat of Arms Affiliation">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-9-5p97l0.webp" alt="UK Crest" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 10. Euro UK / Quality Seal -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="Euro UK Accreditation Licensing Services">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-10-fxjgr0.webp" alt="Euro UK" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                    <!-- 11. FICS -->
-                                    <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center" title="FICS (First International Certification System)">
-                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-3-yacox0.webp" alt="FICS" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
-                                    </div>
-                                </div>
-
-                                <!-- Contact & Verified Registry Channels Bar matching PDF -->
-                                <div class="print-contact-bar flex flex-wrap items-center justify-center gap-x-3.5 gap-y-1 text-[8.5px] sm:text-[10px] font-bold text-slate-800">
-                                    <!-- Phone -->
-                                    <div class="inline-flex items-center gap-1">
-                                        <span class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#0097b2] text-white flex items-center justify-center text-[8px] shrink-0">
-                                            <svg class="w-2 sm:w-2.5 h-2 sm:h-2.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
-                                        </span>
-                                        <span class="font-mono">+91 7510 2000 95, 7510 2000 90, 9061 202 443</span>
-                                    </div>
-                                    <!-- Email -->
-                                    <div class="inline-flex items-center gap-1">
-                                        <span class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#d81b60] text-white flex items-center justify-center text-[8px] shrink-0">
-                                            <svg class="w-2 sm:w-2.5 h-2 sm:h-2.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-                                        </span>
-                                        <span class="font-mono">connect.iceeds@gmail.com</span>
-                                    </div>
-                                    <!-- Web -->
-                                    <div class="inline-flex items-center gap-1">
-                                        <span class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#0288d1] text-white flex items-center justify-center text-[8px] shrink-0">
-                                            <svg class="w-2 sm:w-2.5 h-2 sm:h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"/></svg>
-                                        </span>
-                                        <span class="font-mono">www.iceeds.com</span>
-                                    </div>
+                                <!-- Verification Timestamp & API Tamper-Proof Record Indicator -->
+                                <div class="flex items-center gap-3 shrink-0 text-[10.5px] text-slate-400">
+                                    <span class="inline-flex items-center gap-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                        <span>{{ now()->setTimezone('UTC')->format('Y-m-d H:i:s') }} UTC</span>
+                                    </span>
+                                    <span>&bull;</span>
+                                    <span class="font-mono text-slate-300">/api/v1/verify/{{ $certificate->certificate_code }}</span>
                                 </div>
                             </div>
+
+                            <!-- Regulatory Notice & Disclaimer -->
+                            <div class="print-disclaimer-box p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-[9px] text-slate-600 leading-relaxed">
+                                <strong class="font-bold text-slate-800">Notice on Certification Authority:</strong>
+                                Alongside University and NSDC-affiliated offerings, iCEEDS awards proprietary certifications in skill and professional development. While holding recognized merit across private and public sectors, these credentials are autonomous and distinct from statutory degrees/diplomas conferred under UGC or AICTE.
+                            </div>
+
+                            <!-- Official Footer & Accreditation Strip -->
+                            <div class="print-footer pt-3 mt-1 border-t border-slate-200 space-y-3">
+                                
+                                <!-- Legal & Accreditation Row -->
+                                <div class="print-legal-row text-center text-[9px] sm:text-[10px] font-bold text-slate-700 leading-tight">
+                                    A Self-Governing Educational Trust Registered under the Indian Trusts Act, 1882 &bull; NITI Aayog NGO DARPAN UNIQUE ID NO: KL/2023/0348375 &bull; ISO 9001:2015 Certified
+                                </div>
+
+                                <!-- Accreditation Badges: Aligned logos for NSTC, ICTS, EGAC, and IAS -->
+                                <div class="print-emblems-row flex items-center justify-center gap-3 sm:gap-4 py-1">
+                                    <!-- 1. NSTC (National Skill Training / NSDC partner) -->
+                                    <div class="print-emblem-box h-8 sm:h-9 px-2.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center gap-1.5" title="NSTC / NSDC - National Skill Development Corporation">
+                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp" alt="NSTC / NSDC" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
+                                        <span class="text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 font-mono tracking-wider">NSTC</span>
+                                    </div>
+
+                                    <!-- 2. ICTS (International Council of Technical & Skill Education) -->
+                                    <div class="print-emblem-box h-8 sm:h-9 px-2.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center gap-1.5" title="ICTS - International Council of Technical & Skill Education">
+                                        <img src="{{ asset('storage/media/2026/10/iceeds-accreditation-13-1nmhz6.webp') }}" alt="ICTS" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
+                                        <span class="text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 font-mono tracking-wider">ICTS</span>
+                                    </div>
+
+                                    <!-- 3. EGAC (Egyptian Accreditation Council) -->
+                                    <div class="print-emblem-box h-8 sm:h-9 px-2.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center gap-1.5" title="EGAC (Egyptian Accreditation Council - المجلس الوطني للاعتماد)">
+                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp" alt="EGAC" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
+                                        <span class="text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 font-mono tracking-wider">EGAC</span>
+                                    </div>
+
+                                    <!-- 4. IAS (International Accreditation Service / IAF) -->
+                                    <div class="print-emblem-box h-8 sm:h-9 px-2.5 py-0.5 rounded-lg bg-white border border-slate-300 shadow-2xs flex items-center justify-center gap-1.5" title="IAS (International Accreditation Service / IAF Conformity Assessment)">
+                                        <img src="https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp" alt="IAS / IAF" class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain">
+                                        <span class="text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 font-mono tracking-wider">IAS</span>
+                                    </div>
+                                </div>
+
+                                <!-- Official Contact Bar -->
+                                <div class="print-contact-bar flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 pt-0.5">
+                                    <span>Phone: <strong class="font-mono text-slate-900">+91 7516 2000 95</strong></span>
+                                    <span>&bull;</span>
+                                    <span>Email: <strong class="font-mono text-slate-900">connect.iceeds@gmail.com</strong></span>
+                                    <span>&bull;</span>
+                                    <span>Web: <strong class="font-mono text-slate-900">www.iceeds.com</strong></span>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
 

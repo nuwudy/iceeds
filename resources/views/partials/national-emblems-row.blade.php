@@ -100,7 +100,7 @@
                 </div>
 
                 <!-- Rich Explainer Popover (Hover & Touch) -->
-                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-72 sm:w-80 p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-72 sm:w-80 max-w-[calc(100vw-2rem)] p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                     <!-- Dynamic Arrow (Clamped by Layout Script) -->
                     <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full scroll-smooth antialiased">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full scroll-smooth antialiased overflow-x-hidden">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +51,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
+        /* Complete elimination of mobile horizontal unsteadiness & side-scrolling */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
@@ -59,6 +68,17 @@
         }
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Prevent dormant popovers from calculating into page scroll dimensions */
+        .emblem-popover {
+            display: none !important;
+            max-width: min(calc(100vw - 24px), 340px) !important;
+            box-sizing: border-box;
+        }
+        .emblem-popover-trigger.popover-active .emblem-popover,
+        .emblem-popover-trigger:hover .emblem-popover {
+            display: block !important;
         }
 
         /* Subtle mesh background */
@@ -223,7 +243,7 @@
     </style>
     @stack('styles')
 </head>
-<body class="min-h-screen flex flex-col bg-portal-gradient text-slate-800">
+<body class="min-h-screen flex flex-col bg-portal-gradient text-slate-800 overflow-x-hidden w-full max-w-full relative">
 
     <!-- iCEEDS Brand Preloader (Hidden in Print) -->
     <div id="site-preloader" class="no-print" aria-hidden="true">
@@ -640,13 +660,13 @@
     </header>
 
     <!-- INSTITUTIONAL ACCREDITATION & QUALITY EMBLEMS (Just Above Ticker) -->
-    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2.5 sm:py-3 relative z-40 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4">
+    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2 sm:py-3 relative z-40 shadow-xs overflow-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-3 lg:gap-4">
                 
                 <!-- Label Badge on Desktop & Mobile -->
                 <div class="shrink-0 flex items-center gap-2">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] font-bold text-blue-800 uppercase tracking-wider">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[10px] sm:text-[11px] font-bold text-blue-800 uppercase tracking-wider">
                         <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
@@ -655,7 +675,7 @@
                 </div>
 
                 <!-- 10 Prominent Recognition Emblems with Interactive Explainer Popovers -->
-                <div class="w-full lg:w-auto flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-2.5 md:gap-3">
+                <div class="w-full lg:w-auto flex flex-wrap items-center justify-center lg:justify-end gap-1.5 sm:gap-2.5 md:gap-3 max-w-full">
                     @php
                         $emblems = [
                             [
@@ -719,17 +739,17 @@
                     @foreach($emblems as $emblem)
                         <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                             <!-- Emblem Box -->
-                            <div class="h-11 sm:h-12 md:h-13 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400 group-hover:ring-2 group-hover:ring-blue-400/30 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
+                            <div class="h-9 sm:h-12 md:h-13 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400 group-hover:ring-2 group-hover:ring-blue-400/30 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
                                 <img 
                                     src="{{ $emblem['url'] }}" 
                                     alt="{{ $emblem['title'] }}" 
                                     loading="lazy" 
-                                    class="h-8 sm:h-9 md:h-10 w-auto max-w-[85px] sm:max-w-[95px] md:max-w-[105px] object-contain pointer-events-none"
+                                    class="h-6 sm:h-9 md:h-10 w-auto max-w-[50px] xs:max-w-[65px] sm:max-w-[95px] md:max-w-[105px] object-contain pointer-events-none"
                                 >
                             </div>
 
                             <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 max-w-[calc(100vw-2rem)] p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                                 <!-- Top Pointer Arrow (Dynamically aligned with active emblem center) -->
                                 <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 
@@ -1126,7 +1146,7 @@
         target="_blank" 
         rel="noopener noreferrer" 
         aria-label="Chat with iCEEDS on WhatsApp" 
-        class="no-print fixed bottom-6 right-6 z-40 group flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-lg shadow-emerald-900/30 hover:shadow-emerald-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+        class="no-print fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40 group flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white p-3 sm:px-4 sm:py-3 rounded-full shadow-lg shadow-emerald-900/30 hover:shadow-emerald-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
     >
         <svg class="w-6 h-6 shrink-0 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -1196,6 +1216,8 @@
                 if (!popover) return;
                 const arrow = popover.querySelector('.popover-arrow');
 
+                popover.style.display = 'block';
+
                 // 1. Reset popover to default centered position relative to this emblem
                 popover.style.left = '50%';
                 popover.style.right = 'auto';
@@ -1204,7 +1226,7 @@
                 // 2. Measure screen geometry
                 const triggerRect = trigger.getBoundingClientRect();
                 const popoverRect = popover.getBoundingClientRect();
-                const padding = 16;
+                const padding = 12;
                 let shiftX = 0;
 
                 // Detect if popover bleeds off right or left edge of screen
@@ -1240,7 +1262,11 @@
                 trigger.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const wasActive = trigger.classList.contains('popover-active');
-                    triggers.forEach(t => t.classList.remove('popover-active'));
+                    triggers.forEach(t => {
+                        t.classList.remove('popover-active');
+                        const pop = t.querySelector('.emblem-popover');
+                        if (pop) pop.style.display = '';
+                    });
                     if (!wasActive) {
                         trigger.classList.add('popover-active');
                         positionPopover(trigger);
@@ -1250,7 +1276,11 @@
 
             // Dismiss when touching/clicking anywhere outside
             document.addEventListener('click', () => {
-                triggers.forEach(t => t.classList.remove('popover-active'));
+                triggers.forEach(t => {
+                    t.classList.remove('popover-active');
+                    const pop = t.querySelector('.emblem-popover');
+                    if (pop) pop.style.display = '';
+                });
             });
         })();
 
@@ -1389,18 +1419,18 @@
     <!-- Persistent Floating PWA & Google Play Install Action (Bottom Center Float Button) -->
     <aside 
         id="pwaInstallFloatingBar" 
-        class="pwa-install-btn hidden fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-1.25rem)] max-w-md sm:max-w-lg transition-all duration-300 ease-out transform pointer-events-auto"
+        class="pwa-install-btn hidden fixed bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-1rem)] max-w-sm sm:max-w-lg transition-all duration-300 ease-out transform pointer-events-auto"
         aria-label="Install iCEEDS App"
     >
-        <div class="relative bg-slate-950/95 text-white px-3 sm:px-4 py-2.5 rounded-2xl shadow-2xl shadow-slate-950/70 backdrop-blur-xl border border-cyan-400/50 flex items-center justify-between gap-2 sm:gap-3 group ring-1 ring-white/10 hover:border-cyan-300">
+        <div class="relative bg-slate-950/95 text-white px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl shadow-2xl shadow-slate-950/80 backdrop-blur-xl border border-cyan-400/50 flex items-center justify-between gap-1.5 sm:gap-3 group ring-1 ring-white/10 hover:border-cyan-300">
             
             <!-- Left: App Icon & Brand Description -->
-            <div class="flex items-center gap-2.5 min-w-0 cursor-pointer" onclick="installIceedsPWA()" title="Install iCEEDS Official App">
+            <div class="flex items-center gap-2 min-w-0 cursor-pointer flex-1" onclick="installIceedsPWA()" title="Install iCEEDS Official App">
                 <div class="relative shrink-0">
                     <img 
                         src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" 
                         alt="iCEEDS App" 
-                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain bg-slate-900 ring-2 ring-cyan-400/50 shadow-md group-hover:scale-105 transition-transform"
+                        class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl object-contain bg-slate-900 ring-2 ring-cyan-400/50 shadow-md group-hover:scale-105 transition-transform"
                     >
                     <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
@@ -1410,20 +1440,20 @@
                 <div class="min-w-0 text-left">
                     <div class="flex items-center gap-1.5">
                         <span class="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-tight truncate">iCEEDS App</span>
-                        <span class="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Official</span>
+                        <span class="text-[8.5px] font-bold px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shrink-0">Official</span>
                     </div>
-                    <p class="text-[10px] sm:text-[11px] text-slate-300 truncate mt-0.5">Instant verification &amp; courses</p>
+                    <p class="text-[9.5px] sm:text-[11px] text-slate-300 truncate mt-0.5 hidden xs:block">Verification &amp; courses</p>
                 </div>
             </div>
 
             <!-- Right: Google Play Button + Web App Install + Dismiss -->
-            <div class="flex items-center gap-1.5 shrink-0">
+            <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
                 <!-- Google Play Store Installation Button -->
                 <a 
                     href="https://play.google.com/store/apps/details?id=com.nrichlearning.iceeds" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl font-bold text-xs text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 active:scale-95 shadow-xs transition"
+                    class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl font-bold text-xs text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 active:scale-95 shadow-xs transition"
                     title="Install from Google Play Store"
                 >
                     <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 512 512">
@@ -1432,15 +1462,14 @@
                         <path fill="#f44336" d="M309.3,325.7L234.3,250.7L13.9,471c8.2,8.7,21.8,9.7,37.1,1.1L309.3,325.7z"/>
                         <path fill="#2196f3" d="M309.3,174.3L51,29.9c-15.3-8.7-28.9-7.7-37.1,1.1l220.4,220.4L309.3,174.3z"/>
                     </svg>
-                    <span class="hidden xs:inline">Google Play</span>
-                    <span class="xs:hidden">Play</span>
+                    <span class="text-[11px] sm:text-xs">Play</span>
                 </a>
 
                 <!-- PWA Direct Install Button -->
                 <button 
                     type="button" 
                     onclick="installIceedsPWA()" 
-                    class="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl font-black text-xs text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 active:scale-95 shadow-md shadow-cyan-500/25 transition cursor-pointer"
+                    class="inline-flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl font-black text-[11px] sm:text-xs text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 active:scale-95 shadow-md shadow-cyan-500/25 transition cursor-pointer"
                     title="Install Web App directly"
                 >
                     <svg class="w-3.5 h-3.5 text-slate-950 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -1454,7 +1483,7 @@
                     type="button" 
                     onclick="dismissPwaFloatingBar()" 
                     aria-label="Dismiss install prompt" 
-                    class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition cursor-pointer"
+                    class="p-1 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition cursor-pointer"
                     title="Dismiss"
                 >
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

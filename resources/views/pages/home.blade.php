@@ -30,7 +30,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-transparent to-slate-950/25"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-full overflow-hidden sm:overflow-visible">
             
             <!-- VERIFICATION RESULT BANNER (If searched via query param or search form) -->
             @if(isset($searched) && $searched)

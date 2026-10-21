@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full scroll-smooth antialiased overflow-x-hidden">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full scroll-smooth antialiased">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,13 +51,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        /* Complete elimination of mobile horizontal unsteadiness & side-scrolling */
-        html, body {
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-            width: 100% !important;
-            position: relative;
-            -webkit-overflow-scrolling: touch;
+        /* Prevent horizontal overflow without breaking position: sticky */
+        body {
+            overflow-x: clip;
+            max-width: 100%;
         }
 
         body {
@@ -248,7 +245,7 @@
     </style>
     @stack('styles')
 </head>
-<body class="min-h-screen flex flex-col bg-portal-gradient text-slate-800 overflow-x-hidden w-full max-w-full relative">
+<body class="min-h-screen flex flex-col bg-portal-gradient text-slate-800 relative">
 
     <!-- iCEEDS Brand Preloader (Hidden in Print) -->
     <div id="site-preloader" class="no-print" aria-hidden="true">

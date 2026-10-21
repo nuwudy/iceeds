@@ -284,89 +284,23 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- CHAMBER 01: HINDUTVA STUDIES (Includes Dedicated Board of Studies Block) -->
+        <!-- ACADEMIC GOVERNANCE: BOARD OF STUDIES • CHAMBER OF HINDUTVA STUDIES       -->
         <!-- ========================================================================= -->
         <section id="hindutva-studies" x-show="activeChamber === 'all' || activeChamber === 'hindutva'" class="space-y-6 scroll-mt-28">
-            
-            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                    
-                    <!-- Left: Authentic Chamber Image -->
-                    <div class="lg:col-span-5 relative bg-slate-900 overflow-hidden min-h-[320px]">
-                        <img src="{{ $hindutvaImage }}" 
-                             alt="Chamber of Hindutva Studies - iCEEDS" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-amber-600 text-white shadow-sm">
-                                Academic Chamber 01
-                            </span>
-                            <h3 class="text-xl font-bold font-heading text-white mt-1">
-                                Chamber of Hindutva Studies
-                            </h3>
-                            <p class="text-xs text-amber-200 mt-0.5">Shad-Darshanas, Vedic Epistemology &amp; Indic Thought</p>
-                        </div>
-                    </div>
-
-                    <!-- Right: Content & Modules -->
-                    <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
-                        <div>
-                            <div class="flex items-center justify-between gap-4 mb-2">
-                                <span class="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
-                                    Vedic &amp; Classical Indic Philosophy
-                                </span>
-                                <span class="text-xs text-slate-400 font-mono">Faculty of Theology</span>
-                            </div>
-
-                            <h2 class="text-2xl font-black font-heading text-slate-950">
-                                Chamber of Hindutva Studies
-                            </h2>
-                            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                                Exploring the profound intellectual traditions of India: the Six Astika Darshanas (Nyaya, Vaisheshika, Samkhya, Yoga, Mimamsa, and Vedanta), Upanishadic metaphysics, Dharmic ethics, and the cultural history of Indic civilization.
-                            </p>
-
-                            <!-- Academic Focus Pillars -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
-                                <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-100">
-                                    <h4 class="text-xs font-bold text-amber-950">Six Classical Darshanas</h4>
-                                    <p class="text-[11px] text-slate-600 mt-0.5">Nyaya logic, Samkhya cosmology, Yoga psychology, and Advaita/Dvaita Vedanta.</p>
-                                </div>
-                                <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-100">
-                                    <h4 class="text-xs font-bold text-amber-950">Upanishads &amp; Bhagavad Gita</h4>
-                                    <p class="text-[11px] text-slate-600 mt-0.5">Brahman-Atman identity, karma, dharma, duty, and spiritual consciousness.</p>
-                                </div>
-                                <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-100">
-                                    <h4 class="text-xs font-bold text-amber-950">Indic Civilization &amp; Heritage</h4>
-                                    <p class="text-[11px] text-slate-600 mt-0.5">Temple architecture, sacred iconography, Sanskrit linguistic traditions, and arts.</p>
-                                </div>
-                                <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-100">
-                                    <h4 class="text-xs font-bold text-amber-950">Ecological Dharma &amp; Ethics</h4>
-                                    <p class="text-[11px] text-slate-600 mt-0.5">Vedic environmental philosophy, Ahimsa, sustainable living, and universal well-being.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <span class="text-xs text-slate-500 font-medium">Textual studies in English, Sanskrit, and regional languages.</span>
-                            <a href="{{ route('contact') }}?chamber=Hindutva+Studies" 
-                               class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-amber-700 hover:bg-amber-800 shadow-sm transition text-center">
-                                Inquire for Hindutva Studies
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- DEDICATED 4-COLUMN BOARD OF STUDIES BLOCK: HINDUTVA -->
-                <div class="px-6 sm:px-8 pb-8 bg-slate-50/60 border-t border-slate-100">
-                    @include('partials.chamber-board-of-studies', [
-                        'chamberKey' => 'hindutva',
-                        'chamberName' => 'Chamber of Hindutva Studies',
-                        'members' => $boardOfStudies['hindutva'] ?? []
-                    ])
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition px-6 sm:px-8 pb-8 pt-2">
+                @include('partials.chamber-board-of-studies', [
+                    'chamberKey' => 'hindutva',
+                    'chamberName' => 'Chamber of Hindutva Studies',
+                    'members' => $boardOfStudies['hindutva'] ?? []
+                ])
+                <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span class="text-xs text-slate-500 font-medium">Textual studies in English, Sanskrit, and regional languages.</span>
+                    <a href="{{ route('contact') }}?chamber=Hindutva+Studies" 
+                       class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-amber-700 hover:bg-amber-800 shadow-sm transition text-center">
+                        Inquire for Hindutva Studies
+                    </a>
                 </div>
             </div>
-
         </section>
 
         <!-- ========================================================================= -->

@@ -101,44 +101,43 @@
                     </div>
                 </div>
 
-                <!-- Rich Explainer Popover (Hover & Touch) - Centered in Middle of Screen on Mobile, Sleek & Arrow-Free -->
-                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out fixed sm:absolute z-[99999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:top-full sm:mt-2.5 sm:translate-y-0 w-[calc(100vw-32px)] max-w-[360px] sm:w-80 {{ $index === 0 ? 'sm:left-0 sm:translate-x-0' : ($index === 2 ? 'sm:left-auto sm:right-0 sm:translate-x-0' : 'sm:left-1/2 sm:-translate-x-1/2') }} p-4 sm:p-3.5 bg-slate-950/98 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-
-                    <div class="relative z-10 space-y-2">
+                <!-- Rich Explainer Popover Content Template (Rendered in Centered Screen Modal on Hover/Touch) -->
+                <div class="emblem-popover-content hidden">
+                    <div class="space-y-2.5">
                         <!-- Header -->
-                        <div class="border-b border-slate-800 pb-2">
-                            <div class="flex items-center justify-between gap-2 mb-1">
-                                <span class="text-[9px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded-full {{ $emblem['pill_classes'] }}">
+                        <div class="border-b border-slate-800 pb-2.5">
+                            <div class="flex items-center justify-between gap-2 mb-1.5">
+                                <span class="text-[9.5px] font-mono uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full {{ $emblem['pill_classes'] }}">
                                     {{ $emblem['category'] }}
                                 </span>
-                                <span class="text-[9px] font-mono text-emerald-400 font-bold flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-[9.5px] font-mono text-emerald-400 font-bold flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                                     Institutional Alignment
                                 </span>
                             </div>
-                            <h5 class="font-extrabold text-white text-xs sm:text-[13px] font-heading leading-tight tracking-tight">
+                            <h5 class="font-extrabold text-white text-sm sm:text-base font-heading leading-tight tracking-tight">
                                 {{ $emblem['title'] }}
                             </h5>
-                            <p class="text-slate-400 text-[10px] mt-0.5 leading-snug">
+                            <p class="text-slate-400 text-xs mt-1 leading-snug">
                                 {!! $emblem['subtitle'] !!}
                             </p>
                         </div>
 
                         <!-- Relevance with iCEEDS -->
                         <div>
-                            <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1 mb-1">
+                            <div class="text-[10.5px] font-mono font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5 mb-1">
                                 <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                 </svg>
                                 <span>Relevance with iCEEDS</span>
                             </div>
-                            <p class="text-slate-200 text-[11px] leading-relaxed">
+                            <p class="text-slate-200 text-xs sm:text-[13px] leading-relaxed">
                                 {{ $emblem['relevance_desc'] }}
                             </p>
                         </div>
 
                         <!-- Status Pill -->
-                        <div class="pt-1.5 border-t border-slate-800/80 text-[9.5px] font-mono text-emerald-400 font-bold">
+                        <div class="pt-2 border-t border-slate-800/80 text-[10.5px] font-mono text-emerald-400 font-bold">
                             {!! $emblem['status'] !!}
                         </div>
                     </div>

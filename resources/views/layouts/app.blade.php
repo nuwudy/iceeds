@@ -67,51 +67,31 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Explainer Popover Styles for Emblems (Hero & Footer Ticker) */
-        .emblem-popover {
-            display: none;
+        /* Unified Center Explainer Modal (Middle of Screen on Hover/Touch, Arrow-Free) */
+        #emblemInspectionModal {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
             opacity: 0;
             visibility: hidden;
-            pointer-events: none;
-            box-sizing: border-box;
-            z-index: 99999 !important;
-            transition: opacity 0.15s ease, visibility 0.15s ease;
+            transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
         }
-
-        /* On mobile screens, always center-align in the middle of the viewport */
-        @media (max-width: 639px) {
-            .emblem-popover {
-                position: fixed !important;
-                top: 50% !important;
-                left: 50% !important;
-                right: auto !important;
-                bottom: auto !important;
-                transform: translate(-50%, -50%) !important;
-                width: calc(100vw - 32px) !important;
-                max-width: 360px !important;
-                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
-            }
-        }
-
-        /* Active / Visible state controlled programmatically by JS */
-        .emblem-popover.popover-visible {
-            display: block !important;
+        #emblemInspectionModal.modal-visible {
             opacity: 1 !important;
             visibility: visible !important;
-            pointer-events: auto !important;
         }
-
-        /* Desktop cursor hover fallback */
-        @media (hover: hover) and (pointer: fine) {
-            .emblem-popover-trigger:hover .emblem-popover {
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                pointer-events: auto !important;
-            }
+        #emblemInspectionModal #emblemInspectionCard {
+            transform: scale(0.95);
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        /* Permanently remove square pointer arrows */
+        #emblemInspectionModal.modal-visible #emblemInspectionCard {
+            transform: scale(1) !important;
+        }
         .popover-arrow {
             display: none !important;
         }
@@ -764,14 +744,18 @@
                                 >
                             </div>
 
-                            <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) - Centered in Middle of Screen on Mobile, Arrow-Free -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out fixed sm:absolute z-[99999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:top-full sm:mt-2.5 sm:translate-y-0 w-[calc(100vw-32px)] max-w-[340px] sm:w-72 sm:left-1/2 sm:-translate-x-1/2 p-4 sm:p-3.5 bg-slate-950/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-
-                                <div class="relative z-10 space-y-1">
-                                    <h5 class="font-extrabold text-sky-400 text-xs sm:text-[13px] font-heading leading-tight tracking-tight">
-                                        {{ $emblem['title'] }}
-                                    </h5>
-                                    <p class="text-slate-300 text-[11px] leading-relaxed">
+                            <!-- Popover / Explainer Template (Rendered in Unified Center Screen Modal) -->
+                            <div class="emblem-popover-content hidden">
+                                <div class="space-y-2">
+                                    <div class="border-b border-slate-800 pb-2">
+                                        <span class="text-[9.5px] font-mono text-cyan-400 font-bold uppercase tracking-wider block mb-1">
+                                            Institutional Accreditation &amp; Alignment
+                                        </span>
+                                        <h5 class="font-extrabold text-white text-sm sm:text-base font-heading leading-tight tracking-tight">
+                                            {{ $emblem['title'] }}
+                                        </h5>
+                                    </div>
+                                    <p class="text-slate-200 text-xs sm:text-[13px] leading-relaxed">
                                         {{ $emblem['desc'] }}
                                     </p>
                                 </div>
@@ -1223,138 +1207,80 @@
     <script>
         (function() {
             const triggers = document.querySelectorAll('.emblem-popover-trigger');
-            if (!triggers.length) return;
+            const modal = document.getElementById('emblemInspectionModal');
+            const inner = document.getElementById('emblemInspectionInner');
+            if (!triggers.length || !modal || !inner) return;
 
             let activeTrigger = null;
 
-            function positionPopover(trigger) {
-                const popover = trigger.querySelector('.emblem-popover');
-                if (!popover) return;
+            function showModal(trigger) {
+                const contentTpl = trigger.querySelector('.emblem-popover-content');
+                if (!contentTpl) return;
 
-                popover.style.display = 'block';
-
-                if (window.innerWidth < 640) {
-                    // Mobile: perfectly centered in the middle of the viewport
-                    popover.style.position = 'fixed';
-                    popover.style.top = '50%';
-                    popover.style.left = '50%';
-                    popover.style.right = 'auto';
-                    popover.style.bottom = 'auto';
-                    popover.style.transform = 'translate(-50%, -50%)';
-                    popover.style.width = 'calc(100vw - 32px)';
-                    popover.style.maxWidth = '360px';
-                    return;
-                }
-
-                // Desktop (>= 640px)
-                popover.style.position = '';
-                popover.style.top = '';
-                popover.style.bottom = '';
-                popover.style.width = '';
-                popover.style.maxWidth = '';
-                popover.style.left = '50%';
-                popover.style.transform = 'translateX(-50%)';
-
-                const triggerRect = trigger.getBoundingClientRect();
-                const popoverRect = popover.getBoundingClientRect();
-                const popoverWidth = popoverRect.width || 300;
-                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
-                const popoverLeft = badgeCenter - (popoverWidth / 2);
-                const padding = 16;
-                const viewportWidth = window.innerWidth;
-
-                let shiftX = 0;
-                if (popoverLeft < padding) {
-                    shiftX = padding - popoverLeft;
-                } else if (popoverLeft + popoverWidth > viewportWidth - padding) {
-                    shiftX = (viewportWidth - padding) - (popoverLeft + popoverWidth);
-                }
-
-                if (shiftX !== 0) {
-                    popover.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
-                } else {
-                    popover.style.transform = 'translateX(-50%)';
-                }
-            }
-
-            function showPopover(trigger) {
-                if (activeTrigger && activeTrigger !== trigger) {
-                    hidePopover(activeTrigger);
-                }
                 activeTrigger = trigger;
-                const popover = trigger.querySelector('.emblem-popover');
-                if (!popover) return;
-
-                positionPopover(trigger);
-                popover.classList.add('popover-visible');
+                trigger.classList.add('popover-active');
+                inner.innerHTML = contentTpl.innerHTML;
+                modal.classList.add('modal-visible');
             }
 
-            function hidePopover(trigger) {
-                if (!trigger) return;
-                const popover = trigger.querySelector('.emblem-popover');
-                if (popover) {
-                    popover.classList.remove('popover-visible');
-                    popover.style.display = '';
-                }
-                trigger.blur();
-                if (activeTrigger === trigger) {
+            function hideModal() {
+                if (activeTrigger) {
+                    activeTrigger.classList.remove('popover-active');
+                    activeTrigger.blur();
                     activeTrigger = null;
                 }
-            }
-
-            function hideAll() {
-                triggers.forEach(t => hidePopover(t));
+                modal.classList.remove('modal-visible');
             }
 
             triggers.forEach(trigger => {
                 // Desktop Mouse hover: shows on hover, disappears immediately when cursor leaves
                 trigger.addEventListener('mouseenter', () => {
-                    showPopover(trigger);
+                    showModal(trigger);
                 });
                 trigger.addEventListener('mouseleave', () => {
-                    hidePopover(trigger);
+                    hideModal();
                 });
 
                 // Mobile Touch: shows on touch, disappears immediately when finger is removed!
                 trigger.addEventListener('touchstart', () => {
-                    showPopover(trigger);
+                    showModal(trigger);
                 }, { passive: true });
 
                 trigger.addEventListener('touchend', () => {
-                    hidePopover(trigger);
+                    hideModal();
                 }, { passive: true });
 
                 trigger.addEventListener('touchcancel', () => {
-                    hidePopover(trigger);
+                    hideModal();
                 }, { passive: true });
 
                 // Pointer Events for hybrid / stylus devices
                 trigger.addEventListener('pointerdown', (e) => {
                     if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-                        showPopover(trigger);
+                        showModal(trigger);
                     }
                 });
 
                 trigger.addEventListener('pointerup', (e) => {
                     if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-                        hidePopover(trigger);
+                        hideModal();
                     }
                 });
 
                 trigger.addEventListener('pointercancel', () => {
-                    hidePopover(trigger);
+                    hideModal();
                 });
             });
 
-            // Dismiss when scrolling (finger drag on mobile)
+            // Dismiss immediately when scrolling (e.g. finger drag or mouse scroll)
             window.addEventListener('scroll', () => {
-                if (activeTrigger) hideAll();
+                if (activeTrigger) hideModal();
             }, { passive: true });
 
             // Dismiss when touching/clicking anywhere outside
             document.addEventListener('pointerdown', (e) => {
                 if (!e.target.closest('.emblem-popover-trigger')) {
-                    hideAll();
+                    hideModal();
                 }
             }, { passive: true });
         })();
@@ -1572,6 +1498,16 @@
 
     <!-- Police Verification Report Interactive Scrollable Modal Partial -->
     @include('partials.police-verification-modal')
+
+    <!-- Unified Center Explainer Modal (Middle of Page on Hover/Touch, Arrow-Free) -->
+    <div id="emblemInspectionModal" class="fixed inset-0 z-[999999] pointer-events-none flex items-center justify-center p-4 transition-all duration-150 opacity-0 invisible" aria-hidden="true">
+        <!-- Subtle Backdrop Dimming -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-150 pointer-events-none"></div>
+        <!-- Modal Card in Dead Center of Viewport -->
+        <div id="emblemInspectionCard" class="relative z-10 w-full max-w-[390px] bg-slate-950/98 backdrop-blur-2xl text-white rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-700/80 text-left pointer-events-none transform scale-95 transition-all duration-150">
+            <div id="emblemInspectionInner"></div>
+        </div>
+    </div>
 
     @stack('scripts')
 </body>

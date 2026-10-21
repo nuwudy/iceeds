@@ -49,7 +49,7 @@ Certificate Verification - iCEEDS Central Academic Repository
 
     /* Dedicated Print Stylesheet: STRICT SINGLE-PAGE FIT */
     @media print {
-        header, footer, nav, #site-preloader, #policeDocModal, .no-print, .emblem-popover, #verificationTickerModal {
+        header, footer, nav, #site-preloader, #policeDocModal, #emblemInspectionModal, .no-print, .emblem-popover, #verificationTickerModal {
             display: none !important;
         }
 

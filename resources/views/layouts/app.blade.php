@@ -597,6 +597,23 @@
                         </svg>
                         <span>View Police Verification Report</span>
                     </button>
+                    <!-- Google Play Store Button (Mobile Drawer) -->
+                    <a 
+                        href="https://play.google.com/store/apps/details?id=com.nrichlearning.iceeds" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="w-full flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 shadow-xs transition"
+                        title="Get iCEEDS App on Google Play Store"
+                    >
+                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 512 512">
+                            <path fill="#4caf50" d="M12.2,40.1c-6.8,7.3-10.7,18.1-10.7,31.7v368.5c0,13.6,3.9,24.3,10.7,31.7l1.7,1.6L234.3,253.2v-4.4L13.9,38.5L12.2,40.1z"/>
+                            <path fill="#ffeb3b" d="M307.7,326.6l-73.4-73.4v-4.4l73.4-73.4l1.6,0.9l87.1,49.5c24.8,14.1,24.8,37.2,0,51.3l-87.1,49.5L307.7,326.6z"/>
+                            <path fill="#f44336" d="M309.3,325.7L234.3,250.7L13.9,471c8.2,8.7,21.8,9.7,37.1,1.1L309.3,325.7z"/>
+                            <path fill="#2196f3" d="M309.3,174.3L51,29.9c-15.3-8.7-28.9-7.7-37.1,1.1l220.4,220.4L309.3,174.3z"/>
+                        </svg>
+                        <span>Install on Google Play Store</span>
+                    </a>
+
                     <!-- PWA Install Button (Mobile Drawer) -->
                     <button 
                         type="button" 
@@ -923,6 +940,44 @@
                         <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-blue-300 font-medium">NITI Aayog Registered (Darpan ID)</span>
                         <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-purple-300 font-medium">ISO Accredited / Certified</span>
                         <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">NSDC Aligned &amp; MSME Registered</span>
+                    </div>
+
+                    <!-- Official Mobile Apps (Google Play Store & Web App) -->
+                    <div class="pt-3 border-t border-slate-900">
+                        <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider block mb-2">Get Official iCEEDS App</span>
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <a 
+                                href="https://play.google.com/store/apps/details?id=com.nrichlearning.iceeds" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-white transition group shadow-xs"
+                                title="Download iCEEDS Android App on Google Play Store"
+                            >
+                                <svg class="w-5 h-5 shrink-0" viewBox="0 0 512 512">
+                                    <path fill="#4caf50" d="M12.2,40.1c-6.8,7.3-10.7,18.1-10.7,31.7v368.5c0,13.6,3.9,24.3,10.7,31.7l1.7,1.6L234.3,253.2v-4.4L13.9,38.5L12.2,40.1z"/>
+                                    <path fill="#ffeb3b" d="M307.7,326.6l-73.4-73.4v-4.4l73.4-73.4l1.6,0.9l87.1,49.5c24.8,14.1,24.8,37.2,0,51.3l-87.1,49.5L307.7,326.6z"/>
+                                    <path fill="#f44336" d="M309.3,325.7L234.3,250.7L13.9,471c8.2,8.7,21.8,9.7,37.1,1.1L309.3,325.7z"/>
+                                    <path fill="#2196f3" d="M309.3,174.3L51,29.9c-15.3-8.7-28.9-7.7-37.1,1.1l220.4,220.4L309.3,174.3z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <div class="text-[8.5px] uppercase tracking-wider text-slate-400 leading-none">GET IT ON</div>
+                                    <div class="text-[11.5px] font-bold text-white leading-tight font-heading">Google Play</div>
+                                </div>
+                            </a>
+
+                            <button 
+                                type="button" 
+                                onclick="installIceedsPWA()" 
+                                class="pwa-install-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-cyan-300 transition cursor-pointer"
+                                title="Install iCEEDS Web Application"
+                            >
+                                <img src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" alt="iCEEDS App" class="w-5 h-5 rounded-md object-contain">
+                                <div class="text-left">
+                                    <div class="text-[8.5px] uppercase tracking-wider text-slate-400 leading-none">WEB APP</div>
+                                    <div class="text-[11.5px] font-bold text-cyan-300 leading-tight">Install Direct</div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1331,13 +1386,13 @@
         });
     </script>
 
-    <!-- Persistent Floating PWA Install Action (Bottom Center Float Button) -->
+    <!-- Persistent Floating PWA & Google Play Install Action (Bottom Center Float Button) -->
     <aside 
         id="pwaInstallFloatingBar" 
-        class="pwa-install-btn hidden fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-1.5rem)] max-w-sm sm:max-w-md transition-all duration-300 ease-out transform pointer-events-auto"
+        class="pwa-install-btn hidden fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-1.25rem)] max-w-md sm:max-w-lg transition-all duration-300 ease-out transform pointer-events-auto"
         aria-label="Install iCEEDS App"
     >
-        <div class="relative bg-slate-950/95 text-white px-3 sm:px-4 py-2.5 rounded-2xl shadow-2xl shadow-slate-950/70 backdrop-blur-xl border border-cyan-400/50 flex items-center justify-between gap-3 group ring-1 ring-white/10 hover:border-cyan-300">
+        <div class="relative bg-slate-950/95 text-white px-3 sm:px-4 py-2.5 rounded-2xl shadow-2xl shadow-slate-950/70 backdrop-blur-xl border border-cyan-400/50 flex items-center justify-between gap-2 sm:gap-3 group ring-1 ring-white/10 hover:border-cyan-300">
             
             <!-- Left: App Icon & Brand Description -->
             <div class="flex items-center gap-2.5 min-w-0 cursor-pointer" onclick="installIceedsPWA()" title="Install iCEEDS Official App">
@@ -1357,16 +1412,36 @@
                         <span class="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-tight truncate">iCEEDS App</span>
                         <span class="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Official</span>
                     </div>
-                    <p class="text-[10px] sm:text-[11px] text-slate-300 truncate mt-0.5">Quick access &amp; instant verification</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-300 truncate mt-0.5">Instant verification &amp; courses</p>
                 </div>
             </div>
 
-            <!-- Right: Install Button + Dismiss Button -->
+            <!-- Right: Google Play Button + Web App Install + Dismiss -->
             <div class="flex items-center gap-1.5 shrink-0">
+                <!-- Google Play Store Installation Button -->
+                <a 
+                    href="https://play.google.com/store/apps/details?id=com.nrichlearning.iceeds" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl font-bold text-xs text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 active:scale-95 shadow-xs transition"
+                    title="Install from Google Play Store"
+                >
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 512 512">
+                        <path fill="#4caf50" d="M12.2,40.1c-6.8,7.3-10.7,18.1-10.7,31.7v368.5c0,13.6,3.9,24.3,10.7,31.7l1.7,1.6L234.3,253.2v-4.4L13.9,38.5L12.2,40.1z"/>
+                        <path fill="#ffeb3b" d="M307.7,326.6l-73.4-73.4v-4.4l73.4-73.4l1.6,0.9l87.1,49.5c24.8,14.1,24.8,37.2,0,51.3l-87.1,49.5L307.7,326.6z"/>
+                        <path fill="#f44336" d="M309.3,325.7L234.3,250.7L13.9,471c8.2,8.7,21.8,9.7,37.1,1.1L309.3,325.7z"/>
+                        <path fill="#2196f3" d="M309.3,174.3L51,29.9c-15.3-8.7-28.9-7.7-37.1,1.1l220.4,220.4L309.3,174.3z"/>
+                    </svg>
+                    <span class="hidden xs:inline">Google Play</span>
+                    <span class="xs:hidden">Play</span>
+                </a>
+
+                <!-- PWA Direct Install Button -->
                 <button 
                     type="button" 
                     onclick="installIceedsPWA()" 
-                    class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 active:scale-95 shadow-md shadow-cyan-500/25 transition cursor-pointer"
+                    class="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl font-black text-xs text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 active:scale-95 shadow-md shadow-cyan-500/25 transition cursor-pointer"
+                    title="Install Web App directly"
                 >
                     <svg class="w-3.5 h-3.5 text-slate-950 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -1374,6 +1449,7 @@
                     <span>Install</span>
                 </button>
 
+                <!-- Dismiss Button -->
                 <button 
                     type="button" 
                     onclick="dismissPwaFloatingBar()" 

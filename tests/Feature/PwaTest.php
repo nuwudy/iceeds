@@ -58,5 +58,6 @@ class PwaTest extends TestCase
         $response->assertSee('beforeinstallprompt', false);
         $response->assertSee('appinstalled', false);
         $response->assertSee('storage/media/2026/10/iceeds-pwa-igaapf.webp', false);
+        $response->assertSee('https://play.google.com/store/apps/details?id=com.nrichlearning.iceeds', false);
     }
 }

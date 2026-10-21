@@ -349,6 +349,94 @@
                     <a href="{{ route('courses') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('courses*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
                         Courses &amp; Syllabi (4,000+)
                     </a>
+
+                    <!-- Dropdown Menu: Department of Philosophy & Theology -->
+                    <div class="relative" x-data="{ open: false }" @mouseleave="open = false">
+                        <button type="button" 
+                                @click="open = !open" 
+                                @mouseenter="open = true"
+                                class="px-3 py-1.5 text-xs font-bold rounded-lg transition flex items-center gap-1 cursor-pointer {{ request()->routeIs('departments.*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
+                            <span>Philosophy &amp; Theology</span>
+                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Panel -->
+                        <div x-show="open" 
+                             x-transition:enter="transition ease-out duration-150"
+                             x-transition:enter-start="opacity-0 translate-y-1 scale-98"
+                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                             x-transition:leave="transition ease-in duration-100"
+                             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                             x-transition:leave-end="opacity-0 translate-y-1 scale-98"
+                             @click.away="open = false"
+                             class="absolute top-full left-0 mt-1 w-[460px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 z-50 overflow-hidden"
+                             style="display: none;">
+                            
+                            <!-- Header Link -->
+                            <div class="px-3 py-2 bg-slate-900 text-white rounded-xl mb-2.5 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold block">Academic Faculty</span>
+                                    <a href="{{ route('departments.philosophy-theology') }}" class="text-xs font-black hover:text-amber-300 transition flex items-center gap-1">
+                                        <span>Department of Philosophy &amp; Theology</span>
+                                        <svg class="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                    </a>
+                                </div>
+                                <span class="text-[9px] px-2 py-0.5 rounded bg-white/10 text-slate-300 font-mono">Overview</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                
+                                <!-- Department of Philosophy -->
+                                <div class="p-2.5 rounded-xl bg-blue-50/60 border border-blue-100 hover:bg-blue-50 transition">
+                                    <a href="{{ route('departments.philosophy') }}" class="font-extrabold text-blue-950 flex items-center gap-1.5 hover:text-blue-700 mb-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                                        <span class="font-heading">Dept. of Philosophy</span>
+                                    </a>
+                                    <ul class="space-y-1 pl-3 border-l-2 border-blue-200 text-[11px] text-slate-600">
+                                        <li>
+                                            <a href="{{ route('departments.philosophy.psychology') }}" class="hover:text-blue-700 hover:font-bold block py-0.5">
+                                                Psychology
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('departments.philosophy.sociology') }}" class="hover:text-blue-700 hover:font-bold block py-0.5">
+                                                Sociology
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Department of Theology -->
+                                <div class="p-2.5 rounded-xl bg-amber-50/60 border border-amber-100 hover:bg-amber-50 transition">
+                                    <a href="{{ route('departments.theology') }}" class="font-extrabold text-amber-950 flex items-center gap-1.5 hover:text-amber-700 mb-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                                        <span class="font-heading">Dept. of Theology</span>
+                                    </a>
+                                    <ul class="space-y-1 pl-3 border-l-2 border-amber-200 text-[11px] text-slate-600">
+                                        <li>
+                                            <a href="{{ route('departments.theology.islamic') }}" class="hover:text-emerald-700 hover:font-bold block py-0.5">
+                                                Chamber of Islamic Studies
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('departments.theology.christian') }}" class="hover:text-rose-700 hover:font-bold block py-0.5">
+                                                Chamber of Christian Studies
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('departments.theology.hindutva') }}" class="hover:text-amber-700 hover:font-bold block py-0.5">
+                                                Chamber of Hindutva Studies
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="{{ route('services') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('services') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
                         Services &amp; Programs
                     </a>
@@ -391,6 +479,49 @@
                 <a href="{{ route('courses') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('courses*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Courses
                 </a>
+
+                <!-- Mobile Philosophy & Theology Accordion -->
+                <div x-data="{ open: {{ request()->routeIs('departments.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden border border-slate-200/80">
+                    <button type="button" 
+                            @click="open = !open" 
+                            class="w-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between text-left {{ request()->routeIs('departments.*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                        <div class="flex items-center gap-2">
+                            <span class="text-amber-600 font-bold">🏛</span>
+                            <span>Philosophy &amp; Theology</span>
+                        </div>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180 text-blue-700' : 'text-slate-400'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    
+                    <div x-show="open" class="bg-slate-50 px-4 py-3 space-y-3 text-xs border-t border-slate-200/60">
+                        <div>
+                            <a href="{{ route('departments.philosophy-theology') }}" class="font-bold text-slate-900 block pb-1 border-b border-slate-200 hover:text-blue-700">
+                                &rarr; Department Overview
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <a href="{{ route('departments.philosophy') }}" class="font-bold text-blue-900 block hover:text-blue-700">
+                                Department of Philosophy
+                            </a>
+                            <div class="pl-3 space-y-1 text-slate-600">
+                                <a href="{{ route('departments.philosophy.psychology') }}" class="block hover:text-blue-700">&bull; Psychology</a>
+                                <a href="{{ route('departments.philosophy.sociology') }}" class="block hover:text-blue-700">&bull; Sociology</a>
+                            </div>
+                        </div>
+                        <div class="space-y-1 pt-1 border-t border-slate-200">
+                            <a href="{{ route('departments.theology') }}" class="font-bold text-amber-900 block hover:text-amber-700">
+                                Department of Theology
+                            </a>
+                            <div class="pl-3 space-y-1 text-slate-600">
+                                <a href="{{ route('departments.theology.islamic') }}" class="block hover:text-emerald-700">&bull; Chamber of Islamic Studies</a>
+                                <a href="{{ route('departments.theology.christian') }}" class="block hover:text-rose-700">&bull; Chamber of Christian Studies</a>
+                                <a href="{{ route('departments.theology.hindutva') }}" class="block hover:text-amber-700">&bull; Chamber of Hindutva Studies</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="{{ route('services') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('services') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Services & Programs
                 </a>
@@ -738,6 +869,10 @@
                         <li><a href="{{ route('courses') }}" class="hover:text-white transition text-blue-300 font-semibold flex items-center gap-1.5">
                             <span>Courses Catalog</span>
                             <span class="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">New</span>
+                        </a></li>
+                        <li><a href="{{ route('departments.philosophy-theology') }}" class="hover:text-white transition text-amber-300 font-semibold flex items-center gap-1.5">
+                            <span>Philosophy &amp; Theology</span>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Chambers</span>
                         </a></li>
                         <li><a href="{{ route('services') }}" class="hover:text-white transition">Services &amp; Programs</a></li>
                         <li><a href="{{ route('gallery') }}" class="hover:text-white transition">Media Gallery</a></li>

@@ -25,6 +25,18 @@ Route::get('/courses/download-catalog-pdf', [PageController::class, 'downloadCou
 Route::get('/courses/{slug}/download-syllabus', [PageController::class, 'downloadSyllabusPdf'])->name('courses.download-syllabus');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 
+// Academic Departments: Philosophy & Theology
+Route::prefix('departments')->name('departments.')->group(function () {
+    Route::get('/philosophy-theology', [\App\Http\Controllers\DepartmentController::class, 'index'])->name('philosophy-theology');
+    Route::get('/philosophy', [\App\Http\Controllers\DepartmentController::class, 'philosophy'])->name('philosophy');
+    Route::get('/theology', [\App\Http\Controllers\DepartmentController::class, 'theology'])->name('theology');
+    Route::get('/philosophy/psychology', [\App\Http\Controllers\DepartmentController::class, 'psychology'])->name('philosophy.psychology');
+    Route::get('/philosophy/sociology', [\App\Http\Controllers\DepartmentController::class, 'sociology'])->name('philosophy.sociology');
+    Route::get('/theology/islamic-studies', [\App\Http\Controllers\DepartmentController::class, 'islamicStudies'])->name('theology.islamic');
+    Route::get('/theology/christian-studies', [\App\Http\Controllers\DepartmentController::class, 'christianStudies'])->name('theology.christian');
+    Route::get('/theology/hindutva-studies', [\App\Http\Controllers\DepartmentController::class, 'hindutvaStudies'])->name('theology.hindutva');
+});
+
 // Public Media & Documents Route Fallback (Ensures clean serving even without symlinks)
 Route::get('/storage/media/{year}/{month}/{file}', function ($year, $month, $file) {
     $filePath = public_path("storage/media/{$year}/{$month}/{$file}");

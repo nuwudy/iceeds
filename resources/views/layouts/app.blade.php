@@ -1250,10 +1250,28 @@
                 return;
             }
             document.querySelectorAll('.pwa-install-btn').forEach(btn => {
+                if (btn.id === 'pwaInstallFloatingBar' && sessionStorage.getItem('iceeds_pwa_floating_dismissed') === 'true') {
+                    btn.classList.add('hidden');
+                    btn.style.setProperty('display', 'none', 'important');
+                    return;
+                }
                 btn.classList.remove('hidden');
-                btn.style.display = btn.classList.contains('w-full') ? 'flex' : 'inline-flex';
+                if (btn.id === 'pwaInstallFloatingBar') {
+                    btn.style.setProperty('display', 'block', 'important');
+                } else {
+                    btn.style.display = btn.classList.contains('w-full') ? 'flex' : 'inline-flex';
+                }
             });
         }
+
+        window.dismissPwaFloatingBar = function() {
+            const bar = document.getElementById('pwaInstallFloatingBar');
+            if (bar) {
+                bar.classList.add('hidden');
+                bar.style.setProperty('display', 'none', 'important');
+            }
+            sessionStorage.setItem('iceeds_pwa_floating_dismissed', 'true');
+        };
 
         window.installIceedsPWA = function() {
             if (deferredPwaPrompt) {
@@ -1271,7 +1289,7 @@
             } else {
                 const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                 if (isIos) {
-                    alert('To install iCEEDS: tap the Safari "Share" button at the bottom of your screen and select "Add to Home Screen".');
+                    alert('To install iCEEDS: tap the Safari "Share" button (⎋) at the bottom of your screen and select "Add to Home Screen".');
                 } else {
                     alert('To install iCEEDS: open your browser menu (⋮ or ...) and select "Install iCEEDS" or "Add to Home screen".');
                 }
@@ -1297,6 +1315,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (isPwaInstalled()) {
                 hideAllPwaInstallButtons();
+            } else {
+                showAllPwaInstallButtons();
             }
 
             if ('serviceWorker' in navigator) {
@@ -1310,6 +1330,65 @@
             }
         });
     </script>
+
+    <!-- Persistent Floating PWA Install Action (Bottom Center Float Button) -->
+    <aside 
+        id="pwaInstallFloatingBar" 
+        class="pwa-install-btn hidden fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-1.5rem)] max-w-sm sm:max-w-md transition-all duration-300 ease-out transform pointer-events-auto"
+        aria-label="Install iCEEDS App"
+    >
+        <div class="relative bg-slate-950/95 text-white px-3 sm:px-4 py-2.5 rounded-2xl shadow-2xl shadow-slate-950/70 backdrop-blur-xl border border-cyan-400/50 flex items-center justify-between gap-3 group ring-1 ring-white/10 hover:border-cyan-300">
+            
+            <!-- Left: App Icon & Brand Description -->
+            <div class="flex items-center gap-2.5 min-w-0 cursor-pointer" onclick="installIceedsPWA()" title="Install iCEEDS Official App">
+                <div class="relative shrink-0">
+                    <img 
+                        src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" 
+                        alt="iCEEDS App" 
+                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain bg-slate-900 ring-2 ring-cyan-400/50 shadow-md group-hover:scale-105 transition-transform"
+                    >
+                    <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+                    </span>
+                </div>
+                <div class="min-w-0 text-left">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-tight truncate">iCEEDS App</span>
+                        <span class="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Official</span>
+                    </div>
+                    <p class="text-[10px] sm:text-[11px] text-slate-300 truncate mt-0.5">Quick access &amp; instant verification</p>
+                </div>
+            </div>
+
+            <!-- Right: Install Button + Dismiss Button -->
+            <div class="flex items-center gap-1.5 shrink-0">
+                <button 
+                    type="button" 
+                    onclick="installIceedsPWA()" 
+                    class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 active:scale-95 shadow-md shadow-cyan-500/25 transition cursor-pointer"
+                >
+                    <svg class="w-3.5 h-3.5 text-slate-950 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>Install</span>
+                </button>
+
+                <button 
+                    type="button" 
+                    onclick="dismissPwaFloatingBar()" 
+                    aria-label="Dismiss install prompt" 
+                    class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition cursor-pointer"
+                    title="Dismiss"
+                >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </aside>
 
     <!-- Police Verification Report Interactive Scrollable Modal Partial -->
     @include('partials.police-verification-modal')

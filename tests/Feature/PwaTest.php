@@ -53,6 +53,7 @@ class PwaTest extends TestCase
         $response->assertSee('Install iCEEDS', false);
         $response->assertSee('pwaInstallBtnHeader', false);
         $response->assertSee('pwaInstallBtnMobile', false);
+        $response->assertSee('pwaInstallFloatingBar', false);
         $response->assertSee('installIceedsPWA', false);
         $response->assertSee('beforeinstallprompt', false);
         $response->assertSee('appinstalled', false);

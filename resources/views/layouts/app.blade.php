@@ -206,11 +206,14 @@
                 <span class="iceeds-brand-title iceeds-shimmer-text text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none block">
                     iCEEDS
                 </span>
-                <span class="text-[11px] sm:text-xs font-bold text-slate-700 tracking-tight mt-2.5 block font-heading">
-                    Innovation Council for Exquisite Education &amp; Development of Skills
+                <span class="text-[11px] sm:text-xs font-black text-slate-900 tracking-tight mt-2.5 block font-heading uppercase">
+                    INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS
                 </span>
-                <span class="text-[9.5px] sm:text-[10.5px] font-semibold text-emerald-700 tracking-normal mt-0.5 block">
-                    A Self-Governing Educational Trust &bull; Reg. under Indian Trusts Act, 1882
+                <span class="text-[10.5px] sm:text-[11.5px] font-bold text-[#0097b1] tracking-normal mt-0.5 block">
+                    उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
+                </span>
+                <span class="text-[9.5px] sm:text-[10.5px] font-semibold italic text-slate-700 tracking-tight mt-0.5 block">
+                    Skill for Growth. Skill for Future. Skill for Life.
                 </span>
             </div>
 
@@ -261,20 +264,23 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between gap-3 sm:gap-6">
                     <!-- Brand Logo & Full Form (Desktop side-by-side, Mobile logo only in row) -->
-                    <a href="{{ route('home') }}" class="flex items-center gap-3 sm:gap-4.5 group min-w-0" title="iCEEDS - Innovation Council for Exquisite Education & Development of Skills">
+                    <a href="{{ route('home') }}" class="flex items-center gap-3 sm:gap-4.5 group min-w-0" title="iCEEDS - INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS">
                         <picture class="shrink-0">
                             <source srcset="{{ asset('images/logo.webp') }}?v={{ file_exists(public_path('images/logo.webp')) ? filemtime(public_path('images/logo.webp')) : time() }}" type="image/webp">
                             <img src="{{ asset('images/logo.png') }}?v={{ file_exists(public_path('images/logo.png')) ? filemtime(public_path('images/logo.png')) : time() }}" alt="iCEEDS Logo" class="h-9 sm:h-13 md:h-15 w-auto object-contain group-hover:scale-[1.02] transition-transform duration-200">
                         </picture>
                         <!-- Desktop / Tablet Only: Full Form Expansion Displayed Alongside Logo -->
                         <div class="hidden sm:flex flex-col justify-center min-w-0">
-                            <span class="text-xs sm:text-sm md:text-base lg:text-[15px] font-black tracking-tight text-slate-900 font-heading leading-tight group-hover:text-blue-700 transition">
-                                Innovation Council for Exquisite Education &amp; Development of Skills
+                            <span class="text-xs sm:text-[13px] md:text-sm lg:text-[14.5px] font-black tracking-tight text-slate-900 font-heading leading-tight group-hover:text-blue-700 transition uppercase">
+                                INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS
+                            </span>
+                            <span class="text-[11px] sm:text-xs md:text-[12.5px] font-bold text-[#0097b1] leading-tight tracking-normal mt-0.5">
+                                उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
                             </span>
                             <div class="flex items-center gap-2 mt-0.5 flex-wrap">
-                                <span class="text-[10px] sm:text-xs font-bold text-slate-700">A Self-Governing Educational Trust</span>
-                                <span class="text-slate-300 hidden sm:inline">&bull;</span>
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-emerald-700 hidden sm:inline">Reg. under the Indian Trusts Act, 1882</span>
+                                <span class="text-[10px] sm:text-[11px] font-bold text-slate-700 italic">Skill for Growth. Skill for Future. Skill for Life.</span>
+                                <span class="text-slate-300 hidden md:inline">&bull;</span>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-emerald-700 hidden md:inline">Reg. under the Indian Trusts Act, 1882</span>
                             </div>
                         </div>
                     </a>
@@ -310,13 +316,21 @@
                     </div>
                 </div>
 
-                <!-- Mobile Only: Clean Single Line Full Form Under the Logo Header Row -->
+                <!-- Mobile Only: Clean Multi-line Brand Header Under the Logo Row -->
                 <a 
                     href="{{ route('home') }}" 
-                    class="sm:hidden block mt-1.5 pt-1 border-t border-slate-100 text-[9.5px] xs:text-[10.5px] font-extrabold text-slate-800 tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis hover:text-blue-700 transition" 
-                    title="Innovation Council for Exquisite Education & Development of Skills"
+                    class="sm:hidden block mt-1.5 pt-1.5 border-t border-slate-100 hover:text-blue-700 transition" 
+                    title="INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS"
                 >
-                    Innovation Council for Exquisite Education &amp; Development of Skills
+                    <div class="text-[9.5px] xs:text-[10.5px] font-black text-slate-900 tracking-tight leading-tight uppercase truncate">
+                        INNOVATION COUNCIL FOR EXQUISITE EDUCATION &amp; DEVELOPMENT OF SKILLS
+                    </div>
+                    <div class="text-[9px] xs:text-[10px] font-bold text-[#0097b1] leading-tight truncate mt-0.5">
+                        उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
+                    </div>
+                    <div class="text-[8.5px] xs:text-[9.5px] italic text-slate-600 font-medium truncate mt-0.5">
+                        Skill for Growth. Skill for Future. Skill for Life.
+                    </div>
                 </a>
             </div>
         </div>

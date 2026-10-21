@@ -73,10 +73,20 @@
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            max-width: min(calc(100vw - 24px), 340px) !important;
             box-sizing: border-box;
             z-index: 9999 !important;
             transition: opacity 0.15s ease, visibility 0.15s ease;
+        }
+
+        /* On mobile screens, always center-align the popover on the viewport */
+        @media (max-width: 639px) {
+            .emblem-popover {
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%) !important;
+                width: calc(100vw - 24px) !important;
+                max-width: 360px !important;
+            }
         }
 
         /* Active / Visible state controlled programmatically by JS */
@@ -658,7 +668,7 @@
 
     <!-- INSTITUTIONAL ACCREDITATION & QUALITY EMBLEMS (Just Above Ticker) -->
     <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2 sm:py-3 relative z-40 shadow-xs overflow-visible">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-3 lg:gap-4">
                 
                 <!-- Label Badge on Desktop & Mobile -->
@@ -734,7 +744,7 @@
                     @endphp
 
                     @foreach($emblems as $emblem)
-                        <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
+                        <div class="static sm:relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                             <!-- Emblem Box -->
                             <div class="h-9 sm:h-12 md:h-13 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400 group-hover:ring-2 group-hover:ring-blue-400/30 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
                                 <img 
@@ -746,7 +756,7 @@
                             </div>
 
                             <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 max-w-[calc(100vw-24px)] p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-[calc(100vw-24px)] max-w-[340px] sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                                 <!-- Top Pointer Arrow (Dynamically aligned with active emblem center) -->
                                 <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 
@@ -1215,42 +1225,60 @@
                 if (!popover) return;
                 const arrow = popover.querySelector('.popover-arrow');
 
-                // Ensure popover is rendered for accurate geometry calculation
                 popover.style.display = 'block';
+
+                const isMobile = window.innerWidth < 640;
+                const triggerRect = trigger.getBoundingClientRect();
+                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
+
+                if (isMobile) {
+                    // Mobile: perfectly centered on the screen with guaranteed safe margins
+                    popover.style.left = '50%';
+                    popover.style.right = 'auto';
+                    popover.style.transform = 'translateX(-50%)';
+                    popover.style.width = 'calc(100vw - 24px)';
+                    popover.style.maxWidth = '360px';
+
+                    if (arrow) {
+                        const popoverRect = popover.getBoundingClientRect();
+                        const arrowOffset = badgeCenter - popoverRect.left;
+                        const clampedArrow = Math.max(18, Math.min(popoverRect.width - 18, arrowOffset));
+                        arrow.style.left = clampedArrow + 'px';
+                        arrow.style.right = 'auto';
+                        arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+                    }
+                    return;
+                }
+
+                // Desktop (>= 640px)
+                popover.style.width = '';
+                popover.style.maxWidth = '';
                 popover.style.left = '50%';
                 popover.style.transform = 'translateX(-50%)';
 
-                const triggerRect = trigger.getBoundingClientRect();
                 const popoverRect = popover.getBoundingClientRect();
-                const popoverWidth = popoverRect.width || popover.offsetWidth || 280;
-                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
+                const popoverWidth = popoverRect.width || 300;
                 const popoverLeft = badgeCenter - (popoverWidth / 2);
-                const popoverRight = badgeCenter + (popoverWidth / 2);
-
-                const padding = 12; // 12px safe margin from viewport edges
-                const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+                const padding = 16;
+                const viewportWidth = window.innerWidth;
 
                 let shiftX = 0;
                 if (popoverLeft < padding) {
-                    // Bleeding off left screen edge -> shift right
                     shiftX = padding - popoverLeft;
-                } else if (popoverRight > viewportWidth - padding) {
-                    // Bleeding off right screen edge -> shift left
-                    shiftX = (viewportWidth - padding) - popoverRight;
+                } else if (popoverLeft + popoverWidth > viewportWidth - padding) {
+                    shiftX = (viewportWidth - padding) - (popoverLeft + popoverWidth);
                 }
 
-                // Apply horizontal shift relative to center
                 if (shiftX !== 0) {
                     popover.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
                 } else {
                     popover.style.transform = 'translateX(-50%)';
                 }
 
-                // Dynamically lock the pointer arrow directly onto the active emblem's center
                 if (arrow) {
                     const actualLeft = popoverLeft + shiftX;
                     const arrowOffset = badgeCenter - actualLeft;
-                    const clampedArrow = Math.max(16, Math.min(popoverWidth - 16, arrowOffset));
+                    const clampedArrow = Math.max(18, Math.min(popoverWidth - 18, arrowOffset));
                     arrow.style.left = clampedArrow + 'px';
                     arrow.style.transform = 'translateX(-50%) rotate(45deg)';
                 }

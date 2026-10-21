@@ -64,9 +64,9 @@
     </div>
 
     <!-- 3 Refined Frosted Glass Cards in a Single Row -->
-    <div class="grid grid-cols-3 gap-2 sm:gap-3">
-        @foreach($nationalEmblems as $emblem)
-            <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
+    <div class="grid grid-cols-3 gap-2 sm:gap-3 relative">
+        @foreach($nationalEmblems as $index => $emblem)
+            <div class="static sm:relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                 <!-- Glassmorphic Card Container -->
                 <div class="relative rounded-2xl p-2 sm:p-2.5 shadow-lg shadow-black/25 group-hover:shadow-2xl group-hover:scale-[1.03] group-hover:-translate-y-1 active:scale-95 group-hover:border-cyan-300 group-hover:ring-2 group-hover:ring-cyan-400/30 transition-all duration-200 flex flex-col items-center justify-between text-center cursor-pointer min-h-[144px] sm:min-h-[160px]"
                      style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.25);">
@@ -101,10 +101,10 @@
                     </div>
                 </div>
 
-                <!-- Rich Explainer Popover (Hover & Touch) -->
-                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-72 sm:w-80 max-w-[calc(100vw-24px)] p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-                    <!-- Dynamic Arrow (Clamped by Layout Script) -->
-                    <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
+                <!-- Rich Explainer Popover (Hover & Touch) - Centered on Mobile, Smart-Anchored on Desktop -->
+                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-[calc(100vw-24px)] max-w-[360px] sm:w-80 {{ $index === 0 ? 'sm:left-0 sm:translate-x-0' : ($index === 2 ? 'sm:left-auto sm:right-0 sm:translate-x-0' : 'sm:left-1/2 sm:-translate-x-1/2') }} p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                    <!-- Dynamic Arrow: Aligned with target card on mobile and desktop -->
+                    <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150 {{ $index === 0 ? 'left-[18%] sm:left-12' : ($index === 2 ? 'left-[82%] sm:left-auto sm:right-12' : 'left-1/2 sm:left-1/2') }} -translate-x-1/2" style="transform: translateX(-50%) rotate(45deg);"></div>
 
                     <div class="relative z-10 space-y-2">
                         <!-- Header -->

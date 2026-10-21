@@ -67,20 +67,34 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Prevent dormant popovers from calculating into page scroll dimensions */
+        /* Explainer Popover Styles for Emblems (Hero & Footer Ticker) */
         .emblem-popover {
-            display: none !important;
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
             max-width: min(calc(100vw - 24px), 340px) !important;
             box-sizing: border-box;
             z-index: 9999 !important;
+            transition: opacity 0.15s ease, visibility 0.15s ease;
         }
-        .emblem-popover-trigger.popover-active .emblem-popover,
-        .emblem-popover-trigger:hover .emblem-popover,
-        .emblem-popover-trigger:focus-within .emblem-popover {
+
+        /* Active / Visible state controlled programmatically by JS */
+        .emblem-popover.popover-visible {
             display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
             pointer-events: auto !important;
+        }
+
+        /* Desktop cursor hover fallback */
+        @media (hover: hover) and (pointer: fine) {
+            .emblem-popover-trigger:hover .emblem-popover {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+            }
         }
 
         /* Subtle mesh background */
@@ -192,14 +206,8 @@
             position: relative;
         }
         .emblem-popover-trigger:hover,
-        .emblem-popover-trigger:focus,
         .emblem-popover-trigger.popover-active {
             z-index: 70;
-        }
-        .emblem-popover-trigger.popover-active .emblem-popover {
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: auto !important;
         }
 
         /* Philosophy & Theology Header Dropdown */
@@ -738,7 +746,7 @@
                             </div>
 
                             <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 max-w-[calc(100vw-2rem)] p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-64 sm:w-72 max-w-[calc(100vw-24px)] p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                                 <!-- Top Pointer Arrow (Dynamically aligned with active emblem center) -->
                                 <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 
@@ -1200,77 +1208,134 @@
             const triggers = document.querySelectorAll('.emblem-popover-trigger');
             if (!triggers.length) return;
 
+            let activeTrigger = null;
+
             function positionPopover(trigger) {
                 const popover = trigger.querySelector('.emblem-popover');
                 if (!popover) return;
                 const arrow = popover.querySelector('.popover-arrow');
 
+                // Ensure popover is rendered for accurate geometry calculation
                 popover.style.display = 'block';
-
-                // 1. Reset popover to default centered position relative to this emblem
                 popover.style.left = '50%';
-                popover.style.right = 'auto';
                 popover.style.transform = 'translateX(-50%)';
 
-                // 2. Measure screen geometry
                 const triggerRect = trigger.getBoundingClientRect();
                 const popoverRect = popover.getBoundingClientRect();
-                const padding = 12;
+                const popoverWidth = popoverRect.width || popover.offsetWidth || 280;
+                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
+                const popoverLeft = badgeCenter - (popoverWidth / 2);
+                const popoverRight = badgeCenter + (popoverWidth / 2);
+
+                const padding = 12; // 12px safe margin from viewport edges
+                const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
                 let shiftX = 0;
-
-                // Detect if popover bleeds off right or left edge of screen
-                if (popoverRect.right > window.innerWidth - padding) {
-                    shiftX = popoverRect.right - (window.innerWidth - padding);
-                } else if (popoverRect.left < padding) {
-                    shiftX = popoverRect.left - padding;
+                if (popoverLeft < padding) {
+                    // Bleeding off left screen edge -> shift right
+                    shiftX = padding - popoverLeft;
+                } else if (popoverRight > viewportWidth - padding) {
+                    // Bleeding off right screen edge -> shift left
+                    shiftX = (viewportWidth - padding) - popoverRight;
                 }
 
-                // Apply horizontal shift to keep card on-screen
+                // Apply horizontal shift relative to center
                 if (shiftX !== 0) {
-                    popover.style.transform = `translateX(calc(-50% - ${shiftX}px))`;
+                    popover.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
+                } else {
+                    popover.style.transform = 'translateX(-50%)';
                 }
 
-                // 3. Dynamically lock the pointer arrow directly onto the active emblem's center!
+                // Dynamically lock the pointer arrow directly onto the active emblem's center
                 if (arrow) {
-                    const updatedPopoverRect = popover.getBoundingClientRect();
-                    const badgeCenter = triggerRect.left + (triggerRect.width / 2);
-                    const arrowPos = badgeCenter - updatedPopoverRect.left;
-                    // Clamp within rounded card corners
-                    const clampedArrow = Math.max(16, Math.min(updatedPopoverRect.width - 16, arrowPos));
-
+                    const actualLeft = popoverLeft + shiftX;
+                    const arrowOffset = badgeCenter - actualLeft;
+                    const clampedArrow = Math.max(16, Math.min(popoverWidth - 16, arrowOffset));
                     arrow.style.left = clampedArrow + 'px';
                     arrow.style.transform = 'translateX(-50%) rotate(45deg)';
                 }
             }
 
+            function showPopover(trigger) {
+                if (activeTrigger && activeTrigger !== trigger) {
+                    hidePopover(activeTrigger);
+                }
+                activeTrigger = trigger;
+                const popover = trigger.querySelector('.emblem-popover');
+                if (!popover) return;
+
+                positionPopover(trigger);
+                popover.classList.add('popover-visible');
+            }
+
+            function hidePopover(trigger) {
+                if (!trigger) return;
+                const popover = trigger.querySelector('.emblem-popover');
+                if (popover) {
+                    popover.classList.remove('popover-visible');
+                    popover.style.display = '';
+                }
+                trigger.blur();
+                if (activeTrigger === trigger) {
+                    activeTrigger = null;
+                }
+            }
+
+            function hideAll() {
+                triggers.forEach(t => hidePopover(t));
+            }
+
             triggers.forEach(trigger => {
+                // Desktop Mouse hover: shows on hover, disappears immediately when cursor leaves
                 trigger.addEventListener('mouseenter', () => {
-                    positionPopover(trigger);
+                    showPopover(trigger);
+                });
+                trigger.addEventListener('mouseleave', () => {
+                    hidePopover(trigger);
                 });
 
-                trigger.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const wasActive = trigger.classList.contains('popover-active');
-                    triggers.forEach(t => {
-                        t.classList.remove('popover-active');
-                        const pop = t.querySelector('.emblem-popover');
-                        if (pop) pop.style.display = '';
-                    });
-                    if (!wasActive) {
-                        trigger.classList.add('popover-active');
-                        positionPopover(trigger);
+                // Mobile Touch: shows on touch, disappears immediately when finger is removed!
+                trigger.addEventListener('touchstart', () => {
+                    showPopover(trigger);
+                }, { passive: true });
+
+                trigger.addEventListener('touchend', () => {
+                    hidePopover(trigger);
+                }, { passive: true });
+
+                trigger.addEventListener('touchcancel', () => {
+                    hidePopover(trigger);
+                }, { passive: true });
+
+                // Pointer Events for hybrid / stylus devices
+                trigger.addEventListener('pointerdown', (e) => {
+                    if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+                        showPopover(trigger);
                     }
                 });
-            });
 
-            // Dismiss when touching/clicking anywhere outside
-            document.addEventListener('click', () => {
-                triggers.forEach(t => {
-                    t.classList.remove('popover-active');
-                    const pop = t.querySelector('.emblem-popover');
-                    if (pop) pop.style.display = '';
+                trigger.addEventListener('pointerup', (e) => {
+                    if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+                        hidePopover(trigger);
+                    }
+                });
+
+                trigger.addEventListener('pointercancel', () => {
+                    hidePopover(trigger);
                 });
             });
+
+            // Dismiss when scrolling (finger drag on mobile)
+            window.addEventListener('scroll', () => {
+                if (activeTrigger) hideAll();
+            }, { passive: true });
+
+            // Dismiss when touching/clicking anywhere outside
+            document.addEventListener('pointerdown', (e) => {
+                if (!e.target.closest('.emblem-popover-trigger')) {
+                    hideAll();
+                }
+            }, { passive: true });
         })();
 
         // Mobile Department Accordion Handler

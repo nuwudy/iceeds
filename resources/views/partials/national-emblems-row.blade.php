@@ -11,9 +11,9 @@
             'fallback' => 'https://iceeds.com/storage/media/2026/10/nsdc-logo-ht0zxd.webp',
             'alt' => 'NSDC - National Skill Development Corporation',
             'title' => 'National Skill Development Corporation (NSDC)',
-            'subtitle' => 'Under Ministry of Skill Development & Entrepreneurship (MSDE) &bull; Govt. of India',
+            'subtitle' => 'Under Ministry of Skill Development & Entrepreneurship (MSDE) • Govt. of India',
             'relevance_desc' => 'iCEEDS vocational syllabi, curriculum structures, and assessment standards are designed in strict alignment with the National Skills Qualifications Framework (NSQF) initiated under NSDC directives. This ensures standardized competency benchmarks, structured practical learning outcomes, and nationwide workforce readiness across 4,000+ course disciplines.',
-            'status' => '✓ NSQF Aligned Syllabi &bull; Industry Competence'
+            'status' => '✓ NSQF Aligned Syllabi • Industry Competence'
         ],
         [
             'id' => 'skill-india',
@@ -25,10 +25,10 @@
             'url' => asset('images/emblems/skill-india.webp') . '?v=2',
             'fallback' => 'https://iceeds.com/storage/media/2026/10/skill-india-gy62mi.webp',
             'alt' => 'Skill India - Kaushal Bharat Kushal Bharat',
-            'title' => 'Skill India (Kaushal Bharat &bull; Kushal Bharat)',
-            'subtitle' => 'National Skill Development Mission &bull; Government of India',
+            'title' => 'Skill India (Kaushal Bharat • Kushal Bharat)',
+            'subtitle' => 'National Skill Development Mission • Government of India',
             'relevance_desc' => 'In active resonance with India\'s flagship skilling transformation, iCEEDS drives practical vocational training, women\'s skill enhancement, and grassroots youth enablement. Operating through authorized training centers (ATCs) and specialized faculty chambers, iCEEDS delivers market-demanded competencies that foster self-reliance and gainful employment.',
-            'status' => '✓ Mission Participant &bull; Grassroots Upskilling'
+            'status' => '✓ Mission Participant • Grassroots Upskilling'
         ],
         [
             'id' => 'digilocker',
@@ -36,14 +36,14 @@
             'badge' => 'Digital Registry',
             'badge_classes' => 'bg-sky-400/25 text-sky-200 border border-sky-400/40 shadow-xs',
             'pill_classes' => 'bg-blue-500/20 text-blue-300 border border-blue-400/30',
-            'category' => 'MeitY &bull; Digital India',
+            'category' => 'MeitY • Digital India',
             'url' => asset('images/emblems/digilocker.webp') . '?v=2',
             'fallback' => 'https://iceeds.com/storage/media/2026/10/digilocker-9gyq7g.webp',
             'alt' => 'DigiLocker - National Academic Depository Ecosystem',
             'title' => 'DigiLocker & Digital Academic Records',
-            'subtitle' => 'Ministry of Electronics & IT (MeitY) &bull; Digital India',
+            'subtitle' => 'Ministry of Electronics & IT (MeitY) • Digital India',
             'relevance_desc' => 'iCEEDS maintains an enterprise cryptographic credential registry featuring instant alphanumeric and QR code verification. Institutional systems conform to open electronic verification standards, enabling tamper-evident verification, electronic credential portability, and progressive readiness for integration with DigiLocker and the National Academic Depository (NAD).',
-            'status' => '✓ 24/7 Live Verification &bull; NAD Compatible'
+            'status' => '✓ 24/7 Live Verification • NAD Compatible'
         ]
     ];
 @endphp
@@ -102,7 +102,7 @@
                 </div>
 
                 <!-- Rich Explainer Popover (Hover & Touch) -->
-                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-72 sm:w-80 max-w-[calc(100vw-2rem)] p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
+                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-72 sm:w-80 max-w-[calc(100vw-24px)] p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
                     <!-- Dynamic Arrow (Clamped by Layout Script) -->
                     <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
 
@@ -141,7 +141,7 @@
 
                         <!-- Status Pill -->
                         <div class="pt-1.5 border-t border-slate-800/80 text-[9.5px] font-mono text-emerald-400 font-bold">
-                            {{ $emblem['status'] }}
+                            {!! $emblem['status'] !!}
                         </div>
                     </div>
                 </div>

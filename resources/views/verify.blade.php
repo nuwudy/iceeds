@@ -153,6 +153,17 @@ Certificate Verification - iCEEDS Central Academic Repository
             font-size: 7.5pt !important;
         }
 
+        .print-disclaimer-box {
+            margin-top: 0.2rem !important;
+            padding: 0.15rem 0.35rem !important;
+            font-size: 6pt !important;
+            line-height: 1.15 !important;
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 4px !important;
+            color: #475569 !important;
+        }
+
         .print-emblems-strip {
             margin-top: 0.25rem !important;
             padding-top: 0.25rem !important;
@@ -528,6 +539,12 @@ Certificate Verification - iCEEDS Central Academic Repository
                                 <div class="shrink-0 text-right font-mono text-[10px] text-slate-400">
                                     Registry Portal &bull; Single-Page Summary
                                 </div>
+                            </div>
+
+                            <!-- Notice on Certification Authority -->
+                            <div class="print-disclaimer-box mt-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-slate-600 text-[10px] sm:text-[11px] leading-relaxed">
+                                <strong class="font-bold text-slate-800">Notice on Certification Authority:</strong>
+                                Alongside University and NSDC-affiliated offerings, ICEEDS also awards proprietary certifications in personal, professional and skill development under applicable legal and constitutional frameworks. While these certificates hold professional merit in private, public, and voluntary sectors, they are standalone credentials and are not equivalent to statutory degrees or diplomas conferred by regulatory bodies like the UGC or AICTE.
                             </div>
 
                             @php

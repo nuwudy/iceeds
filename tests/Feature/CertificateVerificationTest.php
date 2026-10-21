@@ -126,6 +126,8 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Download PDF');
         $response->assertSee('Print Certificate');
         $response->assertSee('Institutional Accreditations &amp; Quality Emblems', false);
+        $response->assertSee('Notice on Certification Authority');
+        $response->assertSee('standalone credentials and are not equivalent to statutory degrees');
     }
 
     public function test_shows_not_found_for_invalid_certificate_code(): void

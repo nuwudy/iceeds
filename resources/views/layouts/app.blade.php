@@ -791,6 +791,16 @@
             </div>
         </div>
 
+        <!-- Notice on Certification Authority Strip -->
+        <div class="border-t border-slate-900 bg-slate-950/70 py-4 text-xs text-slate-400">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 leading-relaxed text-slate-400 text-[11px] sm:text-xs">
+                    <strong class="font-bold text-slate-200 block sm:inline mb-0.5 sm:mb-0">Notice on Certification Authority:</strong>
+                    Alongside University and NSDC-affiliated offerings, ICEEDS also awards proprietary certifications in personal, professional and skill development under applicable legal and constitutional frameworks. While these certificates hold professional merit in private, public, and voluntary sectors, they are standalone credentials and are not equivalent to statutory degrees or diplomas conferred by regulatory bodies like the UGC or AICTE.
+                </div>
+            </div>
+        </div>
+
         <!-- Bottom Copyright Strip -->
         <div class="border-t border-slate-900 py-6 text-xs text-slate-500">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">

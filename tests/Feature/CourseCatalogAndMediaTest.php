@@ -30,8 +30,8 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('Healthcare & Allied Medical Sciences');
         $response->assertSee('Management, Security, Training & Professional Services');
         $response->assertSee('Vocational Degree Programs (B.Voc & M.Voc Trades)', false);
-        $response->assertSee('₹25,000');
-        $response->assertSee('₹27,500');
+        $response->assertDontSee('₹25,000');
+        $response->assertDontSee('₹27,500');
         $response->assertDontSee('Autonomous Statutory Body');
     }
 

@@ -181,14 +181,14 @@ class PageController extends Controller
 
         $categories = [
             'all' => 'All Sectors & Programs',
-            'vocational-degree' => 'B.Voc & M.Voc Degree Trades',
-            'it-ites' => 'IT & IT-ITES (NASSCOM)',
-            'healthcare' => 'Healthcare & Paramedical (HSSC)',
-            'electronics' => 'Electronics & Drones (ESSCI)',
-            'management-security' => 'Management & Security (MEPSC)',
-            'beauty' => 'Beauty & Wellness (B&W SSC)',
-            'apparel' => 'Apparel & Home Furnishings (AMH SSC)',
-            'food-processing' => 'Food Processing (FICSI)',
+            'apparel' => '1. Apparel & Furnishings',
+            'beauty' => '2. Beauty & Wellness',
+            'food-processing' => '3. Food Processing',
+            'electronics' => '4. Electronics System (ESDM)',
+            'it-ites' => '5. IT & IT-ITES',
+            'healthcare' => '6. Healthcare & Paramedical',
+            'management-security' => '7. Management & Security',
+            'vocational-degree' => '8. Vocational Degrees (B.Voc / M.Voc)',
             'featured-diplomas' => 'Academic Board Diplomas',
         ];
 
@@ -199,6 +199,7 @@ class PageController extends Controller
             'totalRoles' => $totalRoles,
             'categories' => $categories,
             'totalCourses' => count($courses),
+            'catalogPdfUrl' => 'https://iceeds.com/storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf',
         ]);
     }
 
@@ -207,18 +208,20 @@ class PageController extends Controller
      */
     public function downloadCourseListPdf()
     {
-        $pdfPath = public_path('documents/iceeds-course-catalog.pdf');
+        $pdfPath = public_path('storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf');
+        if (!file_exists($pdfPath)) {
+            $pdfPath = public_path('documents/iceeds-course-catalog.pdf');
+        }
 
         if (file_exists($pdfPath)) {
             return response()->download(
                 $pdfPath,
-                'iCEEDS-Official-Course-Catalog-and-Syllabus.pdf',
+                'iceeds-master-course-directory-new-q10cuv.pdf',
                 ['Content-Type' => 'application/pdf']
             );
         }
 
-        // Fallback: stream inline printable document
-        return redirect()->route('courses', ['#catalog-download']);
+        return redirect('https://iceeds.com/storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf');
     }
 
     /**

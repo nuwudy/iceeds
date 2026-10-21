@@ -1380,9 +1380,7 @@ class CourseCatalog
         "columns" => [
             "Sr.",
             "Vocational Trade / Discipline",
-            "Approved Specialization",
-            "B.Voc / Sem",
-            "M.Voc / Sem"
+            "Approved Specialization"
         ],
         "trades" => [
             [

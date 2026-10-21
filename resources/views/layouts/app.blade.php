@@ -74,18 +74,22 @@
             visibility: hidden;
             pointer-events: none;
             box-sizing: border-box;
-            z-index: 9999 !important;
+            z-index: 99999 !important;
             transition: opacity 0.15s ease, visibility 0.15s ease;
         }
 
-        /* On mobile screens, always center-align the popover on the viewport */
+        /* On mobile screens, always center-align in the middle of the viewport */
         @media (max-width: 639px) {
             .emblem-popover {
+                position: fixed !important;
+                top: 50% !important;
                 left: 50% !important;
                 right: auto !important;
-                transform: translateX(-50%) !important;
-                width: calc(100vw - 24px) !important;
+                bottom: auto !important;
+                transform: translate(-50%, -50%) !important;
+                width: calc(100vw - 32px) !important;
                 max-width: 360px !important;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
             }
         }
 
@@ -105,6 +109,11 @@
                 visibility: visible !important;
                 pointer-events: auto !important;
             }
+        }
+
+        /* Permanently remove square pointer arrows */
+        .popover-arrow {
+            display: none !important;
         }
 
         /* Subtle mesh background */
@@ -755,10 +764,8 @@
                                 >
                             </div>
 
-                            <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) -->
-                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-[calc(100vw-24px)] max-w-[340px] sm:w-72 p-3.5 bg-slate-950/95 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-                                <!-- Top Pointer Arrow (Dynamically aligned with active emblem center) -->
-                                <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150" style="left: 50%; transform: translateX(-50%) rotate(45deg);"></div>
+                            <!-- Popover / Explainer Card (Shows on Cursor Hover or Touch) - Centered in Middle of Screen on Mobile, Arrow-Free -->
+                            <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out fixed sm:absolute z-[99999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:top-full sm:mt-2.5 sm:translate-y-0 w-[calc(100vw-32px)] max-w-[340px] sm:w-72 sm:left-1/2 sm:-translate-x-1/2 p-4 sm:p-3.5 bg-slate-950/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
 
                                 <div class="relative z-10 space-y-1">
                                     <h5 class="font-extrabold text-sky-400 text-xs sm:text-[13px] font-heading leading-tight tracking-tight">
@@ -1223,41 +1230,35 @@
             function positionPopover(trigger) {
                 const popover = trigger.querySelector('.emblem-popover');
                 if (!popover) return;
-                const arrow = popover.querySelector('.popover-arrow');
 
                 popover.style.display = 'block';
 
-                const isMobile = window.innerWidth < 640;
-                const triggerRect = trigger.getBoundingClientRect();
-                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
-
-                if (isMobile) {
-                    // Mobile: perfectly centered on the screen with guaranteed safe margins
+                if (window.innerWidth < 640) {
+                    // Mobile: perfectly centered in the middle of the viewport
+                    popover.style.position = 'fixed';
+                    popover.style.top = '50%';
                     popover.style.left = '50%';
                     popover.style.right = 'auto';
-                    popover.style.transform = 'translateX(-50%)';
-                    popover.style.width = 'calc(100vw - 24px)';
+                    popover.style.bottom = 'auto';
+                    popover.style.transform = 'translate(-50%, -50%)';
+                    popover.style.width = 'calc(100vw - 32px)';
                     popover.style.maxWidth = '360px';
-
-                    if (arrow) {
-                        const popoverRect = popover.getBoundingClientRect();
-                        const arrowOffset = badgeCenter - popoverRect.left;
-                        const clampedArrow = Math.max(18, Math.min(popoverRect.width - 18, arrowOffset));
-                        arrow.style.left = clampedArrow + 'px';
-                        arrow.style.right = 'auto';
-                        arrow.style.transform = 'translateX(-50%) rotate(45deg)';
-                    }
                     return;
                 }
 
                 // Desktop (>= 640px)
+                popover.style.position = '';
+                popover.style.top = '';
+                popover.style.bottom = '';
                 popover.style.width = '';
                 popover.style.maxWidth = '';
                 popover.style.left = '50%';
                 popover.style.transform = 'translateX(-50%)';
 
+                const triggerRect = trigger.getBoundingClientRect();
                 const popoverRect = popover.getBoundingClientRect();
                 const popoverWidth = popoverRect.width || 300;
+                const badgeCenter = triggerRect.left + (triggerRect.width / 2);
                 const popoverLeft = badgeCenter - (popoverWidth / 2);
                 const padding = 16;
                 const viewportWidth = window.innerWidth;
@@ -1273,14 +1274,6 @@
                     popover.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
                 } else {
                     popover.style.transform = 'translateX(-50%)';
-                }
-
-                if (arrow) {
-                    const actualLeft = popoverLeft + shiftX;
-                    const arrowOffset = badgeCenter - actualLeft;
-                    const clampedArrow = Math.max(18, Math.min(popoverWidth - 18, arrowOffset));
-                    arrow.style.left = clampedArrow + 'px';
-                    arrow.style.transform = 'translateX(-50%) rotate(45deg)';
                 }
             }
 

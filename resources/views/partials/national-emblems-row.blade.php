@@ -101,10 +101,8 @@
                     </div>
                 </div>
 
-                <!-- Rich Explainer Popover (Hover & Touch) - Centered on Mobile, Smart-Anchored on Desktop -->
-                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out absolute z-[100] top-full mt-2.5 left-1/2 -translate-x-1/2 w-[calc(100vw-24px)] max-w-[360px] sm:w-80 {{ $index === 0 ? 'sm:left-0 sm:translate-x-0' : ($index === 2 ? 'sm:left-auto sm:right-0 sm:translate-x-0' : 'sm:left-1/2 sm:-translate-x-1/2') }} p-3.5 bg-slate-950/98 backdrop-blur-md text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
-                    <!-- Dynamic Arrow: Aligned with target card on mobile and desktop -->
-                    <div class="popover-arrow absolute -top-1.5 w-3 h-3 bg-slate-950 border-t border-l border-slate-700/80 rotate-45 pointer-events-none transition-all duration-150 {{ $index === 0 ? 'left-[18%] sm:left-12' : ($index === 2 ? 'left-[82%] sm:left-auto sm:right-12' : 'left-1/2 sm:left-1/2') }} -translate-x-1/2" style="transform: translateX(-50%) rotate(45deg);"></div>
+                <!-- Rich Explainer Popover (Hover & Touch) - Centered in Middle of Screen on Mobile, Sleek & Arrow-Free -->
+                <div class="emblem-popover pointer-events-none group-hover:pointer-events-auto opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out fixed sm:absolute z-[99999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:top-full sm:mt-2.5 sm:translate-y-0 w-[calc(100vw-32px)] max-w-[360px] sm:w-80 {{ $index === 0 ? 'sm:left-0 sm:translate-x-0' : ($index === 2 ? 'sm:left-auto sm:right-0 sm:translate-x-0' : 'sm:left-1/2 sm:-translate-x-1/2') }} p-4 sm:p-3.5 bg-slate-950/98 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-slate-700/80 text-left">
 
                     <div class="relative z-10 space-y-2">
                         <!-- Header -->

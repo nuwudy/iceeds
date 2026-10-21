@@ -152,6 +152,42 @@ Certificate Verification - iCEEDS Central Academic Repository
             border-top: 1px solid #cbd5e1 !important;
             font-size: 7.5pt !important;
         }
+
+        .print-emblems-strip {
+            margin-top: 0.25rem !important;
+            padding-top: 0.25rem !important;
+            border-top: 1px dashed #cbd5e1 !important;
+        }
+
+        .print-emblem-tag {
+            font-size: 6.5pt !important;
+            padding: 1px 4px !important;
+            background: #0f172a !important;
+            color: #ffffff !important;
+        }
+
+        .print-emblems-grid {
+            display: grid !important;
+            grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+            gap: 0.2rem !important;
+        }
+
+        .print-emblem-box {
+            height: 22px !important;
+            padding: 1px 2px !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 4px !important;
+            background: #ffffff !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .print-emblem-img {
+            height: 16px !important;
+            max-width: 100% !important;
+            object-fit: contain !important;
+        }
     }
 </style>
 @endpush
@@ -491,6 +527,95 @@ Certificate Verification - iCEEDS Central Academic Repository
                                 </div>
                                 <div class="shrink-0 text-right font-mono text-[10px] text-slate-400">
                                     Registry Portal &bull; Single-Page Summary
+                                </div>
+                            </div>
+
+                            @php
+                                $verificationEmblems = [
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-hqqxuz.webp',
+                                        'title' => 'ISO 9001:2015',
+                                        'label' => 'ISO 9001'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-1-j9jtqq.webp',
+                                        'title' => 'IAF (International Accreditation Forum)',
+                                        'label' => 'IAF'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-2-wuygca.webp',
+                                        'title' => 'IAS / US Accreditation & Certification Board',
+                                        'label' => 'IAS / US'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-3-yacox0.webp',
+                                        'title' => 'FICS (First International Certification System)',
+                                        'label' => 'FICS'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-4-qtqoqm.webp',
+                                        'title' => 'EIAC (Emirates International Accreditation Centre)',
+                                        'label' => 'EIAC'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-8-4qzjn2.webp',
+                                        'title' => 'EGAC (Egyptian Accreditation Council - المجلس الوطني للاعتماد)',
+                                        'label' => 'EGAC'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-9-5p97l0.webp',
+                                        'title' => 'ICTS / UK Academic Coat of Arms Affiliation',
+                                        'label' => 'ICTS / UK'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-10-fxjgr0.webp',
+                                        'title' => 'Accredited Quality Seal / Standard Verification',
+                                        'label' => 'Quality Seal'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp',
+                                        'title' => 'NSTC / NSDC (National Skill Development Mission)',
+                                        'label' => 'NSTC/NSDC'
+                                    ],
+                                    [
+                                        'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-12-gcfvex.webp',
+                                        'title' => 'Skill India (कौशल भारत - कुशल भारत, Govt. of India)',
+                                        'label' => 'Skill India'
+                                    ],
+                                ];
+                            @endphp
+
+                            <!-- Institutional Accreditation & Quality Emblems Strip (Single-Page Print & Screen) -->
+                            <div class="print-emblems-strip pt-2.5 mt-2.5 border-t border-slate-200">
+                                <div class="flex items-center justify-between mb-1.5 px-0.5">
+                                    <div class="flex items-center gap-1.5 flex-wrap">
+                                        <span class="print-emblem-tag inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-white text-[9px] font-bold uppercase tracking-wider font-mono">
+                                            <svg class="w-2.5 h-2.5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                            Institutional Accreditations &amp; Quality Emblems
+                                        </span>
+                                        <span class="text-[9px] text-slate-500 font-semibold font-mono hidden md:inline">
+                                            ISO 9001:2015 &bull; IAF &bull; IAS/US &bull; FICS &bull; EIAC &bull; EGAC &bull; ICTS/UK &bull; NSTC &bull; Skill India
+                                        </span>
+                                    </div>
+                                    <span class="text-[8.5px] text-slate-400 font-mono text-right hidden sm:inline">
+                                        Tamper-Proof Accredited Registry
+                                    </span>
+                                </div>
+
+                                <!-- 10 Emblems Row -->
+                                <div class="print-emblems-grid grid grid-cols-5 sm:grid-cols-10 gap-1 sm:gap-1.5 items-center justify-between">
+                                    @foreach($verificationEmblems as $emblem)
+                                        <div class="print-emblem-box h-8 sm:h-9 px-1.5 py-0.5 rounded-lg bg-slate-50/80 border border-slate-200 shadow-2xs flex items-center justify-center" title="{{ $emblem['title'] }}">
+                                            <img 
+                                                src="{{ $emblem['url'] }}" 
+                                                alt="{{ $emblem['title'] }}" 
+                                                class="print-emblem-img h-5 sm:h-6 w-auto max-w-full object-contain"
+                                                loading="eager"
+                                            >
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

@@ -34,6 +34,8 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Elevate Your Skills with');
         $response->assertSee('Accredited Certifications');
         $response->assertSee('Indian Trusts Act, 1882');
+        $response->assertSee('Credentials Verified');
+        $response->assertSee('Verified by students &amp; employers', false);
         $response->assertSee('Academic Board of Studies');
         $response->assertSee('Dr. A B ALIYAR');
         $response->assertSee('Dr. P. ARUNACHALAM');
@@ -123,6 +125,7 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Official Digital Credential Verified');
         $response->assertSee('Download PDF');
         $response->assertSee('Print Certificate');
+        $response->assertSee('Institutional Accreditations &amp; Quality Emblems', false);
     }
 
     public function test_shows_not_found_for_invalid_certificate_code(): void

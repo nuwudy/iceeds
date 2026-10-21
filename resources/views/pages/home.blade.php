@@ -292,7 +292,7 @@
                             </button>
                         </form>
                         <p class="text-[11px] text-slate-300 mt-2 text-center lg:text-left hero-text-outlined">
-                            Instant online verification for over <strong class="text-white">{{ number_format($totalCertificates) }}+</strong> issued credentials across <strong class="text-white">4,000+</strong> course syllabi.
+                            Instant online verification for over <strong class="text-white">{{ number_format($totalCertificates) }}+</strong> verified credentials across <strong class="text-white">4,000+</strong> course syllabi.
                         </p>
                     </div>
                 </div>
@@ -378,8 +378,8 @@
                                 </span>
                                 <span class="text-2xl sm:text-3xl font-black text-emerald-400 digital-glow-emerald">+</span>
                             </div>
-                            <p class="text-xs sm:text-sm font-extrabold text-white mt-1 hero-text-outlined">Credentials Issued</p>
-                            <p class="text-[11px] text-slate-300 mt-0.5 leading-snug hero-text-outlined">Tamper-proof verifiable repository</p>
+                            <p class="text-xs sm:text-sm font-extrabold text-white mt-1 hero-text-outlined">Credentials Verified</p>
+                            <p class="text-[11px] text-slate-300 mt-0.5 leading-snug hero-text-outlined">Verified by students &amp; employers</p>
                         </div>
 
                         <!-- Dynamic Digital Counter Card 2: 4,000+ Courses & Programs -->

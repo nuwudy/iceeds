@@ -75,10 +75,15 @@
             display: none !important;
             max-width: min(calc(100vw - 24px), 340px) !important;
             box-sizing: border-box;
+            z-index: 9999 !important;
         }
         .emblem-popover-trigger.popover-active .emblem-popover,
-        .emblem-popover-trigger:hover .emblem-popover {
+        .emblem-popover-trigger:hover .emblem-popover,
+        .emblem-popover-trigger:focus-within .emblem-popover {
             display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
         }
 
         /* Subtle mesh background */
@@ -660,7 +665,7 @@
     </header>
 
     <!-- INSTITUTIONAL ACCREDITATION & QUALITY EMBLEMS (Just Above Ticker) -->
-    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2 sm:py-3 relative z-40 shadow-xs overflow-hidden">
+    <div class="no-print bg-slate-50/95 border-b border-slate-200/90 py-2 sm:py-3 relative z-40 shadow-xs overflow-visible">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-3 lg:gap-4">
                 

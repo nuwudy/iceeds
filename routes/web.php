@@ -71,6 +71,17 @@ Route::get('/atc-form', function () {
 });
 Route::get('/atc/files/{registration}', [\App\Http\Controllers\AtcRegistrationController::class, 'serveFile'])->name('atc.file');
 
+// Testimonials Portal (Public Reviews & Submissions)
+Route::get('/testimonials', [\App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
+Route::get('/reviews', function () {
+    return redirect()->route('testimonials.index');
+})->name('testimonials');
+Route::post('/testimonials', [\App\Http\Controllers\TestimonialController::class, 'store'])->name('testimonials.store');
+
+// Knowledge Base & Institutional Blog
+Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
+
 // Admin Authentication & Operations
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
@@ -95,6 +106,20 @@ Route::prefix('admin')->group(function () {
         Route::get('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'show'])->name('admin.atc.show');
         Route::put('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'update'])->name('admin.atc.update');
         Route::delete('/atc-applications/{registration}', [\App\Http\Controllers\Admin\AtcRegistrationController::class, 'destroy'])->name('admin.atc.destroy');
+
+        // Testimonial Moderation & Approvals
+        Route::get('/testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('admin.testimonials.index');
+        Route::post('/testimonials/{testimonial}/toggle-approval', [\App\Http\Controllers\Admin\TestimonialController::class, 'toggleApproval'])->name('admin.testimonials.toggle-approval');
+        Route::post('/testimonials/{testimonial}/toggle-featured', [\App\Http\Controllers\Admin\TestimonialController::class, 'toggleFeatured'])->name('admin.testimonials.toggle-featured');
+        Route::delete('/testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])->name('admin.testimonials.destroy');
+
+        // Blog & Knowledge Articles Management
+        Route::get('/blogs', [\App\Http\Controllers\Admin\BlogController::class, 'index'])->name('admin.blog.index');
+        Route::get('/blogs/create', [\App\Http\Controllers\Admin\BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/blogs', [\App\Http\Controllers\Admin\BlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/blogs/{blog}/edit', [\App\Http\Controllers\Admin\BlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/blogs/{blog}', [\App\Http\Controllers\Admin\BlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/blogs/{blog}', [\App\Http\Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
 
         // User & Staff Management (Admins & Approved Users)
         Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');

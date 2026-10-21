@@ -463,6 +463,12 @@
                     <a href="{{ route('services') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('services') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
                         Services &amp; Programs
                     </a>
+                    <a href="{{ route('blog.index') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('blog.*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
+                        Blog
+                    </a>
+                    <a href="{{ route('testimonials.index') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('testimonials.*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
+                        Testimonials
+                    </a>
                     <a href="{{ route('gallery') }}" class="px-3.5 py-1.5 text-xs font-bold rounded-lg transition {{ request()->routeIs('gallery*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
                         Media Gallery
                     </a>
@@ -550,6 +556,12 @@
 
                 <a href="{{ route('services') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('services') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Services & Programs
+                </a>
+                <a href="{{ route('blog.index') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('blog.*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                    Blog &amp; Insights
+                </a>
+                <a href="{{ route('testimonials.index') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('testimonials.*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                    Testimonials
                 </a>
                 <a href="{{ route('gallery') }}" class="px-4 py-2.5 text-sm font-semibold rounded-xl {{ request()->routeIs('gallery*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
                     Media Gallery
@@ -901,6 +913,8 @@
                             <span class="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Chambers</span>
                         </a></li>
                         <li><a href="{{ route('services') }}" class="hover:text-white transition">Services &amp; Programs</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="hover:text-white transition">Blog &amp; Articles</a></li>
+                        <li><a href="{{ route('testimonials.index') }}" class="hover:text-white transition">Candidate Testimonials</a></li>
                         <li><a href="{{ route('gallery') }}" class="hover:text-white transition">Media Gallery</a></li>
                         <li><a href="{{ route('verify') }}" class="hover:text-white transition flex items-center gap-1.5 text-emerald-400 font-semibold">
                             <span>Certificate Verification</span>

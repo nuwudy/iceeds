@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Certificate;
+use App\Models\Testimonial;
+use App\Models\BlogPost;
 use App\Support\CourseCatalog;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -52,6 +54,16 @@ class PageController extends Controller
         $mentors = $this->getMentorsData();
         $whyIceeds = $this->getWhyIceedsData();
 
+        $testimonials = Testimonial::approved()
+            ->latest()
+            ->take(6)
+            ->get();
+
+        $latestPosts = BlogPost::published()
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
         return view('pages.home', [
             'searched' => $searched,
             'code' => $code,
@@ -61,6 +73,8 @@ class PageController extends Controller
             'services' => $servicesList,
             'mentors' => $mentors,
             'whyIceeds' => $whyIceeds,
+            'testimonials' => $testimonials,
+            'latestPosts' => $latestPosts,
         ]);
     }
 

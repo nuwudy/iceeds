@@ -54,7 +54,21 @@
                         </span>
                     </a>
                     <a href="{{ route('admin.media') }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
-                        Media Library
+                        Media
+                    </a>
+                    <a href="{{ route('admin.blog.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.blog.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
+                        <span>Blog</span>
+                    </a>
+                    <a href="{{ route('admin.testimonials.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.testimonials.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
+                        <span>Testimonials</span>
+                        @php
+                            $pendingTestimonialsCount = \App\Models\Testimonial::where('is_approved', false)->count();
+                        @endphp
+                        @if($pendingTestimonialsCount > 0)
+                            <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/30 text-amber-300 border border-amber-500/40 font-mono" title="{{ $pendingTestimonialsCount }} awaiting approval">
+                                {{ $pendingTestimonialsCount }}
+                            </span>
+                        @endif
                     </a>
                     <a href="{{ route('admin.atc.index') }}" class="px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 {{ request()->routeIs('admin.atc.*') ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800' }}">
                         <span>ATC Centres</span>
@@ -126,10 +140,21 @@
             <a href="{{ route('admin.atc.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.atc.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 ATC
             </a>
-            <a href="{{ route('admin.media') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+            <a href="{{ route('admin.blog.index') }}" class="px-3 py-1.5 rounded-lg shrink-0 {{ request()->routeIs('admin.blog.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+                Blog
+            </a>
+            <a href="{{ route('admin.testimonials.index') }}" class="px-3 py-1.5 rounded-lg shrink-0 flex items-center gap-1 {{ request()->routeIs('admin.testimonials.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+                <span>Testimonials</span>
+                @if(($pendingTestimonialsCount ?? 0) > 0)
+                    <span class="px-1 py-0.2 rounded text-[9px] font-bold bg-amber-500 text-slate-950 font-mono">
+                        {{ $pendingTestimonialsCount }}
+                    </span>
+                @endif
+            </a>
+            <a href="{{ route('admin.media') }}" class="px-3 py-1.5 rounded-lg shrink-0 {{ request()->routeIs('admin.media*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 Media
             </a>
-            <a href="{{ route('admin.inquiries.index') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('admin.inquiries.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
+            <a href="{{ route('admin.inquiries.index') }}" class="px-3 py-1.5 rounded-lg shrink-0 {{ request()->routeIs('admin.inquiries.*') ? 'bg-blue-600 text-white font-bold' : 'text-slate-400' }}">
                 Inquiries
             </a>
             @if(Auth::user()->isAdmin())

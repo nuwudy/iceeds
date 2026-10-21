@@ -1239,6 +1239,162 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS & CANDIDATE EXPERIENCES SECTION -->
+    <section class="py-16 sm:py-24 bg-white border-b border-slate-200/70 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full">
+                        Verified Learner Feedback
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">
+                        Candidate &amp; Alumni Testimonials
+                    </h2>
+                    <p class="mt-2 text-sm text-slate-600 max-w-2xl">
+                        Hear from graduates, affiliated training center directors, and vocational learners who have transformed their careers through iCEEDS programs.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="{{ route('testimonials.index') }}" class="px-5 py-2.5 rounded-xl font-bold text-xs text-slate-800 bg-slate-100 hover:bg-slate-200 transition">
+                        View All ({{ \App\Models\Testimonial::approved()->count() }})
+                    </a>
+                    <a href="{{ route('testimonials.index') }}#share" class="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/20 transition flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                        <span>Share Feedback</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @forelse($testimonials as $t)
+                    <div class="bg-slate-50/80 hover:bg-white rounded-3xl p-6 border border-slate-200/80 hover:border-amber-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <!-- Star Rating & Badge -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-1 text-amber-400">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $t->rating)
+                                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        @else
+                                            <svg class="w-4 h-4 text-slate-300 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        @endif
+                                    @endfor
+                                    <span class="text-xs font-bold text-slate-700 ml-1.5 font-mono">{{ $t->rating }}.0</span>
+                                </div>
+                                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    <span>Verified</span>
+                                </span>
+                            </div>
+
+                            <!-- Feedback Text -->
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-5">
+                                &ldquo;{{ Str::limit($t->content, 180) }}&rdquo;
+                            </p>
+                        </div>
+
+                        <!-- Author Row -->
+                        <div class="pt-4 border-t border-slate-200/70 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
+                                {{ $t->initials }}
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h4 class="text-xs sm:text-sm font-bold text-slate-900 truncate group-hover:text-blue-700 transition">
+                                    {{ $t->name }}
+                                </h4>
+                                <p class="text-[11px] text-slate-500 truncate">
+                                    {{ $t->role_or_course ?? 'Verified Candidate' }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-span-3 text-center py-10 bg-slate-50 rounded-3xl border border-slate-200">
+                        <p class="text-sm text-slate-600">Be the first to leave a testimonial about your iCEEDS experience!</p>
+                        <a href="{{ route('testimonials.index') }}" class="mt-3 inline-block px-4 py-2 rounded-xl text-xs font-bold text-white bg-blue-600">
+                            Add Testimonial
+                        </a>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST BLOG & INSTITUTIONAL INSIGHTS SECTION -->
+    <section class="py-16 sm:py-24 bg-portal-gradient border-b border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full">
+                        Knowledge Hub
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 font-heading tracking-tight mt-3">
+                        Latest Insights &amp; Publications
+                    </h2>
+                    <p class="mt-2 text-sm text-slate-600 max-w-2xl">
+                        Thought leadership on vocational qualifications, the National Skills Qualifications Framework (NSQF), and institutional governance.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-slate-900 hover:bg-slate-800 shadow-md transition">
+                        <span>Read All Articles</span>
+                        <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($latestPosts as $post)
+                    <article class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            @if($post->featured_image)
+                                <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-video w-full overflow-hidden bg-slate-100 relative">
+                                    <img 
+                                        src="{{ asset($post->featured_image) }}" 
+                                        alt="{{ $post->title }}" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                    >
+                                    <div class="absolute top-3 left-3">
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-950/80 text-white backdrop-blur-xs">
+                                            {{ $post->category }}
+                                        </span>
+                                    </div>
+                                </a>
+                            @endif
+
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 text-xs text-slate-400 mb-2.5">
+                                    <span>{{ $post->published_at ? $post->published_at->format('M d, Y') : 'Recent' }}</span>
+                                    <span>&bull;</span>
+                                    <span>{{ $post->reading_time ?? 5 }} min read</span>
+                                </div>
+
+                                <h3 class="text-lg font-extrabold text-slate-900 font-heading leading-snug group-hover:text-blue-700 transition">
+                                    <a href="{{ route('blog.show', $post->slug) }}">
+                                        {{ $post->title }}
+                                    </a>
+                                </h3>
+
+                                <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                                    {{ $post->excerpt }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <span class="text-slate-500 font-medium truncate">{{ $post->author_name }}</span>
+                            <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Read Article</span>
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                            </a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <!-- BOTTOM CONVERSION BANNER ("Join iCEEDS Today") -->
     <section class="py-16 sm:py-20 bg-slate-950 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-950/60 via-slate-950 to-slate-950 pointer-events-none"></div>

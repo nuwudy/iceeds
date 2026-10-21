@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
                 'password' => \Illuminate\Support\Facades\Hash::make('riyas.chairman@123'),
             ]
         );
+
+        $this->call(TestimonialAndBlogSeeder::class);
     }
 }

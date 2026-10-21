@@ -191,7 +191,7 @@ Certificate Verification - iCEEDS Central Academic Repository
                             name="code" 
                             id="certificateCodeInput"
                             value="{{ old('code', $code ?? '') }}" 
-                            placeholder="Enter Certificate Serial (e.g., EDP/TVM24/DCP/065)" 
+                            placeholder="Enter Certificate Serial (e.g., ICEEDS/SAMPLE/2026/01)" 
                             class="w-full pl-11 pr-4 py-3.5 bg-slate-50/70 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 font-mono text-sm sm:text-base font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition uppercase tracking-wider"
                             required
                             autocomplete="off"
@@ -211,17 +211,14 @@ Certificate Verification - iCEEDS Central Academic Repository
                     </button>
                 </form>
 
-                <!-- Quick Test Badges for instant testing -->
+                <!-- Quick Test Badges for instant testing with fake sample data -->
                 <div class="mt-3.5 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs text-slate-500 px-1">
                     <span class="font-medium text-slate-400">Try sample codes:</span>
-                    <button type="button" onclick="fillAndSearch('EDP/TVM24/DCP/065')" class="font-mono text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-2.5 py-1 rounded-md border border-slate-200 transition font-medium cursor-pointer">
-                        EDP/TVM24/DCP/065
+                    <button type="button" onclick="fillAndSearch('ICEEDS/SAMPLE/2026/01')" class="font-mono text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-2.5 py-1 rounded-md border border-slate-200 transition font-medium cursor-pointer">
+                        ICEEDS/SAMPLE/2026/01
                     </button>
-                    <button type="button" onclick="fillAndSearch('IZZA/MLP24/PDLDM/501')" class="font-mono text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-2.5 py-1 rounded-md border border-slate-200 transition font-medium cursor-pointer">
-                        IZZA/MLP24/PDLDM/501
-                    </button>
-                    <button type="button" onclick="fillAndSearch('IZZA/034/MLP23')" class="font-mono text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-2.5 py-1 rounded-md border border-slate-200 transition font-medium cursor-pointer">
-                        IZZA/034/MLP23
+                    <button type="button" onclick="fillAndSearch('ICEEDS/SAMPLE/2026/02')" class="font-mono text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-2.5 py-1 rounded-md border border-slate-200 transition font-medium cursor-pointer">
+                        ICEEDS/SAMPLE/2026/02
                     </button>
                 </div>
             </div>
@@ -532,7 +529,7 @@ Certificate Verification - iCEEDS Central Academic Repository
                                         <div class="font-semibold text-slate-800">Verification Tips:</div>
                                         <ul class="list-disc list-inside space-y-1 text-slate-600">
                                             <li>Check for potential typos or transposed characters.</li>
-                                            <li>Serial numbers are case-insensitive, but ensure slashes are included (e.g., <code class="font-mono font-bold text-slate-800">EDP/TVM24/DCP/065</code>).</li>
+                                            <li>Serial numbers are case-insensitive, but ensure slashes are included (e.g., <code class="font-mono font-bold text-slate-800">ICEEDS/SAMPLE/2026/01</code>).</li>
                                             <li>If this credential was issued recently or under an affiliate center, contact the academic administration.</li>
                                         </ul>
                                     </div>
@@ -541,8 +538,8 @@ Certificate Verification - iCEEDS Central Academic Repository
                                         <a href="{{ route('verify') }}" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition">
                                             Clear &amp; Try Another Code
                                         </a>
-                                        <button type="button" onclick="fillAndSearch('EDP/TVM24/DCP/065')" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition cursor-pointer">
-                                            Test with Known Sample (EDP/TVM24/DCP/065)
+                                        <button type="button" onclick="fillAndSearch('ICEEDS/SAMPLE/2026/01')" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition cursor-pointer">
+                                            Test with Sample (ICEEDS/SAMPLE/2026/01)
                                         </button>
                                     </div>
                                 </div>
@@ -632,7 +629,7 @@ Certificate Verification - iCEEDS Central Academic Repository
                     Accessing Academic Registry
                 </h4>
                 <p id="tickerSerial" class="font-mono text-xs text-sky-400 font-bold truncate px-4">
-                    EDP/TVM24/DCP/065
+                    ICEEDS/SAMPLE/2026/01
                 </p>
             </div>
 

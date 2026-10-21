@@ -114,6 +114,15 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Official Digital Credential Verified');
     }
 
+    public function test_can_verify_demo_sample_record_without_using_real_student_data(): void
+    {
+        $response = $this->get('/verify?code=ICEEDS/SAMPLE/2026/01');
+        $response->assertStatus(200);
+        $response->assertSee('JOHN DOE (SAMPLE RECORD)');
+        $response->assertSee('ICEEDS/SAMPLE/2026/01');
+        $response->assertSee('Official Digital Credential Verified');
+    }
+
     public function test_shows_not_found_for_invalid_certificate_code(): void
     {
         $response = $this->get('/verify?code=INVALID/999/CODE');

@@ -24,6 +24,31 @@ class CertificateVerificationController extends Controller
                 'LOWER(certificate_code) = ?',
                 [strtolower($code)]
             )->first();
+
+            // Demonstration sample fallback to ensure fake data is always available for testing
+            if (!$certificate) {
+                if (strtoupper($code) === 'ICEEDS/SAMPLE/2026/01') {
+                    $certificate = new Certificate([
+                        'id' => 99901,
+                        'student_name' => 'JOHN DOE (SAMPLE RECORD)',
+                        'first_name' => 'JOHN',
+                        'last_name' => 'DOE',
+                        'course' => 'iCEEDS DIPLOMA IN COUNSELLING PSYCHOLOGY',
+                        'issue_date' => '2024-08-15',
+                        'certificate_code' => 'ICEEDS/SAMPLE/2026/01',
+                    ]);
+                } elseif (strtoupper($code) === 'ICEEDS/SAMPLE/2026/02') {
+                    $certificate = new Certificate([
+                        'id' => 99902,
+                        'student_name' => 'JANE SMITH (SAMPLE RECORD)',
+                        'first_name' => 'JANE',
+                        'last_name' => 'SMITH',
+                        'course' => 'POST DIPLOMA IN LEARNING DIFFICULTY MANAGEMENT',
+                        'issue_date' => '2024-05-20',
+                        'certificate_code' => 'ICEEDS/SAMPLE/2026/02',
+                    ]);
+                }
+            }
         }
 
         return view('verify', [

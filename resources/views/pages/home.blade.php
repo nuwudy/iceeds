@@ -166,7 +166,7 @@
                                     </span>
                                     <h4 class="text-lg font-bold text-slate-900 font-heading">No Credential Found for "{{ $code }}"</h4>
                                     <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                                        Please double-check the serial number formatting (e.g. <code class="font-mono font-bold text-slate-800">EDP/TVM24/DCP/065</code>) or visit our dedicated verification page.
+                                        Please double-check the serial number formatting (e.g. <code class="font-mono font-bold text-slate-800">ICEEDS/SAMPLE/2026/01</code>) or visit our dedicated verification page.
                                     </p>
                                     <div class="mt-4 flex gap-3">
                                         <a href="{{ route('verify') }}" class="text-xs font-semibold text-blue-700 hover:underline">Go to Certificate Verification &rarr;</a>
@@ -281,7 +281,7 @@
                                 <input 
                                     type="text" 
                                     name="code" 
-                                    placeholder="Enter Serial Code (e.g. EDP/TVM24/DCP/065)" 
+                                    placeholder="Enter Serial Code (e.g. ICEEDS/SAMPLE/2026/01)" 
                                     class="w-full pl-10 pr-3 py-2.5 bg-transparent border-0 text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider placeholder-slate-400 focus:outline-none"
                                     required
                                 >

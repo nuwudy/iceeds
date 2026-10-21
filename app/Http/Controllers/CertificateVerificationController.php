@@ -88,7 +88,7 @@ class CertificateVerificationController extends Controller
                 'last_name' => $certificate->last_name,
                 'course' => $certificate->course,
                 'issue_date' => $certificate->issue_date?->format('Y-m-d'),
-                'issuing_authority' => 'iCEEDS (Institute for Career Enhancement, Employability & Development Studies)',
+                'issuing_authority' => 'iCEEDS (Innovation Council for Exquisite Education & Development of Skills)',
                 'authenticity_hash' => $certificate->authenticity_hash,
             ],
             'verified_at' => now()->toIso8601String(),

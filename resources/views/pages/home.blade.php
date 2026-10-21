@@ -37,67 +37,117 @@
                 <div class="mb-12">
                     @if(isset($certificate) && $certificate)
                         <!-- Verified Certificate Card -->
-                        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl shadow-emerald-950/5 border-2 border-emerald-500/80 overflow-hidden">
-                            <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-8 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0">
-                                        <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
+                        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl shadow-emerald-950/10 border-2 border-emerald-500/90 overflow-hidden">
+                            <!-- Certificate Header with iCEEDS Logo & Star Badge -->
+                            <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-7 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="bg-white p-2 rounded-2xl shadow-md border border-white/20 shrink-0 flex items-center justify-center">
+                                        <img 
+                                            src="{{ asset('storage/media/2026/10/iceedslogo-1-3jjrrr.webp') }}" 
+                                            onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';" 
+                                            alt="iCEEDS Logo" 
+                                            class="h-10 sm:h-12 w-auto object-contain"
+                                        >
                                     </div>
                                     <div>
-                                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider mb-1 border border-emerald-500/30">
-                                            Official Digital Credential Verified
+                                        <h3 class="text-sm sm:text-base font-extrabold font-heading text-white tracking-tight leading-tight uppercase">
+                                            Innovation Council for Exquisite Education &amp; Development of Skills
+                                        </h3>
+                                        <p class="text-[11px] sm:text-xs font-bold text-sky-400 leading-tight mt-0.5">
+                                            उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
+                                        </p>
+                                        <div class="flex flex-wrap items-center gap-1.5 mt-1.5 text-[9px] sm:text-[10px] text-slate-300 font-medium">
+                                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase tracking-wider">
+                                                Official Digital Credential Verified
+                                            </span>
+                                            <span>&bull;</span>
+                                            <span class="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold font-mono">Indian Trusts Act, 1882</span>
+                                            <span>&bull;</span>
+                                            <span class="px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-semibold font-mono">ISO 9001:2015</span>
                                         </div>
-                                        <h3 class="text-xl sm:text-2xl font-bold font-heading">Authentic Certificate Record</h3>
-                                        <p class="text-xs text-slate-300">Registered with iCEEDS Central Academic Repository</p>
                                     </div>
                                 </div>
-                                <div class="text-left sm:text-right">
-                                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Serial Identifier</span>
-                                    <span class="font-mono text-emerald-400 font-bold text-lg tracking-wider">{{ $certificate->certificate_code }}</span>
+
+                                <!-- Star Shaped Verified Badge -->
+                                <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+                                    <div class="shrink-0 relative inline-flex items-center justify-center" title="Officially Verified Credential">
+                                        <svg viewBox="0 0 100 100" class="w-16 h-16 sm:w-18 sm:h-18 drop-shadow-lg">
+                                            <defs>
+                                                <radialGradient id="homeStarGreen" cx="50%" cy="50%" r="50%">
+                                                    <stop offset="0%" stop-color="#34d399"/>
+                                                    <stop offset="65%" stop-color="#059669"/>
+                                                    <stop offset="100%" stop-color="#064e3b"/>
+                                                </radialGradient>
+                                                <linearGradient id="homeGoldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" stop-color="#fef08a"/>
+                                                    <stop offset="50%" stop-color="#eab308"/>
+                                                    <stop offset="100%" stop-color="#ca8a04"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <polygon 
+                                                points="50.00,2.00 58.10,9.30 68.37,5.65 73.06,15.49 83.94,16.06 84.51,26.94 94.35,31.63 90.70,41.90 98.00,50.00 90.70,58.10 94.35,68.37 84.51,73.06 83.94,83.94 73.06,84.51 68.37,94.35 58.10,90.70 50.00,98.00 41.90,90.70 31.63,94.35 26.94,84.51 16.06,83.94 15.49,73.06 5.65,68.37 9.30,58.10 2.00,50.00 9.30,41.90 5.65,31.63 15.49,26.94 16.06,16.06 26.94,15.49 31.63,5.65 41.90,9.30" 
+                                                fill="url(#homeStarGreen)" 
+                                                stroke="url(#homeGoldRim)" 
+                                                stroke-width="2"
+                                            />
+                                            <circle cx="50" cy="50" r="37.5" fill="none" stroke="#fef08a" stroke-width="0.9" stroke-dasharray="2 1.5" opacity="0.95" />
+                                            <circle cx="50" cy="50" r="31" fill="#ffffff" stroke="#10b981" stroke-width="1.8" />
+                                            <text x="50" y="32" text-anchor="middle" font-size="5" font-weight="900" fill="#047857" font-family="'Outfit', sans-serif" letter-spacing="0.8">iCEEDS</text>
+                                            <path d="M37 51 L46 60 L64 40" fill="none" stroke="#059669" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <text x="50" y="72" text-anchor="middle" font-size="6.5" font-weight="900" fill="#065f46" font-family="'Outfit', sans-serif" letter-spacing="1">VERIFIED</text>
+                                        </svg>
+                                    </div>
+
+                                    <div class="hidden sm:block text-right">
+                                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Serial Identifier</span>
+                                        <span class="font-mono text-emerald-400 font-bold text-sm tracking-wider block">{{ $certificate->certificate_code }}</span>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="p-6 sm:p-8 space-y-6">
-                                <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
-                                    <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-1">Conferred Upon Candidate</span>
-                                    <h4 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+                                <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80">
+                                    <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-1">Conferred Upon Candidate</span>
+                                    <h4 class="text-2xl sm:text-3xl font-black text-slate-900 font-heading">
                                         {{ $certificate->student_name }}
                                     </h4>
                                     @if($certificate->first_name && $certificate->last_name)
-                                        <p class="text-xs text-slate-500 mt-1 font-medium">
-                                            First Name: <span class="text-slate-800 font-semibold">{{ $certificate->first_name }}</span> &bull; 
-                                            Last Name / Initials: <span class="text-slate-800 font-semibold">{{ $certificate->last_name }}</span>
+                                        <p class="text-xs text-slate-600 mt-1 font-medium">
+                                            First Name: <span class="text-slate-800 font-bold">{{ $certificate->first_name }}</span> &bull; 
+                                            Last Name / Initials: <span class="text-slate-800 font-bold">{{ $certificate->last_name }}</span>
                                         </p>
                                     @endif
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-white rounded-xl p-4 border border-slate-200">
-                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-1">Program of Study</span>
+                                    <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-2xs">
+                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-1">Program of Study</span>
                                         <p class="text-base font-bold text-slate-900 leading-snug">{{ $certificate->course }}</p>
                                     </div>
-                                    <div class="bg-white rounded-xl p-4 border border-slate-200">
-                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-1">Date of Issuance</span>
+                                    <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-2xs">
+                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-1">Date of Issuance</span>
                                         <p class="text-base font-bold text-slate-900 font-mono">{{ $certificate->issue_date ? $certificate->issue_date->format('F d, Y') : 'N/A' }}</p>
                                     </div>
-                                    <div class="bg-white rounded-xl p-4 border border-slate-200">
-                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-1">Issuing Authority</span>
-                                        <p class="text-sm font-bold text-slate-900">iCEEDS (Innovation Council for Exquisite Education & Development of Skills)</p>
+                                    <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-2xs">
+                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-1">Issuing Authority</span>
+                                        <p class="text-sm font-bold text-slate-900">iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills)</p>
                                     </div>
-                                    <div class="bg-white rounded-xl p-4 border border-slate-200">
-                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-400 block mb-1">Registry Record ID</span>
+                                    <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-2xs">
+                                        <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-1">Registry Record ID &amp; Serial</span>
                                         <p class="text-sm font-bold text-slate-900 font-mono">#ICEEDS-{{ str_pad($certificate->id, 6, '0', STR_PAD_LEFT) }}</p>
+                                        <p class="text-xs font-mono text-emerald-600 font-bold mt-0.5">Serial: {{ $certificate->certificate_code }}</p>
                                     </div>
                                 </div>
 
+                                <!-- Action Buttons -->
                                 <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200">
-                                    <a href="{{ route('verify', ['code' => $certificate->certificate_code]) }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 transition">
-                                        <span>View Full Verification Transcript & Print PDF</span>
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                    <a href="{{ route('verify', ['code' => $certificate->certificate_code]) }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 shadow-lg shadow-emerald-600/25 transition">
+                                        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        <span>Download Official PDF / Print Single Page</span>
                                     </a>
-                                    <a href="{{ route('home') }}" class="text-xs font-medium text-slate-500 hover:text-slate-800">Close Result</a>
+                                    <a href="{{ route('home') }}" class="text-xs font-semibold text-slate-500 hover:text-slate-800 transition">Close Result</a>
                                 </div>
                             </div>
                         </div>

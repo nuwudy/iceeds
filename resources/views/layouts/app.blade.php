@@ -176,6 +176,32 @@
             pointer-events: auto !important;
         }
 
+        /* Philosophy & Theology Header Dropdown */
+        #deptDropdownContainer:hover #deptDropdownPanel,
+        #deptDropdownContainer.dropdown-open #deptDropdownPanel {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
+        }
+        #deptDropdownContainer:hover #deptDropdownChevron,
+        #deptDropdownContainer.dropdown-open #deptDropdownChevron {
+            transform: rotate(180deg);
+        }
+        #deptDropdownPanel {
+            transition: opacity 160ms cubic-bezier(0.16, 1, 0.3, 1), transform 160ms cubic-bezier(0.16, 1, 0.3, 1), visibility 160ms;
+            transform: translateY(4px);
+        }
+        /* Invisible hover bridge to prevent mouse cursor disconnect when moving to panel */
+        #deptDropdownPanel::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+
         /* Dedicated Print Stylesheet */
         @media print {
             .no-print {
@@ -350,29 +376,26 @@
                         Courses &amp; Syllabi (4,000+)
                     </a>
 
-                    <!-- Dropdown Menu: Department of Philosophy & Theology -->
-                    <div class="relative" x-data="{ open: false }" @mouseleave="open = false">
-                        <button type="button" 
-                                @click="open = !open" 
-                                @mouseenter="open = true"
-                                class="px-3 py-1.5 text-xs font-bold rounded-lg transition flex items-center gap-1 cursor-pointer {{ request()->routeIs('departments.*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
-                            <span>Philosophy &amp; Theology</span>
-                            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
+                    <!-- Dropdown Menu: Department of Philosophy & Theology (Pure CSS Hover + JS Click Toggle) -->
+                    <div class="relative group" id="deptDropdownContainer">
+                        <div class="inline-flex items-center rounded-lg transition {{ request()->routeIs('departments.*') ? 'text-blue-700 bg-blue-100/70 font-extrabold shadow-2xs' : 'text-slate-700 hover:text-slate-950 hover:bg-white' }}">
+                            <a href="{{ route('departments.philosophy-theology') }}" 
+                               class="px-3 py-1.5 text-xs font-bold transition flex items-center gap-1">
+                                <span>Philosophy &amp; Theology</span>
+                            </a>
+                            <button type="button" 
+                                    id="deptDropdownBtn"
+                                    aria-label="Toggle Philosophy and Theology Menu"
+                                    class="pr-2.5 py-1.5 text-slate-400 hover:text-blue-700 cursor-pointer focus:outline-none">
+                                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" id="deptDropdownChevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
 
-                        <!-- Dropdown Panel -->
-                        <div x-show="open" 
-                             x-transition:enter="transition ease-out duration-150"
-                             x-transition:enter-start="opacity-0 translate-y-1 scale-98"
-                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                             x-transition:leave="transition ease-in duration-100"
-                             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                             x-transition:leave-end="opacity-0 translate-y-1 scale-98"
-                             @click.away="open = false"
-                             class="absolute top-full left-0 mt-1 w-[460px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 z-50 overflow-hidden"
-                             style="display: none;">
+                        <!-- Dropdown Panel (Shows on Hover & Click) -->
+                        <div id="deptDropdownPanel"
+                             class="absolute top-full left-0 mt-1 w-[460px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 z-[60] overflow-hidden transition-all duration-150 ease-out opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto">
                             
                             <!-- Header Link -->
                             <div class="px-3 py-2 bg-slate-900 text-white rounded-xl mb-2.5 flex items-center justify-between">
@@ -383,7 +406,7 @@
                                         <svg class="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                                     </a>
                                 </div>
-                                <span class="text-[9px] px-2 py-0.5 rounded bg-white/10 text-slate-300 font-mono">Overview</span>
+                                <a href="{{ route('departments.philosophy-theology') }}" class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-slate-300 font-mono hover:text-white hover:bg-white/20 transition">Overview &rarr;</a>
                             </div>
 
                             <div class="grid grid-cols-2 gap-2 text-xs">
@@ -480,21 +503,24 @@
                     Courses
                 </a>
 
-                <!-- Mobile Philosophy & Theology Accordion -->
-                <div x-data="{ open: {{ request()->routeIs('departments.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden border border-slate-200/80">
-                    <button type="button" 
-                            @click="open = !open" 
-                            class="w-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between text-left {{ request()->routeIs('departments.*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
-                        <div class="flex items-center gap-2">
+                <!-- Mobile Philosophy & Theology Accordion (Vanilla JS) -->
+                <div class="rounded-xl overflow-hidden border border-slate-200/80">
+                    <div class="flex items-center justify-between {{ request()->routeIs('departments.*') ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">
+                        <a href="{{ route('departments.philosophy-theology') }}" class="flex-1 px-4 py-2.5 text-sm font-semibold flex items-center gap-2">
                             <span class="text-amber-600 font-bold">🏛</span>
                             <span>Philosophy &amp; Theology</span>
-                        </div>
-                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180 text-blue-700' : 'text-slate-400'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
+                        </a>
+                        <button type="button" 
+                                onclick="toggleMobileDeptMenu()" 
+                                aria-label="Toggle Submenu"
+                                class="px-3 py-2.5 text-slate-400 hover:text-blue-700 cursor-pointer">
+                            <svg id="mobileDeptChevron" class="w-4 h-4 transition-transform duration-200 {{ request()->routeIs('departments.*') ? 'rotate-180 text-blue-700' : '' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
                     
-                    <div x-show="open" class="bg-slate-50 px-4 py-3 space-y-3 text-xs border-t border-slate-200/60">
+                    <div id="mobileDeptSubmenu" class="{{ request()->routeIs('departments.*') ? '' : 'hidden' }} bg-slate-50 px-4 py-3 space-y-3 text-xs border-t border-slate-200/60">
                         <div>
                             <a href="{{ route('departments.philosophy-theology') }}" class="font-bold text-slate-900 block pb-1 border-b border-slate-200 hover:text-blue-700">
                                 &rarr; Department Overview
@@ -1090,6 +1116,33 @@
             document.addEventListener('click', () => {
                 triggers.forEach(t => t.classList.remove('popover-active'));
             });
+        })();
+
+        // Mobile Department Accordion Handler
+        window.toggleMobileDeptMenu = function() {
+            const sub = document.getElementById('mobileDeptSubmenu');
+            const chev = document.getElementById('mobileDeptChevron');
+            if (sub) sub.classList.toggle('hidden');
+            if (chev) chev.classList.toggle('rotate-180');
+        };
+
+        // Desktop Department Dropdown Click Toggle
+        (function() {
+            const container = document.getElementById('deptDropdownContainer');
+            const btn = document.getElementById('deptDropdownBtn');
+            if (container && btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    container.classList.toggle('dropdown-open');
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!container.contains(e.target)) {
+                        container.classList.remove('dropdown-open');
+                    }
+                });
+            }
         })();
     </script>
 

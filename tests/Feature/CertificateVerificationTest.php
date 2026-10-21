@@ -39,6 +39,14 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Academic Board of Studies');
         $response->assertSee('Dr. A B ALIYAR');
         $response->assertSee('Dr. P. ARUNACHALAM');
+        $response->assertSee('National Skill &amp; Digital Alliances', false);
+        $response->assertSee('NSDC');
+        $response->assertSee('Skill India');
+        $response->assertSee('DigiLocker');
+        $response->assertSee('Relevance with iCEEDS');
+        $response->assertSee('nsdc-logo-ht0zxd.webp');
+        $response->assertSee('skill-india-gy62mi.webp');
+        $response->assertSee('digilocker-9gyq7g.webp');
     }
 
     public function test_can_render_about_page(): void

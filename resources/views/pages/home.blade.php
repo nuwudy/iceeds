@@ -205,6 +205,11 @@
                         </p>
                     </div>
 
+                    <!-- Mobile Only: 3 Cute National Emblems in a Row (NSDC, Skill India, DigiLocker) with Hover & Tap Explanations -->
+                    <div class="lg:hidden mt-5">
+                        @include('partials.national-emblems-row')
+                    </div>
+
                     <!-- Mobile Only: Prominently Seen Hero Police Verification Card (Immediate High-Impact Visibility on Mobile) -->
                     <div class="lg:hidden bg-slate-950/60 backdrop-blur-md rounded-2xl p-4 border border-emerald-500/40 shadow-2xl relative overflow-hidden text-left">
                         <div class="flex items-center gap-3 relative z-10">
@@ -300,6 +305,11 @@
                 <!-- Right: Visual Bento Showcase with Kerala Police Report & Digital Counters -->
                 <div class="lg:col-span-5 space-y-4">
                     
+                    <!-- Desktop Only: 3 Cute National Emblems in a Row (NSDC, Skill India, DigiLocker) with Hover & Tap Explanations -->
+                    <div class="hidden lg:block">
+                        @include('partials.national-emblems-row')
+                    </div>
+
                     <!-- Desktop Only: Kerala Police Verification Report Card (Prominently Placed Above Counters) -->
                     <div class="hidden lg:block bg-slate-950/45 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-emerald-500/35 shadow-2xl relative overflow-hidden group hover:border-emerald-400/60 hover:bg-slate-950/55 transition-all duration-300">
                         <div class="absolute -top-10 -right-10 w-36 h-36 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none"></div>

@@ -29,7 +29,11 @@
                     <span>View Official Police Report (Interactive Popup)</span>
                 </button>
 
-            </div>
+        </div>
+
+        <!-- Cute National Emblems Alignment Row Above Police Documents -->
+        <div class="max-w-2xl mx-auto mb-8">
+            @include('partials.national-emblems-row')
         </div>
 
         <!-- Verification Highlights Bar -->

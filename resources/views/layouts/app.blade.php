@@ -1205,7 +1205,7 @@
 
     <!-- Emblems Touch / Hover Explainer Popover Handler -->
     <script>
-        (function() {
+        function initEmblemInspectionModal() {
             const triggers = document.querySelectorAll('.emblem-popover-trigger');
             const modal = document.getElementById('emblemInspectionModal');
             const inner = document.getElementById('emblemInspectionInner');
@@ -1220,20 +1220,21 @@
                 activeTrigger = trigger;
                 trigger.classList.add('popover-active');
                 inner.innerHTML = contentTpl.innerHTML;
-                modal.classList.add('modal-visible');
+                modal.classList.remove('invisible', 'opacity-0');
+                modal.classList.add('modal-visible', 'visible', 'opacity-100');
             }
 
             function hideModal() {
                 if (activeTrigger) {
                     activeTrigger.classList.remove('popover-active');
-                    activeTrigger.blur();
                     activeTrigger = null;
                 }
-                modal.classList.remove('modal-visible');
+                modal.classList.remove('modal-visible', 'visible', 'opacity-100');
+                modal.classList.add('invisible', 'opacity-0');
             }
 
             triggers.forEach(trigger => {
-                // Desktop Mouse hover: shows on hover, disappears immediately when cursor leaves
+                // Desktop Mouse hover: shows on enter, hides on leave
                 trigger.addEventListener('mouseenter', () => {
                     showModal(trigger);
                 });
@@ -1241,7 +1242,7 @@
                     hideModal();
                 });
 
-                // Mobile Touch: shows on touch, disappears immediately when finger is removed!
+                // Mobile Touch: shows on touchstart, hides on touchend / touchcancel
                 trigger.addEventListener('touchstart', () => {
                     showModal(trigger);
                 }, { passive: true });
@@ -1253,26 +1254,9 @@
                 trigger.addEventListener('touchcancel', () => {
                     hideModal();
                 }, { passive: true });
-
-                // Pointer Events for hybrid / stylus devices
-                trigger.addEventListener('pointerdown', (e) => {
-                    if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-                        showModal(trigger);
-                    }
-                });
-
-                trigger.addEventListener('pointerup', (e) => {
-                    if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-                        hideModal();
-                    }
-                });
-
-                trigger.addEventListener('pointercancel', () => {
-                    hideModal();
-                });
             });
 
-            // Dismiss immediately when scrolling (e.g. finger drag or mouse scroll)
+            // Dismiss immediately when scrolling
             window.addEventListener('scroll', () => {
                 if (activeTrigger) hideModal();
             }, { passive: true });
@@ -1283,7 +1267,13 @@
                     hideModal();
                 }
             }, { passive: true });
-        })();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEmblemInspectionModal);
+        } else {
+            initEmblemInspectionModal();
+        }
 
         // Mobile Department Accordion Handler
         window.toggleMobileDeptMenu = function() {

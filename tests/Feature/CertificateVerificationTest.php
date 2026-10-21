@@ -121,6 +121,8 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('JOHN DOE (SAMPLE RECORD)');
         $response->assertSee('ICEEDS/SAMPLE/2026/01');
         $response->assertSee('Official Digital Credential Verified');
+        $response->assertSee('Download PDF');
+        $response->assertSee('Print Certificate');
     }
 
     public function test_shows_not_found_for_invalid_certificate_code(): void

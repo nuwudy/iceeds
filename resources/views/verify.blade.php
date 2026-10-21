@@ -247,18 +247,33 @@ Certificate Verification - iCEEDS Central Academic Repository
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
-                        <div class="flex items-center gap-2.5 flex-wrap w-full md:w-auto justify-end">
-                            <!-- Primary CTA: Download PDF / Print -->
+                        <!-- Action Buttons: Separated Download PDF and Print -->
+                        <div class="flex items-center gap-2 flex-wrap w-full md:w-auto justify-end">
+                            <!-- Download PDF -->
                             <button 
                                 type="button" 
-                                onclick="window.print()" 
-                                class="inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 rounded-xl shadow-lg shadow-emerald-500/30 transition transform hover:-translate-y-0.5 cursor-pointer"
+                                id="topDownloadPdfBtn"
+                                onclick="downloadVerificationPdf()" 
+                                class="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 rounded-xl shadow-lg shadow-emerald-500/30 transition transform hover:-translate-y-0.5 cursor-pointer"
+                                title="Download verifiable summary as PDF"
                             >
-                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
-                                <span>Download as PDF / Print</span>
+                                <span>Download PDF</span>
+                            </button>
+
+                            <!-- Print Record -->
+                            <button 
+                                type="button" 
+                                onclick="printCertificate()" 
+                                class="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold text-slate-100 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl shadow-md transition transform hover:-translate-y-0.5 cursor-pointer"
+                                title="Print this verification record"
+                            >
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                                </svg>
+                                <span>Print</span>
                             </button>
 
                             <!-- Copy Share Link -->
@@ -277,7 +292,7 @@ Certificate Verification - iCEEDS Central Academic Repository
                     </div>
 
                     <!-- Credential Certificate Card (Printable & Screen) -->
-                    <div class="print-card bg-white rounded-3xl shadow-2xl shadow-slate-300/50 border-2 border-slate-200/90 overflow-hidden relative">
+                    <div id="printableCertificateCard" class="print-card bg-white rounded-3xl shadow-2xl shadow-slate-300/50 border-2 border-slate-200/90 overflow-hidden relative">
                         
                         <!-- Watermark / Decorative Pattern (Hidden in Print) -->
                         <div class="no-print absolute -top-12 -right-12 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
@@ -481,24 +496,42 @@ Certificate Verification - iCEEDS Central Academic Repository
                         </div>
                     </div>
 
-                    <!-- Prominent Bottom Download as PDF Button Container (Hidden in Print) -->
+                    <!-- Action Buttons: Separated Download PDF, Print, and Verify Another (Hidden in Print) -->
                     <div class="no-print mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <!-- Dedicated Download PDF Button -->
                         <button 
                             type="button" 
-                            onclick="window.print()" 
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5 cursor-pointer"
+                            id="bottomDownloadPdfBtn"
+                            onclick="downloadVerificationPdf()" 
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5 cursor-pointer"
                         >
-                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
-                            <span>Download Official PDF / Print Summary</span>
+                            <span>Download PDF</span>
                         </button>
 
+                        <!-- Dedicated Print Button -->
+                        <button 
+                            type="button" 
+                            onclick="printCertificate()" 
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm rounded-xl shadow-md border border-slate-300 hover:border-slate-400 transition transform hover:-translate-y-0.5 cursor-pointer"
+                        >
+                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                            </svg>
+                            <span>Print Certificate</span>
+                        </button>
+
+                        <!-- Verify Another Code -->
                         <a 
                             href="{{ route('verify') }}" 
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm rounded-xl transition"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm rounded-xl transition cursor-pointer"
                         >
-                            Verify Another Code
+                            <svg class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span>Verify Another Code</span>
                         </a>
                     </div>
                 </div>
@@ -777,6 +810,77 @@ Certificate Verification - iCEEDS Central Academic Repository
         }).catch(err => {
             console.error('Could not copy link: ', err);
         });
+    }
+
+    function printCertificate() {
+        window.print();
+    }
+
+    function downloadVerificationPdf() {
+        const card = document.getElementById('printableCertificateCard');
+        const code = @json($certificate->certificate_code ?? 'CERTIFICATE');
+        const safeCode = (code || 'CERTIFICATE').replace(/[^a-zA-Z0-9_-]/g, '_');
+        const filename = 'iCEEDS-Verification-' + safeCode + '.pdf';
+
+        const topBtn = document.getElementById('topDownloadPdfBtn');
+        const bottomBtn = document.getElementById('bottomDownloadPdfBtn');
+        const originalTop = topBtn ? topBtn.innerHTML : '';
+        const originalBottom = bottomBtn ? bottomBtn.innerHTML : '';
+        const loadingState = '<span class="inline-flex items-center gap-1.5"><svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generating PDF...</span>';
+
+        if (topBtn) topBtn.innerHTML = loadingState;
+        if (bottomBtn) bottomBtn.innerHTML = loadingState;
+
+        // Load html2pdf dynamically if not already present
+        const generatePdf = function() {
+            if (typeof html2pdf !== 'undefined' && card) {
+                const opt = {
+                    margin: [8, 8, 8, 8],
+                    filename: filename,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, logging: false },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf().set(opt).from(card).save().then(function() {
+                    if (topBtn) topBtn.innerHTML = originalTop;
+                    if (bottomBtn) bottomBtn.innerHTML = originalBottom;
+                }).catch(function(err) {
+                    console.warn('html2pdf issue, using native print-to-pdf fallback', err);
+                    if (topBtn) topBtn.innerHTML = originalTop;
+                    if (bottomBtn) bottomBtn.innerHTML = originalBottom;
+                    triggerPrintWithTitle(filename);
+                });
+            } else {
+                if (topBtn) topBtn.innerHTML = originalTop;
+                if (bottomBtn) bottomBtn.innerHTML = originalBottom;
+                triggerPrintWithTitle(filename);
+            }
+        };
+
+        if (typeof html2pdf === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+            script.onload = generatePdf;
+            script.onerror = function() {
+                console.warn('Could not load html2pdf from CDN, using print fallback');
+                if (topBtn) topBtn.innerHTML = originalTop;
+                if (bottomBtn) bottomBtn.innerHTML = originalBottom;
+                triggerPrintWithTitle(filename);
+            };
+            document.head.appendChild(script);
+        } else {
+            generatePdf();
+        }
+    }
+
+    function triggerPrintWithTitle(filename) {
+        const prevTitle = document.title;
+        document.title = filename.replace(/\.pdf$/i, '');
+        window.print();
+        setTimeout(function() {
+            document.title = prevTitle;
+        }, 1500);
     }
 </script>
 @endpush

@@ -8,16 +8,20 @@
     <title>@yield('title', 'iCEEDS | Innovation Council for Exquisite Education & Development of Skills')</title>
     <meta name="description" content="@yield('meta_description', 'iCEEDS is a self-governing educational trust registered under the Indian Trusts Act, 1882, providing ISO-accredited certifications, vocational training, and verified academic credentials.')">
 
-    <!-- Favicons & Mobile Home Screen Icons -->
+    <!-- Favicons & PWA Manifest -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
-    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" sizes="192x192" href="{{ asset('android-chrome-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{{ asset('android-chrome-512x512.png') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#0197b2">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="iCEEDS">
+    <meta name="application-name" content="iCEEDS">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <!-- Social Media Open Graph (WhatsApp, Facebook, LinkedIn, Telegram, iMessage) -->
     <meta property="og:type" content="website">
@@ -313,6 +317,19 @@
 
                     <!-- Top Tier Action Buttons & Mobile Trigger -->
                     <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+                        <!-- PWA Install Button (Desktop & Header) -->
+                        <button 
+                            type="button" 
+                            id="pwaInstallBtnHeader" 
+                            onclick="installIceedsPWA()" 
+                            class="pwa-install-btn hidden items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-cyan-950 bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 shadow-xs hover:shadow-sm transition-all duration-150 cursor-pointer active:scale-95"
+                            title="Install iCEEDS App on your device"
+                        >
+                            <img src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" alt="iCEEDS App" class="w-4 h-4 sm:w-5 sm:h-5 rounded-md object-contain shrink-0">
+                            <span class="hidden xs:inline">Install iCEEDS</span>
+                            <span class="xs:hidden">Install</span>
+                        </button>
+
                         <!-- Certificate Verification Primary CTA -->
                         <a 
                             href="{{ route('verify') }}" 
@@ -580,6 +597,17 @@
                         </svg>
                         <span>View Police Verification Report</span>
                     </button>
+                    <!-- PWA Install Button (Mobile Drawer) -->
+                    <button 
+                        type="button" 
+                        id="pwaInstallBtnMobile" 
+                        onclick="installIceedsPWA()" 
+                        class="pwa-install-btn hidden w-full items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl font-bold text-sm text-cyan-950 bg-gradient-to-r from-cyan-100 to-sky-100 border border-cyan-300 hover:from-cyan-200 hover:to-sky-200 shadow-xs transition cursor-pointer"
+                    >
+                        <img src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" alt="iCEEDS App" class="w-5 h-5 rounded-md object-contain shrink-0">
+                        <span>Install iCEEDS</span>
+                    </button>
+
                     <a href="{{ route('verify') }}" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-sm text-white bg-slate-900 hover:bg-blue-700 transition">
                         <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -1197,6 +1225,90 @@
                 });
             }
         })();
+
+        // ==========================================
+        // iCEEDS Progressive Web App (PWA) Controller
+        // ==========================================
+        let deferredPwaPrompt = null;
+
+        function isPwaInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   window.navigator.standalone === true || 
+                   localStorage.getItem('iceeds_pwa_installed') === 'true';
+        }
+
+        function hideAllPwaInstallButtons() {
+            document.querySelectorAll('.pwa-install-btn').forEach(btn => {
+                btn.classList.add('hidden');
+                btn.style.setProperty('display', 'none', 'important');
+            });
+        }
+
+        function showAllPwaInstallButtons() {
+            if (isPwaInstalled()) {
+                hideAllPwaInstallButtons();
+                return;
+            }
+            document.querySelectorAll('.pwa-install-btn').forEach(btn => {
+                btn.classList.remove('hidden');
+                btn.style.display = btn.classList.contains('w-full') ? 'flex' : 'inline-flex';
+            });
+        }
+
+        window.installIceedsPWA = function() {
+            if (deferredPwaPrompt) {
+                deferredPwaPrompt.prompt();
+                deferredPwaPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult && choiceResult.outcome === 'accepted') {
+                        console.log('[PWA] User accepted the iCEEDS install prompt');
+                        hideAllPwaInstallButtons();
+                        localStorage.setItem('iceeds_pwa_installed', 'true');
+                    } else {
+                        console.log('[PWA] User dismissed the iCEEDS install prompt');
+                    }
+                    deferredPwaPrompt = null;
+                });
+            } else {
+                const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                if (isIos) {
+                    alert('To install iCEEDS: tap the Safari "Share" button at the bottom of your screen and select "Add to Home Screen".');
+                } else {
+                    alert('To install iCEEDS: open your browser menu (⋮ or ...) and select "Install iCEEDS" or "Add to Home screen".');
+                }
+            }
+        };
+
+        // Capture PWA install event before prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPwaPrompt = e;
+            showAllPwaInstallButtons();
+        });
+
+        // Instant disappearance upon installation
+        window.addEventListener('appinstalled', () => {
+            console.log('[PWA] iCEEDS was installed successfully');
+            hideAllPwaInstallButtons();
+            localStorage.setItem('iceeds_pwa_installed', 'true');
+            deferredPwaPrompt = null;
+        });
+
+        // Initialize state on DOM ready & register Service Worker
+        document.addEventListener('DOMContentLoaded', () => {
+            if (isPwaInstalled()) {
+                hideAllPwaInstallButtons();
+            }
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => {
+                        console.log('[PWA] Service Worker registered with scope:', reg.scope);
+                    })
+                    .catch(err => {
+                        console.warn('[PWA] Service Worker registration failed:', err);
+                    });
+            }
+        });
     </script>
 
     <!-- Police Verification Report Interactive Scrollable Modal Partial -->

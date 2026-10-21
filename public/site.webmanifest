@@ -1,22 +1,26 @@
 {
-  "name": "iCEEDS - Accredited Certifications & Central Academic Repository",
+  "name": "iCEEDS - Innovation Council for Exquisite Education & Development of Skills",
   "short_name": "iCEEDS",
   "description": "A Self-Governing Educational Trust registered under the Indian Trusts Act, 1882, providing ISO-accredited skill development programs and certificate verification.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "background_color": "#020617",
+  "theme_color": "#0197b2",
   "orientation": "portrait-primary",
+  "categories": ["education", "business", "productivity"],
   "icons": [
     {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
+      "src": "/storage/media/2026/10/iceeds-pwa-igaapf.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
     },
     {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
+      "src": "/images/iceeds-pwa.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
     },
     {
       "src": "/android-chrome-192x192.png",
@@ -33,6 +37,16 @@
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     }
   ]

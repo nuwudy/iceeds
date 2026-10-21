@@ -339,19 +339,6 @@
 
                     <!-- Top Tier Action Buttons & Mobile Trigger -->
                     <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-                        <!-- PWA Install Button (Desktop & Header) -->
-                        <button 
-                            type="button" 
-                            id="pwaInstallBtnHeader" 
-                            onclick="installIceedsPWA()" 
-                            class="pwa-install-btn hidden items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-cyan-950 bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 shadow-xs hover:shadow-sm transition-all duration-150 cursor-pointer active:scale-95"
-                            title="Install iCEEDS App on your device"
-                        >
-                            <img src="{{ asset('storage/media/2026/10/iceeds-pwa-igaapf.webp') }}" alt="iCEEDS App" class="w-4 h-4 sm:w-5 sm:h-5 rounded-md object-contain shrink-0">
-                            <span class="hidden xs:inline">Install iCEEDS</span>
-                            <span class="xs:hidden">Install</span>
-                        </button>
-
                         <!-- Certificate Verification Primary CTA -->
                         <a 
                             href="{{ route('verify') }}" 

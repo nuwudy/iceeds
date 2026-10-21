@@ -4,7 +4,7 @@
             'id' => 'nsdc',
             'name' => 'NSDC',
             'badge' => 'Curriculum Aligned',
-            'badge_classes' => 'bg-amber-100 text-amber-800 border border-amber-300',
+            'badge_classes' => 'bg-amber-400/25 text-amber-200 border border-amber-400/40 shadow-xs',
             'pill_classes' => 'bg-amber-500/20 text-amber-300 border border-amber-400/30',
             'category' => 'Govt. of India PPP',
             'url' => asset('storage/media/2026/10/nsdc-logo-ht0zxd.webp'),
@@ -19,7 +19,7 @@
             'id' => 'skill-india',
             'name' => 'Skill India',
             'badge' => 'Kaushal Bharat',
-            'badge_classes' => 'bg-orange-100 text-orange-800 border border-orange-300',
+            'badge_classes' => 'bg-orange-400/25 text-orange-200 border border-orange-400/40 shadow-xs',
             'pill_classes' => 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
             'category' => 'National Skilling Mission',
             'url' => asset('storage/media/2026/10/skill-india-gy62mi.webp'),
@@ -34,7 +34,7 @@
             'id' => 'digilocker',
             'name' => 'DigiLocker',
             'badge' => 'Digital Registry',
-            'badge_classes' => 'bg-blue-100 text-blue-800 border border-blue-300',
+            'badge_classes' => 'bg-sky-400/25 text-sky-200 border border-sky-400/40 shadow-xs',
             'pill_classes' => 'bg-blue-500/20 text-blue-300 border border-blue-400/30',
             'category' => 'MeitY &bull; Digital India',
             'url' => asset('storage/media/2026/10/digilocker-9gyq7g.webp'),
@@ -50,7 +50,7 @@
 
 <div class="cute-emblems-wrapper relative z-30 select-none">
     <!-- Header Caption -->
-    <div class="flex items-center justify-between px-1 mb-1.5">
+    <div class="flex items-center justify-between px-1 mb-2">
         <span class="text-[10px] sm:text-[10.5px] font-mono font-bold uppercase tracking-wider text-slate-200 flex items-center gap-1.5 hero-text-outlined">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
             <span>National Skill &amp; Digital Alliances</span>
@@ -63,35 +63,37 @@
         </span>
     </div>
 
-    <!-- 3 Cute Boxes in a Single Row -->
-    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+    <!-- 3 Refined Frosted Glass Cards in a Single Row -->
+    <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
         @foreach($nationalEmblems as $emblem)
             <div class="relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
-                <!-- Cute Card -->
-                <div class="relative rounded-2xl bg-white/95 backdrop-blur-md p-2 sm:p-2.5 border-2 border-white/80 shadow-md shadow-black/15 group-hover:shadow-xl group-hover:scale-[1.04] group-hover:-translate-y-1 active:scale-95 group-hover:border-cyan-400 group-hover:ring-2 group-hover:ring-cyan-400/30 transition-all duration-200 flex flex-col items-center justify-between text-center cursor-pointer min-h-[92px] sm:min-h-[102px]">
+                <!-- Glassmorphic Card Container -->
+                <div class="relative rounded-2xl p-2 sm:p-2.5 shadow-lg shadow-black/25 group-hover:shadow-2xl group-hover:scale-[1.04] group-hover:-translate-y-1 active:scale-95 group-hover:border-cyan-300 group-hover:ring-2 group-hover:ring-cyan-400/30 transition-all duration-200 flex flex-col items-center justify-between text-center cursor-pointer min-h-[104px] sm:min-h-[116px]"
+                     style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.25);">
                     
-                    <!-- Cute info indicator badge -->
-                    <span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-slate-100 group-hover:bg-cyan-100 text-slate-500 group-hover:text-cyan-800 text-[9px] font-bold flex items-center justify-center transition-colors shadow-2xs" title="Click or hover to view relevance with iCEEDS">
+                    <!-- Luminous Jewel Info Indicator Badge -->
+                    <span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-white/20 group-hover:bg-cyan-400 text-white group-hover:text-slate-950 text-[9px] font-bold border border-white/30 flex items-center justify-center transition-colors shadow-xs" title="Click or hover to view relevance with iCEEDS">
                         i
                     </span>
 
-                    <!-- Emblem Graphic -->
-                    <div class="w-full h-10 sm:h-12 flex items-center justify-center pt-1 px-1">
+                    <!-- Emblem Graphic (Enlarged by ~30% for Maximum Crispness & Visibility) -->
+                    <div class="w-full h-12 sm:h-14 flex items-center justify-center pt-1 px-1">
                         <img 
                             src="{{ $emblem['url'] }}" 
                             alt="{{ $emblem['alt'] }}"
                             loading="lazy"
                             onerror="this.onerror=null; this.src='{{ $emblem['fallback'] }}';"
-                            class="max-h-8 sm:max-h-10 w-auto max-w-[85%] object-contain pointer-events-none group-hover:scale-105 transition-transform duration-200"
+                            class="max-h-10 sm:max-h-12 w-auto max-w-[92%] object-contain pointer-events-none group-hover:scale-105 transition-transform duration-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
+                            style="image-rendering: -webkit-optimize-contrast;"
                         >
                     </div>
 
-                    <!-- Title & Tag Badge -->
-                    <div class="w-full mt-1">
-                        <span class="block text-[11px] sm:text-xs font-black text-slate-900 tracking-tight font-heading leading-tight truncate">
+                    <!-- Title & High-Contrast Luminous Badge -->
+                    <div class="w-full mt-1.5">
+                        <span class="block text-[11.5px] sm:text-xs font-black text-white tracking-tight font-heading leading-tight truncate drop-shadow-xs">
                             {{ $emblem['name'] }}
                         </span>
-                        <span class="inline-block mt-0.5 text-[8.5px] sm:text-[9.5px] font-bold px-1.5 py-0.5 rounded-md {{ $emblem['badge_classes'] }} truncate max-w-full leading-none">
+                        <span class="inline-block mt-1 text-[8.5px] sm:text-[9.5px] font-bold px-2 py-0.5 rounded-full {{ $emblem['badge_classes'] }} truncate max-w-full leading-none tracking-wide">
                             {{ $emblem['badge'] }}
                         </span>
                     </div>

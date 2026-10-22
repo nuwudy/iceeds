@@ -170,6 +170,12 @@ Certificate Verification - iCEEDS Central Academic Repository
         .print-legal-row {
             font-size: 6.2pt !important;
             line-height: 1.15 !important;
+            white-space: nowrap !important;
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
         }
 
         .print-emblems-row {
@@ -190,8 +196,14 @@ Certificate Verification - iCEEDS Central Academic Repository
         }
 
         .print-contact-bar {
-            font-size: 6.8pt !important;
+            font-size: 6.6pt !important;
             line-height: 1 !important;
+            white-space: nowrap !important;
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
         }
     }
 </style>
@@ -495,8 +507,14 @@ Certificate Verification - iCEEDS Central Academic Repository
                             <div class="print-footer pt-3 mt-1 border-t border-slate-200 space-y-3">
                                 
                                 <!-- Legal & Accreditation Row -->
-                                <div class="print-legal-row text-center text-[9px] sm:text-[10px] font-bold text-slate-700 leading-tight">
-                                    A Self-Governing Educational Trust Registered under the Indian Trusts Act, 1882 &bull; NITI Aayog NGO DARPAN UNIQUE ID NO: KL/2023/0348375 &bull; ISO 9001:2015 Certified
+                                <div class="print-legal-row flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-2.5 gap-y-1 text-center text-[9px] sm:text-[10px] md:text-[10.5px] font-bold text-slate-700 leading-snug px-1">
+                                    <span class="whitespace-nowrap">A Self-Governing Educational Trust Registered under the Indian Trusts Act, 1882</span>
+                                    <span class="text-slate-400">&bull;</span>
+                                    <span class="whitespace-nowrap">NITI Aayog NGO DARPAN ID: KL/2023/0348375</span>
+                                    <span class="text-slate-400">&bull;</span>
+                                    <span class="whitespace-nowrap inline-flex items-center gap-1 bg-slate-100/90 text-slate-800 px-2 py-0.5 rounded border border-slate-200/90 shadow-2xs font-bold">
+                                        ISO 9001:2015 Certified
+                                    </span>
                                 </div>
 
                                 <!-- Accreditation Badges: Aligned logos for NSTC, ICTS, EGAC, and IAS -->
@@ -527,12 +545,12 @@ Certificate Verification - iCEEDS Central Academic Repository
                                 </div>
 
                                 <!-- Official Contact Bar -->
-                                <div class="print-contact-bar flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[8.5px] sm:text-[9.5px] font-bold text-slate-700 pt-0.5">
-                                    <span>Phone: <strong class="font-mono text-slate-900">+91 7516 2000 95</strong></span>
-                                    <span>&bull;</span>
-                                    <span>Email: <strong class="font-mono text-slate-900">connect.iceeds@gmail.com</strong></span>
-                                    <span>&bull;</span>
-                                    <span>Web: <strong class="font-mono text-slate-900">www.iceeds.com</strong></span>
+                                <div class="print-contact-bar flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1 text-[8.5px] sm:text-[9.5px] md:text-[10px] font-bold text-slate-700 pt-0.5">
+                                    <span class="whitespace-nowrap">Phone: <strong class="font-mono text-slate-900 font-semibold">+91 7510 2000 95 | +91 7510 2000 90 | +91 9061 202 443</strong></span>
+                                    <span class="text-slate-400">&bull;</span>
+                                    <span class="whitespace-nowrap">Email: <strong class="font-mono text-slate-900 font-semibold">connect.iceeds@gmail.com</strong></span>
+                                    <span class="text-slate-400">&bull;</span>
+                                    <span class="whitespace-nowrap">Web: <strong class="font-mono text-slate-900 font-semibold">www.iceeds.com</strong></span>
                                 </div>
 
                             </div>

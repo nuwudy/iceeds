@@ -133,7 +133,9 @@ class CertificateVerificationTest extends TestCase
         $response->assertSee('Official Digital Credential Verified');
         $response->assertSee('Download PDF');
         $response->assertSee('Print Certificate');
-        $response->assertSee('NGO DARPAN UNIQUE ID NO: KL/2023/0348375');
+        $response->assertSee('NGO DARPAN ID: KL/2023/0348375');
+        $response->assertSee('ISO 9001:2015 Certified');
+        $response->assertSee('+91 7510 2000 95');
         $response->assertSee('www.iceeds.com');
         $response->assertSee('Notice on Certification Authority');
         $response->assertSee('distinct from statutory degrees/diplomas conferred under UGC or AICTE');

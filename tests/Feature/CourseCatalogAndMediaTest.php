@@ -135,7 +135,7 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('student-graduation-diploma-presentation.webp');
 
         // Check Lightbox Modal presence
-        $response->assertSee('activeLightboxImage');
+        $response->assertSee('photoLightboxModal');
         $response->assertSee('View Fullscreen');
 
         $response->assertDontSee('Autonomous Statutory Body');

@@ -1,39 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Media & Social Gallery | Official Videos & Event Photos | iCEEDS')
-@section('meta_description', 'Explore official iCEEDS video documentaries, convocation ceremonies, leadership delegation photographs, and student graduation highlights across India.')
+@section('meta_description', 'Watch official iCEEDS video documentaries, convocation ceremonies, leadership delegation photographs, and student graduation highlights across India.')
 
 @section('content')
 
-<div x-data="{
-    activeFilter: 'all',
-    activeModalVideo: null,
-    activeModalTitle: '',
-    activeLightboxImage: null,
-    activeLightboxTitle: '',
-    activeLightboxCategory: '',
-    activeLightboxDesc: '',
-    openVideo(url, title) {
-        this.activeModalVideo = url;
-        this.activeModalTitle = title;
-    },
-    closeVideo() {
-        this.activeModalVideo = null;
-        this.activeModalTitle = '';
-    },
-    openLightbox(image, title, category, desc) {
-        this.activeLightboxImage = image;
-        this.activeLightboxTitle = title;
-        this.activeLightboxCategory = category;
-        this.activeLightboxDesc = desc;
-    },
-    closeLightbox() {
-        this.activeLightboxImage = null;
-        this.activeLightboxTitle = '';
-        this.activeLightboxCategory = '';
-        this.activeLightboxDesc = '';
-    }
-}" @keydown.escape.window="closeVideo(); closeLightbox();" class="min-h-screen bg-slate-50 antialiased">
+<div class="min-h-screen bg-slate-50 antialiased">
 
     <!-- PAGE HERO -->
     <section class="relative py-16 sm:py-20 bg-slate-950 text-white overflow-hidden border-b border-slate-900">
@@ -46,7 +18,7 @@
                 Media & Social Gallery
             </h1>
             <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Explore institutional documentaries, graduation ceremonies, leadership delegations, practical vocational workshops, and daily updates from across our nationwide training ecosystem.
+                Watch official video releases directly on this page or on YouTube, and explore convocation ceremonies, leadership delegations, and national certification specimens.
             </p>
 
             <!-- OFFICIAL CHANNELS QUICK CONNECT BAR -->
@@ -54,7 +26,7 @@
                 <a href="https://www.youtube.com/@iceeds.official" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-red-600/90 hover:bg-red-600 transition shadow-sm border border-red-500/30">
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-red-600 hover:bg-red-700 transition shadow-sm border border-red-500/30">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
@@ -89,37 +61,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs sm:text-sm font-bold">
                 <button type="button" 
-                        @click="activeFilter = 'all'" 
-                        :class="activeFilter === 'all' ? 'bg-blue-700 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 whitespace-nowrap">
+                        data-filter="all"
+                        onclick="filterGallery('all')" 
+                        class="filter-btn px-5 py-2 rounded-full transition-all duration-150 whitespace-nowrap bg-blue-700 text-white shadow-sm">
                     All Media ({{ count($mediaItems) }})
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'youtube'" 
-                        :class="activeFilter === 'youtube' ? 'bg-red-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
-                    <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                        data-filter="youtube"
+                        onclick="filterGallery('youtube')" 
+                        class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
                     <span>Official Videos (3)</span>
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'photo'" 
-                        :class="activeFilter === 'photo' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                    <span>Photographs & Events (5)</span>
+                        data-filter="photo"
+                        onclick="filterGallery('photo')" 
+                        class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Photographs &amp; Events (5)</span>
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'convocation'" 
-                        :class="activeFilter === 'convocation' ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                        data-filter="convocation"
+                        onclick="filterGallery('convocation')" 
+                        class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
                     <span>Convocations</span>
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'leadership'" 
-                        :class="activeFilter === 'leadership' ? 'bg-amber-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
-                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        data-filter="leadership"
+                        onclick="filterGallery('leadership')" 
+                        class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                     <span>Academic Board</span>
                 </button>
             </div>
@@ -133,50 +105,54 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 @foreach($mediaItems as $item)
                     <!-- CARD CONTAINER -->
-                    <div x-show="activeFilter === 'all' || activeFilter === '{{ $item['type'] }}' || activeFilter === '{{ $item['category_slug'] ?? '' }}'"
-                         x-transition:enter="transition ease-out duration-200"
-                         x-transition:enter-start="opacity-0 scale-95"
-                         x-transition:enter-end="opacity-100 scale-100"
-                         class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between group hover:border-blue-400">
+                    <div data-type="{{ $item['type'] }}" 
+                         data-category="{{ $item['category_slug'] ?? '' }}"
+                         class="gallery-item bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between group hover:border-blue-400">
 
                         <!-- MEDIA PREVIEW CONTAINER -->
                         <div>
                             @if($item['type'] === 'youtube')
-                                <!-- 16:9 Aspect Frame for YouTube -->
-                                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer"
-                                     @click="openVideo('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')">
-                                    <img src="{{ $item['thumbnail'] }}" 
-                                         alt="{{ $item['title'] }}" 
-                                         loading="lazy"
-                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
-                                    
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                                <!-- 16:9 Aspect Frame for YouTube with Interactive In-Page Player -->
+                                <div class="relative aspect-video bg-slate-900 overflow-hidden" id="video-box-{{ $item['id'] }}">
+                                    <!-- Poster View -->
+                                    <div class="video-poster relative w-full h-full cursor-pointer group/thumb"
+                                         onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] }}')">
+                                        <img src="{{ $item['thumbnail'] }}" 
+                                             alt="{{ $item['title'] }}" 
+                                             loading="lazy"
+                                             class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500 opacity-95">
+                                        
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
-                                    <!-- Duration / Badge Pill -->
-                                    <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
-                                        {{ $item['duration'] }}
-                                    </span>
+                                        <!-- Duration Pill -->
+                                        <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
+                                            {{ $item['duration'] }}
+                                        </span>
 
-                                    <!-- YouTube Badge -->
-                                    <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
-                                        <span>YouTube 16:9</span>
-                                    </span>
+                                        <!-- YouTube Badge -->
+                                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
+                                            <span>YouTube 16:9</span>
+                                        </span>
 
-                                    <!-- Clickable Play Button Overlay -->
-                                    <div class="absolute inset-0 flex items-center justify-center group/btn">
-                                        <div class="w-14 h-14 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-lg group-hover/btn:scale-110 group-hover/btn:bg-red-600 transition-all">
-                                            <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
-                                                <path d="M8 5v14l11-7z"/>
-                                            </svg>
+                                        <!-- Clickable Big Red Play Button -->
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="w-16 h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 group-hover/thumb:bg-red-600 transition-all cursor-pointer">
+                                                <svg class="w-7 h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z"/>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <!-- Inline Embedded Player Container -->
+                                    <div class="video-player-container hidden w-full h-full"></div>
                                 </div>
 
                             @elseif($item['type'] === 'photo')
                                 <!-- Photograph Frame with Lightbox Trigger -->
                                 <div class="relative {{ isset($item['aspect']) && $item['aspect'] === '3:4' ? 'aspect-[3/4] max-h-[460px]' : 'aspect-[4/3] sm:aspect-video' }} bg-slate-900 overflow-hidden cursor-pointer"
-                                     @click="openLightbox('{{ $item['image_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')">
+                                     onclick="openLightboxModal('{{ $item['fallback_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')">
                                     <picture>
                                         <source srcset="{{ $item['image_url'] }}" type="image/webp">
                                         <img src="{{ $item['fallback_url'] }}" 
@@ -285,26 +261,33 @@
                         <!-- CARD ACTION FOOTER -->
                         <div class="px-6 pb-6 pt-2 border-t border-slate-100">
                             @if($item['type'] === 'youtube')
-                                <div class="flex items-center justify-between">
+                                <div class="flex items-center justify-between gap-3">
                                     <button type="button" 
-                                            @click="openVideo('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')"
-                                            class="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1">
-                                        <span>Watch Video</span>
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+                                            onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] }}')"
+                                            class="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1 cursor-pointer">
+                                        <svg class="w-4 h-4 fill-current text-red-600" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        <span>Play on Page</span>
+                                    </button>
+
+                                    <button type="button" 
+                                            onclick="openVideoModal('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')"
+                                            class="text-xs font-semibold text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                                        <span>Theater Mode</span>
                                     </button>
 
                                     <a href="{{ $item['direct_url'] }}" 
                                        target="_blank" 
                                        rel="noopener noreferrer"
-                                       class="text-xs font-bold text-slate-700 hover:text-slate-950 flex items-center gap-1">
-                                        <span>Open on YouTube &rarr;</span>
+                                       class="text-xs font-bold text-slate-800 hover:text-red-600 flex items-center gap-1">
+                                        <span>Watch on YouTube &rarr;</span>
                                     </a>
                                 </div>
                             @elseif($item['type'] === 'photo')
                                 <div class="flex items-center justify-between">
                                     <button type="button" 
-                                            @click="openLightbox('{{ $item['image_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')"
-                                            class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                                            onclick="openLightboxModal('{{ $item['fallback_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')"
+                                            class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer">
                                         <span>View Fullscreen</span>
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
                                     </button>
@@ -342,74 +325,62 @@
         </div>
     </main>
 
-    <!-- RESPONSIVE VIDEO MODAL -->
-    <div x-show="activeModalVideo" 
-         x-cloak
+    <!-- RESPONSIVE VIDEO THEATER MODAL -->
+    <div id="videoModal" 
          style="display: none;"
-         class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md"
-         x-transition:enter="transition ease-out duration-200"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition ease-in duration-150"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0">
+         class="fixed inset-0 z-[99999] overflow-y-auto items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md"
+         onclick="handleVideoModalBackdrop(event)">
         
         <div class="relative w-full max-w-4xl bg-black rounded-3xl overflow-hidden shadow-2xl border border-slate-800"
-             @click.away="closeVideo()">
+             onclick="event.stopPropagation()">
             
             <div class="px-6 py-4 bg-slate-900 flex items-center justify-between border-b border-slate-800">
-                <h4 class="text-sm font-bold text-white font-heading truncate max-w-lg" x-text="activeModalTitle"></h4>
+                <h4 id="videoModalTitle" class="text-sm font-bold text-white font-heading truncate max-w-lg"></h4>
                 <button type="button" 
-                        @click="closeVideo()" 
-                        class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                        onclick="closeVideoModal()" 
+                        class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
             <div class="aspect-video w-full bg-black">
-                <template x-if="activeModalVideo">
-                    <iframe :src="activeModalVideo + '?autoplay=1&rel=0'" 
-                            class="w-full h-full" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </template>
+                <iframe id="videoModalIframe"
+                        src="" 
+                        class="w-full h-full" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <!-- RESPONSIVE PHOTO LIGHTBOX MODAL -->
-    <div x-show="activeLightboxImage" 
-         x-cloak
+    <div id="photoLightboxModal" 
          style="display: none;"
-         class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-md"
-         x-transition:enter="transition ease-out duration-200"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition ease-in duration-150"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0">
+         class="fixed inset-0 z-[99999] overflow-y-auto items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-md"
+         onclick="handleLightboxModalBackdrop(event)">
         
         <div class="relative w-full max-w-5xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col max-h-[92vh]"
-             @click.away="closeLightbox()">
+             onclick="event.stopPropagation()">
             
             <!-- Modal Header -->
             <div class="px-6 py-4 bg-slate-950 flex items-center justify-between border-b border-slate-800/80">
                 <div class="flex items-center gap-3 truncate">
-                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider" x-text="activeLightboxCategory"></span>
-                    <h4 class="text-sm sm:text-base font-bold text-white font-heading truncate" x-text="activeLightboxTitle"></h4>
+                    <span id="lightboxCategory" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider"></span>
+                    <h4 id="lightboxTitle" class="text-sm sm:text-base font-bold text-white font-heading truncate"></h4>
                 </div>
                 <div class="flex items-center gap-2">
-                    <a :href="activeLightboxImage" 
+                    <a id="lightboxNewTabLink"
+                       href="" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        title="Open full resolution in new tab"
-                       class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                       class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                     <button type="button" 
-                            @click="closeLightbox()" 
-                            class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                            onclick="closeLightboxModal()" 
+                            class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
@@ -417,18 +388,142 @@
 
             <!-- Image Viewport -->
             <div class="flex-1 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden min-h-[300px]">
-                <img :src="activeLightboxImage" 
-                     :alt="activeLightboxTitle" 
+                <img id="lightboxImg" 
+                     src="" 
+                     alt="" 
                      class="max-h-[68vh] w-auto max-w-full object-contain rounded-xl shadow-lg">
             </div>
 
             <!-- Modal Footer Description -->
             <div class="px-6 py-4 bg-slate-950 border-t border-slate-800/80">
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" x-text="activeLightboxDesc"></p>
+                <p id="lightboxDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
             </div>
         </div>
     </div>
 
 </div>
+
+<!-- JAVASCRIPT: NATIVE INLINE PLAYBACK, THEATER MODAL, AND LIGHTBOX -->
+<script>
+    // 1. Inline Video Playback inside the 16:9 Card
+    function playInlineVideo(id, embedUrl) {
+        const box = document.getElementById('video-box-' + id);
+        if (!box) return;
+
+        const poster = box.querySelector('.video-poster');
+        const playerContainer = box.querySelector('.video-player-container');
+
+        if (poster && playerContainer) {
+            poster.classList.add('hidden');
+            playerContainer.innerHTML = '<iframe src="' + embedUrl + '?autoplay=1&rel=0" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            playerContainer.classList.remove('hidden');
+        }
+    }
+
+    // 2. Video Theater Modal
+    function openVideoModal(embedUrl, title) {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoModalIframe');
+        const titleEl = document.getElementById('videoModalTitle');
+
+        if (modal && iframe) {
+            iframe.src = embedUrl + '?autoplay=1&rel=0';
+            if (titleEl) titleEl.textContent = title;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoModalIframe');
+
+        if (modal && iframe) {
+            iframe.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    function handleVideoModalBackdrop(event) {
+        if (event.target && event.target.id === 'videoModal') {
+            closeVideoModal();
+        }
+    }
+
+    // 3. Photo Lightbox Modal
+    function openLightboxModal(imageUrl, title, category, desc) {
+        const modal = document.getElementById('photoLightboxModal');
+        const img = document.getElementById('lightboxImg');
+        const titleEl = document.getElementById('lightboxTitle');
+        const catEl = document.getElementById('lightboxCategory');
+        const descEl = document.getElementById('lightboxDesc');
+        const linkEl = document.getElementById('lightboxNewTabLink');
+
+        if (modal && img) {
+            img.src = imageUrl;
+            img.alt = title;
+            if (titleEl) titleEl.textContent = title;
+            if (catEl) catEl.textContent = category;
+            if (descEl) descEl.textContent = desc;
+            if (linkEl) linkEl.href = imageUrl;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeLightboxModal() {
+        const modal = document.getElementById('photoLightboxModal');
+        const img = document.getElementById('lightboxImg');
+
+        if (modal) {
+            modal.style.display = 'none';
+            if (img) img.src = '';
+            document.body.style.overflow = '';
+        }
+    }
+
+    function handleLightboxModalBackdrop(event) {
+        if (event.target && event.target.id === 'photoLightboxModal') {
+            closeLightboxModal();
+        }
+    }
+
+    // 4. Category Filtering
+    function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(el => {
+            const type = el.getAttribute('data-type');
+            const cat = el.getAttribute('data-category');
+            if (category === 'all' || type === category || cat === category) {
+                el.style.display = '';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+
+        // Update Button Styles
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => {
+            const btnFilter = btn.getAttribute('data-filter');
+            if (btnFilter === category) {
+                btn.classList.add('bg-blue-700', 'text-white', 'shadow-sm');
+                btn.classList.remove('bg-slate-100', 'hover:bg-slate-200', 'text-slate-700');
+            } else {
+                btn.classList.remove('bg-blue-700', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'hover:bg-slate-200', 'text-slate-700');
+            }
+        });
+    }
+
+    // 5. Global Keyboard Listener (ESC to close modals)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeVideoModal();
+            closeLightboxModal();
+        }
+    });
+</script>
 
 @endsection

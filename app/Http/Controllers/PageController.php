@@ -6,6 +6,7 @@ use App\Models\Certificate;
 use App\Models\Testimonial;
 use App\Models\BlogPost;
 use App\Support\CourseCatalog;
+use App\Support\KnowledgePartnerCatalog;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -188,6 +189,9 @@ class PageController extends Controller
      */
     public function courses(Request $request): View
     {
+        $knowledgePartnerCourses = KnowledgePartnerCatalog::getCourses();
+        $kpCategories = KnowledgePartnerCatalog::getCategories();
+
         $courses = $this->getCoursesData();
         $sectors = CourseCatalog::getSectors();
         $degreeTrades = CourseCatalog::getDegreeTrades();
@@ -206,14 +210,18 @@ class PageController extends Controller
             'featured-diplomas' => 'Academic Board Diplomas',
         ];
 
+        $catalogPdfUrl = asset('documents/iceeds-knowledge-partner-unified-fee-schedule.pdf');
+
         return view('pages.courses', [
+            'knowledgePartnerCourses' => $knowledgePartnerCourses,
+            'kpCategories' => $kpCategories,
             'courses' => $courses,
             'sectors' => $sectors,
             'degreeTrades' => $degreeTrades,
             'totalRoles' => $totalRoles,
             'categories' => $categories,
-            'totalCourses' => count($courses),
-            'catalogPdfUrl' => 'https://iceeds.com/storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf',
+            'totalCourses' => count($knowledgePartnerCourses),
+            'catalogPdfUrl' => $catalogPdfUrl,
         ]);
     }
 
@@ -222,7 +230,10 @@ class PageController extends Controller
      */
     public function downloadCourseListPdf()
     {
-        $pdfPath = public_path('storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf');
+        $pdfPath = public_path('documents/iceeds-knowledge-partner-unified-fee-schedule.pdf');
+        if (!file_exists($pdfPath)) {
+            $pdfPath = public_path('storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf');
+        }
         if (!file_exists($pdfPath)) {
             $pdfPath = public_path('documents/iceeds-course-catalog.pdf');
         }
@@ -230,12 +241,29 @@ class PageController extends Controller
         if (file_exists($pdfPath)) {
             return response()->download(
                 $pdfPath,
-                'iceeds-master-course-directory-new-q10cuv.pdf',
+                'iCEEDS-Knowledge-Partner-Unified-Fee-Schedule.pdf',
                 ['Content-Type' => 'application/pdf']
             );
         }
 
         return redirect('https://iceeds.com/storage/media/2026/10/iceeds-master-course-directory-new-q10cuv.pdf');
+    }
+
+    /**
+     * Download sample foreign embassy and MEA attestation proof PDF.
+     */
+    public function downloadAttestationSamplePdf()
+    {
+        $pdfPath = public_path('documents/iceeds-uae-embassy-attestation-sample.pdf');
+        if (file_exists($pdfPath)) {
+            return response()->download(
+                $pdfPath,
+                'iCEEDS-UAE-Embassy-Attestation-Sample.pdf',
+                ['Content-Type' => 'application/pdf']
+            );
+        }
+
+        return redirect()->route('verify');
     }
 
     /**

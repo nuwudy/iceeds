@@ -22,7 +22,9 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/courses', [PageController::class, 'courses'])->name('courses');
 Route::get('/courses/download-catalog-pdf', [PageController::class, 'downloadCourseListPdf'])->name('courses.download-pdf');
+Route::get('/courses/download-unified-fee-schedule', [PageController::class, 'downloadCourseListPdf'])->name('courses.download-unified-fee-schedule');
 Route::get('/courses/{slug}/download-syllabus', [PageController::class, 'downloadSyllabusPdf'])->name('courses.download-syllabus');
+Route::get('/attestation/download-sample-pdf', [PageController::class, 'downloadAttestationSamplePdf'])->name('attestation.download-sample');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 
 // Academic Departments: Philosophy & Theology

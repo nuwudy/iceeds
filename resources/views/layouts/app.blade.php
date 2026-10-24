@@ -1489,6 +1489,9 @@
     <!-- Police Verification Report Interactive Scrollable Modal Partial -->
     @include('partials.police-verification-modal')
 
+    <!-- International Certificate Attestation & Embassy Proof Modal Partial -->
+    @include('partials.international-attestation-modal')
+
     <!-- Unified Center Explainer Modal (Middle of Page on Hover/Touch, Arrow-Free) -->
     <div id="emblemInspectionModal" class="fixed inset-0 z-[999999] pointer-events-none flex items-center justify-center p-4 transition-all duration-150 opacity-0 invisible" aria-hidden="true">
         <!-- Subtle Backdrop Dimming -->

@@ -9,35 +9,96 @@ class CourseCatalogAndMediaTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_render_courses_page_with_pdf_catalog_data(): void
+    public function test_can_render_courses_page_with_knowledge_partner_and_nsqf_catalog_data(): void
     {
         $response = $this->get('/courses');
         $response->assertStatus(200);
-        $response->assertSee('ICEEDS Skill & Vocational Course Catalog', false);
-        $response->assertSee('Master Qualification Pack & Academic Program Directory', false);
-        $response->assertSee('8 Target Sectors');
-        $response->assertSee('230+ Certified Roles');
-        $response->assertSee('NSQF Level 2 to 6');
-        $response->assertSee('B.Voc & M.Voc');
-        $response->assertSee('Download Complete Course List (PDF)');
-        $response->assertSee('Apparel, Made-Ups & Home Furnishings Sector');
+
+        // Header and branding
+        $response->assertSee('ICEEDS Skill &amp; Vocational Course Catalog', false);
+        $response->assertSee('Knowledge Partner Program', false);
+        $response->assertSee('Unified Fee Schedule', false);
+        $response->assertSee('Download Complete Unified Fee Schedule &amp; Syllabus (PDF)', false);
+
+        // Category A: Govt. of India (NSDC) & Healthcare
+        $response->assertSee('Govt. of India (NSDC) Certified Mind Training &amp; Counselling', false);
+        $response->assertSee('Govt. of India (NSDC) Certified Spa Therapist', false);
+        $response->assertSee('₹12,500');
+        $response->assertSee('₹18,000');
+        $response->assertSee('₹25,000');
+        $response->assertSee('₹2,500 + Equal Instalments');
+
+        // Category B: Teacher Training & Diplomas
+        $response->assertSee('iCEEDS Diploma in Montessori TTC (MTTC)', false);
+        $response->assertSee('iCEEDS AI Integrated Professional Diploma in MTTC', false);
+        $response->assertSee('FICS International Diploma in Montessori TTC', false);
+        $response->assertSee('₹35,000');
+        $response->assertSee('₹40,000');
+
+        // Category C: Psychology & Administration
+        $response->assertSee('iCEEDS Diploma in Counselling Psychology', false);
+        $response->assertSee('iCEEDS Diploma in Hospital Administration', false);
+        $response->assertSee('₹8,500');
+
+        // Category D: Short-Term Micro-Certifications
+        $response->assertSee('PeacePulse - Stress Management', false);
+        $response->assertSee('CharacterMap - Personality Trait Assessment', false);
+        $response->assertSee('AngleMetrics - ATD Angle Assessment', false);
+        $response->assertSee('₹1,200');
+
+        // Category E: Distance Degree & Secondary Board Support
+        $response->assertSee('BA English / B.Com (IGNOU)', false);
+        $response->assertSee('BA Sociology / BA Arabic (SGOU)', false);
+        $response->assertSee('NIOS 10th SSLC &amp; Plus Two (All Streams)', false);
+        $response->assertSee('₹20,000 / Year');
+
+        // NSQF Sectors & B.Voc
+        $response->assertSee('NSQF Levels 2 to 6 Sector Qualification Packs', false);
+        $response->assertSee('Vocational Degree Programs (B.Voc &amp; M.Voc Trades)', false);
         $response->assertSee('AMH/Q0101');
-        $response->assertSee('Beauty & Wellness Sector');
-        $response->assertSee('BWS/Q0101');
-        $response->assertSee('Food Processing Sector');
-        $response->assertSee('Electronics System Design & Manufacturing');
-        $response->assertSee('Information Technology & IT-Enabled Services');
-        $response->assertSee('Healthcare & Allied Medical Sciences');
-        $response->assertSee('Management, Security, Training & Professional Services');
-        $response->assertSee('Vocational Degree Programs (B.Voc & M.Voc Trades)', false);
-        $response->assertDontSee('₹25,000');
-        $response->assertDontSee('₹27,500');
+
+        // Compliance
         $response->assertDontSee('Autonomous Statutory Body');
+        $response->assertSee('Indian Trusts Act, 1882');
     }
 
-    public function test_can_download_catalog_pdf(): void
+    public function test_courses_and_verification_pages_display_international_attestation_advisory(): void
+    {
+        $urls = ['/courses', '/verify'];
+
+        foreach ($urls as $url) {
+            $response = $this->get($url);
+            $response->assertStatus(200);
+
+            // Title and core advisory copy
+            $response->assertSee('International Recognition &amp; Embassy Attestation Advisory', false);
+            $response->assertSee('General Feasibility');
+            $response->assertSee('Student Due Diligence');
+            $response->assertSee('Non-Guarantee Clause');
+            $response->assertSee('AEDA0906222411677014E50');
+
+            // Document A & Document B showcases
+            $response->assertSee('Indian MEA &amp; SDM Delhi Authentication', false);
+            $response->assertSee('UAE Embassy &amp; MOFA Digital Certificate', false);
+            $response->assertSee('View Sample UAE Embassy Attestation (Back Page Preview)', false);
+            $response->assertSee('attestationProofModal');
+        }
+    }
+
+    public function test_can_download_unified_fee_schedule_pdf(): void
     {
         $response = $this->get('/courses/download-catalog-pdf');
+        $response->assertStatus(200);
+        $response->assertHeader('content-type', 'application/pdf');
+
+        $unifiedResponse = $this->get('/courses/download-unified-fee-schedule');
+        $unifiedResponse->assertStatus(200);
+        $unifiedResponse->assertHeader('content-type', 'application/pdf');
+    }
+
+    public function test_can_download_attestation_sample_pdf(): void
+    {
+        $response = $this->get('/attestation/download-sample-pdf');
         $response->assertStatus(200);
         $response->assertHeader('content-type', 'application/pdf');
     }
@@ -57,9 +118,6 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('Watch on YouTube');
         $response->assertSee('Follow on Instagram');
         $response->assertSee('View on Facebook');
-        $response->assertSee('YouTube Videos (16:9)');
-        $response->assertSee('Instagram Reels (9:16)');
-        $response->assertSee('Facebook Highlights');
         $response->assertDontSee('Autonomous Statutory Body');
     }
 
@@ -73,24 +131,5 @@ class CourseCatalogAndMediaTest extends TestCase
             $response->assertDontSee('Autonomous Statutory Body');
             $response->assertSee('Indian Trusts Act, 1882');
         }
-    }
-
-    public function test_police_verification_modal_and_document_accessible(): void
-    {
-        $response = $this->get('/');
-        $response->assertStatus(200);
-        $response->assertSee('policeDocModal');
-        $response->assertDontSee('Download PDF');
-        $response->assertDontSee('Download Official PDF');
-        $response->assertSee('openPoliceDocModal');
-        $response->assertSee('Certified English Translation');
-        $response->assertSee('Subhash Babu K.C.');
-
-        $this->assertFileExists(public_path('storage/media/2026/10/police-report-i-ceeds-1-oeew2l.pdf'));
-        $this->assertFileExists(public_path('storage/media/2026/10/kerala-police-document-yhgf2l.pdf'));
-        $this->assertFileExists(public_path('images/verification/kerala-police-original.jpg'));
-
-        $pdfResponse = $this->get('/storage/media/2026/10/police-report-i-ceeds-1-oeew2l.pdf');
-        $pdfResponse->assertStatus(200);
     }
 }

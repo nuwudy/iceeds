@@ -684,6 +684,11 @@ Certificate Verification - iCEEDS Central Academic Repository
             </div>
         @endif
 
+        <!-- INTERNATIONAL CERTIFICATE ATTESTATION & EMBASSY DISCLAIMER SECTION -->
+        <div class="no-print">
+            @include('partials.international-attestation')
+        </div>
+
     </div>
 
     <!-- HIGH-TECH TICKING VERIFICATION MODAL OVERLAY -->

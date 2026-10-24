@@ -3,7 +3,8 @@
 <!-- ========================================================================= -->
 <div 
     id="attestationProofModal" 
-    class="fixed inset-0 z-[99999] hidden bg-slate-950/85 backdrop-blur-md p-2 sm:p-4 lg:p-6 flex items-center justify-center transition-all duration-300"
+    class="fixed inset-0 z-[99999] hidden bg-slate-950/85 backdrop-blur-md p-2 sm:p-4 lg:p-6 items-center justify-center transition-all duration-300"
+    style="display: none;"
     role="dialog" 
     aria-modal="true" 
     aria-labelledby="attestationModalDocTitle"
@@ -307,7 +308,9 @@
     function openAttestationModal(tab) {
         const modal = document.getElementById('attestationProofModal');
         if (modal) {
+            modal.style.display = 'flex';
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
             if (tab) {
                 switchAttestationTab(tab);
@@ -318,6 +321,8 @@
     function closeAttestationModal() {
         const modal = document.getElementById('attestationProofModal');
         if (modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('flex');
             modal.classList.add('hidden');
             document.body.style.overflow = '';
         }

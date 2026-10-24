@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Media & Social Gallery | Official Videos & Highlights | iCEEDS')
-@section('meta_description', 'Watch official iCEEDS video documentaries, convocation ceremonies, Instagram reels, and Facebook live events across our educational trust network.')
+@section('title', 'Media & Social Gallery | Official Videos & Event Photos | iCEEDS')
+@section('meta_description', 'Explore official iCEEDS video documentaries, convocation ceremonies, leadership delegation photographs, and student graduation highlights across India.')
 
 @section('content')
 
@@ -9,6 +9,10 @@
     activeFilter: 'all',
     activeModalVideo: null,
     activeModalTitle: '',
+    activeLightboxImage: null,
+    activeLightboxTitle: '',
+    activeLightboxCategory: '',
+    activeLightboxDesc: '',
     openVideo(url, title) {
         this.activeModalVideo = url;
         this.activeModalTitle = title;
@@ -16,26 +20,38 @@
     closeVideo() {
         this.activeModalVideo = null;
         this.activeModalTitle = '';
+    },
+    openLightbox(image, title, category, desc) {
+        this.activeLightboxImage = image;
+        this.activeLightboxTitle = title;
+        this.activeLightboxCategory = category;
+        this.activeLightboxDesc = desc;
+    },
+    closeLightbox() {
+        this.activeLightboxImage = null;
+        this.activeLightboxTitle = '';
+        this.activeLightboxCategory = '';
+        this.activeLightboxDesc = '';
     }
-}" @keydown.escape.window="closeVideo()" class="min-h-screen bg-slate-50 antialiased">
+}" @keydown.escape.window="closeVideo(); closeLightbox();" class="min-h-screen bg-slate-50 antialiased">
 
     <!-- PAGE HERO -->
     <section class="relative py-16 sm:py-20 bg-slate-950 text-white overflow-hidden border-b border-slate-900">
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/70 via-slate-950 to-slate-900 opacity-90 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
             <span class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full mb-3">
-                Digital Chronicle &bull; Campus Life &bull; Workshops
+                Digital Chronicle &bull; Convocation Events &bull; Academic Board
             </span>
             <h1 class="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
                 Media & Social Gallery
             </h1>
             <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Explore institutional documentaries, graduation highlights, practical vocational workshops, and daily updates from across our nationwide training ecosystem.
+                Explore institutional documentaries, graduation ceremonies, leadership delegations, practical vocational workshops, and daily updates from across our nationwide training ecosystem.
             </p>
 
             <!-- OFFICIAL CHANNELS QUICK CONNECT BAR -->
             <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                <a href="https://www.youtube.com/@iceeds" 
+                <a href="https://www.youtube.com/@iceeds.official" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-red-600/90 hover:bg-red-600 transition shadow-sm border border-red-500/30">
@@ -69,35 +85,42 @@
     </section>
 
     <!-- FILTER NAVIGATION BAR -->
-    <section class="py-6 bg-white border-b border-slate-200 sticky top-16 z-20 shadow-xs">
+    <section class="py-5 bg-white border-b border-slate-200 sticky top-16 z-20 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs sm:text-sm font-bold">
+            <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs sm:text-sm font-bold">
                 <button type="button" 
                         @click="activeFilter = 'all'" 
                         :class="activeFilter === 'all' ? 'bg-blue-700 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150">
-                    All Media
+                        class="px-5 py-2 rounded-full transition-all duration-150 whitespace-nowrap">
+                    All Media ({{ count($mediaItems) }})
                 </button>
                 <button type="button" 
                         @click="activeFilter = 'youtube'" 
                         :class="activeFilter === 'youtube' ? 'bg-red-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5">
+                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
                     <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                    <span>YouTube Videos (16:9)</span>
+                    <span>Official Videos (3)</span>
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'instagram'" 
-                        :class="activeFilter === 'instagram' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-pink-400"></span>
-                    <span>Instagram Reels (9:16)</span>
+                        @click="activeFilter = 'photo'" 
+                        :class="activeFilter === 'photo' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
+                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Photographs & Events (5)</span>
                 </button>
                 <button type="button" 
-                        @click="activeFilter = 'facebook'" 
-                        :class="activeFilter === 'facebook' ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
-                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-blue-300"></span>
-                    <span>Facebook Highlights</span>
+                        @click="activeFilter = 'convocation'" 
+                        :class="activeFilter === 'convocation' ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
+                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    <span>Convocations</span>
+                </button>
+                <button type="button" 
+                        @click="activeFilter = 'leadership'" 
+                        :class="activeFilter === 'leadership' ? 'bg-amber-600 text-white shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
+                        class="px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span>Academic Board</span>
                 </button>
             </div>
         </div>
@@ -110,7 +133,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 @foreach($mediaItems as $item)
                     <!-- CARD CONTAINER -->
-                    <div x-show="activeFilter === 'all' || activeFilter === '{{ $item['type'] }}'"
+                    <div x-show="activeFilter === 'all' || activeFilter === '{{ $item['type'] }}' || activeFilter === '{{ $item['category_slug'] ?? '' }}'"
                          x-transition:enter="transition ease-out duration-200"
                          x-transition:enter-start="opacity-0 scale-95"
                          x-transition:enter-end="opacity-100 scale-100"
@@ -120,14 +143,16 @@
                         <div>
                             @if($item['type'] === 'youtube')
                                 <!-- 16:9 Aspect Frame for YouTube -->
-                                <div class="relative aspect-video bg-slate-900 overflow-hidden">
+                                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer"
+                                     @click="openVideo('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')">
                                     <img src="{{ $item['thumbnail'] }}" 
                                          alt="{{ $item['title'] }}" 
+                                         loading="lazy"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
                                     
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
-                                    <!-- Duration Pill -->
+                                    <!-- Duration / Badge Pill -->
                                     <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
                                         {{ $item['duration'] }}
                                     </span>
@@ -139,38 +164,58 @@
                                     </span>
 
                                     <!-- Clickable Play Button Overlay -->
-                                    <button type="button" 
-                                            @click="openVideo('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')"
-                                            class="absolute inset-0 flex items-center justify-center group/btn focus:outline-none">
+                                    <div class="absolute inset-0 flex items-center justify-center group/btn">
                                         <div class="w-14 h-14 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-lg group-hover/btn:scale-110 group-hover/btn:bg-red-600 transition-all">
                                             <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
                                                 <path d="M8 5v14l11-7z"/>
                                             </svg>
                                         </div>
-                                    </button>
+                                    </div>
+                                </div>
+
+                            @elseif($item['type'] === 'photo')
+                                <!-- Photograph Frame with Lightbox Trigger -->
+                                <div class="relative {{ isset($item['aspect']) && $item['aspect'] === '3:4' ? 'aspect-[3/4] max-h-[460px]' : 'aspect-[4/3] sm:aspect-video' }} bg-slate-900 overflow-hidden cursor-pointer"
+                                     @click="openLightbox('{{ $item['image_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')">
+                                    <picture>
+                                        <source srcset="{{ $item['image_url'] }}" type="image/webp">
+                                        <img src="{{ $item['fallback_url'] }}" 
+                                             alt="{{ $item['title'] }}" 
+                                             loading="lazy"
+                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    </picture>
+                                    
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+
+                                    <!-- Photo Badge -->
+                                    <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span>Official Photo</span>
+                                    </span>
+
+                                    <!-- Expand Icon Overlay -->
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                        <div class="w-12 h-12 rounded-full bg-slate-900/80 backdrop-blur-sm text-white flex items-center justify-center shadow-lg border border-white/20 transform scale-90 group-hover:scale-100 transition-transform">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                        </div>
+                                    </div>
                                 </div>
 
                             @elseif($item['type'] === 'instagram')
-                                <!-- 9:16 Aspect Frame for Instagram Reels -->
-                                <div class="relative aspect-[9/16] max-h-[460px] mx-auto w-full bg-slate-900 overflow-hidden">
+                                <!-- Instagram Highlights -->
+                                <div class="relative aspect-video bg-slate-900 overflow-hidden">
                                     <img src="{{ $item['thumbnail'] }}" 
                                          alt="{{ $item['title'] }}" 
+                                         loading="lazy"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
-                                    <!-- Duration Pill -->
-                                    <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
-                                        {{ $item['duration'] }}
-                                    </span>
-
-                                    <!-- Reel Badge -->
                                     <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-gradient-to-r from-purple-600 to-pink-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
                                         <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
-                                        <span>Reel 9:16</span>
+                                        <span>Reel Highlights</span>
                                     </span>
 
-                                    <!-- Reel Play Overlay -->
                                     <a href="{{ $item['direct_url'] }}" 
                                        target="_blank" 
                                        rel="noopener noreferrer"
@@ -182,17 +227,14 @@
                                 </div>
 
                             @elseif($item['type'] === 'facebook')
-                                <!-- Facebook Highlight Card (16:9 / 4:3) -->
+                                <!-- Facebook Highlights -->
                                 <div class="relative aspect-video bg-slate-900 overflow-hidden">
                                     <img src="{{ $item['thumbnail'] }}" 
                                          alt="{{ $item['title'] }}" 
+                                         loading="lazy"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-
-                                    <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
-                                        {{ $item['duration'] }}
-                                    </span>
 
                                     <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
                                         <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -247,7 +289,7 @@
                                     <button type="button" 
                                             @click="openVideo('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')"
                                             class="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1">
-                                        <span>Preview Video</span>
+                                        <span>Watch Video</span>
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
                                     </button>
 
@@ -255,7 +297,23 @@
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        class="text-xs font-bold text-slate-700 hover:text-slate-950 flex items-center gap-1">
-                                        <span>Watch on YouTube &rarr;</span>
+                                        <span>Open on YouTube &rarr;</span>
+                                    </a>
+                                </div>
+                            @elseif($item['type'] === 'photo')
+                                <div class="flex items-center justify-between">
+                                    <button type="button" 
+                                            @click="openLightbox('{{ $item['image_url'] }}', '{{ addslashes($item['title']) }}', '{{ addslashes($item['category']) }}', '{{ addslashes($item['description']) }}')"
+                                            class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                                        <span>View Fullscreen</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                                    </button>
+
+                                    <a href="{{ $item['fallback_url'] }}" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1">
+                                        <span>High-Res Photo &rarr;</span>
                                     </a>
                                 </div>
                             @elseif($item['type'] === 'instagram')
@@ -287,7 +345,8 @@
     <!-- RESPONSIVE VIDEO MODAL -->
     <div x-show="activeModalVideo" 
          x-cloak
-         class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+         style="display: none;"
+         class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md"
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0"
          x-transition:enter-end="opacity-100"
@@ -309,12 +368,63 @@
 
             <div class="aspect-video w-full bg-black">
                 <template x-if="activeModalVideo">
-                    <iframe :src="activeModalVideo + '?autoplay=1'" 
+                    <iframe :src="activeModalVideo + '?autoplay=1&rel=0'" 
                             class="w-full h-full" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen></iframe>
                 </template>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESPONSIVE PHOTO LIGHTBOX MODAL -->
+    <div x-show="activeLightboxImage" 
+         x-cloak
+         style="display: none;"
+         class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-md"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        
+        <div class="relative w-full max-w-5xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col max-h-[92vh]"
+             @click.away="closeLightbox()">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-slate-950 flex items-center justify-between border-b border-slate-800/80">
+                <div class="flex items-center gap-3 truncate">
+                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider" x-text="activeLightboxCategory"></span>
+                    <h4 class="text-sm sm:text-base font-bold text-white font-heading truncate" x-text="activeLightboxTitle"></h4>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a :href="activeLightboxImage" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Open full resolution in new tab"
+                       class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <button type="button" 
+                            @click="closeLightbox()" 
+                            class="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Viewport -->
+            <div class="flex-1 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden min-h-[300px]">
+                <img :src="activeLightboxImage" 
+                     :alt="activeLightboxTitle" 
+                     class="max-h-[68vh] w-auto max-w-full object-contain rounded-xl shadow-lg">
+            </div>
+
+            <!-- Modal Footer Description -->
+            <div class="px-6 py-4 bg-slate-950 border-t border-slate-800/80">
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" x-text="activeLightboxDesc"></p>
             </div>
         </div>
     </div>

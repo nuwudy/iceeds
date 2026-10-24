@@ -118,6 +118,26 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('Watch on YouTube');
         $response->assertSee('Follow on Instagram');
         $response->assertSee('View on Facebook');
+
+        // Check 3 YouTube Videos
+        $response->assertSee('utoVx8uhc00');
+        $response->assertSee('Q6evOepcB2Q');
+        $response->assertSee('K6rGVKLz3DI');
+        $response->assertSee('iCEEDS APP LAUNCH 2026');
+        $response->assertSee('Winners TTC Academy');
+        $response->assertSee('Online Certificate Verification');
+
+        // Check 5 Photographs
+        $response->assertSee('dr-arunachalam-dr-aliyar-academic-delegation.webp');
+        $response->assertSee('academic-board-of-studies-meeting.webp');
+        $response->assertSee('nsdc-skill-india-certificate-specimen.webp');
+        $response->assertSee('convocation-counselling-psychology-ceremony.webp');
+        $response->assertSee('student-graduation-diploma-presentation.webp');
+
+        // Check Lightbox Modal presence
+        $response->assertSee('activeLightboxImage');
+        $response->assertSee('View Fullscreen');
+
         $response->assertDontSee('Autonomous Statutory Body');
     }
 

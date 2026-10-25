@@ -170,6 +170,16 @@ class CourseCatalogAndMediaTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
+
+        // Check What is iCEEDS Spotlight Section below Hero
+        $response->assertSee('What is iCEEDS?');
+        $response->assertSee('video-project-27-zlvj2o.mp4');
+        $response->assertSee('Skill for Growth. Skill for Future. Skill for Life.');
+        $response->assertSee('homeSpotlightVideoPlayer');
+        $response->assertSee('homeSpotlightPoster');
+        $response->assertSee('playHomeSpotlightVideo');
+
+        // Check Institutional Documentary Section
         $response->assertSee('video-project-26-1-euyqjz.mp4');
         $response->assertSee('Empowering India Through Accredited Skills &amp; Education', false);
         $response->assertSee('Institutional Documentary');

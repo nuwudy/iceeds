@@ -78,7 +78,7 @@
                         onclick="filterGallery('photo')" 
                         class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>Photographs &amp; Events (5)</span>
+                    <span>Photographs &amp; Events (4)</span>
                 </button>
                 <button type="button" 
                         data-filter="convocation"

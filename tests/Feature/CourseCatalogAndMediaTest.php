@@ -132,12 +132,14 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('iCEEDS &amp; IZZA Academy Certificate Conferment &amp; Student Felicitation', false);
         $response->assertDontSee('Hands-on Montessori Sensorial Apparatus in Action');
 
-        // Check 5 Photographs
+        // Check 4 Photographs
+        $response->assertSee('Photographs &amp; Events (4)', false);
         $response->assertSee('dr-arunachalam-dr-aliyar-academic-delegation.webp');
         $response->assertSee('academic-board-of-studies-meeting.webp');
         $response->assertSee('nsdc-skill-india-certificate-specimen.webp');
-        $response->assertSee('convocation-counselling-psychology-ceremony.webp');
         $response->assertSee('student-graduation-diploma-presentation.webp');
+        $response->assertDontSee('convocation-counselling-psychology-ceremony.jpg');
+        $response->assertDontSee('convocation-counselling-psychology-ceremony.webp');
 
         // Check Lightbox Modal presence
         $response->assertSee('photoLightboxModal');

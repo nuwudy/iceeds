@@ -107,16 +107,16 @@
                     iCEEDS ATC Registration form
                 </h1>
                 
-                <div class="mt-2 space-y-1">
-                    <p class="text-xs sm:text-sm font-semibold text-slate-700">
-                        iCEEDS - An Autonomous Body Registered Under Govt of India
-                    </p>
-                    <p class="text-xs sm:text-sm font-bold text-[#0197b2]">
+                <div class="mt-3 space-y-2 text-center max-w-3xl mx-auto">
+                    <p class="text-xs sm:text-sm md:text-base font-bold text-[#0197b2]">
                         उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद
                     </p>
-                    <p class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600">
-                        ISO 9001 : 2015, 2001:2018 CERTIFIED ORGANISATION
-                    </p>
+                    <div class="pt-1 text-[11px] sm:text-xs font-semibold text-slate-700 space-y-1 tracking-wide uppercase leading-relaxed">
+                        <p class="font-bold text-slate-800">ISO 9001:2015 CERTIFIED FOR QUALITY MANAGEMENT SYSTEM</p>
+                        <p class="text-slate-600">NSDC (SKILL INDIA) CERTIFICATION PARTNER ASSOCIATED WITH AUTHORISED TRAINING PARTNERS</p>
+                        <p class="text-slate-600">AN AUTONOMOUS BODY REGISTERED AS A TRUST UNDER THE INDIAN TRUSTS ACT 1882</p>
+                        <p class="font-bold text-slate-800 font-mono tracking-normal text-[11.5px] sm:text-xs">NGO DARPAN UNIQUE ID NO: KL/2023/0348375 (NITI AAYOG, GOVT. OF INDIA)</p>
+                    </div>
                 </div>
 
                 <!-- Statutory Credentials Badges -->
@@ -125,10 +125,13 @@
                         Indian Trusts Act, 1882
                     </span>
                     <span class="px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700">
-                        NITI Aayog NGO Darpan
+                        NITI Aayog NGO Darpan: KL/2023/0348375
                     </span>
                     <span class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800">
-                        Govt. Registered Body
+                        ISO 9001:2015 QMS
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800">
+                        NSDC Skill India Partner
                     </span>
                 </div>
             </div>

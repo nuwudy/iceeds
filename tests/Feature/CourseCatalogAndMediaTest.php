@@ -116,7 +116,7 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Media & Social Gallery');
         $response->assertSee('Watch on YouTube');
-        $response->assertSee('Follow on Instagram');
+        $response->assertSee('Official Videos (4)');
         $response->assertSee('View on Facebook');
 
         // Check 3 YouTube Videos
@@ -126,6 +126,11 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('iCEEDS APP LAUNCH 2026');
         $response->assertSee('Winners TTC Academy');
         $response->assertSee('Online Certificate Verification');
+
+        // Check Official MP4 Video Card
+        $response->assertSee('whatsapp-video-2026-10-25-at-85959-am-3dqsdf.mp4');
+        $response->assertSee('iCEEDS &amp; IZZA Academy Certificate Conferment &amp; Student Felicitation', false);
+        $response->assertDontSee('Hands-on Montessori Sensorial Apparatus in Action');
 
         // Check 5 Photographs
         $response->assertSee('dr-arunachalam-dr-aliyar-academic-delegation.webp');

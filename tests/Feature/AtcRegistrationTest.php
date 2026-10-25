@@ -19,6 +19,12 @@ class AtcRegistrationTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('iCEEDS ATC Registration form');
+        $response->assertSee('उत्तम शिक्षा और कौशल के विकास के लिए नवाचार परिषद');
+        $response->assertSee('ISO 9001:2015 CERTIFIED FOR QUALITY MANAGEMENT SYSTEM');
+        $response->assertSee('NSDC (SKILL INDIA) CERTIFICATION PARTNER ASSOCIATED WITH AUTHORISED TRAINING PARTNERS');
+        $response->assertSee('AN AUTONOMOUS BODY REGISTERED AS A TRUST UNDER THE INDIAN TRUSTS ACT 1882');
+        $response->assertSee('NGO DARPAN UNIQUE ID NO: KL/2023/0348375 (NITI AAYOG, GOVT. OF INDIA)');
+        $response->assertDontSee('2001:2018');
         $response->assertSee('Name of Study Centre (CAPITAL LETTERS)');
         $response->assertSee('Name of Director/Manager');
         $response->assertSee('Contact Number');

@@ -67,11 +67,11 @@
                     All Media ({{ count($mediaItems) }})
                 </button>
                 <button type="button" 
-                        data-filter="youtube"
-                        onclick="filterGallery('youtube')" 
+                        data-filter="videos"
+                        onclick="filterGallery('videos')" 
                         class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
                     <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                    <span>Official Videos (3)</span>
+                    <span>Official Videos (4)</span>
                 </button>
                 <button type="button" 
                         data-filter="photo"
@@ -111,33 +111,47 @@
 
                         <!-- MEDIA PREVIEW CONTAINER -->
                         <div>
-                            @if($item['type'] === 'youtube')
-                                <!-- 16:9 Aspect Frame for YouTube with Interactive In-Page Player -->
+                            @if($item['type'] === 'youtube' || $item['type'] === 'video')
+                                <!-- 16:9 Aspect Frame for Video with Interactive In-Page Player -->
                                 <div class="relative aspect-video bg-slate-900 overflow-hidden" id="video-box-{{ $item['id'] }}">
                                     <!-- Poster View -->
                                     <div class="video-poster relative w-full h-full cursor-pointer group/thumb"
-                                         onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] }}')">
-                                        <img src="{{ $item['thumbnail'] }}" 
-                                             alt="{{ $item['title'] }}" 
-                                             loading="lazy"
-                                             class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500 opacity-95">
+                                         onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] ?? $item['video_url'] }}', '{{ $item['type'] }}')">
+                                        <picture>
+                                            @if(!empty($item['thumbnail']))
+                                                <source srcset="{{ $item['thumbnail'] }}" type="image/webp">
+                                            @endif
+                                            <img src="{{ $item['fallback_url'] ?? $item['thumbnail'] }}" 
+                                                 alt="{{ $item['title'] }}" 
+                                                 loading="lazy"
+                                                 class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500 opacity-95">
+                                        </picture>
                                         
                                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
                                         <!-- Duration Pill -->
+                                        @if(!empty($item['duration']))
                                         <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[11px] font-mono font-bold">
                                             {{ $item['duration'] }}
                                         </span>
+                                        @endif
 
-                                        <!-- YouTube Badge -->
-                                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                                            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
-                                            <span>YouTube 16:9</span>
-                                        </span>
+                                        <!-- Video Type Badge -->
+                                        @if($item['type'] === 'youtube')
+                                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                                <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
+                                                <span>YouTube 16:9</span>
+                                            </span>
+                                        @else
+                                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                                <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
+                                                <span>Official Video</span>
+                                            </span>
+                                        @endif
 
-                                        <!-- Clickable Big Red Play Button -->
+                                        <!-- Clickable Big Play Button -->
                                         <div class="absolute inset-0 flex items-center justify-center">
-                                            <div class="w-16 h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 group-hover/thumb:bg-red-600 transition-all cursor-pointer">
+                                            <div class="w-16 h-16 rounded-full {{ $item['type'] === 'youtube' ? 'bg-red-600/95 group-hover/thumb:bg-red-600' : 'bg-blue-600/95 group-hover/thumb:bg-blue-600' }} text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all cursor-pointer">
                                                 <svg class="w-7 h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
                                                     <path d="M8 5v14l11-7z"/>
                                                 </svg>
@@ -260,17 +274,17 @@
 
                         <!-- CARD ACTION FOOTER -->
                         <div class="px-6 pb-6 pt-2 border-t border-slate-100">
-                            @if($item['type'] === 'youtube')
+                            @if($item['type'] === 'youtube' || $item['type'] === 'video')
                                 <div class="flex items-center justify-between gap-3">
                                     <button type="button" 
-                                            onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] }}')"
-                                            class="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1 cursor-pointer">
-                                        <svg class="w-4 h-4 fill-current text-red-600" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                            onclick="playInlineVideo('{{ $item['id'] }}', '{{ $item['embed_url'] ?? $item['video_url'] }}', '{{ $item['type'] }}')"
+                                            class="text-xs font-bold {{ $item['type'] === 'youtube' ? 'text-red-600 hover:text-red-700' : 'text-blue-600 hover:text-blue-700' }} flex items-center gap-1 cursor-pointer">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                         <span>Play on Page</span>
                                     </button>
 
                                     <button type="button" 
-                                            onclick="openVideoModal('{{ $item['embed_url'] }}', '{{ addslashes($item['title']) }}')"
+                                            onclick="openVideoModal('{{ $item['embed_url'] ?? $item['video_url'] }}', '{{ addslashes($item['title']) }}', '{{ $item['type'] }}')"
                                             class="text-xs font-semibold text-slate-500 hover:text-slate-800 flex items-center gap-1 cursor-pointer">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
                                         <span>Theater Mode</span>
@@ -279,8 +293,8 @@
                                     <a href="{{ $item['direct_url'] }}" 
                                        target="_blank" 
                                        rel="noopener noreferrer"
-                                       class="text-xs font-bold text-slate-800 hover:text-red-600 flex items-center gap-1">
-                                        <span>Watch on YouTube &rarr;</span>
+                                       class="text-xs font-bold text-slate-800 {{ $item['type'] === 'youtube' ? 'hover:text-red-600' : 'hover:text-blue-600' }} flex items-center gap-1">
+                                        <span>{{ $item['type'] === 'youtube' ? 'Watch on YouTube →' : 'Watch Video →' }}</span>
                                     </a>
                                 </div>
                             @elseif($item['type'] === 'photo')
@@ -343,13 +357,18 @@
                 </button>
             </div>
 
-            <div class="aspect-video w-full bg-black">
+            <div id="videoModalContainer" class="aspect-video w-full bg-black flex items-center justify-center">
                 <iframe id="videoModalIframe"
                         src="" 
                         class="w-full h-full" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
+                <video id="videoModalPlayer"
+                       src=""
+                       controls
+                       playsinline
+                       class="hidden w-full h-full object-contain bg-black"></video>
             </div>
         </div>
     </div>
@@ -406,7 +425,7 @@
 <!-- JAVASCRIPT: NATIVE INLINE PLAYBACK, THEATER MODAL, AND LIGHTBOX -->
 <script>
     // 1. Inline Video Playback inside the 16:9 Card
-    function playInlineVideo(id, embedUrl) {
+    function playInlineVideo(id, videoUrl, videoType) {
         const box = document.getElementById('video-box-' + id);
         if (!box) return;
 
@@ -415,20 +434,47 @@
 
         if (poster && playerContainer) {
             poster.classList.add('hidden');
-            playerContainer.innerHTML = '<iframe src="' + embedUrl + '?autoplay=1&rel=0" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            if (videoType === 'video' || (videoUrl && videoUrl.endsWith('.mp4'))) {
+                playerContainer.innerHTML = '<video src="' + videoUrl + '" controls autoplay playsinline class="w-full h-full object-contain bg-black"></video>';
+            } else {
+                playerContainer.innerHTML = '<iframe src="' + videoUrl + '?autoplay=1&rel=0" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
             playerContainer.classList.remove('hidden');
         }
     }
 
     // 2. Video Theater Modal
-    function openVideoModal(embedUrl, title) {
+    function openVideoModal(videoUrl, title, videoType) {
         const modal = document.getElementById('videoModal');
         const iframe = document.getElementById('videoModalIframe');
+        const player = document.getElementById('videoModalPlayer');
         const titleEl = document.getElementById('videoModalTitle');
 
-        if (modal && iframe) {
-            iframe.src = embedUrl + '?autoplay=1&rel=0';
+        if (modal) {
             if (titleEl) titleEl.textContent = title;
+
+            if (videoType === 'video' || (videoUrl && videoUrl.endsWith('.mp4'))) {
+                if (iframe) {
+                    iframe.src = '';
+                    iframe.classList.add('hidden');
+                }
+                if (player) {
+                    player.src = videoUrl;
+                    player.classList.remove('hidden');
+                    player.play().catch(function() {});
+                }
+            } else {
+                if (player) {
+                    player.pause();
+                    player.src = '';
+                    player.classList.add('hidden');
+                }
+                if (iframe) {
+                    iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+                    iframe.classList.remove('hidden');
+                }
+            }
+
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
@@ -437,9 +483,14 @@
     function closeVideoModal() {
         const modal = document.getElementById('videoModal');
         const iframe = document.getElementById('videoModalIframe');
+        const player = document.getElementById('videoModalPlayer');
 
-        if (modal && iframe) {
-            iframe.src = '';
+        if (modal) {
+            if (iframe) iframe.src = '';
+            if (player) {
+                player.pause();
+                player.src = '';
+            }
             modal.style.display = 'none';
             document.body.style.overflow = '';
         }
@@ -496,7 +547,11 @@
         items.forEach(el => {
             const type = el.getAttribute('data-type');
             const cat = el.getAttribute('data-category');
-            if (category === 'all' || type === category || cat === category) {
+            if (category === 'all' || 
+                type === category || 
+                cat === category ||
+                (category === 'videos' && (type === 'youtube' || type === 'video')) ||
+                (category === 'youtube' && (type === 'youtube' || type === 'video'))) {
                 el.style.display = '';
             } else {
                 el.style.display = 'none';

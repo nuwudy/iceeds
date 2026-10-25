@@ -848,7 +848,7 @@ class PageController extends Controller
     {
         return [
             // ==========================================
-            // OFFICIAL YOUTUBE HIGHLIGHTS & SESSIONS
+            // OFFICIAL HIGHLIGHT VIDEOS & SESSIONS
             // ==========================================
             [
                 'id' => 'yt-1',
@@ -891,6 +891,21 @@ class PageController extends Controller
                 'description' => 'Dr. A. B. Aliyar (Registrar, iCEEDS) officially declares and demonstrates the national online QR code & serial certificate verification system at iceeds.com/verify.',
                 'tags' => ['DrAliyar', 'Registrar', 'CertificateVerification', 'iCEEDS', 'ApostilleReady'],
                 'thumbnail' => 'https://i.ytimg.com/vi/K6rGVKLz3DI/hqdefault.jpg',
+            ],
+            [
+                'id' => 'vid-izza-1',
+                'type' => 'video',
+                'category_slug' => 'videos',
+                'title' => 'iCEEDS & IZZA Academy Certificate Conferment & Student Felicitation',
+                'subtitle' => 'Special Student Recognition & Graduation Ceremony',
+                'video_url' => 'https://iceeds.com/storage/media/2026/10/whatsapp-video-2026-10-25-at-85959-am-3dqsdf.mp4',
+                'direct_url' => 'https://iceeds.com/storage/media/2026/10/whatsapp-video-2026-10-25-at-85959-am-3dqsdf.mp4',
+                'duration' => '0:37',
+                'category' => 'Convocation & Felicitation',
+                'description' => 'Official felicitation ceremony by iCEEDS leadership (Dr. A. B. Aliyar, Registrar) and IZZA Academy, presenting the framed graduation certificate and honouring the achiever in the presence of faculty and family.',
+                'tags' => ['IzzaAcademy', 'Convocation', 'Felicitation', 'DrAliyar', 'CounsellingPsychology'],
+                'thumbnail' => '/images/gallery/izza-academy-felicitation-ceremony.webp',
+                'fallback_url' => '/images/gallery/izza-academy-felicitation-ceremony.jpg',
             ],
 
             // ==========================================
@@ -970,20 +985,6 @@ class PageController extends Controller
             // ==========================================
             // SOCIAL MEDIA FEEDS & COMMUNITY CONNECT
             // ==========================================
-            [
-                'id' => 'ig-1',
-                'type' => 'instagram',
-                'category_slug' => 'social',
-                'title' => 'Hands-on Montessori Sensorial Apparatus in Action',
-                'subtitle' => '@iceeds_official &bull; Instagram Reel',
-                'embed_url' => 'https://www.instagram.com',
-                'direct_url' => 'https://www.instagram.com',
-                'duration' => '0:58',
-                'category' => 'Campus Life',
-                'description' => 'Trainee educators demonstrating cylinder blocks and pink tower sensorial apparatus at an accredited MTTC workshop.',
-                'tags' => ['Montessori', 'Teaching', 'EarlyYears', 'Instagram'],
-                'thumbnail' => '/images/gallery/convocation-counselling-psychology-ceremony.webp',
-            ],
             [
                 'id' => 'fb-1',
                 'type' => 'facebook',

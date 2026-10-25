@@ -1076,7 +1076,7 @@
                         
                         <!-- Video Element -->
                         <video id="homeDocVideo" 
-                               src="https://iceeds.com/storage/media/2026/10/video-project-26-1-euyqjz.mp4" 
+                               src="https://iceeds.com/storage/media/2026/10/video-project-28-zjyipp.mp4" 
                                playsinline 
                                preload="metadata"
                                class="w-full h-full object-cover bg-black"
@@ -1085,43 +1085,57 @@
                         <!-- Poster Overlay View (Click to Play) -->
                         <div id="homeDocPoster" 
                              onclick="playHomeDocVideo()"
-                             class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-blue-950/90 to-slate-900 cursor-pointer flex flex-col items-center justify-center text-center p-6 text-white z-10 transition-opacity duration-300">
+                             class="absolute inset-0 cursor-pointer flex flex-col items-center justify-center text-center p-6 text-white z-10 transition-opacity duration-300 group/poster overflow-hidden">
                             
-                            <!-- Ambient Glow Behind Play Button -->
-                            <div class="relative mb-4">
-                                <div class="absolute inset-0 bg-blue-500/30 rounded-full blur-xl group-hover:bg-blue-500/50 transition-all duration-300"></div>
-                                <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-600 border border-blue-400/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 transition duration-300 shadow-2xl shadow-blue-600/50">
-                                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current translate-x-0.5" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
+                            <!-- Video Poster Image (Clearly Visible Background) -->
+                            <picture class="absolute inset-0 w-full h-full">
+                                <source srcset="/images/gallery/institutional-documentary-poster.webp" type="image/webp">
+                                <img src="/images/gallery/institutional-documentary-poster.jpg" 
+                                     alt="Institutional Documentary - Empowering India Through Accredited Skills &amp; Education" 
+                                     class="w-full h-full object-cover opacity-60 group-hover/poster:opacity-75 group-hover/poster:scale-105 transition-all duration-500">
+                            </picture>
+
+                            <!-- Balanced Dark Gradient Overlay for Maximum Legibility & Visual Clarity -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/40"></div>
+
+                            <!-- Content Container with Relative Z-Index -->
+                            <div class="relative z-10 flex flex-col items-center justify-center">
+                                <!-- Ambient Glow Behind Play Button -->
+                                <div class="relative mb-4">
+                                    <div class="absolute inset-0 bg-blue-500/40 rounded-full blur-xl group-hover/poster:bg-blue-500/60 transition-all duration-300"></div>
+                                    <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-600 border border-blue-400/40 flex items-center justify-center group-hover/poster:scale-110 group-hover/poster:bg-blue-500 transition duration-300 shadow-2xl shadow-blue-600/50">
+                                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current translate-x-0.5" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
                                 </div>
+
+                                <span class="text-xs uppercase font-bold tracking-widest text-blue-300 mb-1.5 flex items-center gap-1.5 drop-shadow-sm">
+                                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                                    Institutional Documentary
+                                </span>
+
+                                <h3 class="text-xl sm:text-2xl font-bold font-heading max-w-md text-white group-hover/poster:text-blue-100 transition drop-shadow-md">
+                                    Empowering India Through Accredited Skills &amp; Education
+                                </h3>
+
+                                <p class="text-xs sm:text-sm text-slate-200 mt-2 max-w-sm leading-relaxed drop-shadow-sm font-medium">
+                                    Discover how iCEEDS shapes careers and elevates employability standards across disciplines.
+                                </p>
                             </div>
 
-                            <span class="text-xs uppercase font-bold tracking-widest text-blue-300 mb-1.5 flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                                Institutional Documentary
-                            </span>
-
-                            <h3 class="text-xl sm:text-2xl font-bold font-heading max-w-md text-white group-hover:text-blue-100 transition">
-                                Empowering India Through Accredited Skills &amp; Education
-                            </h3>
-
-                            <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-sm leading-relaxed">
-                                Discover how iCEEDS shapes careers and elevates employability standards across disciplines.
-                            </p>
-
                             <!-- Badge in Top Corner -->
-                            <div class="absolute top-4 left-4 flex items-center gap-2">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-900/80 border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-md flex items-center gap-1.5">
+                            <div class="absolute top-4 left-4 z-10 flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-full bg-slate-900/85 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-md flex items-center gap-1.5 shadow-sm">
                                     <svg class="w-3 h-3 text-red-500 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
                                     <span>Official Video</span>
                                 </span>
                             </div>
 
                             <!-- Quality Badge in Bottom Corner -->
-                            <div class="absolute bottom-4 right-4 flex items-center gap-2">
-                                <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-white/10 text-blue-300 text-[11px] font-mono font-bold backdrop-blur-md">
-                                    HD 1080p
+                            <div class="absolute bottom-4 right-4 z-10 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-slate-900/85 border border-white/20 text-blue-300 text-[11px] font-mono font-bold backdrop-blur-md shadow-sm">
+                                    HD 1080p &bull; 0:40
                                 </span>
                             </div>
                         </div>

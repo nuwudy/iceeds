@@ -851,6 +851,21 @@ class PageController extends Controller
             // OFFICIAL HIGHLIGHT VIDEOS & SESSIONS
             // ==========================================
             [
+                'id' => 'vid-doc-1',
+                'type' => 'video',
+                'category_slug' => 'videos',
+                'title' => 'Empowering India Through Accredited Skills & Education',
+                'subtitle' => 'Institutional Documentary • 0:40 Overview',
+                'video_url' => 'https://iceeds.com/storage/media/2026/10/video-project-28-zjyipp.mp4',
+                'direct_url' => 'https://iceeds.com/storage/media/2026/10/video-project-28-zjyipp.mp4',
+                'duration' => '0:40',
+                'category' => 'Institutional Documentary',
+                'description' => 'Discover how iCEEDS shapes careers and elevates employability standards across disciplines with ISO 9001:2015 certified quality systems and nationwide partner networks.',
+                'tags' => ['InstitutionalDocumentary', 'EmpoweringIndia', 'SkillEducation', 'VocationalTraining', 'iCEEDS'],
+                'thumbnail' => '/images/gallery/institutional-documentary-poster.webp',
+                'fallback_url' => '/images/gallery/institutional-documentary-poster.jpg',
+            ],
+            [
                 'id' => 'vid-welcome-1',
                 'type' => 'video',
                 'category_slug' => 'videos',

@@ -116,11 +116,15 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Media & Social Gallery');
         $response->assertSee('Watch on YouTube');
-        $response->assertSee('Official Videos (5)');
+        $response->assertSee('Official Videos (6)');
         $response->assertSee('View on Facebook');
 
-        // Check Top Spotlight Video & Welcome Video Card
-        $response->assertSee('What is iCEEDS?');
+        // Check Top Spotlight Video: Institutional Documentary
+        $response->assertSee('Empowering India Through Accredited Skills &amp; Education', false);
+        $response->assertSee('video-project-28-zjyipp.mp4');
+        $response->assertSee('institutional-documentary-poster.webp');
+
+        // Check Welcome Video Card
         $response->assertSee('video-project-27-zlvj2o.mp4');
         $response->assertSee('Welcome to iCEEDS: Skill for Growth, Future &amp; Life', false);
         $response->assertSee('welcome-to-iceeds-overview.webp');
@@ -180,9 +184,10 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertSee('playHomeSpotlightVideo');
 
         // Check Institutional Documentary Section
-        $response->assertSee('video-project-26-1-euyqjz.mp4');
+        $response->assertSee('video-project-28-zjyipp.mp4');
         $response->assertSee('Empowering India Through Accredited Skills &amp; Education', false);
         $response->assertSee('Institutional Documentary');
+        $response->assertSee('institutional-documentary-poster.webp');
         $response->assertSee('homeDocVideo');
         $response->assertSee('homeDocPoster');
         $response->assertSee('playHomeDocVideo');

@@ -851,6 +851,21 @@ class PageController extends Controller
             // OFFICIAL HIGHLIGHT VIDEOS & SESSIONS
             // ==========================================
             [
+                'id' => 'vid-welcome-1',
+                'type' => 'video',
+                'category_slug' => 'videos',
+                'title' => 'Welcome to iCEEDS: Skill for Growth, Future & Life',
+                'subtitle' => 'Official Short Video Introduction & Mission Overview',
+                'video_url' => 'https://iceeds.com/storage/media/2026/10/video-project-27-zlvj2o.mp4',
+                'direct_url' => 'https://iceeds.com/storage/media/2026/10/video-project-27-zlvj2o.mp4',
+                'duration' => '0:10',
+                'category' => 'Institutional Overview',
+                'description' => 'A concise 10-second official presentation explaining what iCEEDS is—delivering accredited vocational education and skill development that empowers careers nationwide.',
+                'tags' => ['WelcomeToiCEEDS', 'SkillForGrowth', 'SkillForFuture', 'SkillForLife', 'AboutiCEEDS'],
+                'thumbnail' => '/images/gallery/welcome-to-iceeds-overview.webp',
+                'fallback_url' => '/images/gallery/welcome-to-iceeds-overview.jpg',
+            ],
+            [
                 'id' => 'yt-1',
                 'type' => 'youtube',
                 'category_slug' => 'videos',

@@ -56,6 +56,129 @@
         </div>
     </section>
 
+    <!-- FEATURED VIDEO SPOTLIGHT: WHAT IS iCEEDS? (SHORT VIDEO OVERVIEW) -->
+    <section class="py-10 sm:py-14 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.15),transparent_60%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            
+            <div class="bg-gradient-to-br from-slate-900/90 to-slate-950/90 rounded-3xl border border-slate-800 shadow-2xl p-6 sm:p-8 lg:p-10 backdrop-blur-md">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    
+                    <!-- Left Column: Video Context & Value Proposition -->
+                    <div class="lg:col-span-5 flex flex-col justify-center">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider w-fit mb-3">
+                            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                            <span>Featured Video &bull; 0:10 Short Overview</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight leading-snug">
+                            What is iCEEDS?
+                        </h2>
+                        <p class="text-blue-400 font-semibold text-sm sm:text-base mt-1">
+                            Skill for Growth. Skill for Future. Skill for Life.
+                        </p>
+
+                        <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+                            Watch our official short introductory video explaining what <strong>iCEEDS</strong> is—unlocking career potential through accredited vocational education, ISO 9001:2015 QMS certifications, and national skill ecosystem partnerships.
+                        </p>
+
+                        <!-- Key Pillars List -->
+                        <div class="mt-5 space-y-2 text-xs text-slate-300">
+                            <div class="flex items-center gap-2">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0">&check;</span>
+                                <span><strong>Skill for Growth:</strong> Accelerating career competencies</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-[10px] shrink-0">&check;</span>
+                                <span><strong>Skill for Future:</strong> Industry 4.0 &amp; AI-integrated diplomas</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-[10px] shrink-0">&check;</span>
+                                <span><strong>Skill for Life:</strong> Enduring professional empowerment</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap items-center gap-3">
+                            <button type="button" 
+                                    onclick="playSpotlightVideo()"
+                                    class="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition cursor-pointer flex items-center gap-2">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <span>Play Short Video (0:10)</span>
+                            </button>
+
+                            <button type="button" 
+                                    onclick="openVideoModal('https://iceeds.com/storage/media/2026/10/video-project-27-zlvj2o.mp4', 'Welcome to iCEEDS: Skill for Growth, Future &amp; Life', 'video')"
+                                    class="px-4 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition cursor-pointer flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                                <span>Theater Mode</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive 16:9 Video Player Box -->
+                    <div class="lg:col-span-7">
+                        <div id="spotlightVideoBox" class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl border border-slate-700/80 group/spot">
+                            
+                            <!-- Video Element -->
+                            <video id="spotlightVideoPlayer" 
+                                   src="https://iceeds.com/storage/media/2026/10/video-project-27-zlvj2o.mp4" 
+                                   playsinline 
+                                   preload="metadata"
+                                   class="w-full h-full object-contain bg-black"
+                                   onended="resetSpotlightVideo()"></video>
+
+                            <!-- Poster Overlay -->
+                            <div id="spotlightPoster" 
+                                 onclick="playSpotlightVideo()"
+                                 class="absolute inset-0 cursor-pointer group/poster flex items-center justify-center transition-opacity duration-300">
+                                <picture class="w-full h-full">
+                                    <source srcset="/images/gallery/welcome-to-iceeds-overview.webp" type="image/webp">
+                                    <img src="/images/gallery/welcome-to-iceeds-overview.jpg" 
+                                         alt="Welcome to iCEEDS - Short Video Overview" 
+                                         class="w-full h-full object-cover group-hover/poster:scale-105 transition-transform duration-500 opacity-90">
+                                </picture>
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
+
+                                <!-- Big Vibrant Play Button -->
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative">
+                                        <div class="absolute inset-0 bg-blue-600/40 rounded-full blur-xl group-hover/poster:bg-blue-600/60 transition-all"></div>
+                                        <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-600 border border-blue-400/40 text-white flex items-center justify-center shadow-2xl group-hover/poster:scale-110 group-hover/poster:bg-blue-500 transition-all duration-300 cursor-pointer">
+                                            <svg class="w-8 h-8 sm:w-9 sm:h-9 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Corner Badges -->
+                                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3v6z"/></svg>
+                                    <span>Official Video &bull; 0:10</span>
+                                </span>
+
+                                <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-slate-950/80 text-blue-300 text-[11px] font-mono font-bold border border-white/10 backdrop-blur-sm">
+                                    Full HD 1080p
+                                </span>
+                            </div>
+
+                            <!-- Exit Player Button -->
+                            <button type="button" 
+                                    id="spotlightCloseBtn"
+                                    onclick="resetSpotlightVideo()" 
+                                    title="Exit Video"
+                                    class="hidden absolute top-3 right-3 z-20 px-3 py-1.5 rounded-full bg-slate-900/85 hover:bg-slate-900 text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition cursor-pointer flex items-center gap-1.5 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                <span>Exit Player</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- FILTER NAVIGATION BAR -->
     <section class="py-5 bg-white border-b border-slate-200 sticky top-16 z-20 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +194,7 @@
                         onclick="filterGallery('videos')" 
                         class="filter-btn px-5 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700">
                     <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                    <span>Official Videos (4)</span>
+                    <span>Official Videos (5)</span>
                 </button>
                 <button type="button" 
                         data-filter="photo"
@@ -424,6 +547,41 @@
 
 <!-- JAVASCRIPT: NATIVE INLINE PLAYBACK, THEATER MODAL, AND LIGHTBOX -->
 <script>
+    // 0. Top Spotlight Video Player (What is iCEEDS?)
+    function playSpotlightVideo() {
+        const video = document.getElementById('spotlightVideoPlayer');
+        const poster = document.getElementById('spotlightPoster');
+        const closeBtn = document.getElementById('spotlightCloseBtn');
+
+        if (video && poster) {
+            poster.classList.add('opacity-0', 'pointer-events-none');
+            video.setAttribute('controls', 'true');
+            if (closeBtn) closeBtn.classList.remove('hidden');
+            const p = video.play();
+            if (p !== undefined) {
+                p.catch(function(e) { console.log('Spotlight play err:', e); });
+            }
+        }
+    }
+
+    function resetSpotlightVideo() {
+        const video = document.getElementById('spotlightVideoPlayer');
+        const poster = document.getElementById('spotlightPoster');
+        const closeBtn = document.getElementById('spotlightCloseBtn');
+
+        if (video) {
+            video.pause();
+            video.removeAttribute('controls');
+            video.currentTime = 0;
+        }
+        if (poster) {
+            poster.classList.remove('opacity-0', 'pointer-events-none');
+        }
+        if (closeBtn) {
+            closeBtn.classList.add('hidden');
+        }
+    }
+
     // 1. Inline Video Playback inside the 16:9 Card
     function playInlineVideo(id, videoUrl, videoType) {
         const box = document.getElementById('video-box-' + id);

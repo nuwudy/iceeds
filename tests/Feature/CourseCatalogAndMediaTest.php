@@ -116,8 +116,14 @@ class CourseCatalogAndMediaTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Media & Social Gallery');
         $response->assertSee('Watch on YouTube');
-        $response->assertSee('Official Videos (4)');
+        $response->assertSee('Official Videos (5)');
         $response->assertSee('View on Facebook');
+
+        // Check Top Spotlight Video & Welcome Video Card
+        $response->assertSee('What is iCEEDS?');
+        $response->assertSee('video-project-27-zlvj2o.mp4');
+        $response->assertSee('Welcome to iCEEDS: Skill for Growth, Future &amp; Life', false);
+        $response->assertSee('welcome-to-iceeds-overview.webp');
 
         // Check 3 YouTube Videos
         $response->assertSee('utoVx8uhc00');

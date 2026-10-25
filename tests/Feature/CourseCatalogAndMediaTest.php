@@ -159,4 +159,16 @@ class CourseCatalogAndMediaTest extends TestCase
             $response->assertSee('Indian Trusts Act, 1882');
         }
     }
+
+    public function test_home_page_displays_institutional_documentary_video(): void
+    {
+        $response = $this->get('/');
+        $response->assertStatus(200);
+        $response->assertSee('video-project-26-1-euyqjz.mp4');
+        $response->assertSee('Empowering India Through Accredited Skills &amp; Education', false);
+        $response->assertSee('Institutional Documentary');
+        $response->assertSee('homeDocVideo');
+        $response->assertSee('homeDocPoster');
+        $response->assertSee('playHomeDocVideo');
+    }
 }

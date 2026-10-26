@@ -193,12 +193,17 @@ class CertificateVerificationTest extends TestCase
             ->assertSuccessful();
 
         $count = Certificate::count();
-        $this->assertEquals(2875, $count, 'All 2,875 records must be preserved with zero data loss.');
+        $this->assertEquals(3324, $count, 'All 3,324 records must be preserved with zero data loss.');
 
-        // Test sample from import
+        // Test sample from original import
         $sample = Certificate::where('certificate_code', 'EDP/TVM24/DCP/065')->first();
         $this->assertNotNull($sample);
         $this->assertEquals('NISHAJ N', $sample->student_name);
         $this->assertEquals('iCEEDS DIPLOMA IN COUNSELLING PSYCHOLOGY', $sample->course);
+
+        // Test sample from new batch
+        $newSample = Certificate::where('certificate_code', 'IZZA/MLP24/DCP/1106')->first();
+        $this->assertNotNull($newSample);
+        $this->assertEquals('JAYAN R', $newSample->student_name);
     }
 }

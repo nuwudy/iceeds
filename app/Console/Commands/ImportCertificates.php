@@ -16,7 +16,9 @@ class ImportCertificates extends Command
      */
     protected $signature = 'app:import-certificates 
                             {file? : The path to the SQL dump file} 
-                            {--fresh : Truncate the certificates table before importing}';
+                            {--fresh : Truncate the certificates table before importing}
+                            {--only-new : Only insert certificate codes that do not exist yet (IDs auto-assigned, existing rows untouched)}
+                            {--dry-run : With --only-new, report what would be inserted without writing}';
 
     /**
      * The console command description.
@@ -117,6 +119,10 @@ class ImportCertificates extends Command
         $totalParsed = count($records);
         $this->info("Successfully parsed {$totalParsed} certificate records (skipped: {$skipped}).");
 
+        if ($this->option('only-new')) {
+            return $this->importOnlyNew($records);
+        }
+
         if ($this->option('fresh')) {
             $this->warn("Truncating certificates table...");
             Certificate::truncate();
@@ -163,6 +169,57 @@ class ImportCertificates extends Command
         }
 
         $this->info("Certificate migration completed successfully with ZERO data loss!");
+
+        return self::SUCCESS;
+    }
+
+    /**
+     * Insert only records whose certificate code is not already in the database.
+     * Existing rows are never modified and IDs are assigned by the database.
+     */
+    private function importOnlyNew(array $records): int
+    {
+        $existing = Certificate::query()
+            ->pluck('certificate_code')
+            ->map(fn ($code) => mb_strtolower(trim($code)))
+            ->flip();
+
+        $new = [];
+        $seen = [];
+        foreach ($records as $record) {
+            $key = mb_strtolower($record['certificate_code']);
+            if ($key === '' || isset($existing[$key]) || isset($seen[$key])) {
+                continue;
+            }
+            $seen[$key] = true;
+            unset($record['id']);
+            $new[] = $record;
+        }
+
+        $this->table(['Metric', 'Value'], [
+            ['Records in file', number_format(count($records))],
+            ['Already in database (skipped)', number_format(count($records) - count($new))],
+            ['New records to insert', number_format(count($new))],
+        ]);
+
+        if ($this->option('dry-run')) {
+            foreach (array_slice($new, 0, 20) as $r) {
+                $this->line("  + {$r['certificate_code']}  {$r['student_name']}  ({$r['issue_date']})");
+            }
+            if (count($new) > 20) {
+                $this->line('  ... and ' . (count($new) - 20) . ' more');
+            }
+            $this->warn('Dry run: nothing was written.');
+            return self::SUCCESS;
+        }
+
+        DB::transaction(function () use ($new) {
+            foreach (array_chunk($new, 500) as $chunk) {
+                Certificate::insert($chunk);
+            }
+        });
+
+        $this->info('Inserted ' . number_format(count($new)) . ' new certificates. Total in DB: ' . number_format(Certificate::count()));
 
         return self::SUCCESS;
     }

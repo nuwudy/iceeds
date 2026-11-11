@@ -717,14 +717,16 @@
                                 'desc' => 'A formal guarantee/security seal symbolizing verified accreditation, authenticity, or standard verification from a certifying agency.'
                             ],
                             [
-                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-11-6d5uxy.webp',
+                                'type' => 'typography',
+                                'badge_code' => 'NSDC',
                                 'title' => 'NSDC (National Skill Development Corporation)',
-                                'desc' => 'A public-private partnership under India’s Ministry of Skill Development & Entrepreneurship (MSDE) that facilitates and funds vocational training and skill programs in India.'
+                                'desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. A public-private partnership under India’s Ministry of Skill Development & Entrepreneurship (MSDE) that facilitates and funds vocational training and skill programs in India.'
                             ],
                             [
-                                'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-12-gcfvex.webp',
+                                'type' => 'typography',
+                                'badge_code' => 'SKILL INDIA',
                                 'title' => 'Skill India (कौशल भारत - कुशल भारत)',
-                                'desc' => 'The flagship campaign launched by the Government of India to provide industry-relevant vocational training and certification to Indian youth.'
+                                'desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. The flagship campaign launched by the Government of India to provide industry-relevant vocational training and certification to Indian youth.'
                             ],
                             [
                                 'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-14-5td9zf.webp',
@@ -738,12 +740,20 @@
                         <div class="static sm:relative group emblem-popover-trigger" tabindex="0" role="button" aria-haspopup="true" aria-label="{{ $emblem['title'] }}">
                             <!-- Emblem Box -->
                             <div class="h-9 sm:h-12 md:h-13 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white border border-slate-200/90 shadow-2xs group-hover:shadow-lg group-hover:border-blue-400 group-hover:ring-2 group-hover:ring-blue-400/30 group-hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer">
-                                <img 
-                                    src="{{ $emblem['url'] }}" 
-                                    alt="{{ $emblem['title'] }}" 
-                                    loading="lazy" 
-                                    class="h-6 sm:h-9 md:h-10 w-auto max-w-[50px] xs:max-w-[65px] sm:max-w-[95px] md:max-w-[105px] object-contain pointer-events-none"
-                                >
+                                @if(!empty($emblem['type']) && $emblem['type'] === 'typography')
+                                    <div class="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded border border-slate-300/80 bg-slate-50/90 flex items-center justify-center shadow-2xs">
+                                        <span class="font-black text-slate-900 {{ $emblem['badge_code'] === 'SKILL INDIA' ? 'text-[8px] sm:text-[9.5px] md:text-[11px] whitespace-nowrap' : 'text-[9.5px] sm:text-xs md:text-[13px]' }} tracking-wider font-sans leading-none">
+                                            {{ $emblem['badge_code'] }}
+                                        </span>
+                                    </div>
+                                @else
+                                    <img 
+                                        src="{{ $emblem['url'] }}" 
+                                        alt="{{ $emblem['title'] }}" 
+                                        loading="lazy" 
+                                        class="h-6 sm:h-9 md:h-10 w-auto max-w-[50px] xs:max-w-[65px] sm:max-w-[95px] md:max-w-[105px] object-contain pointer-events-none"
+                                    >
+                                @endif
                             </div>
 
                             <!-- Popover / Explainer Template (Rendered in Unified Center Screen Modal) -->
@@ -766,6 +776,14 @@
                     @endforeach
                 </div>
 
+            </div>
+
+            <!-- Accreditation Strip Partner Disclosure Statement -->
+            <div class="mt-2 pt-2 border-t border-slate-200/70 text-center">
+                <p class="text-[11px] sm:text-xs font-medium text-slate-600 leading-snug">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 align-middle"></span>
+                    <strong class="font-bold text-slate-800">Official Disclosure:</strong> iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors.
+                </p>
             </div>
         </div>
     </div>
@@ -1109,6 +1127,18 @@
                             <p><strong class="text-slate-300">Grievance Officer:</strong> <a href="tel:+919061202443" class="hover:text-amber-400 font-mono">+91 90612 02443</a></p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Official Partner Disclosure Banner -->
+        <div class="border-t border-slate-900 bg-slate-950 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 shadow-md text-center">
+                    <p class="text-xs sm:text-sm font-medium text-white/90 leading-relaxed">
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2 align-middle animate-pulse"></span>
+                        iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors.
+                    </p>
                 </div>
             </div>
         </div>

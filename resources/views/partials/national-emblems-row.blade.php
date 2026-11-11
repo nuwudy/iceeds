@@ -7,13 +7,12 @@
             'badge_classes' => 'bg-amber-400/25 text-amber-200 border border-amber-400/40 shadow-xs',
             'pill_classes' => 'bg-amber-500/20 text-amber-300 border border-amber-400/30',
             'category' => 'Govt. of India PPP',
-            'url' => asset('images/emblems/nsdc-logo.webp') . '?v=2',
-            'fallback' => 'https://iceeds.com/storage/media/2026/10/nsdc-logo-ht0zxd.webp',
+            'badge_code' => 'NSDC',
             'alt' => 'NSDC - National Skill Development Corporation',
             'title' => 'National Skill Development Corporation (NSDC)',
             'subtitle' => 'Under Ministry of Skill Development & Entrepreneurship (MSDE) • Govt. of India',
-            'relevance_desc' => 'iCEEDS vocational syllabi, curriculum structures, and assessment standards are designed in strict alignment with the National Skills Qualifications Framework (NSQF) initiated under NSDC directives. This ensures standardized competency benchmarks, structured practical learning outcomes, and nationwide workforce readiness across 4,000+ course disciplines.',
-            'status' => '✓ NSQF Aligned Syllabi • Industry Competence'
+            'relevance_desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. iCEEDS vocational syllabi, curriculum structures, and assessment standards are designed in strict alignment with the National Skills Qualifications Framework (NSQF) initiated under NSDC directives.',
+            'status' => '✓ Associate Partner of Vemosa Skills • NSQF Aligned Syllabi'
         ],
         [
             'id' => 'skill-india',
@@ -22,13 +21,12 @@
             'badge_classes' => 'bg-orange-400/25 text-orange-200 border border-orange-400/40 shadow-xs',
             'pill_classes' => 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
             'category' => 'National Skilling Mission',
-            'url' => asset('images/emblems/skill-india.webp') . '?v=2',
-            'fallback' => 'https://iceeds.com/storage/media/2026/10/skill-india-gy62mi.webp',
+            'badge_code' => 'SKILL INDIA',
             'alt' => 'Skill India - Kaushal Bharat Kushal Bharat',
             'title' => 'Skill India (Kaushal Bharat • Kushal Bharat)',
             'subtitle' => 'National Skill Development Mission • Government of India',
-            'relevance_desc' => 'In active resonance with India\'s flagship skilling transformation, iCEEDS drives practical vocational training, women\'s skill enhancement, and grassroots youth enablement. Operating through authorized training centers (ATCs) and specialized faculty chambers, iCEEDS delivers market-demanded competencies that foster self-reliance and gainful employment.',
-            'status' => '✓ Mission Participant • Grassroots Upskilling'
+            'relevance_desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. Operating through authorized training centers (ATCs) and specialized faculty chambers, iCEEDS delivers market-demanded competencies that foster self-reliance and gainful employment.',
+            'status' => '✓ Associate Partner of Vemosa Skills • Grassroots Upskilling'
         ],
         [
             'id' => 'digilocker',
@@ -76,17 +74,35 @@
                         i
                     </span>
 
-                    <!-- Emblem Graphic Badge (Enlarged for Maximum Clarity & Recognition) -->
+                    <!-- Emblem Badge (Typographic or Graphic) -->
                     <div class="w-full flex items-center justify-center pt-1">
                         <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2 shadow-md shadow-black/20 border border-white/60 flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg transition-transform duration-200">
-                            <img 
-                                src="{{ $emblem['url'] }}" 
-                                alt="{{ $emblem['alt'] }}"
-                                loading="lazy"
-                                onerror="this.onerror=null; this.src='{{ $emblem['fallback'] }}';"
-                                class="w-full h-full object-contain pointer-events-none"
-                                style="image-rendering: -webkit-optimize-contrast;"
-                            >
+                            @if($emblem['id'] === 'nsdc')
+                                <!-- Clean Modern Typographic Badge for NSDC with Academic/Skill Shield Emblem -->
+                                <div class="w-full h-full flex flex-col items-center justify-center rounded-lg sm:rounded-xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/90 shadow-2xs p-1 text-center select-none">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-slate-800 mb-0.5 sm:mb-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                    <span class="font-black text-slate-900 text-xs sm:text-sm tracking-widest font-sans leading-none">NSDC</span>
+                                </div>
+                            @elseif($emblem['id'] === 'skill-india')
+                                <!-- Clean Modern Typographic Badge for SKILL INDIA in Bold Uppercase Lettering -->
+                                <div class="w-full h-full flex flex-col items-center justify-center rounded-lg sm:rounded-xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/90 shadow-2xs p-1 text-center select-none">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-slate-800 mb-0.5 sm:mb-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    </svg>
+                                    <span class="font-black text-slate-900 text-[9px] sm:text-[10.5px] tracking-wider font-sans leading-tight">SKILL<br>INDIA</span>
+                                </div>
+                            @else
+                                <img 
+                                    src="{{ $emblem['url'] }}" 
+                                    alt="{{ $emblem['alt'] }}"
+                                    loading="lazy"
+                                    onerror="this.onerror=null; this.src='{{ $emblem['fallback'] }}';"
+                                    class="w-full h-full object-contain pointer-events-none"
+                                    style="image-rendering: -webkit-optimize-contrast;"
+                                >
+                            @endif
                         </div>
                     </div>
 
@@ -144,5 +160,13 @@
                 </div>
             </div>
         @endforeach
+    </div>
+
+    <!-- Official Partner Disclosure Statement -->
+    <div class="mt-2.5 sm:mt-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 shadow-md">
+        <p class="text-xs sm:text-sm font-medium text-white/90 text-center leading-relaxed">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 align-middle animate-pulse"></span>
+            iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors.
+        </p>
     </div>
 </div>

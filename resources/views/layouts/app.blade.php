@@ -971,7 +971,7 @@
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
-                        iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills) is a self-governing educational organization established under the Indian Trusts Act, 1882. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses guided by an expert Academic Board of Studies, with certification support aligned with the NSDC under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                        iCEEDS (Innovation Council for Exquisite Education &amp; Development of Skills) is a self-governing educational organization established under the Indian Trusts Act, 1882. As an independent skill development, training, and certification entity, the Trust designs and conducts vocational and professional courses guided by an expert Academic Board of Studies, with certification support aligned with the NSDC under the Ministry of Skill Development and Entrepreneurship, Govt. of India, through the authorized training partners.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-2 text-[11px]">
                         <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-emerald-400 font-medium">Registered under Indian Trusts Act, 1882</span>

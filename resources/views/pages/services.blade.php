@@ -16,7 +16,7 @@
                 Our Services & Programs
             </h1>
             <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Vocational and professional courses designed by an expert Academic Board of Studies, empowering students with industry-relevant skills aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.
+                Vocational and professional courses designed by an expert Academic Board of Studies, empowering students with industry-relevant skills aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India, through the authorized training partners.
             </p>
         </div>
     </section>

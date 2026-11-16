@@ -368,7 +368,7 @@ class PageController extends Controller
             ],
             [
                 'title' => 'NSDC & Ministry Aligned',
-                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.',
+                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India, through NSDC Authorised Training Partners.',
                 'icon' => 'sparkles',
             ],
             [
@@ -408,7 +408,7 @@ class PageController extends Controller
             [
                 'number' => '03',
                 'title' => 'NSDC & National Standards Alignment',
-                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India.',
+                'description' => 'Facilitating skill training and certification support aligned with the National Skill Development Corporation (NSDC) under the Ministry of Skill Development and Entrepreneurship, Govt. of India, through NSDC Authorised Training Partners.',
             ],
             [
                 'number' => '04',

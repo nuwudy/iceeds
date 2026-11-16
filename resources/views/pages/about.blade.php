@@ -164,7 +164,7 @@
 
                         <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
                             <strong class="text-white text-sm block mb-0.5">NSDC Certification Support</strong>
-                            <p class="leading-relaxed">Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India.</p>
+                            <p class="leading-relaxed">Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India, through NSDC Authorised Training Partners.</p>
                         </div>
 
                         <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">

@@ -1415,7 +1415,7 @@
                                     <div>
                                         <h4 class="text-xs sm:text-sm font-bold text-white">NSDC Certification Support</h4>
                                         <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                                            Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India.
+                                            Facilitating skill training and certification support aligned with the <strong>National Skill Development Corporation (NSDC)</strong> under the <strong>Ministry of Skill Development and Entrepreneurship (MSDE)</strong>, Govt. of India, through NSDC Authorised Training Partners.
                                         </p>
                                     </div>
                                 </div>

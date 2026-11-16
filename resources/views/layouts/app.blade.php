@@ -720,13 +720,13 @@
                                 'type' => 'typography',
                                 'badge_code' => 'NSDC',
                                 'title' => 'NSDC (National Skill Development Corporation)',
-                                'desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. A public-private partnership under India’s Ministry of Skill Development & Entrepreneurship (MSDE) that facilitates and funds vocational training and skill programs in India.'
+                                'desc' => 'iCEEDS collaborates as an Associate Partner with NSDC-approved Training Partners to facilitate skill training across multiple sectors. For Qualification Pack (QP) programs, iCEEDS aligns its vocational syllabi and training frameworks with the National Skills Qualifications Framework (NSQF), with final assessment and certification governed by the respective NSDC-authorised bodies. Additionally, iCEEDS independently offers industry-focused Non-QP skill programs.'
                             ],
                             [
                                 'type' => 'typography',
                                 'badge_code' => 'SKILL INDIA',
                                 'title' => 'Skill India (कौशल भारत - कुशल भारत)',
-                                'desc' => 'iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors. The flagship campaign launched by the Government of India to provide industry-relevant vocational training and certification to Indian youth.'
+                                'desc' => 'iCEEDS is an Associate Partner of NSDC Authorised Training Partners for SKILL INDIA certification in different Skill Sectors. Operating through Authorised Training Centres (ATCs) and specialized faculty chambers, iCEEDS delivers market-demanded competencies that foster self-reliance and gainful employment.'
                             ],
                             [
                                 'url' => 'https://iceeds.com/storage/media/2026/10/iceeds-accreditation-14-5td9zf.webp',
@@ -782,7 +782,7 @@
             <div class="mt-2 pt-2 border-t border-slate-200/70 text-center">
                 <p class="text-[11px] sm:text-xs font-medium text-slate-600 leading-snug">
                     <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 align-middle"></span>
-                    <strong class="font-bold text-slate-800">Official Disclosure:</strong> iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors.
+                    <strong class="font-bold text-slate-800">Official Disclosure:</strong> iCEEDS provides NSDC-SKILL INDIA certificates through Authorised Training Partners of NSDC, Govt. of India.
                 </p>
             </div>
         </div>
@@ -1137,7 +1137,7 @@
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 shadow-md text-center">
                     <p class="text-xs sm:text-sm font-medium text-white/90 leading-relaxed">
                         <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2 align-middle animate-pulse"></span>
-                        iCEEDS is an Associate Partner of Vemosa Skills Private Limited for SKILL INDIA - NSDC certification in different Skill Sectors.
+                        iCEEDS provides NSDC-SKILL INDIA certificates through Authorised Training Partners of NSDC, Govt. of India.
                     </p>
                 </div>
             </div>

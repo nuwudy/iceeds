@@ -150,6 +150,53 @@ class AdminManagementTest extends TestCase
         ]);
     }
 
+    public function test_approved_user_can_download_sample_template()
+    {
+        $admin = User::factory()->create([
+            'role' => 'admin',
+            'is_approved' => true,
+        ]);
+
+        $this->actingAs($admin);
+
+        $response = $this->get(route('admin.certificates.sample-template'));
+        $response->assertOk();
+        $response->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+        $this->assertStringContainsString('REG NO', $response->streamedContent());
+    }
+
+    public function test_approved_user_can_bulk_import_certificates_from_csv()
+    {
+        $admin = User::factory()->create([
+            'role' => 'admin',
+            'is_approved' => true,
+        ]);
+
+        $this->actingAs($admin);
+
+        $csvContent = "S.NO,REG NO,NAME,COURSE NAME,ISSUE DATE\n"
+            . "1,TEST/CERT/2026/001,TEST CANDIDATE ALICE,iCEEDS ADVANCED AI DIPLOMA,21/04/2025\n"
+            . "2,TEST/CERT/2026/002,TEST CANDIDATE BOB,iCEEDS ADVANCED AI DIPLOMA,21/04/2025\n";
+
+        $file = \Illuminate\Http\UploadedFile::fake()->createWithContent('import.csv', $csvContent);
+
+        $response = $this->post(route('admin.certificates.import'), [
+            'file' => $file,
+        ]);
+
+        $response->assertRedirect(route('admin.certificates.index'));
+        $response->assertSessionHas('success');
+
+        $this->assertDatabaseHas('certificates', [
+            'certificate_code' => 'TEST/CERT/2026/001',
+            'student_name' => 'TEST CANDIDATE ALICE',
+        ]);
+        $this->assertDatabaseHas('certificates', [
+            'certificate_code' => 'TEST/CERT/2026/002',
+            'student_name' => 'TEST CANDIDATE BOB',
+        ]);
+    }
+
     public function test_admin_can_add_user_and_toggle_approval()
     {
         $admin = User::factory()->create([

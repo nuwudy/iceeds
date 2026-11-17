@@ -96,9 +96,11 @@ Route::prefix('admin')->group(function () {
         // Main Dashboard Overview
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-        // Certificate Management (Add, Edit, Delete, Search)
+        // Certificate Management (Add, Edit, Delete, Search, Excel/CSV Bulk Import)
         Route::get('/certificates', [CertificateController::class, 'index'])->name('admin.certificates.index');
         Route::post('/certificates', [CertificateController::class, 'store'])->name('admin.certificates.store');
+        Route::post('/certificates/import', [CertificateController::class, 'import'])->name('admin.certificates.import');
+        Route::get('/certificates/sample-template', [CertificateController::class, 'downloadSampleTemplate'])->name('admin.certificates.sample-template');
         Route::put('/certificates/{certificate}', [CertificateController::class, 'update'])->name('admin.certificates.update');
         Route::delete('/certificates/{certificate}', [CertificateController::class, 'destroy'])->name('admin.certificates.destroy');
 

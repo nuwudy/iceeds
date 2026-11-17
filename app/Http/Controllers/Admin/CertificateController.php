@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
+use App\Services\CertificateImportService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class CertificateController extends Controller
 {
@@ -169,5 +171,64 @@ class CertificateController extends Controller
             'success',
             "Certificate record {$code} for {$name} deleted successfully."
         );
+    }
+
+    /**
+     * Bulk import certificates from an uploaded Excel (.xlsx) or CSV file.
+     */
+    public function import(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'file' => ['required', 'file', 'max:20480'], // max 20MB
+        ]);
+
+        $file = $request->file('file');
+        $ext = strtolower($file->getClientOriginalExtension());
+
+        if (!in_array($ext, ['xlsx', 'csv', 'txt', 'tsv'], true)) {
+            return redirect()->route('admin.certificates.index')->with(
+                'error',
+                'Invalid file format. Please upload an Excel (.xlsx) or CSV (.csv) spreadsheet file.'
+            );
+        }
+
+        $result = CertificateImportService::importFromFile($file->getRealPath(), $ext);
+
+        if (!$result['success']) {
+            return redirect()->route('admin.certificates.index')->with('error', $result['message']);
+        }
+
+        $msg = "Spreadsheet processed successfully! {$result['updated_count']} certificates updated, {$result['created_count']} new certificates registered.";
+        if ($result['skipped_count'] > 0) {
+            $msg .= " ({$result['skipped_count']} empty or unmapped rows were skipped).";
+        }
+
+        return redirect()->route('admin.certificates.index')->with('success', $msg);
+    }
+
+    /**
+     * Download a sample CSV template for bulk importing certificates.
+     */
+    public function downloadSampleTemplate(): StreamedResponse
+    {
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="iceeds_certificate_import_sample.csv"',
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        return response()->stream(function () {
+            $handle = fopen('php://output', 'w');
+            fputs($handle, "\xEF\xBB\xBF"); // UTF-8 BOM
+
+            fputcsv($handle, ['S.NO', 'REG NO', 'NAME', 'COURSE NAME', 'ISSUE DATE']);
+            fputcsv($handle, ['1', 'IZZA/MLP24/DCP/806', 'RIYAS MUHAMMED', 'iCEEDS DIPLOMA IN COUNSELLING PSYCHOLOGY', '21/04/2025']);
+            fputcsv($handle, ['2', 'IZZA/MLP24/DCP/807', 'JAYANANDAN R', 'iCEEDS DIPLOMA IN COUNSELLING PSYCHOLOGY', '21/04/2025']);
+            fputcsv($handle, ['3', 'IZZA/MLP24/PDLDM/582', 'MOHAMMED IRSHAD C P', 'POST DIPLOMA IN LEARNING DIFFICULTY MANAGEMENT COURSE', '21/04/2025']);
+
+            fclose($handle);
+        }, 200, $headers);
     }
 }
